@@ -71,7 +71,7 @@
 		3AE7D94AFD3E4E749C47CA7D /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Prefix.pch; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		8D1107320486CEB800E47090 /* LogRework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogRework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* LoginRework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginRework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F48157030643B0B32007F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8027DFC16E3784B00184149 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		A82C910816E02DAA00FF519C /* Sketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sketch.cpp; path = ../src/Sketch.cpp; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* LogRework.app */,
+				8D1107320486CEB800E47090 /* LoginRework.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,11 +288,11 @@
 			isa = PBXGroup;
 			children = (
 				A869013F1A02E22300D2C9F3 /* Exception.h */,
+				A869019D1A02E22300D2C9F3 /* Log.h */,
 				A86901401A02E22300D2C9F3 /* FileSystem.cpp */,
 				A86901411A02E22300D2C9F3 /* FileSystem.h */,
 				A86901881A02E22300D2C9F3 /* InputSource.cpp */,
 				A86901891A02E22300D2C9F3 /* InputSource.h */,
-				A869019D1A02E22300D2C9F3 /* Log.h */,
 				A86901261A02E22300D2C9F3 /* app */,
 				A86901331A02E22300D2C9F3 /* cinder */,
 				A86901421A02E22300D2C9F3 /* font */,
@@ -553,7 +553,7 @@
 			name = LogRework;
 			productInstallPath = "$(HOME)/Applications";
 			productName = LogRework;
-			productReference = 8D1107320486CEB800E47090 /* LogRework.app */;
+			productReference = 8D1107320486CEB800E47090 /* LoginRework.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
