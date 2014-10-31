@@ -33,8 +33,8 @@ public:
         
         if (loadEmulators(InputSource::getResource("emulators.json")))
         {
-//          emulate(settings, "IPHONE_3GS", DisplayInfo::ORIENTATION_PORTRAIT);
-            emulate(settings, "IPHONE_4", DisplayInfo::ORIENTATION_LANDSCAPE);
+            emulate(settings, "IPHONE_3GS", DisplayInfo::ORIENTATION_LANDSCAPE);
+//          emulate(settings, "IPHONE_4", DisplayInfo::ORIENTATION_LANDSCAPE);
 //          emulate(settings, "IPHONE_5", DisplayInfo::ORIENTATION_LANDSCAPE);
 //          emulate(settings, "IPAD_1", DisplayInfo::ORIENTATION_LANDSCAPE);
 //          emulate(settings, "GALAXY_S", DisplayInfo::ORIENTATION_PORTRAIT);

@@ -15,13 +15,9 @@ CinderSketch(context, delegate)
 
 void Sketch::setup()
 {
-    /*
-     * TESTING THE NEW EXCEPTION MECHANISM
-     */
-    
     try
     {
-        InputSource::getResource("undefined.png");
+        InputSource::loadResource("undefined.png");
     }
     catch (EXCEPTION_TYPE(InputSource) &e)
     {
