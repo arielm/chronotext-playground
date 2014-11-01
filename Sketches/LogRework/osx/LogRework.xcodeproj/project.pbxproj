@@ -56,6 +56,7 @@
 		A86902591A02E97D00D2C9F3 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86902581A02E97D00D2C9F3 /* Application.cpp */; };
 		A869025B1A02EA3C00D2C9F3 /* emulators.json in Resources */ = {isa = PBXBuildFile; fileRef = A869025A1A02EA3C00D2C9F3 /* emulators.json */; };
 		A86902601A02EDC100D2C9F3 /* Path3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869025E1A02EDC100D2C9F3 /* Path3D.cpp */; };
+		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,7 +114,6 @@
 		A86901641A02E22300D2C9F3 /* VirtualFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualFont.h; sourceTree = "<group>"; };
 		A86901881A02E22300D2C9F3 /* InputSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputSource.cpp; sourceTree = "<group>"; };
 		A86901891A02E22300D2C9F3 /* InputSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSource.h; sourceTree = "<group>"; };
-		A869019D1A02E22300D2C9F3 /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		A869019F1A02E22300D2C9F3 /* Handler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Handler.cpp; sourceTree = "<group>"; };
 		A86901A01A02E22300D2C9F3 /* Handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Handler.h; sourceTree = "<group>"; };
 		A86901A11A02E22300D2C9F3 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -179,6 +179,8 @@
 		A869025A1A02EA3C00D2C9F3 /* emulators.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = emulators.json; path = ../resources/emulators.json; sourceTree = "<group>"; };
 		A869025E1A02EDC100D2C9F3 /* Path3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Path3D.cpp; sourceTree = "<group>"; };
 		A869025F1A02EDC100D2C9F3 /* Path3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path3D.h; sourceTree = "<group>"; };
+		A8B336591A045B2200ABEFBF /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
+		A8B3365A1A045B2200ABEFBF /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		A8F54D49198F8485008053E3 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		A8F54D4A198F8A36008053E3 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		A8F54D4B198F8C65008053E3 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -287,8 +289,9 @@
 		A869011A1A02E22300D2C9F3 /* chronotext */ = {
 			isa = PBXGroup;
 			children = (
+				A8B3365A1A045B2200ABEFBF /* Log.h */,
+				A8B336591A045B2200ABEFBF /* Log.cpp */,
 				A869013F1A02E22300D2C9F3 /* Exception.h */,
-				A869019D1A02E22300D2C9F3 /* Log.h */,
 				A86901411A02E22300D2C9F3 /* FileSystem.h */,
 				A86901401A02E22300D2C9F3 /* FileSystem.cpp */,
 				A86901891A02E22300D2C9F3 /* InputSource.h */,
@@ -639,6 +642,7 @@
 				A869024A1A02E22400D2C9F3 /* TextureHelper.cpp in Sources */,
 				A869021C1A02E22400D2C9F3 /* scrptrun.cpp in Sources */,
 				A86902171A02E22300D2C9F3 /* FontSequence.cpp in Sources */,
+				A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

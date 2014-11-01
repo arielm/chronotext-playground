@@ -1,8 +1,9 @@
 #include "Sketch.h"
 
+#include "chronotext/Log.h"
+#include "chronotext/InputSource.h"
 #include "chronotext/system/SystemManager.h"
 #include "chronotext/utils/GLUtils.h"
-#include "chronotext/utils/Utils.h"
 
 using namespace std;
 using namespace ci;
@@ -15,6 +16,16 @@ CinderSketch(context, delegate)
 
 void Sketch::setup()
 {
+    /*
+     * TESTING NEW LOGGING MECHANISM
+     */
+
+    LOG << TAG("CRITICAL") << "warning: " << 999 << endl;
+    
+    /*
+     * TESTING NEW EXCEPTION MECHANISM
+     */
+    
     try
     {
         InputSource::loadResource("undefined.png");
