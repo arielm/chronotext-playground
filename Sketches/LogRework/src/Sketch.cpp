@@ -17,10 +17,10 @@ CinderSketch(context, delegate)
 void Sketch::setup()
 {
     /*
-     * TESTING NEW LOGGING MECHANISM
+     * TESTING NEW LOGGING MECHANISM (CURRENTLY ON HOLD...)
      */
 
-    LOG << TAG("CRITICAL") << "warning: " << 999 << endl;
+    LOG << "nothing special for now" << ' ' << std::hex << 255 << std::dec << endl;
     
     /*
      * TESTING NEW EXCEPTION MECHANISM
@@ -43,7 +43,7 @@ void Sketch::setup()
      * TESTING VARIOUS INFO STRUCTURES
      */
     
-    LOGI << "SYSTEM INFO: " << SystemManager::getSystemInfo() << endl; // TODO: USE THE FORTHCOMING chr::Context INSTEAD OF SINGLETON PATTERNS
+    LOGI << "SYSTEM INFO: " << SystemManager::getSystemInfo() << endl; // TODO: USE THE FORTHCOMING chr::context INSTEAD OF SINGLETON PATTERNS
     LOGI << "DISPLAY INFO: " << getDisplayInfo() << endl;
     LOGI << "WINDOW INFO: " << getWindowInfo() << endl;
     
