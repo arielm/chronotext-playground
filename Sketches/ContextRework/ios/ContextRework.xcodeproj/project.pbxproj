@@ -60,7 +60,7 @@
 		A84E43371A2A1F0500EE6AC1 /* ShapeTesselator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E432D1A2A1F0500EE6AC1 /* ShapeTesselator.cpp */; };
 		A84E43381A2A1F0500EE6AC1 /* SplinePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E432F1A2A1F0500EE6AC1 /* SplinePath.cpp */; };
 		A84E434C1A2A1F2300EE6AC1 /* CinderDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E433C1A2A1F2300EE6AC1 /* CinderDelegate.mm */; };
-		A84E434D1A2A1F2300EE6AC1 /* CinderSketchComplex.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E433E1A2A1F2300EE6AC1 /* CinderSketchComplex.mm */; };
+		A84E434D1A2A1F2300EE6AC1 /* CinderSketch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E433E1A2A1F2300EE6AC1 /* CinderSketch.mm */; };
 		A84E434E1A2A1F2300EE6AC1 /* GLViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43411A2A1F2300EE6AC1 /* GLViewController.mm */; };
 		A84E434F1A2A1F2300EE6AC1 /* SystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43451A2A1F2300EE6AC1 /* SystemManager.mm */; };
 		A84E43501A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */; };
@@ -208,8 +208,8 @@
 		A84E43321A2A1F0500EE6AC1 /* TexturedTriangleStrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexturedTriangleStrip.h; sourceTree = "<group>"; };
 		A84E433B1A2A1F2300EE6AC1 /* CinderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegate.h; sourceTree = "<group>"; };
 		A84E433C1A2A1F2300EE6AC1 /* CinderDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CinderDelegate.mm; sourceTree = "<group>"; };
-		A84E433D1A2A1F2300EE6AC1 /* CinderSketchComplex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderSketchComplex.h; sourceTree = "<group>"; };
-		A84E433E1A2A1F2300EE6AC1 /* CinderSketchComplex.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CinderSketchComplex.mm; sourceTree = "<group>"; };
+		A84E433D1A2A1F2300EE6AC1 /* CinderSketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderSketch.h; sourceTree = "<group>"; };
+		A84E433E1A2A1F2300EE6AC1 /* CinderSketch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CinderSketch.mm; sourceTree = "<group>"; };
 		A84E43401A2A1F2300EE6AC1 /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewController.h; sourceTree = "<group>"; };
 		A84E43411A2A1F2300EE6AC1 /* GLViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLViewController.mm; sourceTree = "<group>"; };
 		A84E43431A2A1F2300EE6AC1 /* SystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfo.h; sourceTree = "<group>"; };
@@ -592,8 +592,8 @@
 			children = (
 				A84E433B1A2A1F2300EE6AC1 /* CinderDelegate.h */,
 				A84E433C1A2A1F2300EE6AC1 /* CinderDelegate.mm */,
-				A84E433D1A2A1F2300EE6AC1 /* CinderSketchComplex.h */,
-				A84E433E1A2A1F2300EE6AC1 /* CinderSketchComplex.mm */,
+				A84E433D1A2A1F2300EE6AC1 /* CinderSketch.h */,
+				A84E433E1A2A1F2300EE6AC1 /* CinderSketch.mm */,
 			);
 			path = cinder;
 			sourceTree = "<group>";
@@ -759,7 +759,7 @@
 				A84E43061A2A1DFB00EE6AC1 /* FontSequence.cpp in Sources */,
 				A84E434E1A2A1F2300EE6AC1 /* GLViewController.mm in Sources */,
 				A84E43071A2A1DFB00EE6AC1 /* FontTexture.cpp in Sources */,
-				A84E434D1A2A1F2300EE6AC1 /* CinderSketchComplex.mm in Sources */,
+				A84E434D1A2A1F2300EE6AC1 /* CinderSketch.mm in Sources */,
 				A84E43081A2A1DFB00EE6AC1 /* LangHelper.cpp in Sources */,
 				A84E43181A2A1DFB00EE6AC1 /* Sprite.cpp in Sources */,
 				A84E43211A2A1DFB00EE6AC1 /* stb_image.c in Sources */,
