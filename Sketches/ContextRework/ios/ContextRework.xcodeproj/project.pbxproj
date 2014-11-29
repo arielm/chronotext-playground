@@ -68,6 +68,7 @@
 		A84E43531A2A295D00EE6AC1 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E43521A2A295D00EE6AC1 /* icon_120.png */; };
 		A8994D441726E33900C8851E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8994D431726E33900C8851E /* GLKit.framework */; };
 		A8994D481726E51E00C8851E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8994D471726E51E00C8851E /* AppDelegate.mm */; };
+		A8C16EA01A2A4A7300551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9F1A2A4A7300551905 /* main.cpp */; };
 		A8DB3EC616E0B96C00504D27 /* Sketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8DB3EC416E0B96C00504D27 /* Sketch.cpp */; };
 		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -222,6 +223,7 @@
 		A8994D431726E33900C8851E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A8994D461726E51E00C8851E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8994D471726E51E00C8851E /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		A8C16E9F1A2A4A7300551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
 		A8DB3EC416E0B96C00504D27 /* Sketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sketch.cpp; path = ../src/Sketch.cpp; sourceTree = "<group>"; };
 		A8DB3EC516E0B96C00504D27 /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sketch.h; path = ../src/Sketch.h; sourceTree = "<group>"; };
 		C725E000121DAC8F00FA186B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -307,6 +309,7 @@
 		00692BD914FF149000D0A05E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A8C16E9F1A2A4A7300551905 /* main.cpp */,
 				A8DB3EC516E0B96C00504D27 /* Sketch.h */,
 				A8DB3EC416E0B96C00504D27 /* Sketch.cpp */,
 			);
@@ -748,6 +751,7 @@
 				A84E434C1A2A1F2300EE6AC1 /* CinderDelegate.mm in Sources */,
 				A84E43051A2A1DFB00EE6AC1 /* FontManager.cpp in Sources */,
 				A84E430F1A2A1DFB00EE6AC1 /* Log.cpp in Sources */,
+				A8C16EA01A2A4A7300551905 /* main.cpp in Sources */,
 				A84E43361A2A1F0500EE6AC1 /* ShapeMesh.cpp in Sources */,
 				A84E431B1A2A1DFB00EE6AC1 /* TextureManager.cpp in Sources */,
 				A84E431E1A2A1DFB00EE6AC1 /* GLUtils.cpp in Sources */,

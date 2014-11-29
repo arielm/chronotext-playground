@@ -3,8 +3,6 @@ include $(CLEAR_VARS)
 
 CINDER_PATH = ../../../../../cinder
 
-LOCAL_SRC_FILES := main.cpp
-
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../src
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../src/*.cpp)
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
@@ -19,7 +17,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/$(COMMON_SRC)
 LOCAL_SRC_FILES += $(COMMON_SRC)/Path/Path3D.cpp
 #endif
 
-LOCAL_CFLAGS := -DCHR_COMPLEX
+LOCAL_CFLAGS := -DDISCARD_LOGI
 LOCAL_CFLAGS += -ffast-math -O3
 #LOCAL_CFLAGS += -g -DDEBUG
 
