@@ -77,6 +77,7 @@
 		A8027DFC16E3784B00184149 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		A82C910816E02DAA00FF519C /* Sketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sketch.cpp; path = ../src/Sketch.cpp; sourceTree = "<group>"; };
 		A82C910916E02DAA00FF519C /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sketch.h; path = ../src/Sketch.h; sourceTree = "<group>"; };
+		A84E42871A29FF4D00EE6AC1 /* FileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCapture.h; sourceTree = "<group>"; };
 		A86901281A02E22300D2C9F3 /* CinderApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CinderApp.cpp; sourceTree = "<group>"; };
 		A86901291A02E22300D2C9F3 /* CinderApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderApp.h; sourceTree = "<group>"; };
 		A869012A1A02E22300D2C9F3 /* CinderSketchSimple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CinderSketchSimple.cpp; sourceTree = "<group>"; };
@@ -485,6 +486,7 @@
 		A86901F41A02E22300D2C9F3 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				A84E42871A29FF4D00EE6AC1 /* FileCapture.h */,
 				A86901F81A02E22300D2C9F3 /* GLUtils.cpp */,
 				A86901F91A02E22300D2C9F3 /* GLUtils.h */,
 				A86901FA1A02E22300D2C9F3 /* Hasher.h */,
