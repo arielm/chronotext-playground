@@ -10,14 +10,42 @@ using namespace chr;
 
 void TestingMisc::run(bool force)
 {
-    if (force || true)
+    if (force || false)
     {
         if (force || true) testFileCapture();
         if (force || true) testNewLogging();
         if (force || true) testNewException();
+    }
+    
+    if (force || true)
+    {
         if (force || true) testSystemInfo();
+        if (force || true) testFileSystem();
     }
 }
+
+// ---
+
+void TestingMisc::testSystemInfo()
+{
+    LOGI << "SYSTEM INFO: " << SystemManager::getSystemInfo() << endl; // TODO: USE THE FORTHCOMING chr::context INSTEAD OF SUCH SINGLETON PATTERNS
+}
+
+/*
+ * ACCESSING HIERARCHICAL FILE-SYSTEM
+ *
+ * OSX: ANY PATH IS VALID
+ * IOS: A COCOA "BUNDLE FOLDER" MUST BE USED (AND COPIED TO THE DEVICE VIA ITUNES-FILE-SHARING)
+ * ANDROID: THE "EXTERNAL FOLDER" CAN BE USED
+ */
+
+void TestingMisc::testFileSystem()
+{
+    auto bundlePath = getPublicDirectory() / "test.bundle";
+    dumpDirectory(bundlePath);
+}
+
+// ---
 
 void TestingMisc::testFileCapture()
 {
@@ -65,9 +93,4 @@ void TestingMisc::testNewException()
     {
         LOGI << e.what() << endl;
     }
-}
-
-void TestingMisc::testSystemInfo()
-{
-    LOGI << "SYSTEM INFO: " << SystemManager::getSystemInfo() << endl; // TODO: USE THE FORTHCOMING chr::context INSTEAD OF SUCH SINGLETON PATTERNS
 }

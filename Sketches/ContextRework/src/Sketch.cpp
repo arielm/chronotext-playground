@@ -14,12 +14,10 @@ CinderSketch()
 
 void Sketch::setup()
 {
-    TestingBase::execute<TestingMisc>(true);
-    
-    // ---
-    
     LOGI << "DISPLAY INFO: " << getDisplayInfo() << endl;
     LOGI << "WINDOW INFO: " << getWindowInfo() << endl;
+    
+    TestingBase::execute<TestingMisc>(true);
     
     // ---
     

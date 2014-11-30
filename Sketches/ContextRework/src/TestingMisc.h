@@ -10,5 +10,7 @@ public:
     void testFileCapture();
     void testNewLogging();
     void testNewException();
+
     void testSystemInfo();
+    void testFileSystem();
 };
