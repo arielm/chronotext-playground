@@ -3,4 +3,5 @@
 	#import <Foundation/Foundation.h>
 #endif
 
-#define DISCARD_LOGI
+//#define FORCE_LOGD
+//#define DISCARD_LOGI
