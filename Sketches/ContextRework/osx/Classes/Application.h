@@ -12,21 +12,16 @@
 
 #pragma once
 
-#include "chronotext/app/cinder/CinderApp.h"
+#include "chronotext/app/cinder/CinderDelegate.h"
 
 #include "Sketch.h"
 
-class Application : public chr::CinderApp
+class Application : public chr::CinderDelegate
 {
 public:
-    chr::CinderSketch* createSketch()
-    {
-        return new Sketch(this);
-    }
-    
     void prepareSettings(Settings *settings)
     {
-        CinderApp::prepareSettings(settings);
+        CinderDelegate::prepareSettings(settings);
         
         if (loadEmulators(chr::InputSource::getResource("emulators.json")))
         {

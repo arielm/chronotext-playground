@@ -9,7 +9,7 @@
 class Sketch : public chr::CinderSketch
 {
 public:
-    Sketch(void *context, void *delegate = nullptr);
+    Sketch();
     
     void setup();
     void draw();

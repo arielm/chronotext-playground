@@ -11,9 +11,9 @@ using namespace std;
 using namespace ci;
 using namespace chr;
 
-Sketch::Sketch(void *context, void *delegate)
+Sketch::Sketch()
 :
-CinderSketch(context, delegate)
+CinderSketch()
 {}
 
 void Sketch::setup()

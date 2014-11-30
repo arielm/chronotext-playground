@@ -22,7 +22,6 @@
         nil]];
     
     viewController.cinderDelegate = self;
-    self.sketch = new Sketch(self);
     
     window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     window.backgroundColor = [UIColor blackColor];
