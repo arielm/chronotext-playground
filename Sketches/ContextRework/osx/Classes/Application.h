@@ -14,8 +14,6 @@
 
 #include "chronotext/app/cinder/CinderDelegate.h"
 
-#include "Sketch.h"
-
 class Application : public chr::CinderDelegate
 {
 public:
@@ -25,8 +23,8 @@ public:
         
         if (loadEmulators(chr::InputSource::getResource("emulators.json")))
         {
-            emulate(settings, "IPHONE_3GS", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
-//          emulate(settings, "IPHONE_4", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
+//          emulate(settings, "IPHONE_3GS", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
+            emulate(settings, "IPHONE_4", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
 //          emulate(settings, "IPHONE_5", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
 //          emulate(settings, "IPAD_1", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
 //          emulate(settings, "GALAXY_S", chr::DisplayInfo::ORIENTATION_PORTRAIT);

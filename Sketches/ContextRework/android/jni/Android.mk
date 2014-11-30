@@ -10,14 +10,11 @@ LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 CHR_USE_ZFONT := 1
 include $(LOCAL_PATH)/$(CINDER_PATH)/blocks/new-chronotext-toolkit/android/Android.mk
 
-#ifdef 1
 COMMON_SRC = ../../../../Common
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/$(COMMON_SRC)
-
 LOCAL_SRC_FILES += $(COMMON_SRC)/Path/Path3D.cpp
-#endif
 
-LOCAL_CFLAGS := -DDISCARD_LOGI
+LOCAL_CFLAGS :=
 LOCAL_CFLAGS += -ffast-math -O3
 #LOCAL_CFLAGS += -g -DDEBUG
 

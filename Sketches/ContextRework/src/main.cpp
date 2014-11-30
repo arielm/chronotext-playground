@@ -2,6 +2,8 @@
 
 #if defined(CINDER_COCOA_TOUCH)
 
+#pragma mark ----------------------------------------   IOS   ----------------------------------------
+
 #include "AppDelegate.h"
 
 int main(int argc, char *argv[])
@@ -14,6 +16,8 @@ int main(int argc, char *argv[])
 
 #elif defined(CINDER_ANDROID)
 
+#pragma mark ---------------------------------------- ANDROID ----------------------------------------
+
 #include <jni.h>
 
 extern "C"
@@ -23,6 +27,8 @@ extern "C"
 }
 
 #elif defined(CINDER_MAC) || defined(CINDER_MSW)
+
+#pragma mark ---------------------------------------- DESKTOP ----------------------------------------
 
 #include "Application.h"
 
@@ -34,7 +40,7 @@ CINDER_APP_NATIVE(Application, ci::app::RendererGl(ci::app::RendererGl::AA_NONE)
 
 #endif
 
-#pragma mark ---------------------------------------- STUB ----------------------------------------
+#pragma mark ---------------------------------------- SKETCH -----------------------------------------
 
 #include "Sketch.h"
 
