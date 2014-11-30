@@ -55,6 +55,8 @@
 		A86902521A02E22400D2C9F3 /* MathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901FB1A02E22300D2C9F3 /* MathUtils.cpp */; };
 		A86902551A02E22400D2C9F3 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86902041A02E22300D2C9F3 /* Utils.cpp */; };
 		A86902601A02EDC100D2C9F3 /* Path3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869025E1A02EDC100D2C9F3 /* Path3D.cpp */; };
+		A874A5021A2B550A009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A4FE1A2B550A009A60A0 /* Task.cpp */; };
+		A874A5031A2B550A009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5001A2B550A009A60A0 /* TaskManager.cpp */; };
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -181,6 +183,10 @@
 		A869025F1A02EDC100D2C9F3 /* Path3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path3D.h; sourceTree = "<group>"; };
 		A874A4E91A2A8655009A60A0 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
 		A874A4EA1A2A8BAB009A60A0 /* CinderDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegateBase.h; sourceTree = "<group>"; };
+		A874A4FE1A2B550A009A60A0 /* Task.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Task.cpp; sourceTree = "<group>"; };
+		A874A4FF1A2B550A009A60A0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		A874A5001A2B550A009A60A0 /* TaskManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaskManager.cpp; sourceTree = "<group>"; };
+		A874A5011A2B550A009A60A0 /* TaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
 		A8B336591A045B2200ABEFBF /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		A8B3365A1A045B2200ABEFBF /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
@@ -396,12 +402,16 @@
 		A869019E1A02E22300D2C9F3 /* os */ = {
 			isa = PBXGroup;
 			children = (
-				A869019F1A02E22300D2C9F3 /* Handler.cpp */,
 				A86901A01A02E22300D2C9F3 /* Handler.h */,
+				A869019F1A02E22300D2C9F3 /* Handler.cpp */,
 				A86901A11A02E22300D2C9F3 /* Message.h */,
 				A86901A21A02E22300D2C9F3 /* SubHandler.h */,
-				A86901A31A02E22300D2C9F3 /* SuperHandler.cpp */,
 				A86901A41A02E22300D2C9F3 /* SuperHandler.h */,
+				A86901A31A02E22300D2C9F3 /* SuperHandler.cpp */,
+				A874A4FF1A2B550A009A60A0 /* Task.h */,
+				A874A4FE1A2B550A009A60A0 /* Task.cpp */,
+				A874A5011A2B550A009A60A0 /* TaskManager.h */,
+				A874A5001A2B550A009A60A0 /* TaskManager.cpp */,
 			);
 			path = os;
 			sourceTree = "<group>";
@@ -611,9 +621,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8C16E9E1A2A43E800551905 /* main.cpp in Sources */,
+				A874A5031A2B550A009A60A0 /* TaskManager.cpp in Sources */,
 				A86902151A02E22300D2C9F3 /* ActualFont.cpp in Sources */,
 				A86902471A02E22400D2C9F3 /* PVRHelper.cpp in Sources */,
 				A86902511A02E22400D2C9F3 /* GLUtils.cpp in Sources */,
+				A874A5021A2B550A009A60A0 /* Task.cpp in Sources */,
 				A86902401A02E22400D2C9F3 /* SplinePath.cpp in Sources */,
 				A869021A1A02E22300D2C9F3 /* LayoutCache.cpp in Sources */,
 				A86902101A02E22300D2C9F3 /* FileSystem.cpp in Sources */,
