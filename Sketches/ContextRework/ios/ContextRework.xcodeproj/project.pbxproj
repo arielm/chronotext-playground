@@ -66,6 +66,7 @@
 		A84E43501A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */; };
 		A84E43511A2A1F2300EE6AC1 /* UIView+StringTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */; };
 		A84E43531A2A295D00EE6AC1 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E43521A2A295D00EE6AC1 /* icon_120.png */; };
+		A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */; };
 		A874A5081A2B5B88009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5041A2B5B88009A60A0 /* Task.cpp */; };
 		A874A5091A2B5B88009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5061A2B5B88009A60A0 /* TaskManager.cpp */; };
 		A8994D441726E33900C8851E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8994D431726E33900C8851E /* GLKit.framework */; };
@@ -222,6 +223,9 @@
 		A84E434A1A2A1F2300EE6AC1 /* UIView+StringTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+StringTag.h"; sourceTree = "<group>"; };
 		A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+StringTag.m"; sourceTree = "<group>"; };
 		A84E43521A2A295D00EE6AC1 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
+		A8721A3C1A2BD7AE00AED9C8 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingBase.h; path = ../src/TestingBase.h; sourceTree = "<group>"; };
+		A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMisc.cpp; path = ../src/TestingMisc.cpp; sourceTree = "<group>"; };
+		A8721A3E1A2BD7AE00AED9C8 /* TestingMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMisc.h; path = ../src/TestingMisc.h; sourceTree = "<group>"; };
 		A874A5041A2B5B88009A60A0 /* Task.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Task.cpp; sourceTree = "<group>"; };
 		A874A5051A2B5B88009A60A0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		A874A5061A2B5B88009A60A0 /* TaskManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaskManager.cpp; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 		00692BD914FF149000D0A05E /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A8721A3B1A2BD7A200AED9C8 /* Testing */,
 				A8C16E9F1A2A4A7300551905 /* main.cpp */,
 				A8DB3EC516E0B96C00504D27 /* Sketch.h */,
 				A8DB3EC416E0B96C00504D27 /* Sketch.cpp */,
@@ -646,6 +651,16 @@
 			path = accel;
 			sourceTree = "<group>";
 		};
+		A8721A3B1A2BD7A200AED9C8 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				A8721A3C1A2BD7AE00AED9C8 /* TestingBase.h */,
+				A8721A3E1A2BD7AE00AED9C8 /* TestingMisc.h */,
+				A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */,
+			);
+			name = Testing;
+			sourceTree = "<group>";
+		};
 		A8994D451726E51E00C8851E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,6 +752,7 @@
 				A84E431A1A2A1DFB00EE6AC1 /* TextureHelper.cpp in Sources */,
 				A8DB3EC616E0B96C00504D27 /* Sketch.cpp in Sources */,
 				A8994D481726E51E00C8851E /* AppDelegate.mm in Sources */,
+				A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */,
 				A84E430C1A2A1DFB00EE6AC1 /* TextItemizer.cpp in Sources */,
 				A84E430B1A2A1DFB00EE6AC1 /* scrptrun.cpp in Sources */,
 				A84E434F1A2A1F2300EE6AC1 /* SystemManager.mm in Sources */,

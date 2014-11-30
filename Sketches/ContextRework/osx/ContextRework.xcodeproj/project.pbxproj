@@ -55,6 +55,7 @@
 		A86902521A02E22400D2C9F3 /* MathUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901FB1A02E22300D2C9F3 /* MathUtils.cpp */; };
 		A86902551A02E22400D2C9F3 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86902041A02E22300D2C9F3 /* Utils.cpp */; };
 		A86902601A02EDC100D2C9F3 /* Path3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869025E1A02EDC100D2C9F3 /* Path3D.cpp */; };
+		A8721A3A1A2BD48000AED9C8 /* TestingMisc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A381A2BD48000AED9C8 /* TestingMisc.cpp */; };
 		A874A5021A2B550A009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A4FE1A2B550A009A60A0 /* Task.cpp */; };
 		A874A5031A2B550A009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5001A2B550A009A60A0 /* TaskManager.cpp */; };
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
@@ -181,6 +182,9 @@
 		A86902051A02E22300D2C9F3 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		A869025E1A02EDC100D2C9F3 /* Path3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Path3D.cpp; sourceTree = "<group>"; };
 		A869025F1A02EDC100D2C9F3 /* Path3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path3D.h; sourceTree = "<group>"; };
+		A8721A371A2BD40200AED9C8 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingBase.h; path = ../src/TestingBase.h; sourceTree = "<group>"; };
+		A8721A381A2BD48000AED9C8 /* TestingMisc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMisc.cpp; path = ../src/TestingMisc.cpp; sourceTree = "<group>"; };
+		A8721A391A2BD48000AED9C8 /* TestingMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMisc.h; path = ../src/TestingMisc.h; sourceTree = "<group>"; };
 		A874A4E91A2A8655009A60A0 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
 		A874A4EA1A2A8BAB009A60A0 /* CinderDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegateBase.h; sourceTree = "<group>"; };
 		A874A4FE1A2B550A009A60A0 /* Task.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Task.cpp; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A86F759B1A2BD1E50063FE2A /* Testing */,
 				A8C16E9D1A2A43E800551905 /* main.cpp */,
 				A82C910916E02DAA00FF519C /* Sketch.h */,
 				A82C910816E02DAA00FF519C /* Sketch.cpp */,
@@ -532,6 +537,16 @@
 			path = Path;
 			sourceTree = "<group>";
 		};
+		A86F759B1A2BD1E50063FE2A /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				A8721A371A2BD40200AED9C8 /* TestingBase.h */,
+				A8721A391A2BD48000AED9C8 /* TestingMisc.h */,
+				A8721A381A2BD48000AED9C8 /* TestingMisc.cpp */,
+			);
+			name = Testing;
+			sourceTree = "<group>";
+		};
 		A879AD8C16D667C900BE6783 /* OSX */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +669,7 @@
 				A86902461A02E22400D2C9F3 /* SystemManagerBase.cpp in Sources */,
 				A869024C1A02E22400D2C9F3 /* Clock.cpp in Sources */,
 				A869021B1A02E22400D2C9F3 /* LineLayout.cpp in Sources */,
+				A8721A3A1A2BD48000AED9C8 /* TestingMisc.cpp in Sources */,
 				A869023D1A02E22400D2C9F3 /* Hairline.cpp in Sources */,
 				A86902161A02E22300D2C9F3 /* FontManager.cpp in Sources */,
 				A86902181A02E22300D2C9F3 /* FontTexture.cpp in Sources */,

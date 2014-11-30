@@ -1,11 +1,7 @@
 #include "Sketch.h"
+#include "TestingMisc.h"
 
-#include "chronotext/Log.h"
-#include "chronotext/InputSource.h"
 #include "chronotext/utils/GLUtils.h"
-
-#include "chronotext/utils/FileCapture.h"
-#include "chronotext/system/SystemManager.h"
 
 using namespace std;
 using namespace ci;
@@ -18,62 +14,10 @@ CinderSketch()
 
 void Sketch::setup()
 {
-    /*
-     * TESTING NEW FILE-CAPTURE SYSTEM
-     *
-     * TODO: ENHANCED API, E.G.
-     *
-     * FileCapture capture(stdout).setTrimTrailing(true);
-     * printf("foo\n");
-     * if (capture == "foo") cerr << capture << endl;
-     */
-    
-    {
-        FileCapture capture(stdout);
-        printf("hello from stdout");
-        cerr << "[" << capture.flushAsString() << "]" << endl;
-    }
-    
-    {
-        FileCapture capture(stderr);
-        fprintf(stderr, "hello from stderr\n");
-        cout << "[" << capture.flushAsString(true) << "]" << endl;
-    }
+    TestingBase::execute<TestingMisc>(true);
     
     // ---
     
-    /*
-     * TESTING NEW LOGGING SYSTEM (CURRENTLY ON HOLD...)
-     */
-
-    LOG << "nothing special for now" << ' ' << std::hex << 255 << std::dec << endl;
-    
-    // ---
-    
-    /*
-     * TESTING NEW EXCEPTION SYSTEM
-     */
-    
-    try
-    {
-        InputSource::loadResource("undefined.png");
-    }
-    catch (EXCEPTION_TYPE(InputSource) &e)
-    {
-        LOGI << e << endl;
-    }
-    catch (exception &e)
-    {
-        LOGI << e.what() << endl;
-    }
-    
-    // ---
-    
-    /*
-     * TESTING VARIOUS INFO STRUCTURES
-     */
-    
-    LOGI << "SYSTEM INFO: " << SystemManager::getSystemInfo() << endl; // TODO: USE THE FORTHCOMING chr::context INSTEAD OF SUCH SINGLETON PATTERNS
     LOGI << "DISPLAY INFO: " << getDisplayInfo() << endl;
     LOGI << "WINDOW INFO: " << getWindowInfo() << endl;
     
