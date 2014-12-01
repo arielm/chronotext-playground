@@ -22,6 +22,10 @@ using namespace chr;
 
 #if defined(CINDER_ANDROID)
 
+/*
+ * SOURCE: https://android.googlesource.com/platform/frameworks/base/+/master/core/jni/android_util_Process.cpp
+ */
+
 static jlong getFreeMemoryImpl(const char* const sums[], const size_t sumsLen[], size_t num)
 {
     int fd = open("/proc/meminfo", O_RDONLY);
@@ -155,6 +159,9 @@ void TestingMemory::dumpMemoryStats()
     unsigned size = sizeof(info);
     task_info(mach_task_self(), TASK_BASIC_INFO_64, (task_info_t)&info, &size);
     
+    /*
+     * ON IPAD-1: "MEMORY WARNING" OCCUR WHEN FREE MEMORY IS BELOW ~8.5 MB
+     */
     uint64_t freeMemory = vmstat.free_count * pagesize;
     
 #if defined(CINDER_COCOA_TOUCH)
@@ -168,11 +175,9 @@ void TestingMemory::dumpMemoryStats()
 #elif defined(CINDER_ANDROID)
 
     /*
-     * SOURCE: http://stackoverflow.com/a/18894037/50335
+     * REFERENCES:
      *
-     * ADDITIONAL REFERENCES:
-     *
-     * - https://android.googlesource.com/platform/frameworks/base/+/master/core/jni/android_util_Process.cpp
+     * - http://stackoverflow.com/a/18894037/50335
      * - http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.1.1_r1/com/android/server/am/ActivityManagerService.java#5404
      * - http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.1.1_r1/com/android/server/am/ProcessList.java#ProcessList.getMemLevel%28int%29
      */

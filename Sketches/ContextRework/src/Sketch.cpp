@@ -5,6 +5,13 @@
 
 #include "chronotext/utils/GLUtils.h"
 
+#if defined(CINDER_ANDROID)
+
+#include "chronotext/android/cinder/JNI.h"
+#include "chronotext/android/cinder/CinderDelegate.h"
+
+#endif
+
 using namespace std;
 using namespace ci;
 using namespace chr;
@@ -24,11 +31,21 @@ void Sketch::setup()
     
     TestingBase::execute<TestingMisc>(false);
     
-    if (true)
+#if defined(CINDER_ANDROID)
+    jstring query = (jstring)context::delegate->callObjectMethodOnJavaListener("getMemoryInfo", "()Ljava/lang/String;");
+    
+    if (query)
     {
-        frameTest = make_shared<TestingMemory>();
-        frameTest->setup();
+        JNIEnv *env = jvm::env();
+        
+        const char *chars = env->GetStringUTFChars(query, nullptr);
+        LOGI << chars << endl;
+        env->ReleaseStringUTFChars(query, chars);
     }
+#else
+    frameTest = make_shared<TestingMemory>();
+    frameTest->setup();
+#endif
     
     // ---
     
