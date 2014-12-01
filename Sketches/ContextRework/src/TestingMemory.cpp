@@ -155,12 +155,26 @@ void TestingMemory::dumpMemoryStats()
     unsigned size = sizeof(info);
     task_info(mach_task_self(), TASK_BASIC_INFO_64, (task_info_t)&info, &size);
     
-    LOGI << toMB(vmstat.free_count * pagesize) << " | " << toMB((vmstat.free_count + vmstat.inactive_count) * pagesize) << " | " << toMB(info.resident_size) << endl << endl;
+    uint64_t freeMemory = vmstat.free_count * pagesize;
+    
+#if defined(CINDER_COCOA_TOUCH)
+    uint64_t totalMemory = (vmstat.wire_count + vmstat.active_count + vmstat.inactive_count + vmstat.free_count) * pagesize + info.resident_size;
+#else
+    uint64_t totalMemory = (vmstat.wire_count + vmstat.active_count + vmstat.inactive_count + vmstat.free_count) * pagesize;
+#endif
+    
+    LOGI << toMB(freeMemory) << " | " << toMB(totalMemory) << endl << endl;
     
 #elif defined(CINDER_ANDROID)
 
     /*
      * SOURCE: http://stackoverflow.com/a/18894037/50335
+     *
+     * ADDITIONAL REFERENCES:
+     *
+     * - https://android.googlesource.com/platform/frameworks/base/+/master/core/jni/android_util_Process.cpp
+     * - http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.1.1_r1/com/android/server/am/ActivityManagerService.java#5404
+     * - http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.1.1_r1/com/android/server/am/ProcessList.java#ProcessList.getMemLevel%28int%29
      */
     
     LOGI << toMB(getFreeMemory()) << " | " << toMB(getTotalMemory()) << endl << endl;
