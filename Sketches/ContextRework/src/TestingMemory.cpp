@@ -1,11 +1,17 @@
 #include "TestingMemory.h"
 
 #if defined(CINDER_COCOA)
+
 #import <sys/sysctl.h>
 #import <mach/host_info.h>
 #import <mach/mach_host.h>
 #import <mach/task_info.h>
 #import <mach/task.h>
+
+#elif defined(CINDER_ANDROID)
+
+#include "chronotext/android/cinder/JNI.h"
+
 #endif
 
 using namespace std;
@@ -50,6 +56,7 @@ void TestingMemory::update()
 void TestingMemory::dumpMemoryStats()
 {
 #if defined(CINDER_COCOA)
+    
     /*
      * SOURCE: http://stackoverflow.com/a/6095158/50335
      */
@@ -76,17 +83,38 @@ void TestingMemory::dumpMemoryStats()
         return;
     }
     
-    double total = vmstat.wire_count + vmstat.active_count + vmstat.inactive_count + vmstat.free_count;
-    double wired = vmstat.wire_count / total;
-    double active = vmstat.active_count / total;
-    double inactive = vmstat.inactive_count / total;
-    double free = vmstat.free_count / total;
+//  double total = vmstat.wire_count + vmstat.active_count + vmstat.inactive_count + vmstat.free_count;
+//  double wired = vmstat.wire_count / total;
+//  double active = vmstat.active_count / total;
+//  double inactive = vmstat.inactive_count / total;
+//  double free = vmstat.free_count / total;
     
     task_basic_info_64_data_t info;
     unsigned size = sizeof(info);
     task_info(mach_task_self(), TASK_BASIC_INFO_64, (task_info_t)&info, &size);
     
-    double unit = 1024 * 1024;
-    printf("%3.1f MB | %3.1f MB | %3.1f MB\n\n", vmstat.free_count * pagesize / unit, (vmstat.free_count + vmstat.inactive_count) * pagesize / unit, info.resident_size / unit);
+    LOGI << prettyBytes(vmstat.free_count * pagesize) << " | " << prettyBytes((vmstat.free_count + vmstat.inactive_count) * pagesize) << " | " << prettyBytes(info.resident_size) << endl << endl;
+    
+#elif defined(CINDER_ANDROID)
+    
+    /*
+     * XXX: THE FOLLOWING IS USELESS, SINCE IT IS NOT AFFECTED BY TEXTURE-MEMORY
+     */
+    
+    JNIEnv *env = java::getJNIEnv();
+    
+    jclass debugClass = env->FindClass("android/os/Debug");
+
+    jmethodID getNativeHeapSizeMethod = env->GetStaticMethodID(debugClass, "getNativeHeapSize", "()J");
+    jlong heapSize = env->CallStaticLongMethod(debugClass, getNativeHeapSizeMethod);
+
+    jmethodID getNativeHeapFreeSizeMethod = env->GetStaticMethodID(debugClass, "getNativeHeapFreeSize", "()J");
+    jlong heapFreeSize = env->CallStaticLongMethod(debugClass, getNativeHeapFreeSizeMethod);
+    
+    jmethodID getNativeHeapAllocatedSizeMethod = env->GetStaticMethodID(debugClass, "getNativeHeapAllocatedSize", "()J");
+    jlong heapAllocatedSize = env->CallStaticLongMethod(debugClass, getNativeHeapAllocatedSizeMethod);
+    
+    LOGI << prettyBytes(heapSize) << " | " << prettyBytes(heapFreeSize) << " | " << prettyBytes(heapAllocatedSize) << endl << endl;
+    
 #endif
 }
