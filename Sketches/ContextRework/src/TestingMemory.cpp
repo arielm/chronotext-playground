@@ -12,11 +12,73 @@
 
 #include "chronotext/android/cinder/JNI.h"
 
+#include <fcntl.h>
+
 #endif
 
 using namespace std;
 using namespace ci;
 using namespace chr;
+
+#if defined(CINDER_ANDROID)
+
+static jlong getFreeMemoryImpl(const char* const sums[], const size_t sumsLen[], size_t num)
+{
+    int fd = open("/proc/meminfo", O_RDONLY);
+    if (fd < 0) {
+        LOGI << "Unable to open /proc/meminfo" << endl;
+        return -1;
+    }
+    char buffer[256];
+    const int len = read(fd, buffer, sizeof(buffer)-1);
+    close(fd);
+    if (len < 0) {
+        LOGI << "Unable to read /proc/meminfo" << endl;
+        return -1;
+    }
+    buffer[len] = 0;
+    size_t numFound = 0;
+    jlong mem = 0;
+    char* p = buffer;
+    while (*p && numFound < num) {
+        int i = 0;
+        while (sums[i]) {
+            if (strncmp(p, sums[i], sumsLen[i]) == 0) {
+                p += sumsLen[i];
+                while (*p == ' ') p++;
+                char* num = p;
+                while (*p >= '0' && *p <= '9') p++;
+                if (*p != 0) {
+                    *p = 0;
+                    p++;
+                    if (*p == 0) p--;
+                }
+                mem += atoll(num) * 1024;
+                numFound++;
+                break;
+            }
+            i++;
+        }
+        p++;
+    }
+    return numFound > 0 ? mem : -1;
+}
+
+static jlong getFreeMemory()
+{
+    static const char* const sums[] = { "MemFree:", "Cached:", NULL };
+    static const size_t sumsLen[] = { strlen("MemFree:"), strlen("Cached:"), 0 };
+    return getFreeMemoryImpl(sums, sumsLen, 2);
+}
+
+static jlong getTotalMemory()
+{
+    static const char* const sums[] = { "MemTotal:", NULL };
+    static const size_t sumsLen[] = { strlen("MemTotal:"), 0 };
+    return getFreeMemoryImpl(sums, sumsLen, 1);
+}
+
+#endif
 
 void TestingMemory::setup()
 {
@@ -93,28 +155,22 @@ void TestingMemory::dumpMemoryStats()
     unsigned size = sizeof(info);
     task_info(mach_task_self(), TASK_BASIC_INFO_64, (task_info_t)&info, &size);
     
-    LOGI << prettyBytes(vmstat.free_count * pagesize) << " | " << prettyBytes((vmstat.free_count + vmstat.inactive_count) * pagesize) << " | " << prettyBytes(info.resident_size) << endl << endl;
+    LOGI << toMB(vmstat.free_count * pagesize) << " | " << toMB((vmstat.free_count + vmstat.inactive_count) * pagesize) << " | " << toMB(info.resident_size) << endl << endl;
     
 #elif defined(CINDER_ANDROID)
-    
+
     /*
-     * XXX: THE FOLLOWING IS USELESS, SINCE IT IS NOT AFFECTED BY TEXTURE-MEMORY
+     * SOURCE: http://stackoverflow.com/a/18894037/50335
      */
     
-    JNIEnv *env = java::getJNIEnv();
-    
-    jclass debugClass = env->FindClass("android/os/Debug");
-
-    jmethodID getNativeHeapSizeMethod = env->GetStaticMethodID(debugClass, "getNativeHeapSize", "()J");
-    jlong heapSize = env->CallStaticLongMethod(debugClass, getNativeHeapSizeMethod);
-
-    jmethodID getNativeHeapFreeSizeMethod = env->GetStaticMethodID(debugClass, "getNativeHeapFreeSize", "()J");
-    jlong heapFreeSize = env->CallStaticLongMethod(debugClass, getNativeHeapFreeSizeMethod);
-    
-    jmethodID getNativeHeapAllocatedSizeMethod = env->GetStaticMethodID(debugClass, "getNativeHeapAllocatedSize", "()J");
-    jlong heapAllocatedSize = env->CallStaticLongMethod(debugClass, getNativeHeapAllocatedSizeMethod);
-    
-    LOGI << prettyBytes(heapSize) << " | " << prettyBytes(heapFreeSize) << " | " << prettyBytes(heapAllocatedSize) << endl << endl;
+    LOGI << toMB(getFreeMemory()) << " | " << toMB(getTotalMemory()) << endl << endl;
     
 #endif
+}
+
+string TestingMemory::toMB(uint64_t bytes, int precision)
+{
+    stringstream s;
+    s << fixed << setprecision(precision) << bytes / (1024.0 * 1024.0) << " MB";
+    return s.str();
 }
