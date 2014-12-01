@@ -1,7 +1,5 @@
 #include "TestingMemory.h"
 
-#include "chronotext/texture/TextureManager.h"
-
 #if defined(CINDER_COCOA)
 #import <sys/sysctl.h>
 #import <mach/host_info.h>
@@ -14,36 +12,39 @@ using namespace std;
 using namespace ci;
 using namespace chr;
 
-void TestingMemory::run(bool force)
+void TestingMemory::setup()
 {
-    if (force || true)
-    {
-        if (force || true) testMemoryLoad1();
-    }
-}
-
-void TestingMemory::testMemoryLoad1()
-{
-    auto files = getFiles(getPublicDirectory() / "test.bundle");
+    files = getFiles(getPublicDirectory() / "test.bundle");
+    fileIndex = 0;
+    done = false;
     
     LOGI << endl << "BEFORE: " << endl;
     dumpMemoryStats();
-    
+}
+
+void TestingMemory::update()
+{
+    if (!done)
     {
-        TextureManager textureManager;
-        
-        for (auto &file : files)
+        if (fileIndex < files.size())
         {
+            const auto &file = files[fileIndex++];
+            
             auto inputSource = InputSource::getFile(file);
             inputSource->setFilePathHint(file.filename().string());
             
             textureManager.getTexture(inputSource);
             dumpMemoryStats();
         }
+        else
+        {
+            done = true;
+            textureManager.discard();
+            
+            LOGI << endl << "AFTER: " << endl;
+            dumpMemoryStats();
+        }
     }
-    
-    LOGI << endl << "AFTER: " << endl;
-    dumpMemoryStats();
 }
 
 void TestingMemory::dumpMemoryStats()
@@ -65,11 +66,11 @@ void TestingMemory::dumpMemoryStats()
         fprintf(stderr, "sysctl FAILURE");
         return;
     }
-    
-    mach_msg_type_number_t count = HOST_VM_INFO_COUNT;
+
     vm_statistics_data_t vmstat;
+    mach_msg_type_number_t count = HOST_VM_INFO_COUNT;
     
-    if (host_statistics(mach_host_self (), HOST_VM_INFO, (host_info_t)&vmstat, &count) != KERN_SUCCESS)
+    if (host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&vmstat, &count) != KERN_SUCCESS)
     {
         fprintf(stderr, "host_statistics FAILURE");
         return;

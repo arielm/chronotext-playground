@@ -2,12 +2,20 @@
 
 #include "TestingBase.h"
 
+#include "chronotext/texture/TextureManager.h"
+
 class TestingMemory : public TestingBase
 {
 public:
-    void run(bool force = false);
+    void setup();
+    void update();
     
-    void testMemoryLoad1();
+protected:
+    chr::TextureManager textureManager;
+    
+    std::vector<ci::fs::path> files;
+    int fileIndex;
+    bool done;
     
     static void dumpMemoryStats();
 };

@@ -29,7 +29,9 @@ public:
     
     virtual void setup() {}
     virtual void shutdown() {}
-    virtual void run(bool force = false) = 0;
+    
+    virtual void run(bool force = false) {}
+    virtual void update() {}
     
     // ---
     

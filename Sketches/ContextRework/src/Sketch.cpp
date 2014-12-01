@@ -12,7 +12,17 @@ using namespace chr;
 Sketch::Sketch()
 :
 CinderSketch()
-{}
+{
+    if (true)
+    {
+        /*
+         * SHOWING THE MEMORY AVAILABLE AT THE VERY START
+         */
+        
+        frameTest = make_shared<TestingMemory>();
+        frameTest->setup();
+    }
+}
 
 void Sketch::setup()
 {
@@ -23,7 +33,6 @@ void Sketch::setup()
     }
     
     TestingBase::execute<TestingMisc>(false);
-    TestingBase::execute<TestingMemory>(true);
     
     // ---
     
@@ -32,6 +41,26 @@ void Sketch::setup()
     
     glDisable(GL_DEPTH_TEST);
     glDepthMask(GL_FALSE);
+}
+
+void Sketch::shutdown()
+{
+    if (frameTest)
+    {
+        frameTest->shutdown();
+    }
+}
+
+void Sketch::update()
+{
+    /*
+     * PASSING VIA update() IS NECESSARY IN ORDER TO BE PROPERLY NOTIFIED UPON "MEMORY WARNING" ON IOS
+     */
+    
+    if (frameTest)
+    {
+        frameTest->update();
+    }
 }
 
 void Sketch::draw()
