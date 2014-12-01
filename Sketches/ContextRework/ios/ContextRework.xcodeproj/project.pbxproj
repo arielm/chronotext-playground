@@ -67,6 +67,7 @@
 		A84E43511A2A1F2300EE6AC1 /* UIView+StringTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */; };
 		A84E43531A2A295D00EE6AC1 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E43521A2A295D00EE6AC1 /* icon_120.png */; };
 		A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */; };
+		A8721A451A2BEF3000AED9C8 /* TestingMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A431A2BEF3000AED9C8 /* TestingMemory.cpp */; };
 		A874A5081A2B5B88009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5041A2B5B88009A60A0 /* Task.cpp */; };
 		A874A5091A2B5B88009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5061A2B5B88009A60A0 /* TaskManager.cpp */; };
 		A8994D441726E33900C8851E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8994D431726E33900C8851E /* GLKit.framework */; };
@@ -226,6 +227,8 @@
 		A8721A3C1A2BD7AE00AED9C8 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingBase.h; path = ../src/TestingBase.h; sourceTree = "<group>"; };
 		A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMisc.cpp; path = ../src/TestingMisc.cpp; sourceTree = "<group>"; };
 		A8721A3E1A2BD7AE00AED9C8 /* TestingMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMisc.h; path = ../src/TestingMisc.h; sourceTree = "<group>"; };
+		A8721A431A2BEF3000AED9C8 /* TestingMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemory.cpp; path = ../src/TestingMemory.cpp; sourceTree = "<group>"; };
+		A8721A441A2BEF3000AED9C8 /* TestingMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMemory.h; path = ../src/TestingMemory.h; sourceTree = "<group>"; };
 		A874A5041A2B5B88009A60A0 /* Task.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Task.cpp; sourceTree = "<group>"; };
 		A874A5051A2B5B88009A60A0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		A874A5061A2B5B88009A60A0 /* TaskManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaskManager.cpp; sourceTree = "<group>"; };
@@ -657,6 +660,8 @@
 				A8721A3C1A2BD7AE00AED9C8 /* TestingBase.h */,
 				A8721A3E1A2BD7AE00AED9C8 /* TestingMisc.h */,
 				A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */,
+				A8721A441A2BEF3000AED9C8 /* TestingMemory.h */,
+				A8721A431A2BEF3000AED9C8 /* TestingMemory.cpp */,
 			);
 			name = Testing;
 			sourceTree = "<group>";
@@ -767,6 +772,7 @@
 				A84E43371A2A1F0500EE6AC1 /* ShapeTesselator.cpp in Sources */,
 				A84E42FF1A2A1DFB00EE6AC1 /* FileSystem.cpp in Sources */,
 				A84E43511A2A1F2300EE6AC1 /* UIView+StringTag.m in Sources */,
+				A8721A451A2BEF3000AED9C8 /* TestingMemory.cpp in Sources */,
 				A84E43221A2A1DFB00EE6AC1 /* Utils.cpp in Sources */,
 				A84E43191A2A1DFB00EE6AC1 /* Texture.cpp in Sources */,
 				A84E431C1A2A1DFB00EE6AC1 /* Clock.cpp in Sources */,

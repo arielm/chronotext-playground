@@ -57,4 +57,21 @@ public:
         }
     }
 
+    static std::vector<ci::fs::path> getFiles(const ci::fs::path &directoryPath)
+    {
+        std::vector<ci::fs::path> files;
+        
+        if (ci::fs::exists(directoryPath) && ci::fs::is_directory(directoryPath))
+        {
+            for (ci::fs::directory_iterator current(directoryPath), end; current != end; ++current)
+            {
+                if (ci::fs::is_regular_file(current->status()))
+                {
+                    files.push_back(current->path());
+                }
+            }
+        }
+        
+        return files;
+    }
 };

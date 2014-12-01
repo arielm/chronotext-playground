@@ -19,17 +19,12 @@ void TestingMisc::run(bool force)
     
     if (force || true)
     {
-        if (force || true) testSystemInfo();
-        if (force || true) testFileSystem();
+        if (force || false) testSystemInfo();
+        if (force || false) testFileSystem();
     }
 }
 
 // ---
-
-void TestingMisc::testSystemInfo()
-{
-    LOGI << "SYSTEM INFO: " << SystemManager::getSystemInfo() << endl; // TODO: USE THE FORTHCOMING chr::context INSTEAD OF SUCH SINGLETON PATTERNS
-}
 
 /*
  * ACCESSING HIERARCHICAL FILE-SYSTEM
@@ -41,8 +36,12 @@ void TestingMisc::testSystemInfo()
 
 void TestingMisc::testFileSystem()
 {
-    auto bundlePath = getPublicDirectory() / "test.bundle";
-    dumpDirectory(bundlePath);
+    dumpDirectory(getPublicDirectory() / "test.bundle");
+}
+
+void TestingMisc::testSystemInfo()
+{
+    LOGI << "SYSTEM INFO: " << SystemManager::getSystemInfo() << endl; // TODO: USE THE FORTHCOMING chr::context INSTEAD OF SUCH SINGLETON PATTERNS
 }
 
 // ---

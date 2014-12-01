@@ -1,5 +1,7 @@
 #include "Sketch.h"
+
 #include "TestingMisc.h"
+#include "TestingMemory.h"
 
 #include "chronotext/utils/GLUtils.h"
 
@@ -14,10 +16,14 @@ CinderSketch()
 
 void Sketch::setup()
 {
-    LOGI << "DISPLAY INFO: " << getDisplayInfo() << endl;
-    LOGI << "WINDOW INFO: " << getWindowInfo() << endl;
+    if (true)
+    {
+        LOGI << "DISPLAY INFO: " << getDisplayInfo() << endl;
+        LOGI << "WINDOW INFO: " << getWindowInfo() << endl;
+    }
     
-    TestingBase::execute<TestingMisc>(true);
+    TestingBase::execute<TestingMisc>(false);
+    TestingBase::execute<TestingMemory>(true);
     
     // ---
     
