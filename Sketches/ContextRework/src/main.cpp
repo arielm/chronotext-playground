@@ -1,4 +1,4 @@
-#include "main.h"
+#include "chronotext/cinder/main.h"
 
 #pragma mark ----------------------------------------   IOS   ----------------------------------------
 

@@ -12,17 +12,7 @@ using namespace chr;
 Sketch::Sketch()
 :
 CinderSketch()
-{
-    if (true)
-    {
-        /*
-         * SHOWING THE MEMORY AVAILABLE AT THE VERY START
-         */
-        
-        frameTest = make_shared<TestingMemory>();
-        frameTest->setup();
-    }
-}
+{}
 
 void Sketch::setup()
 {
@@ -33,6 +23,12 @@ void Sketch::setup()
     }
     
     TestingBase::execute<TestingMisc>(false);
+    
+    if (true)
+    {
+        frameTest = make_shared<TestingMemory>();
+        frameTest->setup();
+    }
     
     // ---
     

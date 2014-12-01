@@ -1,8 +1,9 @@
 /*
  * PLAYGROUND IN SYNC WITH ContextRework BRANCH IN new-chronotext-toolkit
  *
- * OSX AND ANDROID: HEAD
- * IOS: COMMIT d24d1e4
+ * OSX: HEAD
+ * IOS: HEAD
+ * ANDROID: HEAD
  */
 
 #pragma once
