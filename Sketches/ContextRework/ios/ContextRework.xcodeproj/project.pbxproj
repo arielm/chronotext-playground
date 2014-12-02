@@ -78,6 +78,7 @@
 		A8CDB6651A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6601A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m */; };
 		A8CDB6661A2DD16A0043A5E5 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6621A2DD16A0043A5E5 /* NSString+JSON.m */; };
 		A8DB3EC616E0B96C00504D27 /* Sketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8DB3EC416E0B96C00504D27 /* Sketch.cpp */; };
+		A8DC566D1A2E238400C16B2F /* MemoryManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */; };
 		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091FFFF /* ImageIO.framework */; };
@@ -253,6 +254,10 @@
 		A8DB3EC516E0B96C00504D27 /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sketch.h; path = ../src/Sketch.h; sourceTree = "<group>"; };
 		A8DB87291A2C8FDB00334BEA /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		A8DB872A1A2C8FE000334BEA /* CinderDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegateBase.h; sourceTree = "<group>"; };
+		A8DC56691A2E238400C16B2F /* MemoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryInfo.h; sourceTree = "<group>"; };
+		A8DC566A1A2E238400C16B2F /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
+		A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryManagerBase.cpp; sourceTree = "<group>"; };
+		A8DC566C1A2E238400C16B2F /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
 		C725E000121DAC8F00FA186B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C727C02B121B400300192073 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C727C02D121B400300192073 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -514,6 +519,10 @@
 				A84E42D51A2A1DFB00EE6AC1 /* SystemManager.h */,
 				A84E42D71A2A1DFB00EE6AC1 /* SystemManagerBase.h */,
 				A84E42D61A2A1DFB00EE6AC1 /* SystemManagerBase.cpp */,
+				A8DC56691A2E238400C16B2F /* MemoryInfo.h */,
+				A8DC566A1A2E238400C16B2F /* MemoryManager.h */,
+				A8DC566C1A2E238400C16B2F /* MemoryManagerBase.h */,
+				A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */,
 			);
 			path = system;
 			sourceTree = "<group>";
@@ -830,6 +839,7 @@
 				A84E43351A2A1F0500EE6AC1 /* Hairline.cpp in Sources */,
 				A84E430A1A2A1DFB00EE6AC1 /* LineLayout.cpp in Sources */,
 				A84E43151A2A1DFB00EE6AC1 /* DisplayHelper.cpp in Sources */,
+				A8DC566D1A2E238400C16B2F /* MemoryManagerBase.cpp in Sources */,
 				A84E43141A2A1DFB00EE6AC1 /* QuadMatrix.cpp in Sources */,
 				A874A5081A2B5B88009A60A0 /* Task.cpp in Sources */,
 				A84E434C1A2A1F2300EE6AC1 /* CinderDelegate.mm in Sources */,
