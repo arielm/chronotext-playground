@@ -31,6 +31,6 @@ protected:
     int index;
     bool done;
     
-    static std::string writeMemoryStats();
+    static std::string writeMemoryInfo(double unit = 1024 * 1024, int precision = 2);
     static std::string writeMB(int64_t bytes, int precision = 2);
 };

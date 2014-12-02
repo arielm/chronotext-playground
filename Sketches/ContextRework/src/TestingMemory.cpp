@@ -40,7 +40,7 @@ void TestingMemory::setup()
     index = 0;
     done = false;
     
-    LOGI << endl << "BEFORE: " << writeMemoryStats() << endl;
+    LOGI << endl << "MEMORY INFO - BEFORE: " << writeMemoryInfo() << endl;
 }
 
 void TestingMemory::update()
@@ -71,54 +71,56 @@ void TestingMemory::update()
 
             // --
             
-            LOGI << endl << writeMemoryStats() << endl;
+            LOGI << endl << writeMemoryInfo() << endl;
             textureManager.getTexture(textureRequest);
-            LOGI << writeMemoryStats() << endl;
+            LOGI << writeMemoryInfo() << endl;
         }
         else
         {
             textureManager.discard();
             done = true;
             
-            LOGI << endl << "AFTER: " << writeMemoryStats() << endl;
+            LOGI << endl << "MEMORY INFO - AFTER: " << writeMemoryInfo() << endl;
         }
     }
-    else
+    else if (index > 0)
     {
-        LOGI << writeMemoryStats() << endl;
+        LOGI << writeMemoryInfo() << endl;
     }
 }
 
-string TestingMemory::writeMemoryStats()
+string TestingMemory::writeMemoryInfo(double unit, int precision)
 {
     auto memoryInfo = memory::getInfo();
-    
-    stringstream s;
-    
-    s << "{";
-    s << writeMB(memoryInfo.free);
 
-    if (memoryInfo.total > 0)
+    stringstream s;
+    s << fixed << setprecision(precision + 2) << "{";
+    
+    if (memoryInfo.free > 0)
     {
-        s << " | " << writeMB(memoryInfo.total);
+        s << "free: " << memoryInfo.free / unit;
     }
     
     if (memoryInfo.used > 0)
     {
-        s << " | " << writeMB(memoryInfo.used);
+        s << ", used: " << memoryInfo.used / unit;
+    }
+    
+    if (memoryInfo.ratio > 0)
+    {
+        s << ", ratio: " << memoryInfo.ratio;
     }
     
     s << "}";
     
     return s.str();
-    
 }
 
 string TestingMemory::writeMB(int64_t bytes, int precision)
 {
     if (bytes < 0)
     {
-        return "?";
+        return "";
     }
     
     stringstream s;
