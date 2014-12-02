@@ -18,5 +18,5 @@ protected:
     bool done;
     
     static void dumpMemoryStats();
-    static std::string toMB(uint64_t bytes, int precision = 2);
+    static std::string toMB(int64_t bytes, int precision = 2);
 };

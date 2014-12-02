@@ -31,7 +31,7 @@ void Sketch::setup()
     
     TestingBase::execute<TestingMisc>(true);
     
-#if defined(CINDER_ANDROID)
+#if 0 && defined(CINDER_ANDROID)
     jstring query = (jstring)context::delegate->callObjectMethodOnJavaListener("getMemoryInfo", "()Ljava/lang/String;");
     
     if (query)
