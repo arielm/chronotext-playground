@@ -8,8 +8,36 @@ using namespace chr;
 
 void TestingMemory::setup()
 {
-    files = getFiles(getPublicDirectory() / "test.bundle"); // CONTAINS A BUNCH OF HUGE PNG IMAGES
-    fileIndex = 0;
+    /*
+     * THE FIRST WILL BE A PNG IMAGE OF OUR OWN
+     */
+    
+    inputSources.emplace_back(InputSource::getAsset("U_512.png")); // 512x512 RGBA (SUPPOSED TO USE 1 MB)
+
+    /*
+     * ADDING A BUNCH OF HUGE PNG IMAGES...
+     *
+     *
+     * REQUIRES A FOLDER NAMED "test.bundle":
+     *
+     * OSX: IN ~/Documents
+     * IOS: IN THE APP'S DOCUMENT-FOLDER
+     * ANDROID: IN THE DEVICE'S EXTERNAL FOLDER
+     *
+     *
+     * WHY ADDING .bundle TO THE FOLDER NAME?
+     * ALLOWS TO EASILY TRANSFER A "NON-FLAT FILE-SYSTEM" TO ANY IOS DEVICE (VIA ITUNES)
+     */
+
+    for (const auto &file : getFiles(getPublicDirectory() / "test.bundle"))
+    {
+        auto inputSource = InputSource::getFile(file);
+        inputSource->setFilePathHint(file.filename().string());
+        
+        inputSources.emplace_back(inputSource);
+    }
+    
+    index = 0;
     done = false;
     
     LOGI << endl << "BEFORE: " << writeMemoryStats() << endl;
@@ -19,12 +47,9 @@ void TestingMemory::update()
 {
     if (!done)
     {
-        if (fileIndex < files.size())
+        if (index < inputSources.size())
         {
-            const auto &file = files[fileIndex++];
-            
-            auto inputSource = InputSource::getFile(file);
-            inputSource->setFilePathHint(file.filename().string());
+            auto inputSource = inputSources[index++];
             
             // ---
             
@@ -34,12 +59,12 @@ void TestingMemory::update()
             if (false)
             {
                 useMipmap = false;
-                flags = TextureRequest::Flags::FLAGS_NONE;
+                flags = TextureRequest::FLAGS_NONE;
             }
             else
             {
                 useMipmap = false;
-                flags = TextureRequest::Flags::FLAGS_POT;
+                flags = TextureRequest::FLAGS_POT;
             }
             
             TextureRequest textureRequest(inputSource, useMipmap, flags);
