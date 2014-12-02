@@ -474,9 +474,9 @@
 		A86901CE1A02E22300D2C9F3 /* system */ = {
 			isa = PBXGroup;
 			children = (
+				A86901D11A02E22300D2C9F3 /* DisplayInfo.h */,
 				A86901D01A02E22300D2C9F3 /* DisplayHelper.h */,
 				A86901CF1A02E22300D2C9F3 /* DisplayHelper.cpp */,
-				A86901D11A02E22300D2C9F3 /* DisplayInfo.h */,
 				A86901D21A02E22300D2C9F3 /* SystemInfo.h */,
 				A86901D31A02E22300D2C9F3 /* SystemInfoBase.h */,
 				A86901D41A02E22300D2C9F3 /* SystemManager.h */,

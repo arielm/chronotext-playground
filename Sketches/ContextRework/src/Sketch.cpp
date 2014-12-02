@@ -29,7 +29,7 @@ void Sketch::setup()
         LOGI << "WINDOW INFO: " << getWindowInfo() << endl;
     }
     
-    TestingBase::execute<TestingMisc>(false);
+    TestingBase::execute<TestingMisc>(true);
     
 #if defined(CINDER_ANDROID)
     jstring query = (jstring)context::delegate->callObjectMethodOnJavaListener("getMemoryInfo", "()Ljava/lang/String;");
@@ -43,8 +43,11 @@ void Sketch::setup()
         env->ReleaseStringUTFChars(query, chars);
     }
 #else
-    frameTest = make_shared<TestingMemory>();
-    frameTest->setup();
+    if (true)
+    {
+        frameTest = make_shared<TestingMemory>();
+        frameTest->setup();
+    }
 #endif
     
     // ---

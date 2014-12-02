@@ -19,7 +19,7 @@ void TestingMisc::run(bool force)
     
     if (force || true)
     {
-        if (force || false) testSystemInfo();
+        if (force || true) testSystemInfo();
         if (force || false) testFileSystem();
     }
 }
@@ -41,7 +41,7 @@ void TestingMisc::testFileSystem()
 
 void TestingMisc::testSystemInfo()
 {
-    LOGI << "SYSTEM INFO: " << SystemManager::getSystemInfo() << endl; // TODO: USE THE FORTHCOMING chr::context INSTEAD OF SUCH SINGLETON PATTERNS
+    LOGI << "SYSTEM INFO: " << system::getInfo() << endl;
 }
 
 // ---

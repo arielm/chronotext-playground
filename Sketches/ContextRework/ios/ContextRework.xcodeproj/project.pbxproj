@@ -499,8 +499,8 @@
 				A84E42D31A2A1DFB00EE6AC1 /* SystemInfo.h */,
 				A84E42D41A2A1DFB00EE6AC1 /* SystemInfoBase.h */,
 				A84E42D51A2A1DFB00EE6AC1 /* SystemManager.h */,
-				A84E42D61A2A1DFB00EE6AC1 /* SystemManagerBase.cpp */,
 				A84E42D71A2A1DFB00EE6AC1 /* SystemManagerBase.h */,
+				A84E42D61A2A1DFB00EE6AC1 /* SystemManagerBase.cpp */,
 			);
 			path = system;
 			sourceTree = "<group>";
