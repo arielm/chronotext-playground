@@ -17,6 +17,6 @@ protected:
     int fileIndex;
     bool done;
     
-    static void dumpMemoryStats();
-    static std::string toMB(int64_t bytes, int precision = 2);
+    static std::string writeMemoryStats();
+    static std::string writeMB(int64_t bytes, int precision = 2);
 };

@@ -8,12 +8,11 @@ using namespace chr;
 
 void TestingMemory::setup()
 {
-    files = getFiles(getPublicDirectory() / "test.bundle");
+    files = getFiles(getPublicDirectory() / "test.bundle"); // CONTAINS A BUNCH OF HUGE PNG IMAGES
     fileIndex = 0;
     done = false;
     
-    LOGI << endl << "BEFORE: " << endl;
-    dumpMemoryStats();
+    LOGI << endl << "BEFORE: " << writeMemoryStats() << endl;
 }
 
 void TestingMemory::update()
@@ -27,32 +26,70 @@ void TestingMemory::update()
             auto inputSource = InputSource::getFile(file);
             inputSource->setFilePathHint(file.filename().string());
             
-            textureManager.getTexture(inputSource);
-            dumpMemoryStats();
+            // ---
+            
+            bool useMipmap;
+            TextureRequest::Flags flags;
+            
+            if (false)
+            {
+                useMipmap = false;
+                flags = TextureRequest::Flags::FLAGS_NONE;
+            }
+            else
+            {
+                useMipmap = false;
+                flags = TextureRequest::Flags::FLAGS_POT;
+            }
+            
+            TextureRequest textureRequest(inputSource, useMipmap, flags);
+
+            // --
+            
+            LOGI << endl << writeMemoryStats() << endl;
+            textureManager.getTexture(textureRequest);
+            LOGI << writeMemoryStats() << endl;
         }
         else
         {
             textureManager.discard();
             done = true;
             
-            LOGI << endl << "AFTER: " << endl;
-            dumpMemoryStats();
+            LOGI << endl << "AFTER: " << writeMemoryStats() << endl;
         }
     }
     else
     {
-        dumpMemoryStats();
+        LOGI << writeMemoryStats() << endl;
     }
 }
 
-void TestingMemory::dumpMemoryStats()
+string TestingMemory::writeMemoryStats()
 {
     auto memoryInfo = memory::getInfo();
     
-    LOGI << toMB(memoryInfo.free) << " | " << toMB(memoryInfo.total) << " | " << toMB(memoryInfo.used) << endl << endl;
+    stringstream s;
+    
+    s << "{";
+    s << writeMB(memoryInfo.free);
+
+    if (memoryInfo.total > 0)
+    {
+        s << " | " << writeMB(memoryInfo.total);
+    }
+    
+    if (memoryInfo.used > 0)
+    {
+        s << " | " << writeMB(memoryInfo.used);
+    }
+    
+    s << "}";
+    
+    return s.str();
+    
 }
 
-string TestingMemory::toMB(int64_t bytes, int precision)
+string TestingMemory::writeMB(int64_t bytes, int precision)
 {
     if (bytes < 0)
     {
