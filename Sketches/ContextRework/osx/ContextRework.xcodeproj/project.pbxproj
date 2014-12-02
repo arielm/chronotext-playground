@@ -194,7 +194,6 @@
 		A8721A401A2BE87E00AED9C8 /* TestingMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemory.cpp; path = ../src/TestingMemory.cpp; sourceTree = "<group>"; };
 		A8721A411A2BE87E00AED9C8 /* TestingMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMemory.h; path = ../src/TestingMemory.h; sourceTree = "<group>"; };
 		A874A4E91A2A8655009A60A0 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
-		A874A4EA1A2A8BAB009A60A0 /* CinderDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegateBase.h; sourceTree = "<group>"; };
 		A874A4FE1A2B550A009A60A0 /* Task.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Task.cpp; sourceTree = "<group>"; };
 		A874A4FF1A2B550A009A60A0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		A874A5001A2B550A009A60A0 /* TaskManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaskManager.cpp; sourceTree = "<group>"; };
@@ -382,7 +381,6 @@
 				A8DB872B1A2C902000334BEA /* main.h */,
 				A86901341A02E22300D2C9F3 /* CinderSketch.h */,
 				A86901351A02E22300D2C9F3 /* CinderSketchBase.h */,
-				A874A4EA1A2A8BAB009A60A0 /* CinderDelegateBase.h */,
 				A86901361A02E22300D2C9F3 /* WindowInfo.h */,
 			);
 			path = cinder;

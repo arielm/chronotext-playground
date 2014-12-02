@@ -253,7 +253,6 @@
 		A8DB3EC416E0B96C00504D27 /* Sketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sketch.cpp; path = ../src/Sketch.cpp; sourceTree = "<group>"; };
 		A8DB3EC516E0B96C00504D27 /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sketch.h; path = ../src/Sketch.h; sourceTree = "<group>"; };
 		A8DB87291A2C8FDB00334BEA /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
-		A8DB872A1A2C8FE000334BEA /* CinderDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegateBase.h; sourceTree = "<group>"; };
 		A8DC56691A2E238400C16B2F /* MemoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryInfo.h; sourceTree = "<group>"; };
 		A8DC566A1A2E238400C16B2F /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryManagerBase.cpp; sourceTree = "<group>"; };
@@ -434,7 +433,6 @@
 				A8DB87291A2C8FDB00334BEA /* main.h */,
 				A84E42911A2A1DFA00EE6AC1 /* CinderSketch.h */,
 				A84E42921A2A1DFA00EE6AC1 /* CinderSketchBase.h */,
-				A8DB872A1A2C8FE000334BEA /* CinderDelegateBase.h */,
 				A84E42931A2A1DFA00EE6AC1 /* WindowInfo.h */,
 			);
 			path = cinder;

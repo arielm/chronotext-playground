@@ -17,7 +17,7 @@
 class Application : public chr::CinderDelegate
 {
 public:
-    void prepareSettings(Settings *settings)
+    void prepareSettings(Settings *settings) override
     {
         CinderDelegate::applyDefaultSettings(settings);
         
@@ -33,7 +33,7 @@ public:
         }
     }
     
-    void keyDown(ci::app::KeyEvent event)
+    void keyDown(ci::app::KeyEvent event) override
     {
         switch (event.getCode())
         {
