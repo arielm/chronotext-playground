@@ -1,6 +1,6 @@
 #include "TestingMemory.h"
 
-#include "chronotext/system/MemoryManager.h"
+#include "chronotext/system/Context.h"
 
 using namespace std;
 using namespace ci;
@@ -26,7 +26,7 @@ void TestingMemory::setup()
      *
      *
      * WHY ADDING .bundle TO THE FOLDER NAME?
-     * ALLOWS TO EASILY TRANSFER A "NON-FLAT FILE-SYSTEM" TO ANY IOS DEVICE (VIA ITUNES)
+     * ALLOWS TO EASILY TRANSFER A "NON-FLAT FILE-SYSTEM" TO IOS DEVICES (VIA ITUNES)
      */
 
     for (const auto &file : getFiles(getPublicDirectory() / "test.bundle"))
@@ -40,7 +40,7 @@ void TestingMemory::setup()
     index = 0;
     done = false;
     
-    LOGI << endl << "MEMORY INFO - BEFORE: " << writeMemoryInfo() << endl;
+    LOGI << endl << "MEMORY INFO - BEFORE: " << memory::getInfo() << endl;
 }
 
 void TestingMemory::update()
@@ -71,60 +71,20 @@ void TestingMemory::update()
 
             // --
             
-            LOGI << endl << writeMemoryInfo() << endl;
+            LOGI << endl << memory::getInfo() << endl;
             textureManager.getTexture(textureRequest);
-            LOGI << writeMemoryInfo() << endl;
+            LOGI << memory::getInfo() << endl;
         }
         else
         {
             textureManager.discard();
             done = true;
             
-            LOGI << endl << "MEMORY INFO - AFTER: " << writeMemoryInfo() << endl;
+            LOGI << endl << "MEMORY INFO - AFTER: " << memory::getInfo() << endl;
         }
     }
     else if (index > 0)
     {
-        LOGI << writeMemoryInfo() << endl;
+        LOGI << memory::getInfo() << endl;
     }
-}
-
-string TestingMemory::writeMemoryInfo(double unit, int precision)
-{
-    auto memoryInfo = memory::getInfo();
-
-    stringstream s;
-    s << fixed << setprecision(precision + 2) << "{";
-    
-    if (memoryInfo.free > 0)
-    {
-        s << "free: " << memoryInfo.free / unit;
-    }
-    
-    if (memoryInfo.used > 0)
-    {
-        s << ", used: " << memoryInfo.used / unit;
-    }
-    
-    if (memoryInfo.ratio > 0)
-    {
-        s << ", ratio: " << memoryInfo.ratio;
-    }
-    
-    s << "}";
-    
-    return s.str();
-}
-
-string TestingMemory::writeMB(int64_t bytes, int precision)
-{
-    if (bytes < 0)
-    {
-        return "";
-    }
-    
-    stringstream s;
-    s << fixed << setprecision(precision) << bytes / (1024.0 * 1024.0) << " MB";
-    
-    return s.str();
 }

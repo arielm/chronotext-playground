@@ -1,8 +1,8 @@
 #include "TestingMisc.h"
 
 #include "chronotext/InputSource.h"
+#include "chronotext/system/Context.h"
 #include "chronotext/utils/FileCapture.h"
-#include "chronotext/system/SystemManager.h"
 
 using namespace std;
 using namespace ci;
@@ -19,7 +19,7 @@ void TestingMisc::run(bool force)
     
     if (force || true)
     {
-        if (force || true) testSystemInfo();
+        if (force || false) testSystemAndMemoryInfo();
         if (force || false) testFileSystem();
     }
 }
@@ -39,9 +39,10 @@ void TestingMisc::testFileSystem()
     dumpDirectory(getPublicDirectory() / "test.bundle");
 }
 
-void TestingMisc::testSystemInfo()
+void TestingMisc::testSystemAndMemoryInfo()
 {
     LOGI << "SYSTEM INFO: " << system::getInfo() << endl;
+    LOGI << "MEMORY INFO: " << memory::getInfo() << endl;
 }
 
 // ---

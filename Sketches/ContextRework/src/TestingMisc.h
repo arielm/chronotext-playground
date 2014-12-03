@@ -11,6 +11,6 @@ public:
     void testNewLogging();
     void testNewException();
 
-    void testSystemInfo();
+    void testSystemAndMemoryInfo();
     void testFileSystem();
 };
