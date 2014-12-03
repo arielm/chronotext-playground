@@ -1,4 +1,4 @@
-#include "chronotext/cinder/main.h"
+#include "chronotext/system/Context.h"
 
 #pragma mark ----------------------------------------   IOS   ----------------------------------------
 
@@ -12,6 +12,18 @@ int main(int argc, char *argv[])
     {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
+}
+
+#pragma mark ---------------------------------------- ANDROID ----------------------------------------
+
+#elif defined(CINDER_ANDROID)
+
+#include "chronotext/android/cinder/JNI.h"
+
+extern "C"
+{
+    void android_main(struct android_app *state)
+    {}
 }
 
 #pragma mark ---------------------------------------- DESKTOP ----------------------------------------

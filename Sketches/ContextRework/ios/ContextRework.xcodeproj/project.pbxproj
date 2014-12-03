@@ -66,6 +66,7 @@
 		A84E43501A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */; };
 		A84E43511A2A1F2300EE6AC1 /* UIView+StringTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */; };
 		A84E43531A2A295D00EE6AC1 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E43521A2A295D00EE6AC1 /* icon_120.png */; };
+		A85977291A2F355A0080C906 /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A85977271A2F355A0080C906 /* Context.cpp */; };
 		A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */; };
 		A8721A451A2BEF3000AED9C8 /* TestingMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A431A2BEF3000AED9C8 /* TestingMemory.cpp */; };
 		A874A5081A2B5B88009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5041A2B5B88009A60A0 /* Task.cpp */; };
@@ -229,6 +230,8 @@
 		A84E434A1A2A1F2300EE6AC1 /* UIView+StringTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+StringTag.h"; sourceTree = "<group>"; };
 		A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+StringTag.m"; sourceTree = "<group>"; };
 		A84E43521A2A295D00EE6AC1 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
+		A85977271A2F355A0080C906 /* Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
+		A85977281A2F355A0080C906 /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
 		A8721A3C1A2BD7AE00AED9C8 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingBase.h; path = ../src/TestingBase.h; sourceTree = "<group>"; };
 		A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMisc.cpp; path = ../src/TestingMisc.cpp; sourceTree = "<group>"; };
 		A8721A3E1A2BD7AE00AED9C8 /* TestingMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMisc.h; path = ../src/TestingMisc.h; sourceTree = "<group>"; };
@@ -252,7 +255,6 @@
 		A8CDB6621A2DD16A0043A5E5 /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
 		A8DB3EC416E0B96C00504D27 /* Sketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sketch.cpp; path = ../src/Sketch.cpp; sourceTree = "<group>"; };
 		A8DB3EC516E0B96C00504D27 /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sketch.h; path = ../src/Sketch.h; sourceTree = "<group>"; };
-		A8DB87291A2C8FDB00334BEA /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		A8DC56691A2E238400C16B2F /* MemoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryInfo.h; sourceTree = "<group>"; };
 		A8DC566A1A2E238400C16B2F /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryManagerBase.cpp; sourceTree = "<group>"; };
@@ -430,7 +432,6 @@
 		A84E42901A2A1DFA00EE6AC1 /* cinder */ = {
 			isa = PBXGroup;
 			children = (
-				A8DB87291A2C8FDB00334BEA /* main.h */,
 				A84E42911A2A1DFA00EE6AC1 /* CinderSketch.h */,
 				A84E42921A2A1DFA00EE6AC1 /* CinderSketchBase.h */,
 				A84E42931A2A1DFA00EE6AC1 /* WindowInfo.h */,
@@ -509,6 +510,8 @@
 		A84E42CF1A2A1DFB00EE6AC1 /* system */ = {
 			isa = PBXGroup;
 			children = (
+				A85977281A2F355A0080C906 /* Context.h */,
+				A85977271A2F355A0080C906 /* Context.cpp */,
 				A84E42D01A2A1DFB00EE6AC1 /* DisplayHelper.cpp */,
 				A84E42D11A2A1DFB00EE6AC1 /* DisplayHelper.h */,
 				A84E42D21A2A1DFB00EE6AC1 /* DisplayInfo.h */,
@@ -839,6 +842,7 @@
 				A84E43151A2A1DFB00EE6AC1 /* DisplayHelper.cpp in Sources */,
 				A8DC566D1A2E238400C16B2F /* MemoryManagerBase.cpp in Sources */,
 				A84E43141A2A1DFB00EE6AC1 /* QuadMatrix.cpp in Sources */,
+				A85977291A2F355A0080C906 /* Context.cpp in Sources */,
 				A874A5081A2B5B88009A60A0 /* Task.cpp in Sources */,
 				A84E434C1A2A1F2300EE6AC1 /* CinderDelegate.mm in Sources */,
 				A84E43051A2A1DFB00EE6AC1 /* FontManager.cpp in Sources */,

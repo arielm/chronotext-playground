@@ -17,10 +17,8 @@
 class Application : public chr::CinderDelegate
 {
 public:
-    void prepareSettings(Settings *settings) override
+    void applySettings(Settings *settings) override
     {
-        CinderDelegate::applyDefaultSettings(settings);
-        
         if (loadEmulators(chr::InputSource::getResource("emulators.json")))
         {
             emulate(settings, "IPHONE_3GS", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
