@@ -41,8 +41,8 @@ void TestingMisc::testFileSystem()
 
 void TestingMisc::testSystemAndMemoryInfo()
 {
-    LOGI << "SYSTEM INFO: " << system::getInfo() << endl;
-    LOGI << "MEMORY INFO: " << memory::getInfo() << endl;
+    LOGI << "SYSTEM INFO: " << system::info() << endl;
+    LOGI << "MEMORY INFO: " << memory::info() << endl;
 }
 
 // ---
