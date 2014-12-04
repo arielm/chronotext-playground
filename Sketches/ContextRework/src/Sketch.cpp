@@ -18,13 +18,13 @@ void Sketch::setup()
 {
     if (true)
     {
-        LOGI << "DISPLAY INFO: " << getDisplayInfo() << endl;
-        LOGI << "WINDOW INFO: " << getWindowInfo() << endl;
+        LOGI << "DISPLAY INFO: " << windowInfo() << endl;
+        LOGI << "WINDOW INFO: " << displayInfo() << endl;
     }
     
     TestingBase::execute<TestingMisc>(true);
 
-    if (true)
+    if (false)
     {
         frameTest = make_shared<TestingMemory>();
         frameTest->setup();
