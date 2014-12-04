@@ -1,7 +1,7 @@
 #include "TestingMisc.h"
 
 #include "chronotext/InputSource.h"
-#include "chronotext/system/Context.h"
+#include "chronotext/Context.h"
 #include "chronotext/utils/FileCapture.h"
 
 using namespace std;
@@ -41,8 +41,8 @@ void TestingMisc::testFileSystem()
 
 void TestingMisc::testSystemAndMemoryInfo()
 {
-    LOGI << "SYSTEM INFO: " << system::info() << endl;
-    LOGI << "MEMORY INFO: " << memory::info() << endl;
+    LOGI << "SYSTEM INFO: " << systemInfo() << endl;
+    LOGI << "MEMORY INFO: " << memoryInfo() << endl;
 }
 
 // ---

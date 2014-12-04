@@ -1,6 +1,6 @@
 #include "TestingMemory.h"
 
-#include "chronotext/system/Context.h"
+#include "chronotext/Context.h"
 
 using namespace std;
 using namespace ci;
@@ -40,7 +40,7 @@ void TestingMemory::setup()
     index = 0;
     done = false;
     
-    LOGI << endl << "MEMORY INFO - BEFORE: " << memory::info() << endl;
+    LOGI << endl << "MEMORY INFO - BEFORE: " << memoryInfo() << endl;
 }
 
 void TestingMemory::update()
@@ -71,20 +71,20 @@ void TestingMemory::update()
 
             // --
             
-            LOGI << endl << memory::info() << endl;
+            LOGI << endl << memoryInfo() << endl;
             textureManager.getTexture(textureRequest);
-            LOGI << memory::info() << endl;
+            LOGI << memoryInfo() << endl;
         }
         else
         {
             textureManager.discard();
             done = true;
             
-            LOGI << endl << "MEMORY INFO - AFTER: " << memory::info() << endl;
+            LOGI << endl << "MEMORY INFO - AFTER: " << memoryInfo() << endl;
         }
     }
     else if (index > 0)
     {
-        LOGI << memory::info() << endl;
+        LOGI << memoryInfo() << endl;
     }
 }
