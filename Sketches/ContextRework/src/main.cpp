@@ -1,5 +1,20 @@
 #include "chronotext/system/Context.h"
 
+#include "Sketch.h"
+
+namespace chronotext
+{
+    CinderSketch* createSketch()
+    {
+        return new Sketch();
+    }
+    
+    void destroySketch(CinderSketch *sketch)
+    {
+        delete sketch;
+    }
+}
+
 #pragma mark ----------------------------------------   IOS   ----------------------------------------
 
 #if defined(CINDER_COCOA_TOUCH)
@@ -35,20 +50,3 @@ extern "C"
 CINDER_APP_NATIVE(Application, ci::app::RendererGl(ci::app::RendererGl::AA_NONE))
 
 #endif
-
-#pragma mark ---------------------------------------- SKETCH -----------------------------------------
-
-#include "Sketch.h"
-
-namespace chronotext
-{
-    CinderSketch* createSketch()
-    {
-        return new Sketch();
-    }
-    
-    void destroySketch(CinderSketch *sketch)
-    {
-        delete sketch;
-    }
-}
