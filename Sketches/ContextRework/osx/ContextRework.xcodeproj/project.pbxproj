@@ -19,12 +19,12 @@
 		A8027DFD16E3784B00184149 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A8027DFC16E3784B00184149 /* icon.icns */; };
 		A82C910A16E02DAA00FF519C /* Sketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A82C910816E02DAA00FF519C /* Sketch.cpp */; };
 		A83F54F81A311FF400E3531E /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F54F61A311FF400E3531E /* Context.cpp */; };
+		A83F55041A312DC300E3531E /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F55021A312DC300E3531E /* FileHelper.cpp */; };
 		A84E42891A2A1A8F00EE6AC1 /* emulators.json in Resources */ = {isa = PBXBuildFile; fileRef = A84E42881A2A1A8F00EE6AC1 /* emulators.json */; };
 		A85977321A2F911A0080C906 /* SystemManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A85977311A2F911A0080C906 /* SystemManager.cpp */; };
 		A85977361A2F94F80080C906 /* MemoryManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6561A2DC6F80043A5E5 /* MemoryManager.mm */; };
 		A86902091A02E22300D2C9F3 /* CinderDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901281A02E22300D2C9F3 /* CinderDelegate.cpp */; };
 		A869020A1A02E22300D2C9F3 /* CinderSketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869012A1A02E22300D2C9F3 /* CinderSketch.cpp */; };
-		A86902101A02E22300D2C9F3 /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901401A02E22300D2C9F3 /* FileSystem.cpp */; };
 		A86902151A02E22300D2C9F3 /* ActualFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869014D1A02E22300D2C9F3 /* ActualFont.cpp */; };
 		A86902161A02E22300D2C9F3 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869014F1A02E22300D2C9F3 /* FontManager.cpp */; };
 		A86902171A02E22300D2C9F3 /* FontSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901511A02E22300D2C9F3 /* FontSequence.cpp */; };
@@ -90,6 +90,8 @@
 		A82C910916E02DAA00FF519C /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sketch.h; path = ../src/Sketch.h; sourceTree = "<group>"; };
 		A83F54F61A311FF400E3531E /* Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
 		A83F54F71A311FF400E3531E /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
+		A83F55021A312DC300E3531E /* FileHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelper.cpp; sourceTree = "<group>"; };
+		A83F55031A312DC300E3531E /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
 		A84E42871A29FF4D00EE6AC1 /* FileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCapture.h; sourceTree = "<group>"; };
 		A84E42881A2A1A8F00EE6AC1 /* emulators.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emulators.json; sourceTree = "<group>"; };
 		A859772E1A2F8C4D0080C906 /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManager.h; sourceTree = "<group>"; };
@@ -103,8 +105,6 @@
 		A86901351A02E22300D2C9F3 /* CinderSketchBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderSketchBase.h; sourceTree = "<group>"; };
 		A86901361A02E22300D2C9F3 /* WindowInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInfo.h; sourceTree = "<group>"; };
 		A869013F1A02E22300D2C9F3 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
-		A86901401A02E22300D2C9F3 /* FileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileSystem.cpp; sourceTree = "<group>"; };
-		A86901411A02E22300D2C9F3 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
 		A869014D1A02E22300D2C9F3 /* ActualFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActualFont.cpp; sourceTree = "<group>"; };
 		A869014E1A02E22300D2C9F3 /* ActualFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualFont.h; sourceTree = "<group>"; };
 		A869014F1A02E22300D2C9F3 /* FontManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontManager.cpp; sourceTree = "<group>"; };
@@ -334,8 +334,6 @@
 				A8B3365A1A045B2200ABEFBF /* Log.h */,
 				A8B336591A045B2200ABEFBF /* Log.cpp */,
 				A869013F1A02E22300D2C9F3 /* Exception.h */,
-				A86901411A02E22300D2C9F3 /* FileSystem.h */,
-				A86901401A02E22300D2C9F3 /* FileSystem.cpp */,
 				A86901891A02E22300D2C9F3 /* InputSource.h */,
 				A86901881A02E22300D2C9F3 /* InputSource.cpp */,
 				A86901261A02E22300D2C9F3 /* app */,
@@ -487,6 +485,8 @@
 		A86901CE1A02E22300D2C9F3 /* system */ = {
 			isa = PBXGroup;
 			children = (
+				A83F55031A312DC300E3531E /* FileHelper.h */,
+				A83F55021A312DC300E3531E /* FileHelper.cpp */,
 				A86901D11A02E22300D2C9F3 /* DisplayInfo.h */,
 				A86901D01A02E22300D2C9F3 /* DisplayHelper.h */,
 				A86901CF1A02E22300D2C9F3 /* DisplayHelper.cpp */,
@@ -710,7 +710,6 @@
 				A874A5021A2B550A009A60A0 /* Task.cpp in Sources */,
 				A86902401A02E22400D2C9F3 /* SplinePath.cpp in Sources */,
 				A869021A1A02E22300D2C9F3 /* LayoutCache.cpp in Sources */,
-				A86902101A02E22300D2C9F3 /* FileSystem.cpp in Sources */,
 				A869021D1A02E22400D2C9F3 /* TextItemizer.cpp in Sources */,
 				A8CDB6531A2DC0B60043A5E5 /* MemoryManagerBase.cpp in Sources */,
 				A86902491A02E22400D2C9F3 /* Texture.cpp in Sources */,
@@ -727,6 +726,7 @@
 				A86902091A02E22300D2C9F3 /* CinderDelegate.cpp in Sources */,
 				A8DB873A1A2CEE8700334BEA /* NSString+JSON.m in Sources */,
 				A86902191A02E22300D2C9F3 /* LangHelper.cpp in Sources */,
+				A83F55041A312DC300E3531E /* FileHelper.cpp in Sources */,
 				A8721A421A2BE87E00AED9C8 /* TestingMemory.cpp in Sources */,
 				A86902361A02E22400D2C9F3 /* SuperHandler.cpp in Sources */,
 				A869024D1A02E22400D2C9F3 /* FrameClock.cpp in Sources */,

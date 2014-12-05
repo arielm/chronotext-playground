@@ -23,8 +23,8 @@
 		A81E3DF91993B741002B8978 /* icon_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF41993B741002B8978 /* icon_76.png */; };
 		A81E3DFA1993D0F3002B8978 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A82C900816DF91D300FF519C /* Default-568h@2x.png */; };
 		A83F54FB1A31204E00E3531E /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F54F91A31204E00E3531E /* Context.cpp */; };
+		A83F55011A312DB100E3531E /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F54FF1A312DB100E3531E /* FileHelper.cpp */; };
 		A84E428F1A2A1D6D00EE6AC1 /* Path3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E428D1A2A1D6D00EE6AC1 /* Path3D.cpp */; };
-		A84E42FF1A2A1DFB00EE6AC1 /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42951A2A1DFA00EE6AC1 /* FileSystem.cpp */; };
 		A84E43041A2A1DFB00EE6AC1 /* ActualFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42A21A2A1DFA00EE6AC1 /* ActualFont.cpp */; };
 		A84E43051A2A1DFB00EE6AC1 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42A41A2A1DFA00EE6AC1 /* FontManager.cpp */; };
 		A84E43061A2A1DFB00EE6AC1 /* FontSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42A61A2A1DFA00EE6AC1 /* FontSequence.cpp */; };
@@ -114,14 +114,14 @@
 		A82C900816DF91D300FF519C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A83F54F91A31204E00E3531E /* Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
 		A83F54FA1A31204E00E3531E /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
+		A83F54FF1A312DB100E3531E /* FileHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelper.cpp; sourceTree = "<group>"; };
+		A83F55001A312DB100E3531E /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
 		A84E428D1A2A1D6D00EE6AC1 /* Path3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Path3D.cpp; sourceTree = "<group>"; };
 		A84E428E1A2A1D6D00EE6AC1 /* Path3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path3D.h; sourceTree = "<group>"; };
 		A84E42911A2A1DFA00EE6AC1 /* CinderSketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderSketch.h; sourceTree = "<group>"; };
 		A84E42921A2A1DFA00EE6AC1 /* CinderSketchBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderSketchBase.h; sourceTree = "<group>"; };
 		A84E42931A2A1DFA00EE6AC1 /* WindowInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInfo.h; sourceTree = "<group>"; };
 		A84E42941A2A1DFA00EE6AC1 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
-		A84E42951A2A1DFA00EE6AC1 /* FileSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileSystem.cpp; sourceTree = "<group>"; };
-		A84E42961A2A1DFA00EE6AC1 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
 		A84E42A21A2A1DFA00EE6AC1 /* ActualFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActualFont.cpp; sourceTree = "<group>"; };
 		A84E42A31A2A1DFA00EE6AC1 /* ActualFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualFont.h; sourceTree = "<group>"; };
 		A84E42A41A2A1DFA00EE6AC1 /* FontManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontManager.cpp; sourceTree = "<group>"; };
@@ -400,8 +400,6 @@
 				A83F54FA1A31204E00E3531E /* Context.h */,
 				A83F54F91A31204E00E3531E /* Context.cpp */,
 				A84E42941A2A1DFA00EE6AC1 /* Exception.h */,
-				A84E42961A2A1DFA00EE6AC1 /* FileSystem.h */,
-				A84E42951A2A1DFA00EE6AC1 /* FileSystem.cpp */,
 				A84E42BB1A2A1DFA00EE6AC1 /* InputSource.h */,
 				A84E42BA1A2A1DFA00EE6AC1 /* InputSource.cpp */,
 				A84E42BD1A2A1DFA00EE6AC1 /* Log.h */,
@@ -512,8 +510,10 @@
 		A84E42CF1A2A1DFB00EE6AC1 /* system */ = {
 			isa = PBXGroup;
 			children = (
-				A84E42D01A2A1DFB00EE6AC1 /* DisplayHelper.cpp */,
+				A83F55001A312DB100E3531E /* FileHelper.h */,
+				A83F54FF1A312DB100E3531E /* FileHelper.cpp */,
 				A84E42D11A2A1DFB00EE6AC1 /* DisplayHelper.h */,
+				A84E42D01A2A1DFB00EE6AC1 /* DisplayHelper.cpp */,
 				A84E42D21A2A1DFB00EE6AC1 /* DisplayInfo.h */,
 				A84E42D31A2A1DFB00EE6AC1 /* SystemInfo.h */,
 				A84E42D41A2A1DFB00EE6AC1 /* SystemInfoBase.h */,
@@ -816,6 +816,7 @@
 				A8DB3EC616E0B96C00504D27 /* Sketch.cpp in Sources */,
 				A8994D481726E51E00C8851E /* AppDelegate.mm in Sources */,
 				A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */,
+				A83F55011A312DB100E3531E /* FileHelper.cpp in Sources */,
 				A84E430C1A2A1DFB00EE6AC1 /* TextItemizer.cpp in Sources */,
 				A84E430B1A2A1DFB00EE6AC1 /* scrptrun.cpp in Sources */,
 				A84E434F1A2A1F2300EE6AC1 /* SystemManager.mm in Sources */,
@@ -829,7 +830,6 @@
 				A8CDB6641A2DD16A0043A5E5 /* NSDictionary+DefautValues.m in Sources */,
 				A84E430D1A2A1DFB00EE6AC1 /* VirtualFont.cpp in Sources */,
 				A84E43371A2A1F0500EE6AC1 /* ShapeTesselator.cpp in Sources */,
-				A84E42FF1A2A1DFB00EE6AC1 /* FileSystem.cpp in Sources */,
 				A84E43511A2A1F2300EE6AC1 /* UIView+StringTag.m in Sources */,
 				A8721A451A2BEF3000AED9C8 /* TestingMemory.cpp in Sources */,
 				A8CDB6651A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m in Sources */,

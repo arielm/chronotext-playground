@@ -38,7 +38,7 @@ public:
     static ci::fs::path getPublicDirectory()
     {
 #if defined(CINDER_ANDROID)
-        return chr::FileSystem::getAndroidExternalDataPath();
+        return chr::FileHelper::getAndroidExternalDataPath();
 #else
         return ci::getDocumentsDirectory();
 #endif
@@ -52,7 +52,7 @@ public:
             {
                 if (ci::fs::is_regular_file(current->status()))
                 {
-                    auto relativePath = chr::FileSystem::relativizePath(directoryPath, current->path());
+                    auto relativePath = chr::FileHelper::relativizePath(directoryPath, current->path());
                     LOGI << relativePath.string() << std::endl;
                 }
             }
