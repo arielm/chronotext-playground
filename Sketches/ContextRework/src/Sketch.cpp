@@ -25,7 +25,7 @@ void Sketch::setup()
     
     TestingBase::execute<TestingMisc>(true);
 
-    if (false)
+    if (true)
     {
         frameTest = make_shared<TestingMemory>();
         frameTest->setup();

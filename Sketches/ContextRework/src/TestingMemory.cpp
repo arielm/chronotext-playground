@@ -40,7 +40,7 @@ void TestingMemory::setup()
     index = 0;
     done = false;
     
-    LOGI << endl << "MEMORY INFO - BEFORE: " << memoryInfo() << endl;
+    LOGI << endl << "MEMORY INFO - BEFORE: " << getMemoryInfo() << endl;
 }
 
 void TestingMemory::update()
@@ -71,20 +71,22 @@ void TestingMemory::update()
 
             // --
             
-            LOGI << endl << memoryInfo() << endl;
+//          LOGI << endl << getMemoryInfo() << endl;
             textureManager.getTexture(textureRequest);
-            LOGI << memoryInfo() << endl;
+//          LOGI << getMemoryInfo() << endl;
+            
+            if (index > 10) done = true;
         }
         else
         {
             textureManager.discard();
             done = true;
             
-            LOGI << endl << "MEMORY INFO - AFTER: " << memoryInfo() << endl;
+            LOGI << endl << "MEMORY INFO - AFTER: " << getMemoryInfo() << endl;
         }
     }
     else if (index > 0)
     {
-        LOGI << memoryInfo() << endl;
+        LOGI << getMemoryInfo() << endl;
     }
 }
