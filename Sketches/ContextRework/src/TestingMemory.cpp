@@ -47,7 +47,7 @@ void TestingMemory::update()
 {
     if (!done)
     {
-        int size = true ? index < inputSources.size() : 10; // XXX
+        int size = false ? inputSources.size() : 10; // XXX
         
         if (index < size)
         {
