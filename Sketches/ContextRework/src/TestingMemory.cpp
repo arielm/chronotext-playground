@@ -47,7 +47,9 @@ void TestingMemory::update()
 {
     if (!done)
     {
-        if (index < inputSources.size())
+        int size = true ? index < inputSources.size() : 10; // XXX
+        
+        if (index < size)
         {
             auto inputSource = inputSources[index++];
             
@@ -74,8 +76,6 @@ void TestingMemory::update()
 //          LOGI << endl << getMemoryInfo() << endl;
             textureManager.getTexture(textureRequest);
 //          LOGI << getMemoryInfo() << endl;
-            
-            if (index > 10) done = true;
         }
         else
         {
@@ -87,6 +87,9 @@ void TestingMemory::update()
     }
     else if (index > 0)
     {
-        LOGI << getMemoryInfo() << endl;
-    }
+        if (false)
+        {
+            LOGI << getMemoryInfo() << endl;
+        }
+   }
 }
