@@ -31,7 +31,7 @@ public:
 protected:
     chr::TextureManager textureManager;
     
-    std::vector<chr::InputSourceRef> inputSources;
+    std::vector<chr::InputSource::Ref> inputSources;
     int index;
     bool done;
 };

@@ -62,6 +62,12 @@
 		A8721A421A2BE87E00AED9C8 /* TestingMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A401A2BE87E00AED9C8 /* TestingMemory.cpp */; };
 		A874A5021A2B550A009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A4FE1A2B550A009A60A0 /* Task.cpp */; };
 		A874A5031A2B550A009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5001A2B550A009A60A0 /* TaskManager.cpp */; };
+		A881B2781A351E2200AB18C0 /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A881B2701A351E2200AB18C0 /* Font.cpp */; };
+		A881B2791A351E2200AB18C0 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A881B2721A351E2200AB18C0 /* FontManager.cpp */; };
+		A881B27A1A351E2200AB18C0 /* FontSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A881B2741A351E2200AB18C0 /* FontSequence.cpp */; };
+		A881B27B1A351E2200AB18C0 /* TextHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A881B2761A351E2200AB18C0 /* TextHelper.cpp */; };
+		A881B2811A35206A00AB18C0 /* TextureAtlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A881B27D1A35206A00AB18C0 /* TextureAtlas.cpp */; };
+		A881B2821A35206A00AB18C0 /* TextureAtlasAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A881B27F1A35206A00AB18C0 /* TextureAtlasAnimation.cpp */; };
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
 		A8CDB6531A2DC0B60043A5E5 /* MemoryManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6511A2DC0B60043A5E5 /* MemoryManagerBase.cpp */; };
@@ -204,6 +210,18 @@
 		A874A4FF1A2B550A009A60A0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		A874A5001A2B550A009A60A0 /* TaskManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaskManager.cpp; sourceTree = "<group>"; };
 		A874A5011A2B550A009A60A0 /* TaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
+		A881B2701A351E2200AB18C0 /* Font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Font.cpp; sourceTree = "<group>"; };
+		A881B2711A351E2200AB18C0 /* Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Font.h; sourceTree = "<group>"; };
+		A881B2721A351E2200AB18C0 /* FontManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontManager.cpp; sourceTree = "<group>"; };
+		A881B2731A351E2200AB18C0 /* FontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontManager.h; sourceTree = "<group>"; };
+		A881B2741A351E2200AB18C0 /* FontSequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FontSequence.cpp; sourceTree = "<group>"; };
+		A881B2751A351E2200AB18C0 /* FontSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontSequence.h; sourceTree = "<group>"; };
+		A881B2761A351E2200AB18C0 /* TextHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextHelper.cpp; sourceTree = "<group>"; };
+		A881B2771A351E2200AB18C0 /* TextHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextHelper.h; sourceTree = "<group>"; };
+		A881B27D1A35206A00AB18C0 /* TextureAtlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureAtlas.cpp; sourceTree = "<group>"; };
+		A881B27E1A35206A00AB18C0 /* TextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlas.h; sourceTree = "<group>"; };
+		A881B27F1A35206A00AB18C0 /* TextureAtlasAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureAtlasAnimation.cpp; sourceTree = "<group>"; };
+		A881B2801A35206A00AB18C0 /* TextureAtlasAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlasAnimation.h; sourceTree = "<group>"; };
 		A8B336591A045B2200ABEFBF /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		A8B3365A1A045B2200ABEFBF /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
@@ -337,6 +355,7 @@
 				A86901891A02E22300D2C9F3 /* InputSource.h */,
 				A86901881A02E22300D2C9F3 /* InputSource.cpp */,
 				A86901261A02E22300D2C9F3 /* app */,
+				A881B27C1A35206A00AB18C0 /* atlas */,
 				A86901331A02E22300D2C9F3 /* cinder */,
 				A8DB87301A2CEE8700334BEA /* cocoa */,
 				A86901421A02E22300D2C9F3 /* font */,
@@ -395,6 +414,7 @@
 		A86901421A02E22300D2C9F3 /* font */ = {
 			isa = PBXGroup;
 			children = (
+				A881B26F1A351E2200AB18C0 /* xf */,
 				A869014C1A02E22300D2C9F3 /* zf */,
 			);
 			path = font;
@@ -596,6 +616,32 @@
 			name = OSX;
 			sourceTree = "<group>";
 		};
+		A881B26F1A351E2200AB18C0 /* xf */ = {
+			isa = PBXGroup;
+			children = (
+				A881B2701A351E2200AB18C0 /* Font.cpp */,
+				A881B2711A351E2200AB18C0 /* Font.h */,
+				A881B2721A351E2200AB18C0 /* FontManager.cpp */,
+				A881B2731A351E2200AB18C0 /* FontManager.h */,
+				A881B2741A351E2200AB18C0 /* FontSequence.cpp */,
+				A881B2751A351E2200AB18C0 /* FontSequence.h */,
+				A881B2761A351E2200AB18C0 /* TextHelper.cpp */,
+				A881B2771A351E2200AB18C0 /* TextHelper.h */,
+			);
+			path = xf;
+			sourceTree = "<group>";
+		};
+		A881B27C1A35206A00AB18C0 /* atlas */ = {
+			isa = PBXGroup;
+			children = (
+				A881B27E1A35206A00AB18C0 /* TextureAtlas.h */,
+				A881B27D1A35206A00AB18C0 /* TextureAtlas.cpp */,
+				A881B2801A35206A00AB18C0 /* TextureAtlasAnimation.h */,
+				A881B27F1A35206A00AB18C0 /* TextureAtlasAnimation.cpp */,
+			);
+			path = atlas;
+			sourceTree = "<group>";
+		};
 		A8994D491726E98F00C8851E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,8 +752,10 @@
 				A86902151A02E22300D2C9F3 /* ActualFont.cpp in Sources */,
 				A83F54F81A311FF400E3531E /* Context.cpp in Sources */,
 				A86902471A02E22400D2C9F3 /* PVRHelper.cpp in Sources */,
+				A881B2811A35206A00AB18C0 /* TextureAtlas.cpp in Sources */,
 				A86902511A02E22400D2C9F3 /* GLUtils.cpp in Sources */,
 				A874A5021A2B550A009A60A0 /* Task.cpp in Sources */,
+				A881B27A1A351E2200AB18C0 /* FontSequence.cpp in Sources */,
 				A86902401A02E22400D2C9F3 /* SplinePath.cpp in Sources */,
 				A869021A1A02E22300D2C9F3 /* LayoutCache.cpp in Sources */,
 				A869021D1A02E22400D2C9F3 /* TextItemizer.cpp in Sources */,
@@ -715,6 +763,7 @@
 				A86902491A02E22400D2C9F3 /* Texture.cpp in Sources */,
 				A85977321A2F911A0080C906 /* SystemManager.cpp in Sources */,
 				A86902351A02E22400D2C9F3 /* Handler.cpp in Sources */,
+				A881B2821A35206A00AB18C0 /* TextureAtlasAnimation.cpp in Sources */,
 				A86902451A02E22400D2C9F3 /* DisplayHelper.cpp in Sources */,
 				A869023F1A02E22400D2C9F3 /* ShapeTesselator.cpp in Sources */,
 				A869022E1A02E22400D2C9F3 /* InputSource.cpp in Sources */,
@@ -728,9 +777,11 @@
 				A86902191A02E22300D2C9F3 /* LangHelper.cpp in Sources */,
 				A83F55041A312DC300E3531E /* FileHelper.cpp in Sources */,
 				A8721A421A2BE87E00AED9C8 /* TestingMemory.cpp in Sources */,
+				A881B27B1A351E2200AB18C0 /* TextHelper.cpp in Sources */,
 				A86902361A02E22400D2C9F3 /* SuperHandler.cpp in Sources */,
 				A869024D1A02E22400D2C9F3 /* FrameClock.cpp in Sources */,
 				A86902551A02E22400D2C9F3 /* Utils.cpp in Sources */,
+				A881B2791A351E2200AB18C0 /* FontManager.cpp in Sources */,
 				A86902411A02E22400D2C9F3 /* QuadMatrix.cpp in Sources */,
 				A869024B1A02E22400D2C9F3 /* TextureManager.cpp in Sources */,
 				A869020A1A02E22300D2C9F3 /* CinderSketch.cpp in Sources */,
@@ -749,6 +800,7 @@
 				A869024A1A02E22400D2C9F3 /* TextureHelper.cpp in Sources */,
 				A869021C1A02E22400D2C9F3 /* scrptrun.cpp in Sources */,
 				A8DB87381A2CEE8700334BEA /* NSDictionary+DefautValues.m in Sources */,
+				A881B2781A351E2200AB18C0 /* Font.cpp in Sources */,
 				A86902171A02E22300D2C9F3 /* FontSequence.cpp in Sources */,
 				A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */,
 			);
