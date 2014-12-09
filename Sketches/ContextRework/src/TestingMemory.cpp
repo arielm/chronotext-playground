@@ -74,7 +74,16 @@ void TestingMemory::update()
             // --
             
 //          LOGI << endl << getMemoryInfo() << endl;
-            textureManager.getTexture(textureRequest);
+            
+            try
+            {
+                textureManager.getTexture(textureRequest);
+            }
+            catch (exception &e)
+            {
+                LOGI << e.what() << endl;
+            }
+            
 //          LOGI << getMemoryInfo() << endl;
         }
         else

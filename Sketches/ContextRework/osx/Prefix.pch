@@ -4,3 +4,4 @@
 
 //#define DISCARD_LOGI
 //#define FORCE_SYSLOG
+//#define FORCE_LOGD

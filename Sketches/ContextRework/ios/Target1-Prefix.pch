@@ -5,3 +5,4 @@
 
 //#define FORCE_LOGD
 //#define DISCARD_LOGI
+//#define FORCE_LOGD
