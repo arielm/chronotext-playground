@@ -1,6 +1,5 @@
 #include "TestingMisc.h"
 
-#include "chronotext/InputSource.h"
 #include "chronotext/Context.h"
 #include "chronotext/utils/FileCapture.h"
 
@@ -73,10 +72,10 @@ void TestingMisc::testFileCapture()
 void TestingMisc::testNewLogging()
 {
     /*
-     * NEW LOGGING SYSTEM IS CURRENTLY ON HOLD...
+     * TODO: DEMONSTRATE "THREAD-BUFFERING" CAPABILITIES
      */
     
-    LOG << "nothing special for now" << ' ' << std::hex << 255 << std::dec << endl;
+    LOGI << "thread-buffered and iomanip-aware" << ' ' << std::hex << 255 << std::dec << endl;
 }
 
 void TestingMisc::testNewException()

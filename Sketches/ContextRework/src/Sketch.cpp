@@ -2,6 +2,7 @@
 
 #include "TestingMisc.h"
 #include "TestingMemory.h"
+#include "TestingTasks.h"
 
 #include "chronotext/Context.h"
 #include "chronotext/utils/GLUtils.h"
@@ -23,9 +24,12 @@ void Sketch::setup()
         LOGI << "WINDOW INFO: " << displayInfo() << endl;
     }
     
-    TestingBase::execute<TestingMisc>(true);
+    // ---
+    
+    TestingBase::execute<TestingMisc>(false);
+    TestingBase::execute<TestingTasks>(true);
 
-    if (true)
+    if (false)
     {
         frameTest = make_shared<TestingMemory>();
         frameTest->setup();

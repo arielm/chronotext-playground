@@ -18,6 +18,8 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		A8027DFD16E3784B00184149 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A8027DFC16E3784B00184149 /* icon.icns */; };
 		A814C5DB1A374AE400F639E3 /* ImageSourceFileStbImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A814C5D81A374AE400F639E3 /* ImageSourceFileStbImage.cpp */; };
+		A81CCE3F1A3DA49300AF0BFC /* TestingTasks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81CCE3D1A3DA49300AF0BFC /* TestingTasks.cpp */; };
+		A81CCE421A3DA67800AF0BFC /* TestTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81CCE401A3DA67800AF0BFC /* TestTask.cpp */; };
 		A82C910A16E02DAA00FF519C /* Sketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A82C910816E02DAA00FF519C /* Sketch.cpp */; };
 		A83F54F81A311FF400E3531E /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F54F61A311FF400E3531E /* Context.cpp */; };
 		A83F55041A312DC300E3531E /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F55021A312DC300E3531E /* FileHelper.cpp */; };
@@ -96,6 +98,10 @@
 		A814C5D81A374AE400F639E3 /* ImageSourceFileStbImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSourceFileStbImage.cpp; sourceTree = "<group>"; };
 		A814C5D91A374AE400F639E3 /* ImageSourceFileStbImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceFileStbImage.h; sourceTree = "<group>"; };
 		A814C5DA1A374AE400F639E3 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		A81CCE3D1A3DA49300AF0BFC /* TestingTasks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingTasks.cpp; path = ../src/TestingTasks.cpp; sourceTree = "<group>"; };
+		A81CCE3E1A3DA49300AF0BFC /* TestingTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingTasks.h; path = ../src/TestingTasks.h; sourceTree = "<group>"; };
+		A81CCE401A3DA67800AF0BFC /* TestTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestTask.cpp; path = ../src/TestTask.cpp; sourceTree = "<group>"; };
+		A81CCE411A3DA67800AF0BFC /* TestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestTask.h; path = ../src/TestTask.h; sourceTree = "<group>"; };
 		A82C910816E02DAA00FF519C /* Sketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sketch.cpp; path = ../src/Sketch.cpp; sourceTree = "<group>"; };
 		A82C910916E02DAA00FF519C /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sketch.h; path = ../src/Sketch.h; sourceTree = "<group>"; };
 		A83F54F61A311FF400E3531E /* Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
@@ -613,6 +619,10 @@
 				A8721A381A2BD48000AED9C8 /* TestingMisc.cpp */,
 				A8721A411A2BE87E00AED9C8 /* TestingMemory.h */,
 				A8721A401A2BE87E00AED9C8 /* TestingMemory.cpp */,
+				A81CCE3E1A3DA49300AF0BFC /* TestingTasks.h */,
+				A81CCE3D1A3DA49300AF0BFC /* TestingTasks.cpp */,
+				A81CCE411A3DA67800AF0BFC /* TestTask.h */,
+				A81CCE401A3DA67800AF0BFC /* TestTask.cpp */,
 			);
 			name = Testing;
 			sourceTree = "<group>";
@@ -787,6 +797,7 @@
 				A869021E1A02E22400D2C9F3 /* VirtualFont.cpp in Sources */,
 				A86902521A02E22400D2C9F3 /* MathUtils.cpp in Sources */,
 				A82C910A16E02DAA00FF519C /* Sketch.cpp in Sources */,
+				A81CCE3F1A3DA49300AF0BFC /* TestingTasks.cpp in Sources */,
 				A86902091A02E22300D2C9F3 /* CinderDelegate.cpp in Sources */,
 				A8DB873A1A2CEE8700334BEA /* NSString+JSON.m in Sources */,
 				A86902191A02E22300D2C9F3 /* LangHelper.cpp in Sources */,
@@ -809,6 +820,7 @@
 				A8DB87391A2CEE8700334BEA /* NSMutableDictionary+Merge.m in Sources */,
 				A869024C1A02E22400D2C9F3 /* Clock.cpp in Sources */,
 				A869021B1A02E22400D2C9F3 /* LineLayout.cpp in Sources */,
+				A81CCE421A3DA67800AF0BFC /* TestTask.cpp in Sources */,
 				A8721A3A1A2BD48000AED9C8 /* TestingMisc.cpp in Sources */,
 				A869023D1A02E22400D2C9F3 /* Hairline.cpp in Sources */,
 				A86902161A02E22300D2C9F3 /* FontManager.cpp in Sources */,

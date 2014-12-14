@@ -25,8 +25,8 @@
 class TestingMemory : public TestingBase
 {
 public:
-    void setup();
-    void update();
+    void setup() final;
+    void update() final;
     
 protected:
     chr::TextureManager textureManager;

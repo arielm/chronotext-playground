@@ -5,7 +5,7 @@
 class TestingMisc : public TestingBase
 {
 public:
-    void run(bool force = false);
+    void run(bool force = false) final;
     
     void testFileCapture();
     void testNewLogging();
