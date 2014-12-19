@@ -10,6 +10,7 @@
 using namespace std;
 using namespace ci;
 using namespace chr;
+using namespace chr::utils;
 
 Sketch::Sketch()
 :
@@ -66,9 +67,9 @@ void Sketch::update()
 
 void Sketch::draw()
 {
-    gl::setMatricesWindow(getWindowSize(), true);
-    gl::clear(Color::gray(0.5f), false);
+    ci::gl::setMatricesWindow(getWindowSize(), true);
+    ci::gl::clear(Color::gray(0.5f), false);
     
-    gl::color(Color::white());
-    drawGrid(getWindowBounds(), 64, Vec2f(0, clock().getTime() * 60));
+    ci::gl::color(Color::white());
+    utils::gl::drawGrid(getWindowBounds(), 64, Vec2f(0, clock().getTime() * 60));
 }

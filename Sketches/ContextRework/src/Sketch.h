@@ -1,9 +1,9 @@
 /*
  * PLAYGROUND IN SYNC WITH ContextRework BRANCH IN new-chronotext-toolkit
  *
- * OSX: COMMIT d44c5ae
- * IOS: COMMIT d44c5ae
- * ANDROID: COMMIT d44c5ae
+ * OSX: COMMIT ff80b3c
+ * IOS: COMMIT ff80b3c
+ * ANDROID: COMMIT ff80b3c
  */
 
 #pragma once
@@ -17,11 +17,11 @@ class Sketch : public chr::CinderSketch
 public:
     Sketch();
     
-    void setup() override;
-    void shutdown() override;
+    void setup() final;
+    void shutdown() final;
     
-    void update() override;
-    void draw() override;
+    void update() final;
+    void draw() final;
     
 protected:
     std::shared_ptr<TestingBase> frameTest;
