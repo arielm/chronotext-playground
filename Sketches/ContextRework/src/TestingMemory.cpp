@@ -5,6 +5,7 @@
 using namespace std;
 using namespace ci;
 using namespace chr;
+using namespace context;
 
 void TestingMemory::setup()
 {

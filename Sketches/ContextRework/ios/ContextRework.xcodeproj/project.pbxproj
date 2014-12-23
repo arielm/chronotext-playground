@@ -73,6 +73,8 @@
 		A8994D441726E33900C8851E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8994D431726E33900C8851E /* GLKit.framework */; };
 		A8994D481726E51E00C8851E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8994D471726E51E00C8851E /* AppDelegate.mm */; };
 		A8C16EA01A2A4A7300551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9F1A2A4A7300551905 /* main.cpp */; };
+		A8CC2B361A49A5C300F8FBA5 /* TestingTasks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CC2B321A49A5C300F8FBA5 /* TestingTasks.cpp */; };
+		A8CC2B371A49A5C300F8FBA5 /* TestTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CC2B341A49A5C300F8FBA5 /* TestTask.cpp */; };
 		A8CDB6631A2DD16A0043A5E5 /* MemoryManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB65B1A2DD16A0043A5E5 /* MemoryManager.mm */; };
 		A8CDB6641A2DD16A0043A5E5 /* NSDictionary+DefautValues.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB65E1A2DD16A0043A5E5 /* NSDictionary+DefautValues.m */; };
 		A8CDB6651A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6601A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m */; };
@@ -243,6 +245,10 @@
 		A8994D461726E51E00C8851E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8994D471726E51E00C8851E /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		A8C16E9F1A2A4A7300551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
+		A8CC2B321A49A5C300F8FBA5 /* TestingTasks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingTasks.cpp; path = ../src/TestingTasks.cpp; sourceTree = "<group>"; };
+		A8CC2B331A49A5C300F8FBA5 /* TestingTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingTasks.h; path = ../src/TestingTasks.h; sourceTree = "<group>"; };
+		A8CC2B341A49A5C300F8FBA5 /* TestTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestTask.cpp; path = ../src/TestTask.cpp; sourceTree = "<group>"; };
+		A8CC2B351A49A5C300F8FBA5 /* TestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestTask.h; path = ../src/TestTask.h; sourceTree = "<group>"; };
 		A8CDB65A1A2DD16A0043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8CDB65B1A2DD16A0043A5E5 /* MemoryManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MemoryManager.mm; sourceTree = "<group>"; };
 		A8CDB65D1A2DD16A0043A5E5 /* NSDictionary+DefautValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DefautValues.h"; sourceTree = "<group>"; };
@@ -686,6 +692,10 @@
 				A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */,
 				A8721A441A2BEF3000AED9C8 /* TestingMemory.h */,
 				A8721A431A2BEF3000AED9C8 /* TestingMemory.cpp */,
+				A8CC2B331A49A5C300F8FBA5 /* TestingTasks.h */,
+				A8CC2B321A49A5C300F8FBA5 /* TestingTasks.cpp */,
+				A8CC2B351A49A5C300F8FBA5 /* TestTask.h */,
+				A8CC2B341A49A5C300F8FBA5 /* TestTask.cpp */,
 			);
 			name = Testing;
 			sourceTree = "<group>";
@@ -811,6 +821,7 @@
 				A84E43171A2A1DFB00EE6AC1 /* PVRHelper.cpp in Sources */,
 				A84E431A1A2A1DFB00EE6AC1 /* TextureHelper.cpp in Sources */,
 				A8DB3EC616E0B96C00504D27 /* Sketch.cpp in Sources */,
+				A8CC2B361A49A5C300F8FBA5 /* TestingTasks.cpp in Sources */,
 				A8994D481726E51E00C8851E /* AppDelegate.mm in Sources */,
 				A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */,
 				A83F55011A312DB100E3531E /* FileHelper.cpp in Sources */,
@@ -837,6 +848,7 @@
 				A84E43351A2A1F0500EE6AC1 /* Hairline.cpp in Sources */,
 				A84E430A1A2A1DFB00EE6AC1 /* LineLayout.cpp in Sources */,
 				A84E43151A2A1DFB00EE6AC1 /* DisplayHelper.cpp in Sources */,
+				A8CC2B371A49A5C300F8FBA5 /* TestTask.cpp in Sources */,
 				A8DC566D1A2E238400C16B2F /* MemoryManagerBase.cpp in Sources */,
 				A84E43141A2A1DFB00EE6AC1 /* QuadMatrix.cpp in Sources */,
 				A83F54FB1A31204E00E3531E /* Context.cpp in Sources */,
