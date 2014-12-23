@@ -9,6 +9,10 @@ using namespace context;
 
 void TestingMemory::setup()
 {
+    TextureHelper::PROBE_MEMORY = true;
+
+    // ---
+    
     /*
      * THE FIRST WILL BE A PNG IMAGE OF OUR OWN
      */
@@ -42,6 +46,11 @@ void TestingMemory::setup()
     done = false;
     
     LOGI << endl << "MEMORY INFO - BEFORE: " << getMemoryInfo() << endl;
+}
+
+void TestingMemory::shutdown()
+{
+    TextureHelper::PROBE_MEMORY = false;
 }
 
 void TestingMemory::update()

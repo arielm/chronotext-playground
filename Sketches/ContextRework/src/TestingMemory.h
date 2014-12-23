@@ -26,6 +26,7 @@ class TestingMemory : public TestingBase
 {
 public:
     void setup() final;
+    void shutdown() final;
     void update() final;
     
 protected:
