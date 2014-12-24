@@ -1,8 +1,6 @@
 #include "Sketch.h"
 
-#include "TestingMisc.h"
-#include "TestingMemory.h"
-#include "TestingTasks.h"
+#include "TestingSound.h"
 
 #include "chronotext/Context.h"
 #include "chronotext/utils/GLUtils.h"
@@ -15,18 +13,7 @@ void Sketch::setup()
 {
     if (true)
     {
-        LOGI << "DISPLAY INFO: " << windowInfo() << endl;
-        LOGI << "WINDOW INFO: " << displayInfo() << endl;
-    }
-    
-    // ---
-    
-    TestingBase::execute<TestingMisc>(false);
-    TestingBase::execute<TestingTasks>(false);
-
-    if (true)
-    {
-        frameTest = make_shared<TestingMemory>();
+        frameTest = make_shared<TestingSound>();
         frameTest->setup();
     }
     
@@ -50,7 +37,7 @@ void Sketch::shutdown()
 void Sketch::update()
 {
     /*
-     * PASSING VIA update() IS NECESSARY IN ORDER TO BE PROPERLY NOTIFIED UPON "MEMORY WARNING" ON IOS
+     * PASSING VIA update() IS NECESSARY IN ORDER TO WORK WITH SOUND-ENGINE
      */
     
     if (frameTest)
