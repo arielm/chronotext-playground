@@ -10,6 +10,7 @@ using namespace context;
 void TestingMemory::setup()
 {
     TextureHelper::PROBE_MEMORY = true;
+    Texture::VERBOSE = true;
 
     // ---
     
@@ -51,6 +52,7 @@ void TestingMemory::setup()
 void TestingMemory::shutdown()
 {
     TextureHelper::PROBE_MEMORY = false;
+    Texture::VERBOSE = false;
 }
 
 void TestingMemory::update()

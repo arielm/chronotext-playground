@@ -10,7 +10,6 @@
 using namespace std;
 using namespace ci;
 using namespace chr;
-using namespace chr::utils;
 
 Sketch::Sketch()
 :
@@ -28,9 +27,9 @@ void Sketch::setup()
     // ---
     
     TestingBase::execute<TestingMisc>(false);
-    TestingBase::execute<TestingTasks>(true);
+    TestingBase::execute<TestingTasks>(false);
 
-    if (false)
+    if (true)
     {
         frameTest = make_shared<TestingMemory>();
         frameTest->setup();
@@ -67,9 +66,9 @@ void Sketch::update()
 
 void Sketch::draw()
 {
-    ci::gl::setMatricesWindow(getWindowSize(), true);
-    ci::gl::clear(Color::gray(0.5f), false);
+    gl::setMatricesWindow(getWindowSize(), true);
+    gl::clear(Color::gray(0.5f), false);
     
-    ci::gl::color(Color::white());
+    gl::color(Color::white());
     utils::gl::drawGrid(getWindowBounds(), 64, Vec2f(0, clock().getTime() * 60));
 }
