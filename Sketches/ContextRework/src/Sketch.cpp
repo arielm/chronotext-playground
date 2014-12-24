@@ -11,11 +11,6 @@ using namespace std;
 using namespace ci;
 using namespace chr;
 
-Sketch::Sketch()
-:
-CinderSketch()
-{}
-
 void Sketch::setup()
 {
     if (true)

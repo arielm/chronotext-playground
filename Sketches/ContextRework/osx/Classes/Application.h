@@ -17,7 +17,7 @@
 class Application : public chr::CinderDelegate
 {
 public:
-    void applySettings(Settings *settings) override
+    void applySettings(Settings *settings) final
     {
         if (loadEmulators(chr::InputSource::getResource("emulators.json")))
         {
@@ -31,7 +31,7 @@ public:
         }
     }
     
-    void keyDown(ci::app::KeyEvent event) override
+    void keyDown(ci::app::KeyEvent event) final
     {
         switch (event.getCode())
         {

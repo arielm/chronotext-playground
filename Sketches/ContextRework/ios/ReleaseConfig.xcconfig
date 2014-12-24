@@ -5,5 +5,5 @@ GCC_OPTIMIZATION_LEVEL = 3
 OTHER_CFLAGS = -DNS_BLOCK_ASSERTIONS=1
 VALIDATE_PRODUCT = YES
 
-OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*] = -lz "$(CINDER_PATH)/blocks/Freetype/lib/ios/libfreetype.a" "$(CINDER_PATH)/blocks/hb-icu/lib/ios/libicu-common.a" "$(CINDER_PATH)/blocks/hb-icu/lib/ios/libhb.a" "$(CINDER_PATH)/lib/libcinder-iphone-sim.a"
-OTHER_LDFLAGS[sdk=iphoneos*][arch=armv7] = -lz "$(CINDER_PATH)/blocks/Freetype/lib/ios/libfreetype.a" "$(CINDER_PATH)/blocks/hb-icu/lib/ios/libicu-common.a" "$(CINDER_PATH)/blocks/hb-icu/lib/ios/libhb.a" "$(CINDER_PATH)/lib/libcinder-iphone.a"
+OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*] = -lz "$(CINDER_PATH)/lib/libcinder-iphone-sim.a" "$(CINDER_PATH)/blocks/Freetype/lib/ios/libfreetype.a" "$(CINDER_PATH)/blocks/hb-icu/lib/ios/libicu-common.a" "$(CINDER_PATH)/blocks/hb-icu/lib/ios/libhb.a"
+OTHER_LDFLAGS[sdk=iphoneos*][arch=armv7] = -lz "$(CINDER_PATH)/lib/libcinder-iphone.a" "$(CINDER_PATH)/blocks/Freetype/lib/ios/libfreetype.a" "$(CINDER_PATH)/blocks/hb-icu/lib/ios/libicu-common.a" "$(CINDER_PATH)/blocks/hb-icu/lib/ios/libhb.a"

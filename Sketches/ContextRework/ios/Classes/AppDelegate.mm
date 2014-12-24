@@ -9,8 +9,6 @@
 #import "AppDelegate.h"
 #import "GLViewController.h"
 
-#include "Sketch.h"
-
 @implementation AppDelegate
 
 - (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions

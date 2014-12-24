@@ -1,5 +1,3 @@
-// PROJECT
-
 ARCHS = $(ARCHS_STANDARD_64_BIT)
 SDKROOT = macosx
 MACOSX_DEPLOYMENT_TARGET = 10.7
@@ -11,17 +9,16 @@ GCC_INLINES_ARE_PRIVATE_EXTERN = YES
 GCC_SYMBOLS_PRIVATE_EXTERN = NO
 GCC_PRECOMPILE_PREFIX_HEADER = YES
 DEAD_CODE_STRIPPING = YES
-WRAPPER_EXTENSION = app
-COMBINE_HIDPI_IMAGES = YES
+COPY_PHASE_STRIP = NO
 
 CINDER_PATH = $(CINDER_PATH_CHR)
 
 ALWAYS_SEARCH_USER_PATHS = YES
-USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/blocks/new-chronotext-toolkit/src"
-HEADER_SEARCH_PATHS = ../include ../../../Common "$(CINDER_PATH)/include" "$(CINDER_PATH)/boost" "$(CINDER_PATH)/src/libtess2" "$(CINDER_PATH)/blocks/Freetype/include" "$(CINDER_PATH)/blocks/hb-icu/include/icu/common" "$(CINDER_PATH)/blocks/hb-icu/include/hb"
+USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/boost" "$(CINDER_PATH)/blocks/new-chronotext-toolkit/src"
+HEADER_SEARCH_PATHS = ../include ../../../Common "$(CINDER_PATH)/include" "$(CINDER_PATH)/src/libtess2" "$(CINDER_PATH)/blocks/Freetype/include" "$(CINDER_PATH)/blocks/hb-icu/include/icu/common" "$(CINDER_PATH)/blocks/hb-icu/include/hb"
 LIBRARY_SEARCH_PATHS =
 
-// TARGET
+//
 
 PRODUCT_NAME = ContextRework
 INFOPLIST_FILE = Info.plist
