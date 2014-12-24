@@ -1,0 +1,4 @@
+#include "ReleaseConfig.xcconfig"
+
+CODE_SIGN_IDENTITY = iPhone Distribution
+PROVISIONING_PROFILE =
