@@ -13,8 +13,11 @@ public:
     void shutdown() final;
     void update() final;
     
+    void addTouch(int index, float x, float y) final;
+    
     void handleEvent(const chr::SoundEngine::Event &event) final;
     
 protected:
     std::shared_ptr<chr::SoundEngine> engine;
+    std::vector<chr::Effect::Ref> effects;
 };

@@ -33,6 +33,10 @@ public:
     virtual void run(bool force = false) {}
     virtual void update() {}
     
+    virtual void addTouch(int index, float x, float y) {}
+    virtual void updateTouch(int index, float x, float y) {}
+    virtual void removeTouch(int index, float x, float y) {}
+    
     // ---
     
     static ci::fs::path getPublicDirectory()

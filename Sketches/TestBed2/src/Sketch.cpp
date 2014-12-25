@@ -46,6 +46,30 @@ void Sketch::update()
     }
 }
 
+void Sketch::addTouch(int index, float x, float y)
+{
+    if (frameTest)
+    {
+        frameTest->addTouch(index, x, y);
+    }
+}
+
+void Sketch::updateTouch(int index, float x, float y)
+{
+    if (frameTest)
+    {
+        frameTest->updateTouch(index, x, y);
+    }
+}
+
+void Sketch::removeTouch(int index, float x, float y)
+{
+    if (frameTest)
+    {
+        frameTest->removeTouch(index, x, y);
+    }
+}
+
 void Sketch::draw()
 {
     gl::setMatricesWindow(getWindowSize(), true);

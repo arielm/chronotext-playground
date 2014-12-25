@@ -2,6 +2,8 @@
 
 #include "chronotext/Context.h"
 
+#include "cinder/Rand.h"
+
 using namespace std;
 using namespace ci;
 using namespace chr;
@@ -17,6 +19,13 @@ void TestingSound::setup()
         engine->setup(MAX_CHANNELS);
         
         engine->addListener(this);
+        
+        // ---
+        
+        for (auto &name : { "drumloop.wav", "jaguar.wav", "swish.wav" })
+        {
+            effects.emplace_back(engine->preloadEffect(InputSource::getAsset(name)));
+        }
     }
 }
 
@@ -37,5 +46,13 @@ void TestingSound::update()
     }
 }
 
+void TestingSound::addTouch(int index, float x, float y)
+{
+    auto effect = effects[Rand::randInt(effects.size())];
+    engine->playEffect(effect->getId());
+}
+
 void TestingSound::handleEvent(const SoundEngine::Event &event)
-{}
+{
+    LOGI << event << endl;
+}
