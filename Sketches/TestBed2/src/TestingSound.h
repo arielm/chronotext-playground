@@ -2,9 +2,9 @@
 
 #include "TestingBase.h"
 
-#include "chronotext/incubator/sound/SoundEngine.h"
+#include "chronotext/sound/SoundEngine.h"
 
-class TestingSound : public TestingBase, public SoundEngine::Listener
+class TestingSound : public TestingBase, public chr::SoundEngine::Listener
 {
 public:
     static int MAX_CHANNELS;
@@ -13,8 +13,8 @@ public:
     void shutdown() final;
     void update() final;
     
-    void handleEvent(const SoundEngine::Event &event) final;
+    void handleEvent(const chr::SoundEngine::Event &event) final;
     
 protected:
-    std::shared_ptr<SoundEngine> engine;
+    std::shared_ptr<chr::SoundEngine> engine;
 };

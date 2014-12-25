@@ -8,7 +8,7 @@ FILE_LIST := $(wildcard $(LOCAL_PATH)/../../src/*.cpp)
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 CHR_USE_ZFONT := 1
-CHR_USE_INCUBATOR_SOUND := 1
+CHR_USE_FMOD_SOUND := 1
 include $(LOCAL_PATH)/$(CINDER_PATH)/blocks/new-chronotext-toolkit/android/Android.mk
 
 LOCAL_CFLAGS :=

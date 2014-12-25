@@ -18,8 +18,8 @@
 		4C264DD81850B7A900468BAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C264DD71850B7A900468BAA /* SystemConfiguration.framework */; };
 		4C264DDC1850B82500468BAA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C264DDB1850B82500468BAA /* Accelerate.framework */; };
 		A8112A4E1A4B338A0002CF68 /* TestingSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112A4C1A4B338A0002CF68 /* TestingSound.cpp */; };
-		A8112AA61A4C2F750002CF68 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112A861A4C2F750002CF68 /* Effect.cpp */; };
-		A8112AA71A4C2F750002CF68 /* SoundEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112A881A4C2F750002CF68 /* SoundEngine.cpp */; };
+		A8112AC11A4C4B520002CF68 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112ABD1A4C4B520002CF68 /* Effect.cpp */; };
+		A8112AC21A4C4B520002CF68 /* SoundEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112ABF1A4C4B520002CF68 /* SoundEngine.cpp */; };
 		A81E3DF61993B741002B8978 /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF11993B741002B8978 /* icon_144.png */; };
 		A81E3DF71993B741002B8978 /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF21993B741002B8978 /* icon_152.png */; };
 		A81E3DF81993B741002B8978 /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF31993B741002B8978 /* icon_72.png */; };
@@ -104,10 +104,10 @@
 		4C264DDB1850B82500468BAA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A8112A4C1A4B338A0002CF68 /* TestingSound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingSound.cpp; path = ../src/TestingSound.cpp; sourceTree = "<group>"; };
 		A8112A4D1A4B338A0002CF68 /* TestingSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingSound.h; path = ../src/TestingSound.h; sourceTree = "<group>"; };
-		A8112A861A4C2F750002CF68 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
-		A8112A871A4C2F750002CF68 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
-		A8112A881A4C2F750002CF68 /* SoundEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEngine.cpp; sourceTree = "<group>"; };
-		A8112A891A4C2F750002CF68 /* SoundEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEngine.h; sourceTree = "<group>"; };
+		A8112ABD1A4C4B520002CF68 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
+		A8112ABE1A4C4B520002CF68 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
+		A8112ABF1A4C4B520002CF68 /* SoundEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEngine.cpp; sourceTree = "<group>"; };
+		A8112AC01A4C4B520002CF68 /* SoundEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEngine.h; sourceTree = "<group>"; };
 		A81E3DF11993B741002B8978 /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144.png; sourceTree = "<group>"; };
 		A81E3DF21993B741002B8978 /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_152.png; sourceTree = "<group>"; };
 		A81E3DF31993B741002B8978 /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
@@ -356,21 +356,13 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		A8112A841A4C2F750002CF68 /* incubator */ = {
+		A8112ABC1A4C4B520002CF68 /* sound */ = {
 			isa = PBXGroup;
 			children = (
-				A8112A851A4C2F750002CF68 /* sound */,
-			);
-			path = incubator;
-			sourceTree = "<group>";
-		};
-		A8112A851A4C2F750002CF68 /* sound */ = {
-			isa = PBXGroup;
-			children = (
-				A8112A861A4C2F750002CF68 /* Effect.cpp */,
-				A8112A871A4C2F750002CF68 /* Effect.h */,
-				A8112A881A4C2F750002CF68 /* SoundEngine.cpp */,
-				A8112A891A4C2F750002CF68 /* SoundEngine.h */,
+				A8112ABE1A4C4B520002CF68 /* Effect.h */,
+				A8112ABD1A4C4B520002CF68 /* Effect.cpp */,
+				A8112AC01A4C4B520002CF68 /* SoundEngine.h */,
+				A8112ABF1A4C4B520002CF68 /* SoundEngine.cpp */,
 			);
 			path = sound;
 			sourceTree = "<group>";
@@ -424,11 +416,11 @@
 				A84E42901A2A1DFA00EE6AC1 /* cinder */,
 				A8CDB6581A2DD16A0043A5E5 /* cocoa */,
 				A84E42971A2A1DFA00EE6AC1 /* font */,
-				A8112A841A4C2F750002CF68 /* incubator */,
 				A84E43391A2A1F2300EE6AC1 /* ios */,
 				A84E42BE1A2A1DFA00EE6AC1 /* os */,
 				A84E43231A2A1F0500EE6AC1 /* path */,
 				A84E42C91A2A1DFB00EE6AC1 /* quad */,
+				A8112ABC1A4C4B520002CF68 /* sound */,
 				A84E42CF1A2A1DFB00EE6AC1 /* system */,
 				A84E42D81A2A1DFB00EE6AC1 /* texture */,
 				A84E42E51A2A1DFB00EE6AC1 /* time */,
@@ -854,7 +846,7 @@
 				A8C16EA01A2A4A7300551905 /* main.cpp in Sources */,
 				A84E43361A2A1F0500EE6AC1 /* ShapeMesh.cpp in Sources */,
 				A84E431B1A2A1DFB00EE6AC1 /* TextureManager.cpp in Sources */,
-				A8112AA61A4C2F750002CF68 /* Effect.cpp in Sources */,
+				A8112AC11A4C4B520002CF68 /* Effect.cpp in Sources */,
 				A84E431E1A2A1DFB00EE6AC1 /* GLUtils.cpp in Sources */,
 				A84E43381A2A1F0500EE6AC1 /* SplinePath.cpp in Sources */,
 				A84E43061A2A1DFB00EE6AC1 /* FontSequence.cpp in Sources */,
@@ -868,7 +860,7 @@
 				A84E43041A2A1DFB00EE6AC1 /* ActualFont.cpp in Sources */,
 				A84E43101A2A1DFB00EE6AC1 /* Handler.cpp in Sources */,
 				A84E43341A2A1F0500EE6AC1 /* FXGDocument.cpp in Sources */,
-				A8112AA71A4C2F750002CF68 /* SoundEngine.cpp in Sources */,
+				A8112AC21A4C4B520002CF68 /* SoundEngine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
