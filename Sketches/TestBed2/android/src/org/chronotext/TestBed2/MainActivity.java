@@ -14,6 +14,7 @@ public class MainActivity extends Activity
     Utils.DEBUG = true;
     Utils.TAG = "cinder";
 
+    System.loadLibrary("fmodex");
     System.loadLibrary("TestBed2");
   }
 
