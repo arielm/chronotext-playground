@@ -1,9 +1,9 @@
 /*
  * PLAYGROUND IN SYNC WITH ResRework BRANCH IN new-chronotext-toolkit
  *
- * OSX: COMMIT 2ef2b77
- * IOS: COMMIT 2ef2b77
- * ANDROID: COMMIT 2ef2b77
+ * OSX: COMMIT 0cac570
+ * IOS: COMMIT 0cac570
+ * ANDROID: COMMIT 0cac570
  */
 
 #pragma once

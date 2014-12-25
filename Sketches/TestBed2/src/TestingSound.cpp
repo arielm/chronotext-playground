@@ -49,7 +49,7 @@ void TestingSound::update()
 void TestingSound::addTouch(int index, float x, float y)
 {
     auto effect = effects[Rand::randInt(effects.size())];
-    engine->playEffect(effect->uniqueId);
+    engine->playEffect(effect);
 }
 
 void TestingSound::handleEvent(const SoundEngine::Event &event)
