@@ -18,6 +18,8 @@
 		4C264DD81850B7A900468BAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C264DD71850B7A900468BAA /* SystemConfiguration.framework */; };
 		4C264DDC1850B82500468BAA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C264DDB1850B82500468BAA /* Accelerate.framework */; };
 		A8112A4E1A4B338A0002CF68 /* TestingSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112A4C1A4B338A0002CF68 /* TestingSound.cpp */; };
+		A8112AA61A4C2F750002CF68 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112A861A4C2F750002CF68 /* Effect.cpp */; };
+		A8112AA71A4C2F750002CF68 /* SoundEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112A881A4C2F750002CF68 /* SoundEngine.cpp */; };
 		A81E3DF61993B741002B8978 /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF11993B741002B8978 /* icon_144.png */; };
 		A81E3DF71993B741002B8978 /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF21993B741002B8978 /* icon_152.png */; };
 		A81E3DF81993B741002B8978 /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF31993B741002B8978 /* icon_72.png */; };
@@ -25,7 +27,6 @@
 		A81E3DFA1993D0F3002B8978 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A82C900816DF91D300FF519C /* Default-568h@2x.png */; };
 		A83F54FB1A31204E00E3531E /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F54F91A31204E00E3531E /* Context.cpp */; };
 		A83F55011A312DB100E3531E /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F54FF1A312DB100E3531E /* FileHelper.cpp */; };
-		A84E428F1A2A1D6D00EE6AC1 /* Path3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E428D1A2A1D6D00EE6AC1 /* Path3D.cpp */; };
 		A84E43041A2A1DFB00EE6AC1 /* ActualFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42A21A2A1DFA00EE6AC1 /* ActualFont.cpp */; };
 		A84E43051A2A1DFB00EE6AC1 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42A41A2A1DFA00EE6AC1 /* FontManager.cpp */; };
 		A84E43061A2A1DFB00EE6AC1 /* FontSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42A61A2A1DFA00EE6AC1 /* FontSequence.cpp */; };
@@ -103,6 +104,10 @@
 		4C264DDB1850B82500468BAA /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A8112A4C1A4B338A0002CF68 /* TestingSound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingSound.cpp; path = ../src/TestingSound.cpp; sourceTree = "<group>"; };
 		A8112A4D1A4B338A0002CF68 /* TestingSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingSound.h; path = ../src/TestingSound.h; sourceTree = "<group>"; };
+		A8112A861A4C2F750002CF68 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
+		A8112A871A4C2F750002CF68 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
+		A8112A881A4C2F750002CF68 /* SoundEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEngine.cpp; sourceTree = "<group>"; };
+		A8112A891A4C2F750002CF68 /* SoundEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEngine.h; sourceTree = "<group>"; };
 		A81E3DF11993B741002B8978 /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144.png; sourceTree = "<group>"; };
 		A81E3DF21993B741002B8978 /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_152.png; sourceTree = "<group>"; };
 		A81E3DF31993B741002B8978 /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
@@ -116,8 +121,6 @@
 		A83F54FA1A31204E00E3531E /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
 		A83F54FF1A312DB100E3531E /* FileHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelper.cpp; sourceTree = "<group>"; };
 		A83F55001A312DB100E3531E /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
-		A84E428D1A2A1D6D00EE6AC1 /* Path3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Path3D.cpp; sourceTree = "<group>"; };
-		A84E428E1A2A1D6D00EE6AC1 /* Path3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path3D.h; sourceTree = "<group>"; };
 		A84E42911A2A1DFA00EE6AC1 /* CinderSketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderSketch.h; sourceTree = "<group>"; };
 		A84E42921A2A1DFA00EE6AC1 /* CinderSketchBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderSketchBase.h; sourceTree = "<group>"; };
 		A84E42931A2A1DFA00EE6AC1 /* WindowInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInfo.h; sourceTree = "<group>"; };
@@ -353,6 +356,25 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		A8112A841A4C2F750002CF68 /* incubator */ = {
+			isa = PBXGroup;
+			children = (
+				A8112A851A4C2F750002CF68 /* sound */,
+			);
+			path = incubator;
+			sourceTree = "<group>";
+		};
+		A8112A851A4C2F750002CF68 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				A8112A861A4C2F750002CF68 /* Effect.cpp */,
+				A8112A871A4C2F750002CF68 /* Effect.h */,
+				A8112A881A4C2F750002CF68 /* SoundEngine.cpp */,
+				A8112A891A4C2F750002CF68 /* SoundEngine.h */,
+			);
+			path = sound;
+			sourceTree = "<group>";
+		};
 		A81E3DEF1993B741002B8978 /* Target1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +424,7 @@
 				A84E42901A2A1DFA00EE6AC1 /* cinder */,
 				A8CDB6581A2DD16A0043A5E5 /* cocoa */,
 				A84E42971A2A1DFA00EE6AC1 /* font */,
+				A8112A841A4C2F750002CF68 /* incubator */,
 				A84E43391A2A1F2300EE6AC1 /* ios */,
 				A84E42BE1A2A1DFA00EE6AC1 /* os */,
 				A84E43231A2A1F0500EE6AC1 /* path */,
@@ -414,15 +437,6 @@
 			name = chronotext;
 			path = "blocks/new-chronotext-toolkit/src/chronotext";
 			sourceTree = CINDER_PATH_CHR;
-		};
-		A84E428C1A2A1D6D00EE6AC1 /* Path */ = {
-			isa = PBXGroup;
-			children = (
-				A84E428D1A2A1D6D00EE6AC1 /* Path3D.cpp */,
-				A84E428E1A2A1D6D00EE6AC1 /* Path3D.h */,
-			);
-			path = Path;
-			sourceTree = "<group>";
 		};
 		A84E42901A2A1DFA00EE6AC1 /* cinder */ = {
 			isa = PBXGroup;
@@ -728,7 +742,6 @@
 		A8EE788817A17A72004077D0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A84E428C1A2A1D6D00EE6AC1 /* Path */,
 			);
 			name = Common;
 			path = ../../../Common;
@@ -817,7 +830,6 @@
 				A84E431F1A2A1DFB00EE6AC1 /* MathUtils.cpp in Sources */,
 				A84E43091A2A1DFB00EE6AC1 /* LayoutCache.cpp in Sources */,
 				A874A5091A2B5B88009A60A0 /* TaskManager.cpp in Sources */,
-				A84E428F1A2A1D6D00EE6AC1 /* Path3D.cpp in Sources */,
 				A8CDB6641A2DD16A0043A5E5 /* NSDictionary+DefautValues.m in Sources */,
 				A84E430D1A2A1DFB00EE6AC1 /* VirtualFont.cpp in Sources */,
 				A84E43371A2A1F0500EE6AC1 /* ShapeTesselator.cpp in Sources */,
@@ -842,6 +854,7 @@
 				A8C16EA01A2A4A7300551905 /* main.cpp in Sources */,
 				A84E43361A2A1F0500EE6AC1 /* ShapeMesh.cpp in Sources */,
 				A84E431B1A2A1DFB00EE6AC1 /* TextureManager.cpp in Sources */,
+				A8112AA61A4C2F750002CF68 /* Effect.cpp in Sources */,
 				A84E431E1A2A1DFB00EE6AC1 /* GLUtils.cpp in Sources */,
 				A84E43381A2A1F0500EE6AC1 /* SplinePath.cpp in Sources */,
 				A84E43061A2A1DFB00EE6AC1 /* FontSequence.cpp in Sources */,
@@ -855,6 +868,7 @@
 				A84E43041A2A1DFB00EE6AC1 /* ActualFont.cpp in Sources */,
 				A84E43101A2A1DFB00EE6AC1 /* Handler.cpp in Sources */,
 				A84E43341A2A1F0500EE6AC1 /* FXGDocument.cpp in Sources */,
+				A8112AA71A4C2F750002CF68 /* SoundEngine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
