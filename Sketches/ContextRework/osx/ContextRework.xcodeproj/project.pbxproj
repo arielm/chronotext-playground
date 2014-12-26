@@ -17,6 +17,7 @@
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		A8027DFD16E3784B00184149 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A8027DFC16E3784B00184149 /* icon.icns */; };
+		A8112C101A4DC32B0002CF68 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112C0E1A4DC32B0002CF68 /* Sprite.cpp */; };
 		A814C5DB1A374AE400F639E3 /* ImageSourceFileStbImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A814C5D81A374AE400F639E3 /* ImageSourceFileStbImage.cpp */; };
 		A81CCE3F1A3DA49300AF0BFC /* TestingTasks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81CCE3D1A3DA49300AF0BFC /* TestingTasks.cpp */; };
 		A81CCE421A3DA67800AF0BFC /* TestTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A81CCE401A3DA67800AF0BFC /* TestTask.cpp */; };
@@ -51,7 +52,6 @@
 		A86902451A02E22400D2C9F3 /* DisplayHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901CF1A02E22300D2C9F3 /* DisplayHelper.cpp */; };
 		A86902461A02E22400D2C9F3 /* SystemManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901D51A02E22300D2C9F3 /* SystemManagerBase.cpp */; };
 		A86902471A02E22400D2C9F3 /* PVRHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901D81A02E22300D2C9F3 /* PVRHelper.cpp */; };
-		A86902481A02E22400D2C9F3 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901DA1A02E22300D2C9F3 /* Sprite.cpp */; };
 		A86902491A02E22400D2C9F3 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901DC1A02E22300D2C9F3 /* Texture.cpp */; };
 		A869024A1A02E22400D2C9F3 /* TextureHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901DF1A02E22300D2C9F3 /* TextureHelper.cpp */; };
 		A869024B1A02E22400D2C9F3 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901E11A02E22300D2C9F3 /* TextureManager.cpp */; };
@@ -95,6 +95,8 @@
 		8D1107320486CEB800E47090 /* ContextRework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContextRework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F48157030643B0B32007F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8027DFC16E3784B00184149 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		A8112C0E1A4DC32B0002CF68 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		A8112C0F1A4DC32B0002CF68 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		A814C5D81A374AE400F639E3 /* ImageSourceFileStbImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSourceFileStbImage.cpp; sourceTree = "<group>"; };
 		A814C5D91A374AE400F639E3 /* ImageSourceFileStbImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceFileStbImage.h; sourceTree = "<group>"; };
 		A814C5DA1A374AE400F639E3 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
@@ -183,8 +185,6 @@
 		A86901D61A02E22300D2C9F3 /* SystemManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManagerBase.h; sourceTree = "<group>"; };
 		A86901D81A02E22300D2C9F3 /* PVRHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PVRHelper.cpp; sourceTree = "<group>"; };
 		A86901D91A02E22300D2C9F3 /* PVRHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRHelper.h; sourceTree = "<group>"; };
-		A86901DA1A02E22300D2C9F3 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
-		A86901DB1A02E22300D2C9F3 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		A86901DC1A02E22300D2C9F3 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		A86901DD1A02E22300D2C9F3 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		A86901DE1A02E22300D2C9F3 /* TextureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureData.h; sourceTree = "<group>"; };
@@ -548,8 +548,6 @@
 			children = (
 				A86901D81A02E22300D2C9F3 /* PVRHelper.cpp */,
 				A86901D91A02E22300D2C9F3 /* PVRHelper.h */,
-				A86901DA1A02E22300D2C9F3 /* Sprite.cpp */,
-				A86901DB1A02E22300D2C9F3 /* Sprite.h */,
 				A86901DC1A02E22300D2C9F3 /* Texture.cpp */,
 				A86901DD1A02E22300D2C9F3 /* Texture.h */,
 				A86901DE1A02E22300D2C9F3 /* TextureData.h */,
@@ -659,6 +657,8 @@
 		A881B27C1A35206A00AB18C0 /* atlas */ = {
 			isa = PBXGroup;
 			children = (
+				A8112C0F1A4DC32B0002CF68 /* Sprite.h */,
+				A8112C0E1A4DC32B0002CF68 /* Sprite.cpp */,
 				A881B27E1A35206A00AB18C0 /* TextureAtlas.h */,
 				A881B27D1A35206A00AB18C0 /* TextureAtlas.cpp */,
 				A881B2801A35206A00AB18C0 /* TextureAtlasAnimation.h */,
@@ -774,6 +774,7 @@
 			files = (
 				A8C16E9E1A2A43E800551905 /* main.cpp in Sources */,
 				A874A5031A2B550A009A60A0 /* TaskManager.cpp in Sources */,
+				A8112C101A4DC32B0002CF68 /* Sprite.cpp in Sources */,
 				A86902151A02E22300D2C9F3 /* ActualFont.cpp in Sources */,
 				A83F54F81A311FF400E3531E /* Context.cpp in Sources */,
 				A86902471A02E22400D2C9F3 /* PVRHelper.cpp in Sources */,
@@ -792,7 +793,6 @@
 				A86902451A02E22400D2C9F3 /* DisplayHelper.cpp in Sources */,
 				A869023F1A02E22400D2C9F3 /* ShapeTesselator.cpp in Sources */,
 				A869022E1A02E22400D2C9F3 /* InputSource.cpp in Sources */,
-				A86902481A02E22400D2C9F3 /* Sprite.cpp in Sources */,
 				A86902601A02EDC100D2C9F3 /* Path3D.cpp in Sources */,
 				A869021E1A02E22400D2C9F3 /* VirtualFont.cpp in Sources */,
 				A86902521A02E22400D2C9F3 /* MathUtils.cpp in Sources */,

@@ -8,6 +8,9 @@ FILE_LIST := $(wildcard $(LOCAL_PATH)/../../src/*.cpp)
 LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 CHR_USE_ZFONT := 1
+CHR_USE_XFONT := 1
+CHR_USE_PATH := 1
+CHR_USE_ATLAS := 1
 include $(LOCAL_PATH)/$(CINDER_PATH)/blocks/new-chronotext-toolkit/android/Android.mk
 
 COMMON_SRC = ../../../../Common

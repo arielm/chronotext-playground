@@ -100,7 +100,7 @@ void TestingMemory::update()
         }
         else
         {
-            textureManager.discard();
+            textureManager.discardTextures();
             done = true;
             
             LOGI << endl << "MEMORY INFO - AFTER: " << getMemoryInfo() << endl;
