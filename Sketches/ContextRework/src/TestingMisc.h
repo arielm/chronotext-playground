@@ -10,7 +10,8 @@ public:
     void testFileCapture();
     void testNewLogging();
     void testNewException();
-
+    void testInputSource();
+    
     void testSystemAndMemoryInfo();
     void testFileSystem();
 };

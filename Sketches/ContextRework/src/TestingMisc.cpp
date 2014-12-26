@@ -10,11 +10,12 @@ using namespace context;
 
 void TestingMisc::run(bool force)
 {
-    if (force || false)
+    if (force || true)
     {
-        if (force || true) testFileCapture();
-        if (force || true) testNewLogging();
-        if (force || true) testNewException();
+        if (force || false) testFileCapture();
+        if (force || false) testNewLogging();
+        if (force || false) testNewException();
+        if (force || true) testInputSource();
     }
     
     if (force || true)
@@ -87,10 +88,22 @@ void TestingMisc::testNewException()
     }
     catch (EXCEPTION_TYPE(InputSource) &e)
     {
-        LOGI << e << endl;
+        LOGI << e << endl; // I.E. SOMETHING WENT-WRONG WHILE LOADING
     }
     catch (exception &e)
     {
-        LOGI << e.what() << endl;
+        LOGI << e.what() << endl; // E.G. SOMETHING WENT-WRONG WHILE DECODING THE IMAGE
     }
+}
+
+void TestingMisc::testInputSource()
+{
+    InputSource::Ref nonInitialized;
+
+    /*
+     * WITHOUT SOME "EXTRA-CARE" IN THE IMPLEMENTATION, THE FOLLOWING WOULD BOTH CRASH:
+     */
+
+    LOGI << "[" << nonInitialized->isValid() << "]" << endl;
+    LOGI << "[" << nonInitialized->getURI() << "]" << endl;
 }
