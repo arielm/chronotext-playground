@@ -22,9 +22,9 @@ void TestingSound::setup()
         
         // ---
         
-        for (auto &name : { "drumloop.wav", "jaguar.wav", "swish.wav" })
+        for (auto &name : {"drumloop.wav", "jaguar.wav", "swish.wav"})
         {
-            effects.emplace_back(engine->preloadEffect(InputSource::getAsset(name)));
+            effects.emplace_back(engine->getEffect(InputSource::getAsset(name)));
         }
     }
 }
