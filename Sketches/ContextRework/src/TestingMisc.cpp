@@ -86,7 +86,7 @@ void TestingMisc::testNewException()
     {
         InputSource::loadResource("undefined.png");
     }
-    catch (EXCEPTION_TYPE(InputSource) &e)
+    catch (Exception<InputSource> &e)
     {
         LOGI << e << endl; // I.E. SOMETHING WENT-WRONG WHILE LOADING
     }

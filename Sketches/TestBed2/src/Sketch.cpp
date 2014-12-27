@@ -76,5 +76,5 @@ void Sketch::draw()
     gl::clear(Color::gray(0.5f), false);
     
     gl::color(Color::white());
-    utils::gl::drawGrid(getWindowBounds(), 64, Vec2f(0, clock().getTime() * 60));
+    utils::gl::drawGrid(getWindowBounds(), 64, Vec2f(0, clock()->getTime() * 60));
 }
