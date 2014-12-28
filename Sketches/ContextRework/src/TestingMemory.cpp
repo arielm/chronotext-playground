@@ -68,20 +68,20 @@ void TestingMemory::update()
             // ---
             
             bool useMipmap;
-            TextureRequest::Flags flags;
+            Texture::Request::Flags flags;
             
             if (false)
             {
                 useMipmap = false;
-                flags = TextureRequest::FLAGS_NONE;
+                flags = Texture::Request::FLAGS_NONE;
             }
             else
             {
                 useMipmap = false;
-                flags = TextureRequest::FLAGS_POT;
+                flags = Texture::Request::FLAGS_POT;
             }
             
-            TextureRequest textureRequest(inputSource, useMipmap, flags);
+            Texture::Request textureRequest(inputSource, useMipmap, flags);
 
             // --
             

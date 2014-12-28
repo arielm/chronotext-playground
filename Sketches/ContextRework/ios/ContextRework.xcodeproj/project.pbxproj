@@ -194,12 +194,10 @@
 		A84E42DA1A2A1DFB00EE6AC1 /* PVRHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRHelper.h; sourceTree = "<group>"; };
 		A84E42DD1A2A1DFB00EE6AC1 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		A84E42DE1A2A1DFB00EE6AC1 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
-		A84E42DF1A2A1DFB00EE6AC1 /* TextureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureData.h; sourceTree = "<group>"; };
 		A84E42E01A2A1DFB00EE6AC1 /* TextureHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureHelper.cpp; sourceTree = "<group>"; };
 		A84E42E11A2A1DFB00EE6AC1 /* TextureHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureHelper.h; sourceTree = "<group>"; };
 		A84E42E21A2A1DFB00EE6AC1 /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureManager.cpp; sourceTree = "<group>"; };
 		A84E42E31A2A1DFB00EE6AC1 /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
-		A84E42E41A2A1DFB00EE6AC1 /* TextureRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureRequest.h; sourceTree = "<group>"; };
 		A84E42E61A2A1DFB00EE6AC1 /* Clock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Clock.cpp; sourceTree = "<group>"; };
 		A84E42E71A2A1DFB00EE6AC1 /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
 		A84E42E81A2A1DFB00EE6AC1 /* DefaultTimeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTimeBase.h; sourceTree = "<group>"; };
@@ -587,12 +585,10 @@
 				A84E42DA1A2A1DFB00EE6AC1 /* PVRHelper.h */,
 				A84E42DD1A2A1DFB00EE6AC1 /* Texture.cpp */,
 				A84E42DE1A2A1DFB00EE6AC1 /* Texture.h */,
-				A84E42DF1A2A1DFB00EE6AC1 /* TextureData.h */,
 				A84E42E01A2A1DFB00EE6AC1 /* TextureHelper.cpp */,
 				A84E42E11A2A1DFB00EE6AC1 /* TextureHelper.h */,
 				A84E42E21A2A1DFB00EE6AC1 /* TextureManager.cpp */,
 				A84E42E31A2A1DFB00EE6AC1 /* TextureManager.h */,
-				A84E42E41A2A1DFB00EE6AC1 /* TextureRequest.h */,
 			);
 			path = texture;
 			sourceTree = "<group>";
