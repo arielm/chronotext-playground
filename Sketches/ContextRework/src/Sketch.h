@@ -1,9 +1,9 @@
 /*
  * PLAYGROUND IN SYNC WITH ResRework BRANCH IN new-chronotext-toolkit
  *
- * OSX: COMMIT 2ae1614
- * IOS: COMMIT 2ae1614
- * ANDROID: COMMIT 2ae1614
+ * OSX: COMMIT 491949c
+ * IOS: COMMIT 491949c
+ * ANDROID: COMMIT 491949c
  */
 
 #pragma once
@@ -15,11 +15,6 @@
 class Sketch : public chr::CinderSketch
 {
 public:
-    Sketch()
-    :
-    CinderSketch()
-    {}
-    
     void setup() final;
     void shutdown() final;
     
