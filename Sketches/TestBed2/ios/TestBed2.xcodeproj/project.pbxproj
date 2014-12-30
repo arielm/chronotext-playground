@@ -19,7 +19,6 @@
 		4C264DDC1850B82500468BAA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C264DDB1850B82500468BAA /* Accelerate.framework */; };
 		A8112A4E1A4B338A0002CF68 /* TestingSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112A4C1A4B338A0002CF68 /* TestingSound.cpp */; };
 		A8112AC11A4C4B520002CF68 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112ABD1A4C4B520002CF68 /* Effect.cpp */; };
-		A8112AC21A4C4B520002CF68 /* SoundEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112ABF1A4C4B520002CF68 /* SoundEngine.cpp */; };
 		A81E3DF61993B741002B8978 /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF11993B741002B8978 /* icon_144.png */; };
 		A81E3DF71993B741002B8978 /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF21993B741002B8978 /* icon_152.png */; };
 		A81E3DF81993B741002B8978 /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF31993B741002B8978 /* icon_72.png */; };
@@ -62,6 +61,7 @@
 		A8CDB6661A2DD16A0043A5E5 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6621A2DD16A0043A5E5 /* NSString+JSON.m */; };
 		A8DB3EC616E0B96C00504D27 /* Sketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8DB3EC416E0B96C00504D27 /* Sketch.cpp */; };
 		A8DC566D1A2E238400C16B2F /* MemoryManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */; };
+		A8F867271A53133F00352229 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8F867251A53133F00352229 /* SoundManager.cpp */; };
 		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091FFFF /* ImageIO.framework */; };
@@ -89,8 +89,6 @@
 		A8112A4D1A4B338A0002CF68 /* TestingSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingSound.h; path = ../src/TestingSound.h; sourceTree = "<group>"; };
 		A8112ABD1A4C4B520002CF68 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
 		A8112ABE1A4C4B520002CF68 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
-		A8112ABF1A4C4B520002CF68 /* SoundEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEngine.cpp; sourceTree = "<group>"; };
-		A8112AC01A4C4B520002CF68 /* SoundEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEngine.h; sourceTree = "<group>"; };
 		A81E3DF11993B741002B8978 /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144.png; sourceTree = "<group>"; };
 		A81E3DF21993B741002B8978 /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_152.png; sourceTree = "<group>"; };
 		A81E3DF31993B741002B8978 /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
@@ -195,6 +193,8 @@
 		A8DC566A1A2E238400C16B2F /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryManagerBase.cpp; sourceTree = "<group>"; };
 		A8DC566C1A2E238400C16B2F /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
+		A8F867251A53133F00352229 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
+		A8F867261A53133F00352229 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		C725E000121DAC8F00FA186B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C727C02B121B400300192073 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C727C02D121B400300192073 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -299,8 +299,8 @@
 			children = (
 				A8112ABE1A4C4B520002CF68 /* Effect.h */,
 				A8112ABD1A4C4B520002CF68 /* Effect.cpp */,
-				A8112AC01A4C4B520002CF68 /* SoundEngine.h */,
-				A8112ABF1A4C4B520002CF68 /* SoundEngine.cpp */,
+				A8F867261A53133F00352229 /* SoundManager.h */,
+				A8F867251A53133F00352229 /* SoundManager.cpp */,
 			);
 			path = sound;
 			sourceTree = "<group>";
@@ -692,6 +692,7 @@
 				A8CDB6651A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m in Sources */,
 				A84E43221A2A1DFB00EE6AC1 /* Utils.cpp in Sources */,
 				A84E43191A2A1DFB00EE6AC1 /* Texture.cpp in Sources */,
+				A8F867271A53133F00352229 /* SoundManager.cpp in Sources */,
 				A84E431C1A2A1DFB00EE6AC1 /* Clock.cpp in Sources */,
 				A84E43111A2A1DFB00EE6AC1 /* SuperHandler.cpp in Sources */,
 				A84E43151A2A1DFB00EE6AC1 /* DisplayHelper.cpp in Sources */,
@@ -712,7 +713,6 @@
 				A8CDB6661A2DD16A0043A5E5 /* NSString+JSON.m in Sources */,
 				A84E430E1A2A1DFB00EE6AC1 /* InputSource.cpp in Sources */,
 				A84E43101A2A1DFB00EE6AC1 /* Handler.cpp in Sources */,
-				A8112AC21A4C4B520002CF68 /* SoundEngine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

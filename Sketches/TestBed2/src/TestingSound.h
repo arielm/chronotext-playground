@@ -2,12 +2,12 @@
 
 #include "TestingBase.h"
 
-#include "chronotext/sound/SoundEngine.h"
+#include "chronotext/sound/SoundManager.h"
 
-class TestingSound : public TestingBase, public chr::SoundEngine::Listener
+class TestingSound : public TestingBase, public chr::SoundManager::Listener
 {
 public:
-    static int MAX_CHANNELS;
+    static constexpr int MAX_CHANNELS = 8; // XXX
     
     void setup() final;
     void shutdown() final;
@@ -15,9 +15,9 @@ public:
     
     void addTouch(int index, float x, float y) final;
     
-    void handleEvent(const chr::SoundEngine::Event &event) final;
+    void handleEvent(const chr::SoundManager::Event &event) final;
     
 protected:
-    std::shared_ptr<chr::SoundEngine> engine;
+    std::shared_ptr<chr::SoundManager> soundManager;
     std::vector<chr::Effect::Ref> effects;
 };

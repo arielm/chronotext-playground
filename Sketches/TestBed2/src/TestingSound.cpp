@@ -10,51 +10,49 @@ using namespace chr;
 
 using namespace context;
 
-int TestingSound::MAX_CHANNELS = 8; // XXX
-
 void TestingSound::setup()
 {
-    if (!engine)
+    if (!soundManager)
     {
-        engine = make_shared<SoundEngine>();
-        engine->setup(MAX_CHANNELS);
+        soundManager = make_shared<SoundManager>();
+        soundManager->setup(MAX_CHANNELS);
      
         Effect::VERBOSE = true;
-        engine->addListener(this);
+        soundManager->addListener(this);
         
         // ---
         
         for (auto &name : {"drumloop.wav", "jaguar.wav", "swish.wav"})
         {
-            effects.emplace_back(engine->getEffect(InputSource::getAsset(name)));
+            effects.emplace_back(soundManager->getEffect(InputSource::getAsset(name)));
         }
     }
 }
 
 void TestingSound::shutdown()
 {
-    if (engine)
+    if (soundManager)
     {
-        engine->shutdown();
-        engine.reset();
+        soundManager->shutdown();
+        soundManager.reset();
     }
 }
 
 void TestingSound::update()
 {
-    if (engine)
+    if (soundManager)
     {
-        engine->update();
+        soundManager->update();
     }
 }
 
 void TestingSound::addTouch(int index, float x, float y)
 {
     auto effect = effects[Rand::randInt(effects.size())];
-    engine->playEffect(effect);
+    soundManager->playEffect(effect);
 }
 
-void TestingSound::handleEvent(const SoundEngine::Event &event)
+void TestingSound::handleEvent(const SoundManager::Event &event)
 {
     LOGI << event << endl;
 }

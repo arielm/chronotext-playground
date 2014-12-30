@@ -19,7 +19,7 @@
 		A8027DFD16E3784B00184149 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A8027DFC16E3784B00184149 /* icon.icns */; };
 		A8112A501A4C25AE0002CF68 /* libfmodex.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8112A4F1A4C25AE0002CF68 /* libfmodex.dylib */; };
 		A8112ABA1A4C46E40002CF68 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112AB61A4C46E40002CF68 /* Effect.cpp */; };
-		A8112ABB1A4C46E40002CF68 /* SoundEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112AB81A4C46E40002CF68 /* SoundEngine.cpp */; };
+		A8112ABB1A4C46E40002CF68 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112AB81A4C46E40002CF68 /* SoundManager.cpp */; };
 		A8112C0D1A4DBE600002CF68 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112C0B1A4DBE600002CF68 /* Sprite.cpp */; };
 		A8112CE11A4F6FB70002CF68 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112CE01A4F6FB70002CF68 /* Application.cpp */; };
 		A814C5DB1A374AE400F639E3 /* ImageSourceFileStbImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A814C5D81A374AE400F639E3 /* ImageSourceFileStbImage.cpp */; };
@@ -98,8 +98,8 @@
 		A8112A4F1A4C25AE0002CF68 /* libfmodex.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfmodex.dylib; path = blocks/FMOD/lib/macosx/libfmodex.dylib; sourceTree = CINDER_PATH_CHR; };
 		A8112AB61A4C46E40002CF68 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
 		A8112AB71A4C46E40002CF68 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
-		A8112AB81A4C46E40002CF68 /* SoundEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundEngine.cpp; sourceTree = "<group>"; };
-		A8112AB91A4C46E40002CF68 /* SoundEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEngine.h; sourceTree = "<group>"; };
+		A8112AB81A4C46E40002CF68 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
+		A8112AB91A4C46E40002CF68 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		A8112C0B1A4DBE600002CF68 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		A8112C0C1A4DBE600002CF68 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		A8112CE01A4F6FB70002CF68 /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
@@ -355,8 +355,8 @@
 			children = (
 				A8112AB71A4C46E40002CF68 /* Effect.h */,
 				A8112AB61A4C46E40002CF68 /* Effect.cpp */,
-				A8112AB91A4C46E40002CF68 /* SoundEngine.h */,
-				A8112AB81A4C46E40002CF68 /* SoundEngine.cpp */,
+				A8112AB91A4C46E40002CF68 /* SoundManager.h */,
+				A8112AB81A4C46E40002CF68 /* SoundManager.cpp */,
 			);
 			path = sound;
 			sourceTree = "<group>";
@@ -787,7 +787,7 @@
 				A86902511A02E22400D2C9F3 /* GLUtils.cpp in Sources */,
 				A874A5021A2B550A009A60A0 /* Task.cpp in Sources */,
 				A881B27A1A351E2200AB18C0 /* FontSequence.cpp in Sources */,
-				A8112ABB1A4C46E40002CF68 /* SoundEngine.cpp in Sources */,
+				A8112ABB1A4C46E40002CF68 /* SoundManager.cpp in Sources */,
 				A86902401A02E22400D2C9F3 /* SplinePath.cpp in Sources */,
 				A869021A1A02E22300D2C9F3 /* LayoutCache.cpp in Sources */,
 				A869021D1A02E22400D2C9F3 /* TextItemizer.cpp in Sources */,
