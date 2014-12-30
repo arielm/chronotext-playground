@@ -7,7 +7,7 @@
 class TestingSound : public TestingBase, public chr::SoundManager::Listener
 {
 public:
-    static constexpr int MAX_CHANNELS = 8; // XXX
+    static constexpr int MAX_CHANNELS = 6; // A DELIBERATLY-LOW VALUE, IN ORDER TO WITNESS "CHANNEL INTERRUPTION"
     
     void setup() final;
     void shutdown() final;

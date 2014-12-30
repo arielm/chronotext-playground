@@ -15,10 +15,11 @@ void TestingSound::setup()
     if (!soundManager)
     {
         soundManager = make_shared<SoundManager>();
+        
         soundManager->setup(MAX_CHANNELS);
-     
-        Effect::VERBOSE = true;
         soundManager->addListener(this);
+        
+        Effect::LOG_VERBOSE = true;
         
         // ---
         
@@ -33,8 +34,12 @@ void TestingSound::shutdown()
 {
     if (soundManager)
     {
+        effects.clear(); // XXX: CURRENTLY MANDATORY TO TAKE-PLACE BEFORE SoundManager IS DESTROYED (FIXME)
+        
         soundManager->shutdown();
         soundManager.reset();
+        
+        Effect::LOG_VERBOSE = false;
     }
 }
 
