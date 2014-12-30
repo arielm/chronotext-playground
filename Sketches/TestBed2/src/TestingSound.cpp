@@ -34,8 +34,6 @@ void TestingSound::shutdown()
 {
     if (soundManager)
     {
-        effects.clear(); // XXX: CURRENTLY MANDATORY TO TAKE-PLACE BEFORE SoundManager IS DESTROYED (FIXME)
-        
         soundManager->shutdown();
         soundManager.reset();
         
