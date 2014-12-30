@@ -1,21 +1,34 @@
 #include "TestingMisc.h"
 
 #include "chronotext/Context.h"
+#include "chronotext/texture/TextureManager.h"
 #include "chronotext/utils/FileCapture.h"
 
 using namespace std;
 using namespace ci;
 using namespace chr;
+
 using namespace context;
+
+void TestingMisc::setup()
+{
+    Texture::VERBOSE = true;
+
+}
 
 void TestingMisc::run(bool force)
 {
     if (force || true)
     {
+        if (force || true) testSharedPtrCasting();
+    }
+
+    if (force || true)
+    {
         if (force || false) testFileCapture();
         if (force || false) testNewLogging();
         if (force || false) testNewException();
-        if (force || true) testInputSourceRobustness();
+        if (force || false) testInputSourceRobustness();
     }
     
     if (force || true)
@@ -23,6 +36,47 @@ void TestingMisc::run(bool force)
         if (force || false) testSystemAndMemoryInfo();
         if (force || false) testFileSystem();
     }
+}
+
+// ---
+
+class ResourceItem
+{
+public:
+    ResourceItem(shared_ptr<void> resource)
+    :
+    resource(resource)
+    {}
+    
+    template <class T>
+    inline std::shared_ptr<T> getResource()
+    {
+        if (this && resource)
+        {
+            return std::static_pointer_cast<T>(resource);
+        }
+        
+        return nullptr;
+    }
+    
+protected:
+    shared_ptr<void> resource;
+};
+
+void TestingMisc::testSharedPtrCasting()
+{
+    TextureManager textureManager;
+    
+    auto texture = textureManager.getTexture(InputSource::getAsset("U_512.png"));
+    LOGI << texture.use_count() << endl;
+    
+    auto resource = make_shared<ResourceItem>(texture);
+    LOGI << texture.use_count() << endl;
+    
+    LOGI << resource->getResource<Texture>()->getSize() << endl;
+    
+    resource.reset();
+    LOGI << texture.use_count() << endl;
 }
 
 // ---

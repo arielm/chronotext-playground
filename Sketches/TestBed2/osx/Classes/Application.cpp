@@ -9,7 +9,7 @@ void Application::applySettings(Settings *settings)
 {
     if (loadEmulators(chr::InputSource::getResource("emulators.json")))
     {
-        emulate(settings, "IPHONE_3GS", chr::DisplayInfo::ORIENTATION_PORTRAIT);
+        emulate(settings, "IPHONE_3GS", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
 //      emulate(settings, "IPHONE_4", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
 //      emulate(settings, "IPHONE_5", chr::DisplayInfo::ORIENTATION_LANDSCAPE);
 //      emulate(settings, "IPAD_1", chr::DisplayInfo::ORIENTATION_LANDSCAPE);

@@ -5,6 +5,7 @@
 using namespace std;
 using namespace ci;
 using namespace chr;
+
 using namespace context;
 
 void TestingMemory::setup()
@@ -47,12 +48,6 @@ void TestingMemory::setup()
     done = false;
     
     LOGI << endl << "MEMORY INFO - BEFORE: " << getMemoryInfo() << endl;
-}
-
-void TestingMemory::shutdown()
-{
-    TextureHelper::PROBE_MEMORY = false;
-    Texture::VERBOSE = false;
 }
 
 void TestingMemory::update()

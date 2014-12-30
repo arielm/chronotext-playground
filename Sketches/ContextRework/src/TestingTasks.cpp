@@ -6,10 +6,13 @@
 using namespace std;
 using namespace ci;
 using namespace chr;
+
 using namespace context;
 
 void TestingTasks::setup()
-{}
+{
+    Task::VERBOSE = true;
+}
 
 void TestingTasks::run(bool force)
 {
@@ -21,8 +24,7 @@ void TestingTasks::run(bool force)
 
 void TestingTasks::test1()
 {
-    chr::TaskManager::MAX_CONCURRENT_THREADS = 2;
-    chr::Task::VERBOSE = true;
+    TaskManager::MAX_CONCURRENT_THREADS = 2;
     
     taskManager().addTask(make_shared<TestTask>("two", 1, 0.5));
     taskManager().addTask(make_shared<TestTask>("one", 0.5, 0.75));
