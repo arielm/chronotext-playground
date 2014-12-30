@@ -15,7 +15,7 @@ void TestingMisc::run(bool force)
         if (force || false) testFileCapture();
         if (force || false) testNewLogging();
         if (force || false) testNewException();
-        if (force || true) testInputSource();
+        if (force || true) testInputSourceRobustness();
     }
     
     if (force || true)
@@ -96,14 +96,32 @@ void TestingMisc::testNewException()
     }
 }
 
-void TestingMisc::testInputSource()
+void TestingMisc::testInputSourceRobustness()
 {
     InputSource::Ref nonInitialized;
 
     /*
-     * WITHOUT SOME "EXTRA-CARE" IN THE IMPLEMENTATION, THE FOLLOWING WOULD BOTH CRASH:
+     * WITHOUT SOME "EXTRA-CARE" IN THE IMPLEMENTATION, THE FOLLOWING WOULD (BADLY) CRASH:
      */
 
-    LOGI << "[" << nonInitialized->isValid() << "]" << endl;
-    LOGI << "[" << nonInitialized->getURI() << "]" << endl;
+    /*
+     * INSTEAD: IT "ONLY" RETURNS A "DEFAULT-VALUE" (E.G. false)
+     */
+    nonInitialized->isFile();
+    nonInitialized->getFilePath();
+    nonInitialized->getFilePathHint();
+    nonInitialized->setFilePathHint("bar");
+    nonInitialized->getURI();
+
+    /*
+     * INSTEAD: IT "ONLY" THROWS
+     */
+    if (true)
+    {
+        nonInitialized->loadDataSource();
+    }
+    else
+    {
+        nonInitialized->getSubSource("foo");
+    }
 }
