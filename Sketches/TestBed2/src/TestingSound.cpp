@@ -14,12 +14,11 @@ void TestingSound::setup()
 {
     if (!soundManager)
     {
+        SoundManager::LOG_VERBOSE = true;
+
         soundManager = make_shared<SoundManager>();
-        
         soundManager->setup(MAX_CHANNELS);
         soundManager->addListener(this);
-        
-        Effect::LOG_VERBOSE = true;
         
         // ---
         
@@ -37,7 +36,7 @@ void TestingSound::shutdown()
         soundManager->shutdown();
         soundManager.reset();
         
-        Effect::LOG_VERBOSE = false;
+        SoundManager::LOG_VERBOSE = false;
     }
 }
 

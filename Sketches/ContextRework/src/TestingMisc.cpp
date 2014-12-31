@@ -10,12 +10,6 @@ using namespace chr;
 
 using namespace context;
 
-void TestingMisc::setup()
-{
-    Texture::VERBOSE = true;
-
-}
-
 void TestingMisc::run(bool force)
 {
     if (force || true)
@@ -65,18 +59,24 @@ protected:
 
 void TestingMisc::testSharedPtrCasting()
 {
-    TextureManager textureManager;
+    TextureManager::LOG_VERBOSE = true;
     
-    auto texture = textureManager.getTexture(InputSource::getAsset("U_512.png"));
-    LOGI << texture.use_count() << endl;
+    {
+        TextureManager textureManager;
+        
+        auto texture = textureManager.getTexture(InputSource::getAsset("U_512.png"));
+        LOGI << texture.use_count() << endl;
+        
+        auto resource = make_shared<ResourceItem>(texture);
+        LOGI << texture.use_count() << endl;
+        
+        LOGI << resource->getResource<Texture>()->getSize() << endl;
+        
+        resource.reset();
+        LOGI << texture.use_count() << endl;
+    }
     
-    auto resource = make_shared<ResourceItem>(texture);
-    LOGI << texture.use_count() << endl;
-    
-    LOGI << resource->getResource<Texture>()->getSize() << endl;
-    
-    resource.reset();
-    LOGI << texture.use_count() << endl;
+    TextureManager::LOG_VERBOSE = false;
 }
 
 // ---

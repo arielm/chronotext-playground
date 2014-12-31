@@ -5,7 +5,6 @@
 class TestingMisc : public TestingBase
 {
 public:
-    void setup() final;
     void run(bool force = false) final;
 
     void testSharedPtrCasting();

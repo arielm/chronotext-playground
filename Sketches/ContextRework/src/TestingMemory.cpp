@@ -10,8 +10,10 @@ using namespace context;
 
 void TestingMemory::setup()
 {
-    TextureHelper::PROBE_MEMORY = true;
-    Texture::VERBOSE = true;
+    TextureManager::LOG_VERBOSE = true;
+    TextureManager::PROBE_MEMORY = true;
+    
+    textureManager = make_shared<TextureManager>();
 
     // ---
     
@@ -50,6 +52,14 @@ void TestingMemory::setup()
     LOGI << endl << "MEMORY INFO - BEFORE: " << getMemoryInfo() << endl;
 }
 
+void TestingMemory::shutdown()
+{
+    textureManager.reset();
+    
+    TextureManager::LOG_VERBOSE = false;
+    TextureManager::PROBE_MEMORY = false;
+}
+
 void TestingMemory::update()
 {
     if (!done)
@@ -85,7 +95,7 @@ void TestingMemory::update()
             
             try
             {
-                textureManager.getTexture(textureRequest);
+                textureManager->getTexture(textureRequest);
             }
             catch (exception &e)
             {
@@ -96,7 +106,7 @@ void TestingMemory::update()
         }
         else
         {
-            textureManager.discardTextures();
+            textureManager->discardTextures();
             done = true;
             
             LOGI << endl << "MEMORY INFO - AFTER: " << getMemoryInfo() << endl;

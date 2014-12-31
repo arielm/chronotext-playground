@@ -26,10 +26,11 @@ class TestingMemory : public TestingBase
 {
 public:
     void setup() final;
+    void shutdown() final;
     void update() final;
     
 protected:
-    chr::TextureManager textureManager;
+    std::shared_ptr<chr::TextureManager> textureManager;
     
     std::vector<chr::InputSource::Ref> inputSources;
     int index;

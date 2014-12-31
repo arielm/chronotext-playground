@@ -9,11 +9,6 @@ using namespace chr;
 
 using namespace context;
 
-void TestingTasks::setup()
-{
-    Task::VERBOSE = true;
-}
-
 void TestingTasks::run(bool force)
 {
     if (force || true)
@@ -24,6 +19,7 @@ void TestingTasks::run(bool force)
 
 void TestingTasks::test1()
 {
+    TaskManager::LOG_VERBOSE = true;
     TaskManager::MAX_CONCURRENT_THREADS = 2;
     
     taskManager().addTask(make_shared<TestTask>("two", 1, 0.5));

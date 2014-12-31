@@ -11,7 +11,6 @@
 class TestingTasks : public TestingBase
 {
 public:
-    void setup() final;
     void run(bool force = false) final;
     
     void test1();
