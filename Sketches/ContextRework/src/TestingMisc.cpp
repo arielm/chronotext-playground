@@ -2,7 +2,7 @@
 
 #include "chronotext/Context.h"
 #include "chronotext/texture/TextureManager.h"
-#include "chronotext/utils/FileCapture.h"
+#include "chronotext/incubator/utils/FileCapture.h"
 
 using namespace std;
 using namespace ci;

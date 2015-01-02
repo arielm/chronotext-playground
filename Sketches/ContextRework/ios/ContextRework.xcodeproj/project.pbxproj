@@ -133,6 +133,8 @@
 		A81E3DFE1993D2AE002B8978 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		A81E3DFF1993D2AE002B8978 /* DistributionConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DistributionConfig.xcconfig; sourceTree = "<group>"; };
 		A82C900816DF91D300FF519C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A82DCAE41A56FF8200295247 /* FileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCapture.h; sourceTree = "<group>"; };
+		A82DCAE51A56FF8200295247 /* Timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
 		A83F54F91A31204E00E3531E /* Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
 		A83F54FA1A31204E00E3531E /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
 		A83F54FF1A312DB100E3531E /* FileHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelper.cpp; sourceTree = "<group>"; };
@@ -206,17 +208,14 @@
 		A84E42EB1A2A1DFB00EE6AC1 /* TimeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeBase.h; sourceTree = "<group>"; };
 		A84E42EE1A2A1DFB00EE6AC1 /* AccelerationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationManager.h; sourceTree = "<group>"; };
 		A84E42EF1A2A1DFB00EE6AC1 /* AccelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelEvent.h; sourceTree = "<group>"; };
-		A84E42F01A2A1DFB00EE6AC1 /* FileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCapture.h; sourceTree = "<group>"; };
 		A84E42F11A2A1DFB00EE6AC1 /* GLUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLUtils.cpp; sourceTree = "<group>"; };
 		A84E42F21A2A1DFB00EE6AC1 /* GLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUtils.h; sourceTree = "<group>"; };
-		A84E42F31A2A1DFB00EE6AC1 /* Hasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hasher.h; sourceTree = "<group>"; };
 		A84E42F41A2A1DFB00EE6AC1 /* MathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathUtils.cpp; sourceTree = "<group>"; };
 		A84E42F51A2A1DFB00EE6AC1 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
 		A84E42F71A2A1DFB00EE6AC1 /* ImageSourceFileStbImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSourceFileStbImage.cpp; sourceTree = "<group>"; };
 		A84E42F81A2A1DFB00EE6AC1 /* ImageSourceFileStbImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceFileStbImage.h; sourceTree = "<group>"; };
 		A84E42FA1A2A1DFB00EE6AC1 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		A84E42FB1A2A1DFB00EE6AC1 /* SyslogStringStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyslogStringStream.h; sourceTree = "<group>"; };
-		A84E42FC1A2A1DFB00EE6AC1 /* Timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
 		A84E42FD1A2A1DFB00EE6AC1 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		A84E42FE1A2A1DFB00EE6AC1 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		A84E43241A2A1F0500EE6AC1 /* ASPC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPC.h; sourceTree = "<group>"; };
@@ -456,6 +455,7 @@
 				A84E42901A2A1DFA00EE6AC1 /* cinder */,
 				A8CDB6581A2DD16A0043A5E5 /* cocoa */,
 				A84E42971A2A1DFA00EE6AC1 /* font */,
+				A82DCAC31A56FF8200295247 /* incubator */,
 				A84E43391A2A1F2300EE6AC1 /* ios */,
 				A84E42BE1A2A1DFA00EE6AC1 /* os */,
 				A84E43231A2A1F0500EE6AC1 /* path */,
@@ -468,6 +468,23 @@
 			name = chronotext;
 			path = "blocks/new-chronotext-toolkit/src/chronotext";
 			sourceTree = CINDER_PATH_CHR;
+		};
+		A82DCAC31A56FF8200295247 /* incubator */ = {
+			isa = PBXGroup;
+			children = (
+				A82DCAE31A56FF8200295247 /* utils */,
+			);
+			path = incubator;
+			sourceTree = "<group>";
+		};
+		A82DCAE31A56FF8200295247 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A82DCAE41A56FF8200295247 /* FileCapture.h */,
+				A82DCAE51A56FF8200295247 /* Timing.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
 		};
 		A84E428C1A2A1D6D00EE6AC1 /* Path */ = {
 			isa = PBXGroup;
@@ -611,14 +628,11 @@
 			children = (
 				A84E42ED1A2A1DFB00EE6AC1 /* accel */,
 				A84E42F61A2A1DFB00EE6AC1 /* stb */,
-				A84E42F01A2A1DFB00EE6AC1 /* FileCapture.h */,
 				A84E42F11A2A1DFB00EE6AC1 /* GLUtils.cpp */,
 				A84E42F21A2A1DFB00EE6AC1 /* GLUtils.h */,
-				A84E42F31A2A1DFB00EE6AC1 /* Hasher.h */,
 				A84E42F41A2A1DFB00EE6AC1 /* MathUtils.cpp */,
 				A84E42F51A2A1DFB00EE6AC1 /* MathUtils.h */,
 				A84E42FB1A2A1DFB00EE6AC1 /* SyslogStringStream.h */,
-				A84E42FC1A2A1DFB00EE6AC1 /* Timing.h */,
 				A84E42FD1A2A1DFB00EE6AC1 /* Utils.cpp */,
 				A84E42FE1A2A1DFB00EE6AC1 /* Utils.h */,
 			);

@@ -108,11 +108,12 @@
 		A81CCE411A3DA67800AF0BFC /* TestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestTask.h; path = ../src/TestTask.h; sourceTree = "<group>"; };
 		A82C910816E02DAA00FF519C /* Sketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sketch.cpp; path = ../src/Sketch.cpp; sourceTree = "<group>"; };
 		A82C910916E02DAA00FF519C /* Sketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sketch.h; path = ../src/Sketch.h; sourceTree = "<group>"; };
+		A82DCAB31A56FF3F00295247 /* FileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCapture.h; sourceTree = "<group>"; };
+		A82DCAB41A56FF3F00295247 /* Timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
 		A83F54F61A311FF400E3531E /* Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
 		A83F54F71A311FF400E3531E /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
 		A83F55021A312DC300E3531E /* FileHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelper.cpp; sourceTree = "<group>"; };
 		A83F55031A312DC300E3531E /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
-		A84E42871A29FF4D00EE6AC1 /* FileCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCapture.h; sourceTree = "<group>"; };
 		A84E42881A2A1A8F00EE6AC1 /* emulators.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emulators.json; sourceTree = "<group>"; };
 		A859772E1A2F8C4D0080C906 /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManager.h; sourceTree = "<group>"; };
 		A85977311A2F911A0080C906 /* SystemManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SystemManager.cpp; sourceTree = "<group>"; };
@@ -201,11 +202,9 @@
 		A86901EA1A02E22300D2C9F3 /* TimeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeBase.h; sourceTree = "<group>"; };
 		A86901F81A02E22300D2C9F3 /* GLUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLUtils.cpp; sourceTree = "<group>"; };
 		A86901F91A02E22300D2C9F3 /* GLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUtils.h; sourceTree = "<group>"; };
-		A86901FA1A02E22300D2C9F3 /* Hasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hasher.h; sourceTree = "<group>"; };
 		A86901FB1A02E22300D2C9F3 /* MathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathUtils.cpp; sourceTree = "<group>"; };
 		A86901FC1A02E22300D2C9F3 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
 		A86902021A02E22300D2C9F3 /* SyslogStringStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyslogStringStream.h; sourceTree = "<group>"; };
-		A86902031A02E22300D2C9F3 /* Timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
 		A86902041A02E22300D2C9F3 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		A86902051A02E22300D2C9F3 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		A869025E1A02EDC100D2C9F3 /* Path3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Path3D.cpp; sourceTree = "<group>"; };
@@ -364,6 +363,23 @@
 			path = stb;
 			sourceTree = "<group>";
 		};
+		A82DCA921A56FF3F00295247 /* incubator */ = {
+			isa = PBXGroup;
+			children = (
+				A82DCAB21A56FF3F00295247 /* utils */,
+			);
+			path = incubator;
+			sourceTree = "<group>";
+		};
+		A82DCAB21A56FF3F00295247 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A82DCAB31A56FF3F00295247 /* FileCapture.h */,
+				A82DCAB41A56FF3F00295247 /* Timing.h */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		A869011A1A02E22300D2C9F3 /* chronotext */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +395,7 @@
 				A86901331A02E22300D2C9F3 /* cinder */,
 				A8DB87301A2CEE8700334BEA /* cocoa */,
 				A86901421A02E22300D2C9F3 /* font */,
+				A82DCA921A56FF3F00295247 /* incubator */,
 				A869019E1A02E22300D2C9F3 /* os */,
 				A86901B01A02E22300D2C9F3 /* path */,
 				A86901C01A02E22300D2C9F3 /* quad */,
@@ -575,14 +592,11 @@
 			isa = PBXGroup;
 			children = (
 				A814C5D71A374AE400F639E3 /* stb */,
-				A84E42871A29FF4D00EE6AC1 /* FileCapture.h */,
 				A86901F81A02E22300D2C9F3 /* GLUtils.cpp */,
 				A86901F91A02E22300D2C9F3 /* GLUtils.h */,
-				A86901FA1A02E22300D2C9F3 /* Hasher.h */,
 				A86901FB1A02E22300D2C9F3 /* MathUtils.cpp */,
 				A86901FC1A02E22300D2C9F3 /* MathUtils.h */,
 				A86902021A02E22300D2C9F3 /* SyslogStringStream.h */,
-				A86902031A02E22300D2C9F3 /* Timing.h */,
 				A86902041A02E22300D2C9F3 /* Utils.cpp */,
 				A86902051A02E22300D2C9F3 /* Utils.h */,
 			);

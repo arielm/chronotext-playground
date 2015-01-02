@@ -200,10 +200,8 @@
 		A86901EA1A02E22300D2C9F3 /* TimeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeBase.h; sourceTree = "<group>"; };
 		A86901F81A02E22300D2C9F3 /* GLUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLUtils.cpp; sourceTree = "<group>"; };
 		A86901F91A02E22300D2C9F3 /* GLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUtils.h; sourceTree = "<group>"; };
-		A86901FA1A02E22300D2C9F3 /* Hasher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hasher.h; sourceTree = "<group>"; };
 		A86901FB1A02E22300D2C9F3 /* MathUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathUtils.cpp; sourceTree = "<group>"; };
 		A86901FC1A02E22300D2C9F3 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtils.h; sourceTree = "<group>"; };
-		A86902031A02E22300D2C9F3 /* Timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
 		A86902041A02E22300D2C9F3 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
 		A86902051A02E22300D2C9F3 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		A8721A371A2BD40200AED9C8 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingBase.h; path = ../src/TestingBase.h; sourceTree = "<group>"; };
@@ -585,10 +583,8 @@
 				A814C5D71A374AE400F639E3 /* stb */,
 				A86901F81A02E22300D2C9F3 /* GLUtils.cpp */,
 				A86901F91A02E22300D2C9F3 /* GLUtils.h */,
-				A86901FA1A02E22300D2C9F3 /* Hasher.h */,
 				A86901FB1A02E22300D2C9F3 /* MathUtils.cpp */,
 				A86901FC1A02E22300D2C9F3 /* MathUtils.h */,
-				A86902031A02E22300D2C9F3 /* Timing.h */,
 				A86902041A02E22300D2C9F3 /* Utils.cpp */,
 				A86902051A02E22300D2C9F3 /* Utils.h */,
 			);

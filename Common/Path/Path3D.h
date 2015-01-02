@@ -32,7 +32,7 @@ public:
     std::vector<Point> points;
     std::vector<float> lengths;
     
-    Path3D();
+    Path3D() = default;
     Path3D(int capacity);
 
     int size() const;

@@ -1,14 +1,11 @@
 #include "Path3D.h"
 
+#include "chronotext/Context.h"
 #include "chronotext/utils/MathUtils.h"
-#include "chronotext/utils/Utils.h"
 
 using namespace std;
 using namespace ci;
 using namespace chr;
-
-Path3D::Path3D()
-{}
 
 Path3D::Path3D(int capacity)
 {
@@ -76,7 +73,7 @@ Path3D::Value Path3D::offset2Value(float offset) const
 {
     if (!empty())
     {
-        int index = search(lengths, offset, 1, size());
+        auto index = utils::search(lengths, offset, 1, size());
         auto &p0 = points[index];
         auto &p1 = points[index + 1];
         
