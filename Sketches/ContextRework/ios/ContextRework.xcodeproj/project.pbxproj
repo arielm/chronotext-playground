@@ -30,7 +30,6 @@
 		A81E3DF91993B741002B8978 /* icon_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF41993B741002B8978 /* icon_76.png */; };
 		A81E3DFA1993D0F3002B8978 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A82C900816DF91D300FF519C /* Default-568h@2x.png */; };
 		A83F54FB1A31204E00E3531E /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F54F91A31204E00E3531E /* Context.cpp */; };
-		A83F55011A312DB100E3531E /* FileHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A83F54FF1A312DB100E3531E /* FileHelper.cpp */; };
 		A84E428F1A2A1D6D00EE6AC1 /* Path3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E428D1A2A1D6D00EE6AC1 /* Path3D.cpp */; };
 		A84E43041A2A1DFB00EE6AC1 /* ActualFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42A21A2A1DFA00EE6AC1 /* ActualFont.cpp */; };
 		A84E43051A2A1DFB00EE6AC1 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42A41A2A1DFA00EE6AC1 /* FontManager.cpp */; };
@@ -78,6 +77,8 @@
 		A874A5091A2B5B88009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5061A2B5B88009A60A0 /* TaskManager.cpp */; };
 		A8994D441726E33900C8851E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8994D431726E33900C8851E /* GLKit.framework */; };
 		A8994D481726E51E00C8851E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8994D471726E51E00C8851E /* AppDelegate.mm */; };
+		A8A2B3BA1A5AE2E7002B5ABD /* FileHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8A2B3B91A5AE2E7002B5ABD /* FileHelper.mm */; };
+		A8A2B3BD1A5AE2EF002B5ABD /* FileHelperBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8A2B3BB1A5AE2EF002B5ABD /* FileHelperBase.cpp */; };
 		A8C16EA01A2A4A7300551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9F1A2A4A7300551905 /* main.cpp */; };
 		A8CC2B361A49A5C300F8FBA5 /* TestingTasks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CC2B321A49A5C300F8FBA5 /* TestingTasks.cpp */; };
 		A8CC2B371A49A5C300F8FBA5 /* TestTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CC2B341A49A5C300F8FBA5 /* TestTask.cpp */; };
@@ -137,7 +138,6 @@
 		A82DCAE51A56FF8200295247 /* Timing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
 		A83F54F91A31204E00E3531E /* Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
 		A83F54FA1A31204E00E3531E /* Context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Context.h; sourceTree = "<group>"; };
-		A83F54FF1A312DB100E3531E /* FileHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelper.cpp; sourceTree = "<group>"; };
 		A83F55001A312DB100E3531E /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
 		A84E428D1A2A1D6D00EE6AC1 /* Path3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Path3D.cpp; sourceTree = "<group>"; };
 		A84E428E1A2A1D6D00EE6AC1 /* Path3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path3D.h; sourceTree = "<group>"; };
@@ -259,6 +259,10 @@
 		A8994D431726E33900C8851E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A8994D461726E51E00C8851E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A8994D471726E51E00C8851E /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		A8A2B3B81A5AE2E7002B5ABD /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
+		A8A2B3B91A5AE2E7002B5ABD /* FileHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileHelper.mm; sourceTree = "<group>"; };
+		A8A2B3BB1A5AE2EF002B5ABD /* FileHelperBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelperBase.cpp; sourceTree = "<group>"; };
+		A8A2B3BC1A5AE2EF002B5ABD /* FileHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelperBase.h; sourceTree = "<group>"; };
 		A8C16E9F1A2A4A7300551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
 		A8CC2B321A49A5C300F8FBA5 /* TestingTasks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingTasks.cpp; path = ../src/TestingTasks.cpp; sourceTree = "<group>"; };
 		A8CC2B331A49A5C300F8FBA5 /* TestingTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingTasks.h; path = ../src/TestingTasks.h; sourceTree = "<group>"; };
@@ -577,11 +581,12 @@
 		A84E42CF1A2A1DFB00EE6AC1 /* system */ = {
 			isa = PBXGroup;
 			children = (
-				A83F55001A312DB100E3531E /* FileHelper.h */,
-				A83F54FF1A312DB100E3531E /* FileHelper.cpp */,
 				A84E42D11A2A1DFB00EE6AC1 /* DisplayHelper.h */,
 				A84E42D01A2A1DFB00EE6AC1 /* DisplayHelper.cpp */,
 				A84E42D21A2A1DFB00EE6AC1 /* DisplayInfo.h */,
+				A83F55001A312DB100E3531E /* FileHelper.h */,
+				A8A2B3BC1A5AE2EF002B5ABD /* FileHelperBase.h */,
+				A8A2B3BB1A5AE2EF002B5ABD /* FileHelperBase.cpp */,
 				A84E42D31A2A1DFB00EE6AC1 /* SystemInfo.h */,
 				A84E42D41A2A1DFB00EE6AC1 /* SystemInfoBase.h */,
 				A84E42D51A2A1DFB00EE6AC1 /* SystemManager.h */,
@@ -777,6 +782,8 @@
 		A8CDB6591A2DD16A0043A5E5 /* system */ = {
 			isa = PBXGroup;
 			children = (
+				A8A2B3B81A5AE2E7002B5ABD /* FileHelper.h */,
+				A8A2B3B91A5AE2E7002B5ABD /* FileHelper.mm */,
 				A8CDB65A1A2DD16A0043A5E5 /* MemoryManager.h */,
 				A8CDB65B1A2DD16A0043A5E5 /* MemoryManager.mm */,
 			);
@@ -880,11 +887,11 @@
 				A8CC2B361A49A5C300F8FBA5 /* TestingTasks.cpp in Sources */,
 				A8994D481726E51E00C8851E /* AppDelegate.mm in Sources */,
 				A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */,
-				A83F55011A312DB100E3531E /* FileHelper.cpp in Sources */,
 				A84E430C1A2A1DFB00EE6AC1 /* TextItemizer.cpp in Sources */,
 				A84E430B1A2A1DFB00EE6AC1 /* scrptrun.cpp in Sources */,
 				A84E434F1A2A1F2300EE6AC1 /* SystemManager.mm in Sources */,
 				A84E431D1A2A1DFB00EE6AC1 /* FrameClock.cpp in Sources */,
+				A8A2B3BA1A5AE2E7002B5ABD /* FileHelper.mm in Sources */,
 				A84E43331A2A1F0500EE6AC1 /* FollowablePath.cpp in Sources */,
 				A84E43501A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm in Sources */,
 				A84E431F1A2A1DFB00EE6AC1 /* MathUtils.cpp in Sources */,
@@ -902,6 +909,7 @@
 				A84E43221A2A1DFB00EE6AC1 /* Utils.cpp in Sources */,
 				A84E43191A2A1DFB00EE6AC1 /* Texture.cpp in Sources */,
 				A84E431C1A2A1DFB00EE6AC1 /* Clock.cpp in Sources */,
+				A8A2B3BD1A5AE2EF002B5ABD /* FileHelperBase.cpp in Sources */,
 				A84E43111A2A1DFB00EE6AC1 /* SuperHandler.cpp in Sources */,
 				A8112C181A4DC3C80002CF68 /* Sprite.cpp in Sources */,
 				A84E43351A2A1F0500EE6AC1 /* Hairline.cpp in Sources */,
