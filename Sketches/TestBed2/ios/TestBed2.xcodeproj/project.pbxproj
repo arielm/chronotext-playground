@@ -30,7 +30,6 @@
 		A84E43101A2A1DFB00EE6AC1 /* Handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42BF1A2A1DFB00EE6AC1 /* Handler.cpp */; };
 		A84E43111A2A1DFB00EE6AC1 /* SuperHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42C31A2A1DFB00EE6AC1 /* SuperHandler.cpp */; };
 		A84E43141A2A1DFB00EE6AC1 /* QuadMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42CD1A2A1DFB00EE6AC1 /* QuadMatrix.cpp */; };
-		A84E43151A2A1DFB00EE6AC1 /* DisplayHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42D01A2A1DFB00EE6AC1 /* DisplayHelper.cpp */; };
 		A84E43161A2A1DFB00EE6AC1 /* SystemManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42D61A2A1DFB00EE6AC1 /* SystemManagerBase.cpp */; };
 		A84E43171A2A1DFB00EE6AC1 /* PVRHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42D91A2A1DFB00EE6AC1 /* PVRHelper.cpp */; };
 		A84E43191A2A1DFB00EE6AC1 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42DD1A2A1DFB00EE6AC1 /* Texture.cpp */; };
@@ -51,6 +50,8 @@
 		A84E43531A2A295D00EE6AC1 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E43521A2A295D00EE6AC1 /* icon_120.png */; };
 		A8702AA61A5AF4D300EF9E9E /* FileHelperBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8702AA41A5AF4D300EF9E9E /* FileHelperBase.cpp */; };
 		A8702AA91A5AF4EA00EF9E9E /* FileHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8702AA81A5AF4EA00EF9E9E /* FileHelper.mm */; };
+		A8702ABE1A5B0A5900EF9E9E /* DisplayHelperBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8702ABC1A5B0A5900EF9E9E /* DisplayHelperBase.cpp */; };
+		A8702AC11A5B0A6C00EF9E9E /* DisplayHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8702AC01A5B0A6C00EF9E9E /* DisplayHelper.mm */; };
 		A874A5081A2B5B88009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5041A2B5B88009A60A0 /* Task.cpp */; };
 		A874A5091A2B5B88009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5061A2B5B88009A60A0 /* TaskManager.cpp */; };
 		A8994D441726E33900C8851E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8994D431726E33900C8851E /* GLKit.framework */; };
@@ -121,7 +122,6 @@
 		A84E42CC1A2A1DFB00EE6AC1 /* QuadBatchMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadBatchMap.h; sourceTree = "<group>"; };
 		A84E42CD1A2A1DFB00EE6AC1 /* QuadMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuadMatrix.cpp; sourceTree = "<group>"; };
 		A84E42CE1A2A1DFB00EE6AC1 /* QuadMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadMatrix.h; sourceTree = "<group>"; };
-		A84E42D01A2A1DFB00EE6AC1 /* DisplayHelper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = DisplayHelper.cpp; sourceTree = "<group>"; };
 		A84E42D11A2A1DFB00EE6AC1 /* DisplayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayHelper.h; sourceTree = "<group>"; };
 		A84E42D21A2A1DFB00EE6AC1 /* DisplayInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayInfo.h; sourceTree = "<group>"; };
 		A84E42D31A2A1DFB00EE6AC1 /* SystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfo.h; sourceTree = "<group>"; };
@@ -172,6 +172,10 @@
 		A8702AA51A5AF4D300EF9E9E /* FileHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelperBase.h; sourceTree = "<group>"; };
 		A8702AA71A5AF4EA00EF9E9E /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
 		A8702AA81A5AF4EA00EF9E9E /* FileHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileHelper.mm; sourceTree = "<group>"; };
+		A8702ABC1A5B0A5900EF9E9E /* DisplayHelperBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayHelperBase.cpp; sourceTree = "<group>"; };
+		A8702ABD1A5B0A5900EF9E9E /* DisplayHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayHelperBase.h; sourceTree = "<group>"; };
+		A8702ABF1A5B0A6C00EF9E9E /* DisplayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayHelper.h; sourceTree = "<group>"; };
+		A8702AC01A5B0A6C00EF9E9E /* DisplayHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DisplayHelper.mm; sourceTree = "<group>"; };
 		A8721A3C1A2BD7AE00AED9C8 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingBase.h; path = ../src/TestingBase.h; sourceTree = "<group>"; };
 		A874A5041A2B5B88009A60A0 /* Task.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Task.cpp; sourceTree = "<group>"; };
 		A874A5051A2B5B88009A60A0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -411,7 +415,8 @@
 			isa = PBXGroup;
 			children = (
 				A84E42D11A2A1DFB00EE6AC1 /* DisplayHelper.h */,
-				A84E42D01A2A1DFB00EE6AC1 /* DisplayHelper.cpp */,
+				A8702ABD1A5B0A5900EF9E9E /* DisplayHelperBase.h */,
+				A8702ABC1A5B0A5900EF9E9E /* DisplayHelperBase.cpp */,
 				A84E42D21A2A1DFB00EE6AC1 /* DisplayInfo.h */,
 				A83F55001A312DB100E3531E /* FileHelper.h */,
 				A8702AA51A5AF4D300EF9E9E /* FileHelperBase.h */,
@@ -525,6 +530,8 @@
 		A84E43421A2A1F2300EE6AC1 /* system */ = {
 			isa = PBXGroup;
 			children = (
+				A8702ABF1A5B0A6C00EF9E9E /* DisplayHelper.h */,
+				A8702AC01A5B0A6C00EF9E9E /* DisplayHelper.mm */,
 				A84E43431A2A1F2300EE6AC1 /* SystemInfo.h */,
 				A84E43441A2A1F2300EE6AC1 /* SystemManager.h */,
 				A84E43451A2A1F2300EE6AC1 /* SystemManager.mm */,
@@ -694,11 +701,11 @@
 				A84E43511A2A1F2300EE6AC1 /* UIView+StringTag.m in Sources */,
 				A8CDB6651A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m in Sources */,
 				A84E43221A2A1DFB00EE6AC1 /* Utils.cpp in Sources */,
+				A8702ABE1A5B0A5900EF9E9E /* DisplayHelperBase.cpp in Sources */,
 				A84E43191A2A1DFB00EE6AC1 /* Texture.cpp in Sources */,
 				A8F867271A53133F00352229 /* SoundManager.cpp in Sources */,
 				A84E431C1A2A1DFB00EE6AC1 /* Clock.cpp in Sources */,
 				A84E43111A2A1DFB00EE6AC1 /* SuperHandler.cpp in Sources */,
-				A84E43151A2A1DFB00EE6AC1 /* DisplayHelper.cpp in Sources */,
 				A8702AA61A5AF4D300EF9E9E /* FileHelperBase.cpp in Sources */,
 				A8DC566D1A2E238400C16B2F /* MemoryManagerBase.cpp in Sources */,
 				A8112A4E1A4B338A0002CF68 /* TestingSound.cpp in Sources */,
@@ -708,6 +715,7 @@
 				A84E434C1A2A1F2300EE6AC1 /* CinderDelegate.mm in Sources */,
 				A84E430F1A2A1DFB00EE6AC1 /* Log.cpp in Sources */,
 				A8CDB6631A2DD16A0043A5E5 /* MemoryManager.mm in Sources */,
+				A8702AC11A5B0A6C00EF9E9E /* DisplayHelper.mm in Sources */,
 				A8C16EA01A2A4A7300551905 /* main.cpp in Sources */,
 				A84E431B1A2A1DFB00EE6AC1 /* TextureManager.cpp in Sources */,
 				A8112AC11A4C4B520002CF68 /* Effect.cpp in Sources */,
