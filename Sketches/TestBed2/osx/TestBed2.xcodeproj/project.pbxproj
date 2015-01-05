@@ -224,6 +224,7 @@
 		A881B27E1A35206A00AB18C0 /* TextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlas.h; sourceTree = "<group>"; };
 		A881B27F1A35206A00AB18C0 /* TextureAtlasAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureAtlasAnimation.cpp; sourceTree = "<group>"; };
 		A881B2801A35206A00AB18C0 /* TextureAtlasAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlasAnimation.h; sourceTree = "<group>"; };
+		A8A2B3A51A5ABDF6002B5ABD /* SystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfo.h; sourceTree = "<group>"; };
 		A8B336591A045B2200ABEFBF /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		A8B3365A1A045B2200ABEFBF /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
@@ -420,9 +421,10 @@
 		A869012C1A02E22300D2C9F3 /* system */ = {
 			isa = PBXGroup;
 			children = (
+				A869012D1A02E22300D2C9F3 /* EmulatedDevice.h */,
+				A8A2B3A51A5ABDF6002B5ABD /* SystemInfo.h */,
 				A859772E1A2F8C4D0080C906 /* SystemManager.h */,
 				A85977311A2F911A0080C906 /* SystemManager.cpp */,
-				A869012D1A02E22300D2C9F3 /* EmulatedDevice.h */,
 			);
 			path = system;
 			sourceTree = "<group>";

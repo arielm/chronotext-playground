@@ -16,7 +16,6 @@ void Sketch::setup()
     if (true)
     {
         LOGI << "WINDOW INFO: " << getWindowInfo() << endl;
-        LOGI << "DISPLAY INFO: " << getDisplayInfo() << endl;
     }
     
     // ---
