@@ -7,8 +7,6 @@ using namespace std;
 using namespace ci;
 using namespace chr;
 
-using namespace context;
-
 void TestingTasks::run(bool force)
 {
     if (force || true)
