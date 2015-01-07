@@ -13,9 +13,11 @@ void TestingSound::setup()
     if (!soundManager)
     {
         SoundManager::LOG_VERBOSE = true;
+        SoundManager::PROBE_MEMORY = true;
 
         soundManager = make_shared<SoundManager>();
         soundManager->setup(MAX_CHANNELS);
+        
         soundManager->addListener(this);
         
         // ---
@@ -24,6 +26,8 @@ void TestingSound::setup()
         {
             effects.emplace_back(soundManager->getEffect(InputSource::getAsset(name)));
         }
+        
+        soundManager->discardEffects(); // XXX: TEMPORARY
     }
 }
 

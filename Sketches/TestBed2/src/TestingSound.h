@@ -1,3 +1,16 @@
+/*
+ * TODO:
+ *
+ * 1) TEST EFFECT-DISCARDING:
+ *    - VIA KEYBOARD:
+ *      - PRE-REQUISITE: KEYBOARD-HANDLING AT THE TestingBase (OR CinderSketch) LEVEL
+ *    - VIA "DEVICE SHAKE"
+ *
+ * 2) TEST MEMORY-CONSUMPTION (OSX AND IOS) WITH Effect::Request::forceMemoryLoad
+ *
+ * 3) MORE TODO'S IN SoundManager.h
+ */
+
 #pragma once
 
 #include "TestingBase.h"
