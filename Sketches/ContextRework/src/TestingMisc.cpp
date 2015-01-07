@@ -12,21 +12,23 @@ void TestingMisc::run(bool force)
 {
     if (force || true)
     {
-        if (force || true) testSharedPtrCasting();
+        if (force || false) testSharedPtrCasting();
+        if (force || false) testFileCapture();
     }
 
     if (force || true)
     {
-        if (force || false) testFileCapture();
+        if (force || false) testFileSystem();
+        if (force || false) testSystemAndMemoryInfo();
+    }
+
+    if (force || true)
+    {
         if (force || false) testNewLogging();
         if (force || false) testNewException();
         if (force || false) testInputSourceRobustness();
-    }
-    
-    if (force || true)
-    {
-        if (force || false) testSystemAndMemoryInfo();
-        if (force || false) testFileSystem();
+        if (force || false) testTimeFormat();
+        if (force || true) testDurationFormat();
     }
 }
 
@@ -176,4 +178,23 @@ void TestingMisc::testInputSourceRobustness()
     {
         nonInitialized->getSubSource("foo");
     }
+}
+
+void TestingMisc::testTimeFormat()
+{
+    LOGI << utils::format::time(255) << endl;
+    LOGI << utils::format::time(4943) << endl;
+    LOGI << utils::format::time(60) << endl;
+    LOGI << utils::format::time(0.6, true) << endl;
+}
+
+void TestingMisc::testDurationFormat()
+{
+    LOGI << utils::format::duration(1.23456) << endl;
+    LOGI << utils::format::duration(0.0123456) << endl;
+    LOGI << utils::format::duration(0.000123456) << endl;
+    LOGI << utils::format::duration(0.00000123456) << endl;
+    LOGI << utils::format::duration(0.0000000123456) << endl;
+    LOGI << utils::format::duration(0.000000000123456) << endl;
+    LOGI << utils::format::duration(60) << endl;
 }

@@ -8,12 +8,14 @@ public:
     void run(bool force = false) final;
 
     void testSharedPtrCasting();
-
     void testFileCapture();
+
+    void testFileSystem();
+    void testSystemAndMemoryInfo();
+
     void testNewLogging();
     void testNewException();
     void testInputSourceRobustness();
-    
-    void testSystemAndMemoryInfo();
-    void testFileSystem();
+    void testTimeFormat();
+    void testDurationFormat();
 };

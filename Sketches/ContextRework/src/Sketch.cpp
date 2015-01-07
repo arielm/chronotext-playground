@@ -13,15 +13,8 @@ using namespace chr;
 
 void Sketch::setup()
 {
-    if (true)
-    {
-        LOGI << "WINDOW INFO: " << getWindowInfo() << endl;
-    }
-    
-    // ---
-    
-    TestingBase::execute<TestingMisc>(false);
-    TestingBase::execute<TestingTasks>(true);
+    TestingBase::execute<TestingMisc>(true);
+    TestingBase::execute<TestingTasks>(false);
 
     if (false)
     {

@@ -62,7 +62,7 @@ void TestingMemory::update()
 {
     if (!done)
     {
-        auto size = false ? inputSources.size() : 10; // XXX
+        auto size = true ? inputSources.size() : 10; // XXX
         size = std::min(size, inputSources.size());
         
         if (index < size)
