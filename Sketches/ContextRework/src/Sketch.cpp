@@ -13,10 +13,10 @@ using namespace chr;
 
 void Sketch::setup()
 {
-    TestingBase::execute<TestingMisc>(true);
+    TestingBase::execute<TestingMisc>(false);
     TestingBase::execute<TestingTasks>(false);
 
-    if (false)
+    if (true)
     {
         frameTest = make_shared<TestingMemory>();
         frameTest->setup();
