@@ -28,7 +28,8 @@ void TestingMisc::run(bool force)
         if (force || false) testNewException();
         if (force || false) testInputSourceRobustness();
         if (force || false) testTimeFormat();
-        if (force || true) testDurationFormat();
+        if (force || false) testDurationFormat();
+        if (force || true) testStringToIntToString();
     }
 }
 
@@ -197,4 +198,79 @@ void TestingMisc::testDurationFormat()
     LOGI << utils::format::duration(0.0000000123456) << endl;
     LOGI << utils::format::duration(0.000000000123456) << endl;
     LOGI << utils::format::duration(60) << endl;
+}
+
+// ---
+
+/*
+ * DEMONSTRATED:
+ *
+ * 1) "ROBUST" STRING-TO-INT CONVERSION:
+ *    - ci::fromString<int>("2b") WOULD THROW (RELIES ON boost::lexical_cast BEHINDS THE SCENES)
+ *    - std::stoi() WOULD BE THE PREFERRED (C++11) SOLUTION, BUT:
+ *      - IT'S NOT SUPPORTED ON ANDROID (DETAILS FOLLOWING)
+ *      - ALTERNATIVE: THE "OLD" std::atoi(), WHICH TAKES A const char* INSTEAD OF A std::string
+ *
+ * 2) INT-TO-STRING CONVERSION:
+ *    - std::to_string() WOULD BE THE PREFERRED (C++11) SOLUTION, BUT:
+ *      - IT'S NOT SUPPORTED ON ANDROID (DETAILS FOLLOWING)
+ *      - ALTERNATIVE: ci::toString(), RELIES ON boost::lexical_cast BEHINDS THE SCENES
+ *
+ *
+ * WHY STANDARD C++11 FEATURES LIKE stoi() AND to_string() ARE NOT SUPPORTED (AS OF NDK 10c) ON ANDROID?
+ *
+ * 1) DETAILS: http://stackoverflow.com/questions/17950814/how-to-use-stdstoul-and-stdstoull-in-android/18124627#18124627
+ *
+ * 2) SOLUTION TRIED: USING CRYSTAX NDK 10
+ *    - https://www.crystax.net/en/android/ndk
+ *    - stoi() AND to_string() DO WORK AS INTENDED, BUT:
+ *      - boost::filesystem::path IS BROKEN, DUE TO std::use_facet, ETC.
+ *        - DETAILS: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=51813#c9
+ *        - RECOMPILING BOOST FOR ANDROID COULD HELP, BUT IT'S A HELL:
+ *          - TRIED: https://github.com/MysticTreeGames/Boost-for-Android
+ *            - NO SUCCESS
+ *            - IN ANY-CASE, THIS STUFF IS OUTDATED
+ *              AND IT DOESN'T SEEM TO COMPILE EFFICIENT CODE:
+ *              - ONLY HANDLING ARM-V5 ARCHITECTURE, ETC.
+ *        - ALTERNATIVES:
+ *          - TRYING TO USE CRYSTAX'S "BOOST FOR ANDROID" BUILD:
+ *            - https://github.com/crystax/android-platform-ndk/blob/master/build/tools/build-boost.sh
+ *            - CONS:
+ *              - NO BINARIES CURRENTLY AVAILABLE:
+ *                - BUILDING IS DEFINITELY NOT-TRIVIAL
+ *              - BASED ON BOOST 1.57:
+ *                - WE CURRENTLY USE 1.53
+ *                - 1.55 IS KNOWN TO "WORK AS INTENDED" WITH CINDER
+ *                - 1.57 REMAINS A MYSTERY
+ *              - DEPENDS ON ICU-LIB:
+ *                - IT IS SUPPOSED TO SOLVE ISSUES RELATED TO "LOCALE"
+ *                - WE'RE NOT NECESSARILY INTERESTED AT THIS STAGE
+ *                - AND WE ALREADY HAVE OUR VERSION OF ICU (USED BY THE ZFONT SYSTEM)
+ *            - TODO:
+ *              - WAIT FOR THE NEXT RELEASE OF CRYSTAX, IN THE HOPE FOR SOME BINARIES
+ *
+ */
+
+void TestingMisc::testStringToIntToString()
+{
+    auto releaseString = "3.5.2b";
+    auto components = ci::split(releaseString, '.');
+
+#if defined(CINDER_ANDROID)
+    
+    int major = (components.size() > 0) ? std::atoi(components[0].data()) : 0;
+    int minor = (components.size() > 1) ? std::atoi(components[1].data()) : 0;
+    int patch = (components.size() > 2) ? std::atoi(components[2].data()) : 0;
+    
+    LOGI << ci::toString(major) << "." << ci::toString(minor) << "." << ci::toString(patch) << endl;
+    
+#else
+    
+    int major = (components.size() > 0) ? std::stoi(components[0]) : 0;
+    int minor = (components.size() > 1) ? std::stoi(components[1]) : 0;
+    int patch = (components.size() > 2) ? std::stoi(components[2]) : 0;
+    
+    LOGI << std::to_string(major) << "." << std::to_string(minor) << "." << std::to_string(patch) << endl;
+    
+#endif
 }

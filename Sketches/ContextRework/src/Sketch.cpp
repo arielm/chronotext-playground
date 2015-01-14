@@ -13,10 +13,10 @@ using namespace chr;
 
 void Sketch::setup()
 {
-    TestingBase::execute<TestingMisc>(false);
+    TestingBase::execute<TestingMisc>(true);
     TestingBase::execute<TestingTasks>(false);
 
-    if (true)
+    if (false)
     {
         frameTest = make_shared<TestingMemory>();
         frameTest->setup();
@@ -42,7 +42,7 @@ void Sketch::shutdown()
 void Sketch::update()
 {
     /*
-     * PASSING VIA update() IS NECESSARY IN ORDER TO BE PROPERLY NOTIFIED UPON "MEMORY WARNING" ON IOS
+     * PASSING VIA update() IS (CURRENTLY) NECESSARY, IN ORDER TO BE PROPERLY NOTIFIED UPON "MEMORY WARNING" ON IOS
      */
     
     if (frameTest)

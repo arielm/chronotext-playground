@@ -38,7 +38,7 @@ public:
     static ci::fs::path getPublicDirectory()
     {
 #if defined(CINDER_ANDROID)
-        return chr::FileHelper::getAndroidExternalDataPath();
+        return chr::FileHelper::getExternalDataPath();
 #else
         return ci::getDocumentsDirectory();
 #endif

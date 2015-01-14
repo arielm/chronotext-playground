@@ -18,4 +18,5 @@ public:
     void testInputSourceRobustness();
     void testTimeFormat();
     void testDurationFormat();
+    void testStringToIntToString();
 };
