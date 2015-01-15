@@ -1,11 +1,11 @@
 setup()
 {
-  android update project --path . --name ContextRework --target android-15
+  android update project --path . --name TestBed1 --target android-15
 
   echo "READY TO RUN:"
   echo "ndk-build -j4"
   echo "ant debug"
-  echo "adb install -r bin/ContextRework-debug.apk"
+  echo "adb install -r bin/TestBed1-debug.apk"
 }
 
 if [ -z $NDK_MODULE_PATH ]

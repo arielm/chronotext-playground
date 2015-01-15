@@ -98,7 +98,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00692BCF14FF149000D0A05E /* ContextRework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContextRework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00692BCF14FF149000D0A05E /* TestBed1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBed1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00748057165D41390024B57A /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../assets; sourceTree = "<group>"; };
 		0087D25412CD809F002CD69F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		00CFDF6A1138442D0091E310 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -337,7 +337,7 @@
 		00692BD014FF149000D0A05E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				00692BCF14FF149000D0A05E /* ContextRework.app */,
+				00692BCF14FF149000D0A05E /* TestBed1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -835,8 +835,8 @@
 			dependencies = (
 			);
 			name = Target1;
-			productName = ContextRework;
-			productReference = 00692BCF14FF149000D0A05E /* ContextRework.app */;
+			productName = TestBed1;
+			productReference = 00692BCF14FF149000D0A05E /* TestBed1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -847,7 +847,7 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 			};
-			buildConfigurationList = 00692BC914FF149000D0A05E /* Build configuration list for PBXProject "ContextRework" */;
+			buildConfigurationList = 00692BC914FF149000D0A05E /* Build configuration list for PBXProject "TestBed1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -976,7 +976,7 @@
 			buildSettings = {
 				GCC_PREFIX_HEADER = "Target1-Prefix.pch";
 				INFOPLIST_FILE = "Target1-Info.plist";
-				PRODUCT_NAME = ContextRework;
+				PRODUCT_NAME = TestBed1;
 			};
 			name = Debug;
 		};
@@ -985,7 +985,7 @@
 			buildSettings = {
 				GCC_PREFIX_HEADER = "Target1-Prefix.pch";
 				INFOPLIST_FILE = "Target1-Info.plist";
-				PRODUCT_NAME = ContextRework;
+				PRODUCT_NAME = TestBed1;
 			};
 			name = Release;
 		};
@@ -1001,14 +1001,14 @@
 			buildSettings = {
 				GCC_PREFIX_HEADER = "Target1-Prefix.pch";
 				INFOPLIST_FILE = "Target1-Info.plist";
-				PRODUCT_NAME = ContextRework;
+				PRODUCT_NAME = TestBed1;
 			};
 			name = Distribution;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00692BC914FF149000D0A05E /* Build configuration list for PBXProject "ContextRework" */ = {
+		00692BC914FF149000D0A05E /* Build configuration list for PBXProject "TestBed1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00692BF314FF149000D0A05E /* Debug */,

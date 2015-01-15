@@ -20,7 +20,7 @@ LIBRARY_SEARCH_PATHS =
 
 //
 
-PRODUCT_NAME = ContextRework
+PRODUCT_NAME = TestBed1
 INFOPLIST_FILE = Info.plist
 GCC_PREFIX_HEADER = Prefix.pch
 

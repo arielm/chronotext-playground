@@ -26,7 +26,7 @@ LOCAL_LDLIBS := -llog -landroid
 LOCAL_STATIC_LIBRARIES := cinder boost_system boost_filesystem boost_thread android_native_app_glue
 LOCAL_STATIC_LIBRARIES += ft2 icu-common hb
 
-LOCAL_MODULE := ContextRework
+LOCAL_MODULE := TestBed1
 include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,android/native_app_glue)

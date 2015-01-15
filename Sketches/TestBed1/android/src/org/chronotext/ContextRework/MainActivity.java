@@ -1,5 +1,5 @@
 
-package org.chronotext.ContextRework;
+package org.chronotext.TestBed1;
 
 import org.chronotext.cinder.CinderDelegate;
 import org.chronotext.utils.Utils;
@@ -14,7 +14,7 @@ public class MainActivity extends Activity
     Utils.DEBUG = true;
     Utils.TAG = "cinder";
 
-    System.loadLibrary("ContextRework");
+    System.loadLibrary("TestBed1");
   }
 
   CinderDelegate delegate;

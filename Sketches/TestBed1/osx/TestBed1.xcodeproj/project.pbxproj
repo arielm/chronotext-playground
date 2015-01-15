@@ -95,7 +95,7 @@
 		3AE7D94AFD3E4E749C47CA7D /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Prefix.pch; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		8D1107320486CEB800E47090 /* ContextRework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContextRework.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* TestBed1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBed1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F48157030643B0B32007F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8027DFC16E3784B00184149 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		A8112C0E1A4DC32B0002CF68 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
@@ -317,12 +317,12 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* ContextRework.app */,
+				8D1107320486CEB800E47090 /* TestBed1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		29B97314FDCFA39411CA2CEA /* ContextRework */ = {
+		29B97314FDCFA39411CA2CEA /* TestBed1 */ = {
 			isa = PBXGroup;
 			children = (
 				A869011A1A02E22300D2C9F3 /* chronotext */,
@@ -333,7 +333,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
-			name = ContextRework;
+			name = TestBed1;
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -738,9 +738,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* ContextRework */ = {
+		8D1107260486CEB800E47090 /* TestBed1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ContextRework" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "TestBed1" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -750,10 +750,10 @@
 			);
 			dependencies = (
 			);
-			name = ContextRework;
+			name = TestBed1;
 			productInstallPath = "$(HOME)/Applications";
-			productName = ContextRework;
-			productReference = 8D1107320486CEB800E47090 /* ContextRework.app */;
+			productName = TestBed1;
+			productReference = 8D1107320486CEB800E47090 /* TestBed1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -764,7 +764,7 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ContextRework" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TestBed1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -774,11 +774,11 @@
 				French,
 				German,
 			);
-			mainGroup = 29B97314FDCFA39411CA2CEA /* ContextRework */;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* TestBed1 */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* ContextRework */,
+				8D1107260486CEB800E47090 /* TestBed1 */,
 			);
 		};
 /* End PBXProject section */
@@ -898,7 +898,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ContextRework" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "TestBed1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
@@ -907,7 +907,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ContextRework" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TestBed1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
