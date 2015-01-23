@@ -1,9 +1,9 @@
 /*
  * PLAYGROUND IN SYNC WITH develop BRANCH IN new-chronotext-toolkit
  *
- * OSX: COMMIT 21bfb6f
- * IOS: COMMIT 21bfb6f
- * ANDROID: COMMIT 21bfb6f
+ * OSX: COMMIT f28f1bb
+ * IOS: COMMIT f28f1bb
+ * ANDROID: COMMIT f28f1bb
  */
 
 #pragma once

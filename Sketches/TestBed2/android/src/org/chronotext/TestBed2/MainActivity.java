@@ -1,7 +1,7 @@
 
 package org.chronotext.TestBed2;
 
-import org.chronotext.cinder.CinderDelegate;
+import org.chronotext.cinder.CinderBridge;
 import org.chronotext.utils.Utils;
 
 import android.app.Activity;
@@ -14,46 +14,38 @@ public class MainActivity extends Activity
     Utils.DEBUG = true;
     Utils.TAG = "cinder";
 
-    System.loadLibrary("fmodex");
     System.loadLibrary("TestBed2");
   }
 
-  CinderDelegate delegate;
+  CinderBridge bridge;
 
   @Override
   public void onCreate(Bundle savedInstanceState)
   {
     super.onCreate(savedInstanceState);
 
-    delegate = new CinderDelegate(this);
-    setContentView(delegate.getView());
+    bridge = new CinderBridge(this);
+    setContentView(bridge.getView());
   }
 
   @Override
   protected void onPause()
   {
     super.onPause();
-    delegate.onPause();
+    bridge.onPause();
   }
 
   @Override
   protected void onResume()
   {
     super.onResume();
-    delegate.onResume();
-  }
-  
-  @Override
-  protected void onDestroy()
-  {
-    super.onDestroy();
-    delegate.onDestroy();
+    bridge.onResume();
   }
 
   @Override
   public void onBackPressed()
   {
-    if (!delegate.onBackPressed())
+    if (!bridge.onBackPressed())
     {
       super.onBackPressed();
     }

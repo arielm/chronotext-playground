@@ -13,8 +13,8 @@ using namespace chr;
 
 void Sketch::setup()
 {
-    TestingBase::execute<TestingMisc>(true);
-    TestingBase::execute<TestingTasks>(false);
+    TestingBase::execute<TestingMisc>(false);
+    TestingBase::execute<TestingTasks>(true);
 
     if (false)
     {
