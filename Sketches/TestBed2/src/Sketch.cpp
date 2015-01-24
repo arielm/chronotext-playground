@@ -1,6 +1,7 @@
 #include "Sketch.h"
 
 #include "TestingSound.h"
+#include "TestingNetwork.h"
 
 #include "chronotext/Context.h"
 #include "chronotext/utils/GLUtils.h"
@@ -11,7 +12,9 @@ using namespace chr;
 
 void Sketch::setup()
 {
-    if (true)
+    TestingBase::execute<TestingNetwork>(true);
+    
+    if (false)
     {
         frameTest = make_shared<TestingSound>();
         frameTest->setup();
