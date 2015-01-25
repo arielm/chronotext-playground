@@ -17,7 +17,6 @@
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		A8027DFD16E3784B00184149 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A8027DFC16E3784B00184149 /* icon.icns */; };
-		A8112A501A4C25AE0002CF68 /* libfmodex.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8112A4F1A4C25AE0002CF68 /* libfmodex.dylib */; };
 		A8112ABA1A4C46E40002CF68 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112AB61A4C46E40002CF68 /* Effect.cpp */; };
 		A8112ABB1A4C46E40002CF68 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112AB81A4C46E40002CF68 /* SoundManager.cpp */; };
 		A8112C0D1A4DBE600002CF68 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112C0B1A4DBE600002CF68 /* Sprite.cpp */; };
@@ -66,6 +65,7 @@
 		A8FBA65E1A7273B700D6B4A3 /* CinderSketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA65A1A7273B700D6B4A3 /* CinderSketch.cpp */; };
 		A8FBA6D31A73224600D6B4A3 /* HttpTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6D11A73224600D6B4A3 /* HttpTask.cpp */; };
 		A8FBA6D61A73249400D6B4A3 /* TestingNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6D41A73249400D6B4A3 /* TestingNetwork.cpp */; };
+		A8FBA6DF1A75216C00D6B4A3 /* libfmod.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8FBA6DE1A75216C00D6B4A3 /* libfmod.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,7 +84,6 @@
 		8D1107320486CEB800E47090 /* TestBed2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBed2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F48157030643B0B32007F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8027DFC16E3784B00184149 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
-		A8112A4F1A4C25AE0002CF68 /* libfmodex.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfmodex.dylib; path = blocks/FMOD/lib/macosx/libfmodex.dylib; sourceTree = CINDER_PATH_CHR; };
 		A8112AB61A4C46E40002CF68 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Effect.cpp; sourceTree = "<group>"; };
 		A8112AB71A4C46E40002CF68 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
 		A8112AB81A4C46E40002CF68 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
@@ -209,6 +208,7 @@
 		A8FBA6D21A73224600D6B4A3 /* HttpTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTask.h; sourceTree = "<group>"; };
 		A8FBA6D41A73249400D6B4A3 /* TestingNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingNetwork.cpp; path = ../src/TestingNetwork.cpp; sourceTree = "<group>"; };
 		A8FBA6D51A73249400D6B4A3 /* TestingNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingNetwork.h; path = ../src/TestingNetwork.h; sourceTree = "<group>"; };
+		A8FBA6DE1A75216C00D6B4A3 /* libfmod.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfmod.dylib; path = blocks/FMOD/lib/macosx/libfmod.dylib; sourceTree = CINDER_PATH_CHR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8112A501A4C25AE0002CF68 /* libfmodex.dylib in Frameworks */,
+				A8FBA6DF1A75216C00D6B4A3 /* libfmod.dylib in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				0091D8F90E81B9330029341E /* OpenGL.framework in Frameworks */,
 				5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */,
@@ -299,7 +299,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A8112A4F1A4C25AE0002CF68 /* libfmodex.dylib */,
+				A8FBA6DE1A75216C00D6B4A3 /* libfmod.dylib */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -694,7 +694,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cp -f \"$CINDER_PATH/blocks/FMOD/lib/macosx/libfmodex.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmodex.dylib\"\n\ninstall_name_tool -change ./libfmodex.dylib @executable_path/libfmodex.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\"\n";
+			shellScript = "cp -f \"$CINDER_PATH/blocks/FMOD/lib/macosx/libfmod.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/libfmod.dylib\"\n\ninstall_name_tool -change @rpath/libfmod.dylib @executable_path/libfmod.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/$PRODUCT_NAME\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

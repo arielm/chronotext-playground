@@ -12,9 +12,9 @@ using namespace chr;
 
 void Sketch::setup()
 {
-    TestingBase::execute<TestingNetwork>(true);
+    TestingBase::execute<TestingNetwork>(false);
     
-    if (false)
+    if (true)
     {
         frameTest = make_shared<TestingSound>();
         frameTest->setup();

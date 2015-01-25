@@ -7,7 +7,7 @@ GCC_OPTIMIZATION_LEVEL = 0
 GCC_DYNAMIC_NO_PIC = NO
 GCC_SYMBOLS_PRIVATE_EXTERN = NO
 
-OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*] = $(BASE_OTHER_LDFLAGS) "$(CINDER_PATH)/lib/libcinder-iphone-sim_d.a" "$(CINDER_PATH)/blocks/FMOD/lib/ios/libfmodexL_iphonesimulator.a"
-OTHER_LDFLAGS[sdk=iphoneos*][arch=*] = $(BASE_OTHER_LDFLAGS) "$(CINDER_PATH)/lib/libcinder-iphone_d.a" "$(CINDER_PATH)/blocks/FMOD/lib/ios/libfmodexL_iphoneos.a"
+OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*] = $(BASE_OTHER_LDFLAGS) "$(CINDER_PATH)/lib/libcinder-iphone-sim_d.a" "$(CINDER_PATH)/blocks/FMOD/lib/ios/libfmodL_iphonesimulator.a"
+OTHER_LDFLAGS[sdk=iphoneos*][arch=*] = $(BASE_OTHER_LDFLAGS) "$(CINDER_PATH)/lib/libcinder-iphone_d.a" "$(CINDER_PATH)/blocks/FMOD/lib/ios/libfmodL_iphoneos.a"
 
 GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1
