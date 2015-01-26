@@ -3,6 +3,7 @@
 #include "TestingMisc.h"
 #include "TestingMemory.h"
 #include "TestingTasks.h"
+#include "TestingZFont.h"
 
 #include "chronotext/Context.h"
 #include "chronotext/utils/GLUtils.h"
@@ -14,7 +15,8 @@ using namespace chr;
 void Sketch::setup()
 {
     TestingBase::execute<TestingMisc>(false);
-    TestingBase::execute<TestingTasks>(true);
+    TestingBase::execute<TestingTasks>(false);
+    TestingBase::execute<TestingZFont>(true);
 
     if (false)
     {
