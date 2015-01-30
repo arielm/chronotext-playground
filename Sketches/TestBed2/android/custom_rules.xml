@@ -6,7 +6,7 @@
         <echo>ORIGINAL jars.path : ${toString:project.all.jars.path}</echo>
         <path id="project.all.jars.path.hacked">
             <path path="${toString:project.all.jars.path}"/>
-            <path path="../../../../cinder/blocks/FMOD/lib/android/fmod.jar"/>
+            <path path="${env.CINDER_PATH}/blocks/FMOD/lib/android/fmod.jar"/>
         </path>
 
         <path id="project.all.jars.path">
