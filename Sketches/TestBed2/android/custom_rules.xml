@@ -3,15 +3,15 @@
     <target name="-pre-compile">
         <!-- REFERENCE: http://stackoverflow.com/a/16741954/50335 -->
         
-        <echo>ORIGINAL jars.path : ${toString:project.all.jars.path}</echo>
+        <echo>ORIGINAL project.all.jars.path: ${toString:project.all.jars.path}</echo>
         <path id="project.all.jars.path.hacked">
             <path path="${toString:project.all.jars.path}"/>
-            <path path="${env.CINDER_PATH}/blocks/FMOD/lib/android/fmod.jar"/>
+            <path path="${cinder.dir}/blocks/FMOD/lib/android/fmod.jar"/>
         </path>
 
         <path id="project.all.jars.path">
             <path path="${toString:project.all.jars.path.hacked}"/>
         </path>
-        <echo>HACKED jars.path : ${toString:project.all.jars.path}</echo>
+        <echo>HACKED project.all.jars.path: ${toString:project.all.jars.path}</echo>
     </target>
 </project>
