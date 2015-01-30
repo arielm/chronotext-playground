@@ -10,6 +10,7 @@ endif
 CHR_BLOCK_PATH = $(CINDER_PATH)/blocks/new-chronotext-toolkit
 
 CHR_USE_FMOD_SOUND := 1
+
 include $(CHR_BLOCK_PATH)/android/Android.mk
 
 ###
@@ -27,7 +28,6 @@ LOCAL_SRC_FILES += $(COMMON_SRC)/Tasks/HttpTask.cpp
 
 ###
 
-LOCAL_CFLAGS :=
 LOCAL_CFLAGS += -ffast-math -O3
 #LOCAL_CFLAGS += -g -DDEBUG -DFORCE_LOG
 
@@ -40,6 +40,8 @@ LOCAL_SHARED_LIBRARIES += fmod
 
 LOCAL_MODULE := TestBed2
 include $(BUILD_SHARED_LIBRARY)
+
+###
 
 $(call import-module, android/native_app_glue)
 
