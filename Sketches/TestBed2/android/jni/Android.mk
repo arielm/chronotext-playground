@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 ifndef CINDER_PATH
-	$(error CINDER_PATH MUST BE DEFINED!)
+    $(error CINDER_PATH MUST BE DEFINED!)
 endif
 
 ###
