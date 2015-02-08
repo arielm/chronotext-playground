@@ -2,9 +2,9 @@
  * PLAYGROUND IN SYNC WITH:
  
  * 1) develop BRANCH IN https://github.com/new-chronotext-toolkit
- *    OSX: COMMIT 3a3a45e
- *    IOS: COMMIT 3a3a45e
- *    ANDROID: COMMIT 3a3a45e
+ *    OSX: COMMIT 5c4d4d3
+ *    IOS: COMMIT 5c4d4d3
+ *    ANDROID: COMMIT 5c4d4d3
  *
  * 2) master BRANCH IN https://github.com/arielm/POCO
  *
