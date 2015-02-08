@@ -2,6 +2,8 @@
 
 #include "chronotext/utils/Utils.h"
 
+#include "cinder/app/KeyEvent.h"
+
 class TestingBase
 {
 public:
