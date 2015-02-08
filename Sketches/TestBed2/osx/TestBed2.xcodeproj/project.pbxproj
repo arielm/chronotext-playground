@@ -46,10 +46,11 @@
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
 		A8CDB6531A2DC0B60043A5E5 /* MemoryManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6511A2DC0B60043A5E5 /* MemoryManagerBase.cpp */; };
+		A8D9475E1A881B6F007FB546 /* CinderDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8D947551A881B6F007FB546 /* CinderDelegate.mm */; };
+		A8D947611A881B6F007FB546 /* NSView+StringTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9475C1A881B6F007FB546 /* NSView+StringTag.m */; };
 		A8DB87381A2CEE8700334BEA /* NSDictionary+DefautValues.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DB87331A2CEE8700334BEA /* NSDictionary+DefautValues.m */; };
 		A8DB87391A2CEE8700334BEA /* NSMutableDictionary+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DB87351A2CEE8700334BEA /* NSMutableDictionary+Merge.m */; };
 		A8DB873A1A2CEE8700334BEA /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DB87371A2CEE8700334BEA /* NSString+JSON.m */; };
-		A8FBA64C1A72738600D6B4A3 /* CinderDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6431A72738600D6B4A3 /* CinderDelegate.cpp */; };
 		A8FBA64D1A72738600D6B4A3 /* DisplayHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6461A72738600D6B4A3 /* DisplayHelper.cpp */; };
 		A8FBA64E1A72738600D6B4A3 /* SystemManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA64A1A72738600D6B4A3 /* SystemManager.cpp */; };
 		A8FBA65D1A7273B700D6B4A3 /* CinderDelegateBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6581A7273B700D6B4A3 /* CinderDelegateBase.cpp */; };
@@ -150,6 +151,10 @@
 		A8CDB6521A2DC0B60043A5E5 /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
 		A8CDB6551A2DC6F80043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8CDB6561A2DC6F80043A5E5 /* MemoryManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MemoryManager.mm; sourceTree = "<group>"; };
+		A8D947541A881B6F007FB546 /* CinderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegate.h; sourceTree = "<group>"; };
+		A8D947551A881B6F007FB546 /* CinderDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CinderDelegate.mm; sourceTree = "<group>"; };
+		A8D9475B1A881B6F007FB546 /* NSView+StringTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+StringTag.h"; sourceTree = "<group>"; };
+		A8D9475C1A881B6F007FB546 /* NSView+StringTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+StringTag.m"; sourceTree = "<group>"; };
 		A8DB872E1A2CEDE400334BEA /* MemoryInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryInfo.h; sourceTree = "<group>"; };
 		A8DB87321A2CEE8700334BEA /* NSDictionary+DefautValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DefautValues.h"; sourceTree = "<group>"; };
 		A8DB87331A2CEE8700334BEA /* NSDictionary+DefautValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+DefautValues.m"; sourceTree = "<group>"; };
@@ -160,8 +165,6 @@
 		A8F54D49198F8485008053E3 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		A8F54D4A198F8A36008053E3 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		A8F54D4B198F8C65008053E3 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		A8FBA6431A72738600D6B4A3 /* CinderDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CinderDelegate.cpp; sourceTree = "<group>"; };
-		A8FBA6441A72738600D6B4A3 /* CinderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegate.h; sourceTree = "<group>"; };
 		A8FBA6461A72738600D6B4A3 /* DisplayHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayHelper.cpp; sourceTree = "<group>"; };
 		A8FBA6471A72738600D6B4A3 /* DisplayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayHelper.h; sourceTree = "<group>"; };
 		A8FBA6481A72738600D6B4A3 /* EmulatedDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulatedDevice.h; sourceTree = "<group>"; };
@@ -319,6 +322,7 @@
 				A8DB87301A2CEE8700334BEA /* cocoa */,
 				A8FBA6411A72738600D6B4A3 /* desktop */,
 				A869019E1A02E22300D2C9F3 /* os */,
+				A8D947501A881B6F007FB546 /* osx */,
 				A86901C01A02E22300D2C9F3 /* quad */,
 				A8112AB51A4C46E40002CF68 /* sound */,
 				A86901CE1A02E22300D2C9F3 /* system */,
@@ -491,6 +495,33 @@
 			path = system;
 			sourceTree = "<group>";
 		};
+		A8D947501A881B6F007FB546 /* osx */ = {
+			isa = PBXGroup;
+			children = (
+				A8D947511A881B6F007FB546 /* cinder */,
+				A8D9475A1A881B6F007FB546 /* utils */,
+			);
+			path = osx;
+			sourceTree = "<group>";
+		};
+		A8D947511A881B6F007FB546 /* cinder */ = {
+			isa = PBXGroup;
+			children = (
+				A8D947541A881B6F007FB546 /* CinderDelegate.h */,
+				A8D947551A881B6F007FB546 /* CinderDelegate.mm */,
+			);
+			path = cinder;
+			sourceTree = "<group>";
+		};
+		A8D9475A1A881B6F007FB546 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A8D9475B1A881B6F007FB546 /* NSView+StringTag.h */,
+				A8D9475C1A881B6F007FB546 /* NSView+StringTag.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		A8DB87301A2CEE8700334BEA /* cocoa */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,19 +547,9 @@
 		A8FBA6411A72738600D6B4A3 /* desktop */ = {
 			isa = PBXGroup;
 			children = (
-				A8FBA6421A72738600D6B4A3 /* cinder */,
 				A8FBA6451A72738600D6B4A3 /* system */,
 			);
 			path = desktop;
-			sourceTree = "<group>";
-		};
-		A8FBA6421A72738600D6B4A3 /* cinder */ = {
-			isa = PBXGroup;
-			children = (
-				A8FBA6431A72738600D6B4A3 /* CinderDelegate.cpp */,
-				A8FBA6441A72738600D6B4A3 /* CinderDelegate.h */,
-			);
-			path = cinder;
 			sourceTree = "<group>";
 		};
 		A8FBA6451A72738600D6B4A3 /* system */ = {
@@ -637,6 +658,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8C16E9E1A2A43E800551905 /* main.cpp in Sources */,
+				A8D9475E1A881B6F007FB546 /* CinderDelegate.mm in Sources */,
 				A874A5031A2B550A009A60A0 /* TaskManager.cpp in Sources */,
 				A86902471A02E22400D2C9F3 /* PVRHelper.cpp in Sources */,
 				A8FBA65D1A7273B700D6B4A3 /* CinderDelegateBase.cpp in Sources */,
@@ -644,6 +666,7 @@
 				A86902511A02E22400D2C9F3 /* GLUtils.cpp in Sources */,
 				A874A5021A2B550A009A60A0 /* Task.cpp in Sources */,
 				A8112ABB1A4C46E40002CF68 /* SoundManager.cpp in Sources */,
+				A8D947611A881B6F007FB546 /* NSView+StringTag.m in Sources */,
 				A8702AB81A5B099E00EF9E9E /* DisplayHelperBase.cpp in Sources */,
 				A8CDB6531A2DC0B60043A5E5 /* MemoryManagerBase.cpp in Sources */,
 				A86902491A02E22400D2C9F3 /* Texture.cpp in Sources */,
@@ -667,7 +690,6 @@
 				A8702AA01A5AF3DC00EF9E9E /* FileHelperBase.cpp in Sources */,
 				A86902461A02E22400D2C9F3 /* SystemManagerBase.cpp in Sources */,
 				A8FBA6D61A73249400D6B4A3 /* TestingNetwork.cpp in Sources */,
-				A8FBA64C1A72738600D6B4A3 /* CinderDelegate.cpp in Sources */,
 				A8DB87391A2CEE8700334BEA /* NSMutableDictionary+Merge.m in Sources */,
 				A8FBA64E1A72738600D6B4A3 /* SystemManager.cpp in Sources */,
 				A869024C1A02E22400D2C9F3 /* Clock.cpp in Sources */,

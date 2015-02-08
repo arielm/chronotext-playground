@@ -2,9 +2,9 @@
  * PLAYGROUND IN SYNC WITH:
  
  * 1) develop BRANCH IN https://github.com/new-chronotext-toolkit
- *    OSX: COMMIT 5c4d4d3
- *    IOS: COMMIT 5c4d4d3
- *    ANDROID: COMMIT 5c4d4d3
+ *    OSX: COMMIT 6a5956b
+ *    IOS: COMMIT 6a5956b
+ *    ANDROID: COMMIT 6a5956b
  *
  * 2) master BRANCH IN https://github.com/arielm/POCO
  *
@@ -30,6 +30,15 @@ public:
     void updateTouch(int index, float x, float y) final;
     void removeTouch(int index, float x, float y) final;
     
+    bool keyDown(const ci::app::KeyEvent &keyEvent) final;
+    bool keyUp(const ci::app::KeyEvent &keyEvent) final;
+    
 protected:
-    std::shared_ptr<TestingBase> frameTest;
+    std::vector<std::shared_ptr<TestingBase>> frameTests;
+    
+    template<class TestingBase>
+    static void executeTest(bool proceed = true, bool force = false);
+    
+    template<class TestingBase>
+    void addFrameTest(bool proceed = true);
 };

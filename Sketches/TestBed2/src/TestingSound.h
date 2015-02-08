@@ -1,9 +1,7 @@
 /*
  * TODO:
  *
- * 1) TEST EFFECT-DISCARDING:
- *    - VIA KEYBOARD:
- *      - PRE-REQUISITE: KEYBOARD-HANDLING AT THE TestingBase (OR CinderSketch) LEVEL
+ * 1) TEST EFFECT-DISCARDING ON DEVICES:
  *    - VIA "DEVICE SHAKE"
  *
  * 2) TEST MEMORY-CONSUMPTION (OSX AND IOS) WITH Effect::Request::forceMemoryLoad
@@ -24,9 +22,14 @@ public:
     
     void setup() final;
     void shutdown() final;
+    
+    /*
+     * PASSING VIA update() IS NECESSARY IN ORDER TO WORK WITH THE SOUND-ENGINE
+     */
     void update() final;
     
     void addTouch(int index, float x, float y) final;
+    bool keyDown(const ci::app::KeyEvent &keyEvent) final;
     
     void handleEvent(const chr::SoundManager::Event &event) final;
     

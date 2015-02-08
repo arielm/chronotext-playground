@@ -21,6 +21,13 @@ public:
     void update() final;
     void draw() final;
     
+    void addTouch(int index, float x, float y) final;
+    void updateTouch(int index, float x, float y) final;
+    void removeTouch(int index, float x, float y) final;
+    
+    bool keyDown(const ci::app::KeyEvent &keyEvent) final;
+    bool keyUp(const ci::app::KeyEvent &keyEvent) final;
+    
 protected:
     std::vector<std::shared_ptr<TestingBase>> frameTests;
     

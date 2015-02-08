@@ -8,20 +8,11 @@
 
 using namespace std;
 using namespace ci;
+using namespace ci::app;
 using namespace chr;
 
 void Sketch::setup()
 {
-    TestingBase::execute<TestingNetwork>(false);
-    
-    if (true)
-    {
-        frameTest = make_shared<TestingSound>();
-        frameTest->setup();
-    }
-    
-    // ---
-    
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     
@@ -31,45 +22,40 @@ void Sketch::setup()
 
 void Sketch::shutdown()
 {
-    if (frameTest)
+    for (auto test : frameTests)
     {
-        frameTest->shutdown();
+        try
+        {
+            test->shutdown();
+        }
+        catch (exception &e)
+        {
+            LOGI << "TEST FAILED | REASON: " << e.what() << endl;
+        }
     }
 }
 
 void Sketch::update()
 {
-    /*
-     * PASSING VIA update() IS NECESSARY IN ORDER TO WORK WITH SOUND-ENGINE
-     */
+    if (getElapsedFrames() == 1)
+    {
+        executeTest<TestingNetwork>(false);
+        addFrameTest<TestingSound>(true);
+    }
     
-    if (frameTest)
+    if (getElapsedFrames() >= 1)
     {
-        frameTest->update();
-    }
-}
-
-void Sketch::addTouch(int index, float x, float y)
-{
-    if (frameTest)
-    {
-        frameTest->addTouch(index, x, y);
-    }
-}
-
-void Sketch::updateTouch(int index, float x, float y)
-{
-    if (frameTest)
-    {
-        frameTest->updateTouch(index, x, y);
-    }
-}
-
-void Sketch::removeTouch(int index, float x, float y)
-{
-    if (frameTest)
-    {
-        frameTest->removeTouch(index, x, y);
+        for (auto test : frameTests)
+        {
+            try
+            {
+                test->update();
+            }
+            catch (exception &e)
+            {
+                LOGI << "TEST FAILED | REASON: " << e.what() << endl;
+            }
+        }
     }
 }
 
@@ -80,4 +66,99 @@ void Sketch::draw()
     
     gl::color(Color::white());
     utils::gl::drawGrid(getWindowBounds(), 64, Vec2f(0, clock()->getTime() * 60));
+}
+
+// ---
+
+void Sketch::addTouch(int index, float x, float y)
+{
+    for (auto test : frameTests)
+    {
+        test->addTouch(index, x, y);
+    }
+}
+
+void Sketch::updateTouch(int index, float x, float y)
+{
+    for (auto test : frameTests)
+    {
+        test->updateTouch(index, x, y);
+    }
+}
+
+void Sketch::removeTouch(int index, float x, float y)
+{
+    for (auto test : frameTests)
+    {
+        test->removeTouch(index, x, y);
+    }
+}
+
+// ---
+
+bool Sketch::keyDown(const KeyEvent &keyEvent)
+{
+    for (auto test : frameTests)
+    {
+        if (test->keyDown(keyEvent))
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+bool Sketch::keyUp(const KeyEvent &keyEvent)
+{
+    for (auto test : frameTests)
+    {
+        if (test->keyUp(keyEvent))
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+// ---
+
+template<class TestingBase>
+void Sketch::executeTest(bool proceed, bool force)
+{
+    if (proceed)
+    {
+        auto test = make_shared<TestingBase>();
+        
+        try
+        {
+            test->setup();
+            test->run(force);
+            test->shutdown();
+        }
+        catch (exception &e)
+        {
+            LOGI << "TEST FAILED | REASON: " << e.what() << endl;
+        }
+    }
+}
+
+template<class TestingBase>
+void Sketch::addFrameTest(bool proceed)
+{
+    if (proceed)
+    {
+        auto test = make_shared<TestingBase>();
+        
+        try
+        {
+            test->setup();
+            frameTests.push_back(test);
+        }
+        catch (exception &e)
+        {
+            LOGI << "TEST FAILED | REASON: " << e.what() << endl;
+        }
+    }
 }

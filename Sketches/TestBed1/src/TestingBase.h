@@ -13,6 +13,13 @@ public:
     virtual void run(bool force = false) {}
     virtual void update() {}
     
+    virtual void addTouch(int index, float x, float y) {}
+    virtual void updateTouch(int index, float x, float y) {}
+    virtual void removeTouch(int index, float x, float y) {}
+    
+    virtual bool keyDown(const ci::app::KeyEvent &keyEvent) { return false; }
+    virtual bool keyUp(const ci::app::KeyEvent &keyEvent) { return false; }
+    
     // ---
     
     static ci::fs::path getPublicDirectory()

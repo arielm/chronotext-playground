@@ -11,6 +11,7 @@
 
 using namespace std;
 using namespace ci;
+using namespace ci::app;
 using namespace chr;
 
 void Sketch::setup()
@@ -72,6 +73,60 @@ void Sketch::draw()
     
     gl::color(Color::white());
     utils::gl::drawGrid(getWindowBounds(), 64, Vec2f(0, clock()->getTime() * 60));
+}
+
+// ---
+
+void Sketch::addTouch(int index, float x, float y)
+{
+    for (auto test : frameTests)
+    {
+        test->addTouch(index, x, y);
+    }
+}
+
+void Sketch::updateTouch(int index, float x, float y)
+{
+    for (auto test : frameTests)
+    {
+        test->updateTouch(index, x, y);
+    }
+}
+
+void Sketch::removeTouch(int index, float x, float y)
+{
+    for (auto test : frameTests)
+    {
+        test->removeTouch(index, x, y);
+    }
+}
+
+// ---
+
+bool Sketch::keyDown(const KeyEvent &keyEvent)
+{
+    for (auto test : frameTests)
+    {
+        if (test->keyDown(keyEvent))
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+bool Sketch::keyUp(const KeyEvent &keyEvent)
+{
+    for (auto test : frameTests)
+    {
+        if (test->keyUp(keyEvent))
+        {
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 // ---

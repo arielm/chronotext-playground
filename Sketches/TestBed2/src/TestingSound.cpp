@@ -6,6 +6,7 @@
 
 using namespace std;
 using namespace ci;
+using namespace ci::app;
 using namespace chr;
 
 void TestingSound::setup()
@@ -26,8 +27,6 @@ void TestingSound::setup()
         {
             effects.emplace_back(soundManager->getEffect(InputSource::getAsset(name)));
         }
-        
-        soundManager->discardEffects(); // XXX: TEMPORARY
     }
 }
 
@@ -54,6 +53,18 @@ void TestingSound::addTouch(int index, float x, float y)
 {
     auto effect = effects[Rand::randInt(effects.size())];
     soundManager->playEffect(effect);
+}
+
+bool TestingSound::keyDown(const KeyEvent &keyEvent)
+{
+    switch (CinderDelegate::getCode(keyEvent))
+    {
+        case KeyEvent::KEY_d:
+            soundManager->discardEffects();
+            return true;
+    }
+    
+    return false;
 }
 
 void TestingSound::handleEvent(const SoundManager::Event &event)
