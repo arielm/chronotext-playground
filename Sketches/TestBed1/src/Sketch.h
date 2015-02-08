@@ -1,9 +1,9 @@
 /*
  * PLAYGROUND IN SYNC WITH develop BRANCH IN new-chronotext-toolkit
  *
- * OSX: COMMIT 5c4d4d3
- * IOS: COMMIT 5c4d4d3
- * ANDROID: COMMIT 5c4d4d3
+ * OSX: COMMIT 6a5956b
+ * IOS: COMMIT 6a5956b
+ * ANDROID: COMMIT 6a5956b
  */
 
 #pragma once
@@ -22,5 +22,11 @@ public:
     void draw() final;
     
 protected:
-    std::shared_ptr<TestingBase> frameTest;
+    std::vector<std::shared_ptr<TestingBase>> frameTests;
+    
+    template<class TestingBase>
+    static void executeTest(bool proceed = true, bool force = false);
+    
+    template<class TestingBase>
+    void addFrameTest(bool proceed = true);
 };

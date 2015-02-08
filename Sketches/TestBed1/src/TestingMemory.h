@@ -27,6 +27,10 @@ class TestingMemory : public TestingBase
 public:
     void setup() final;
     void shutdown() final;
+    
+    /*
+     * PASSING VIA update() IS (CURRENTLY) NECESSARY, IN ORDER TO BE PROPERLY NOTIFIED UPON "MEMORY WARNING" ON IOS
+     */
     void update() final;
     
 protected:

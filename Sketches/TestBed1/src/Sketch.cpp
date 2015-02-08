@@ -4,6 +4,7 @@
 #include "TestingMemory.h"
 #include "TestingTasks.h"
 #include "TestingZFont.h"
+#include "TestingIOService.h"
 
 #include "chronotext/Context.h"
 #include "chronotext/utils/GLUtils.h"
@@ -14,18 +15,6 @@ using namespace chr;
 
 void Sketch::setup()
 {
-    TestingBase::execute<TestingMisc>(false);
-    TestingBase::execute<TestingTasks>(false);
-    TestingBase::execute<TestingZFont>(true);
-
-    if (false)
-    {
-        frameTest = make_shared<TestingMemory>();
-        frameTest->setup();
-    }
-    
-    // ---
-    
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     
@@ -35,21 +24,44 @@ void Sketch::setup()
 
 void Sketch::shutdown()
 {
-    if (frameTest)
+    for (auto test : frameTests)
     {
-        frameTest->shutdown();
+        try
+        {
+            test->shutdown();
+        }
+        catch (exception &e)
+        {
+            LOGI << "TEST FAILED | REASON: " << e.what() << endl;
+        }
     }
 }
 
 void Sketch::update()
 {
-    /*
-     * PASSING VIA update() IS (CURRENTLY) NECESSARY, IN ORDER TO BE PROPERLY NOTIFIED UPON "MEMORY WARNING" ON IOS
-     */
-    
-    if (frameTest)
+    if (getElapsedFrames() == 1)
     {
-        frameTest->update();
+        executeTest<TestingMisc>(false);
+        executeTest<TestingTasks>(false);
+        executeTest<TestingZFont>(false);
+        
+        addFrameTest<TestingMemory>(false);
+        addFrameTest<TestingIOService>(true);
+    }
+    
+    if (getElapsedFrames() >= 1)
+    {
+        for (auto test : frameTests)
+        {
+            try
+            {
+                test->update();
+            }
+            catch (exception &e)
+            {
+                LOGI << "TEST FAILED | REASON: " << e.what() << endl;
+            }
+        }
     }
 }
 
@@ -60,4 +72,45 @@ void Sketch::draw()
     
     gl::color(Color::white());
     utils::gl::drawGrid(getWindowBounds(), 64, Vec2f(0, clock()->getTime() * 60));
+}
+
+// ---
+
+template<class TestingBase>
+void Sketch::executeTest(bool proceed, bool force)
+{
+    if (proceed)
+    {
+        auto test = make_shared<TestingBase>();
+        
+        try
+        {
+            test->setup();
+            test->run(force);
+            test->shutdown();
+        }
+        catch (exception &e)
+        {
+            LOGI << "TEST FAILED | REASON: " << e.what() << endl;
+        }
+    }
+}
+
+template<class TestingBase>
+void Sketch::addFrameTest(bool proceed)
+{
+    if (proceed)
+    {
+        auto test = make_shared<TestingBase>();
+        
+        try
+        {
+            test->setup();
+            frameTests.push_back(test);
+        }
+        catch (exception &e)
+        {
+            LOGI << "TEST FAILED | REASON: " << e.what() << endl;
+        }
+    }
 }
