@@ -28,17 +28,12 @@ int main(int argc, char *argv[])
 
 #elif defined(CINDER_ANDROID)
 
-#include "chronotext/android/cinder/JNI.h"
-
 extern "C"
-{
-    void android_main(struct android_app *state)
-    {}
-}
+{}
 
 #pragma mark ---------------------------------------- DESKTOP ----------------------------------------
 
-#elif defined(CINDER_MAC) || defined(CINDER_MSW)
+#elif defined(CINDER_MAC)
 
 #include "Application.h"
 
