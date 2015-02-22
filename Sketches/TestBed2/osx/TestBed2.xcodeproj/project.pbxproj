@@ -19,6 +19,8 @@
 		A8027DFD16E3784B00184149 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = A8027DFC16E3784B00184149 /* icon.icns */; };
 		A8112ABA1A4C46E40002CF68 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112AB61A4C46E40002CF68 /* Effect.cpp */; };
 		A8112ABB1A4C46E40002CF68 /* SoundManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112AB81A4C46E40002CF68 /* SoundManager.cpp */; };
+		A8147EF91A9A340400885D67 /* CinderBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8147EF71A9A340400885D67 /* CinderBridge.mm */; };
+		A8147EFB1A9A342400885D67 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8147EFA1A9A342400885D67 /* Application.cpp */; };
 		A814C5DB1A374AE400F639E3 /* ImageSourceFileStbImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A814C5D81A374AE400F639E3 /* ImageSourceFileStbImage.cpp */; };
 		A82C910A16E02DAA00FF519C /* Sketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A82C910816E02DAA00FF519C /* Sketch.cpp */; };
 		A84E42891A2A1A8F00EE6AC1 /* emulators.json in Resources */ = {isa = PBXBuildFile; fileRef = A84E42881A2A1A8F00EE6AC1 /* emulators.json */; };
@@ -80,6 +82,9 @@
 		A8112AB71A4C46E40002CF68 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Effect.h; sourceTree = "<group>"; };
 		A8112AB81A4C46E40002CF68 /* SoundManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SoundManager.cpp; sourceTree = "<group>"; };
 		A8112AB91A4C46E40002CF68 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		A8147EF71A9A340400885D67 /* CinderBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CinderBridge.mm; sourceTree = "<group>"; };
+		A8147EF81A9A340400885D67 /* CinderBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderBridge.h; sourceTree = "<group>"; };
+		A8147EFA1A9A342400885D67 /* Application.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = Application.cpp; sourceTree = "<group>"; };
 		A814C5D81A374AE400F639E3 /* ImageSourceFileStbImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageSourceFileStbImage.cpp; sourceTree = "<group>"; };
 		A814C5D91A374AE400F639E3 /* ImageSourceFileStbImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSourceFileStbImage.h; sourceTree = "<group>"; };
 		A814C5DA1A374AE400F639E3 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
@@ -145,7 +150,7 @@
 		A874A5011A2B550A009A60A0 /* TaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
 		A8B336591A045B2200ABEFBF /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		A8B3365A1A045B2200ABEFBF /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
-		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
+		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
 		A8CDB6501A2DC0B60043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8CDB6511A2DC0B60043A5E5 /* MemoryManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryManagerBase.cpp; sourceTree = "<group>"; };
 		A8CDB6521A2DC0B60043A5E5 /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
@@ -480,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				A874A4E91A2A8655009A60A0 /* Application.h */,
+				A8147EFA1A9A342400885D67 /* Application.cpp */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -507,6 +513,8 @@
 		A8D947511A881B6F007FB546 /* cinder */ = {
 			isa = PBXGroup;
 			children = (
+				A8147EF81A9A340400885D67 /* CinderBridge.h */,
+				A8147EF71A9A340400885D67 /* CinderBridge.mm */,
 				A8D947541A881B6F007FB546 /* CinderDelegate.h */,
 				A8D947551A881B6F007FB546 /* CinderDelegate.mm */,
 			);
@@ -666,6 +674,7 @@
 				A86902511A02E22400D2C9F3 /* GLUtils.cpp in Sources */,
 				A874A5021A2B550A009A60A0 /* Task.cpp in Sources */,
 				A8112ABB1A4C46E40002CF68 /* SoundManager.cpp in Sources */,
+				A8147EF91A9A340400885D67 /* CinderBridge.mm in Sources */,
 				A8D947611A881B6F007FB546 /* NSView+StringTag.m in Sources */,
 				A8702AB81A5B099E00EF9E9E /* DisplayHelperBase.cpp in Sources */,
 				A8CDB6531A2DC0B60043A5E5 /* MemoryManagerBase.cpp in Sources */,
@@ -681,6 +690,7 @@
 				A8721A421A2BE87E00AED9C8 /* TestingSound.cpp in Sources */,
 				A8FBA6D31A73224600D6B4A3 /* HttpTask.cpp in Sources */,
 				A86902361A02E22400D2C9F3 /* SuperHandler.cpp in Sources */,
+				A8147EFB1A9A342400885D67 /* Application.cpp in Sources */,
 				A869024D1A02E22400D2C9F3 /* FrameClock.cpp in Sources */,
 				A814C5DB1A374AE400F639E3 /* ImageSourceFileStbImage.cpp in Sources */,
 				A86902551A02E22400D2C9F3 /* Utils.cpp in Sources */,

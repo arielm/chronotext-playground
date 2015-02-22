@@ -37,6 +37,6 @@ extern "C"
 
 #include "Application.h"
 
-CINDER_APP_NATIVE(Application, ci::app::RendererGl(ci::app::RendererGl::AA_NONE))
+CINDER_APP_DESKTOP(Application, ci::app::RendererGl::AA_NONE)
 
 #endif
