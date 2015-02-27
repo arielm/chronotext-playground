@@ -12,7 +12,7 @@
 
 #import "CinderBridge.h"
 
-@interface Application : NSObject <UIApplicationDelegate>
+@interface Application : NSObject <UIApplicationDelegate, BridgeListener>
 {
     CinderBridge *bridge;
     UIWindow *window;
