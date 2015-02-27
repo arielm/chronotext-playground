@@ -65,7 +65,7 @@
 
 /*
  * SEE THE PARALLEL ANDROID VERSION FOR MORE DETAILS REGARDING THE 2 FOLLOWING CALLBACKS:
- * https://github.com/arielm/chronotext-playground/blob/demo/Sketches/TestBed2/android/src/org/chronotext/TestBed2/MainActivity.java#L42-127
+ * https://github.com/arielm/chronotext-playground/blob/demo/Sketches/TestBed2/android/src/org/chronotext/TestBed2/MainActivity.java#L52-142
  *
  * THE SITUATION IS SIMPLIER ON IOS WHERE THE "APP" AND THE "SKETCH"
  * LIVE BOTH ON THE SAME THREAD AND "LANGUAGE BARRIERS" ARE NOT AN ISSUE
