@@ -57,7 +57,7 @@ public class MainActivity extends Activity implements BridgeListener
       case CinderBridge.SKETCH_DID_INIT:
       {
         /*
-         * EXPLICITELY INITIATING MIXPANEL ON THE MAIN-THREAD
+         * EXPLICITELY INITIALIZING MIXPANEL ON THE MAIN-THREAD
          */
 //      MixpanelAPI.getInstance(this, MIXPANEL_TOKEN);
         break;
@@ -66,7 +66,7 @@ public class MainActivity extends Activity implements BridgeListener
       case CinderBridge.SKETCH_DID_UNINIT:
       {
         /*
-         * EXPLICITELY UN-INITIATING MIXPANEL ON THE MAIN-THREAD
+         * EXPLICITELY UN-INITIALIZING MIXPANEL ON THE MAIN-THREAD
          */
 //      MixpanelAPI.getInstance(this, MIXPANEL_TOKEN).flush();
         break;
