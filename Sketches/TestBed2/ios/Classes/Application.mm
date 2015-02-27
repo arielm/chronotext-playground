@@ -89,7 +89,7 @@
             /*
              * XXX: NEVER ACTUALLY CALLED ON IOS
              *
-             * EVEN HAS BEEN "TERMINATED FOR REAL", E.G.
+             * EVEN WHEN THE APP IS "TERMINATED FOR REAL", E.G.
              * - USER HAS WIPED IT FROM THE LIST OF BACKGROUND APPS
              * - SYSTEM HAS JETISONIZED IT IN ORDER TO RECLAIM RESOURCES
              */
