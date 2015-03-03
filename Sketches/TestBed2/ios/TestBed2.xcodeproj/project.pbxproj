@@ -81,7 +81,6 @@
 		0087D25412CD809F002CD69F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		00CFDF6A1138442D0091E310 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		00CFDF6A1138442D0091FFFF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		125ACA23B6814C2888F2E57E /* Target1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Target1-Prefix.pch"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -163,6 +162,8 @@
 		A84E434A1A2A1F2300EE6AC1 /* UIView+StringTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+StringTag.h"; sourceTree = "<group>"; };
 		A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+StringTag.m"; sourceTree = "<group>"; };
 		A84E43521A2A295D00EE6AC1 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
+		A85E11AA1AA5F0E900309C3E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A85E11AB1AA5F0E900309C3E /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		A8702AA41A5AF4D300EF9E9E /* FileHelperBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelperBase.cpp; sourceTree = "<group>"; };
 		A8702AA51A5AF4D300EF9E9E /* FileHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelperBase.h; sourceTree = "<group>"; };
 		A8702AA71A5AF4EA00EF9E9E /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
@@ -214,7 +215,6 @@
 		C727C02B121B400300192073 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C727C02D121B400300192073 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		D616014D45B744EF83271CE8 /* Target1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Target1-Info.plist"; sourceTree = "<group>"; };
 		DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -339,10 +339,9 @@
 				A81E3DFD1993D2AE002B8978 /* DebugConfig.xcconfig */,
 				A81E3DFE1993D2AE002B8978 /* ReleaseConfig.xcconfig */,
 				A81E3DFF1993D2AE002B8978 /* DistributionConfig.xcconfig */,
+				A85E11A91AA5F0E900309C3E /* Target1 */,
 				A8994D451726E51E00C8851E /* Classes */,
 				A82C900616DF91D300FF519C /* Resources */,
-				D616014D45B744EF83271CE8 /* Target1-Info.plist */,
-				125ACA23B6814C2888F2E57E /* Target1-Prefix.pch */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -569,6 +568,15 @@
 			path = accel;
 			sourceTree = "<group>";
 		};
+		A85E11A91AA5F0E900309C3E /* Target1 */ = {
+			isa = PBXGroup;
+			children = (
+				A85E11AA1AA5F0E900309C3E /* Info.plist */,
+				A85E11AB1AA5F0E900309C3E /* Prefix.pch */,
+			);
+			path = Target1;
+			sourceTree = "<group>";
+		};
 		A8721A3B1A2BD7A200AED9C8 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,8 +782,8 @@
 		00692BF614FF149000D0A05E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREFIX_HEADER = "Target1-Prefix.pch";
-				INFOPLIST_FILE = "Target1-Info.plist";
+				GCC_PREFIX_HEADER = Target1/Prefix.pch;
+				INFOPLIST_FILE = Target1/Info.plist;
 				PRODUCT_NAME = TestBed2;
 			};
 			name = Debug;
@@ -783,8 +791,8 @@
 		00692BF714FF149000D0A05E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREFIX_HEADER = "Target1-Prefix.pch";
-				INFOPLIST_FILE = "Target1-Info.plist";
+				GCC_PREFIX_HEADER = Target1/Prefix.pch;
+				INFOPLIST_FILE = Target1/Info.plist;
 				PRODUCT_NAME = TestBed2;
 			};
 			name = Release;
@@ -799,8 +807,8 @@
 		A8EC2EBE17BB899D00FFACBA /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREFIX_HEADER = "Target1-Prefix.pch";
-				INFOPLIST_FILE = "Target1-Info.plist";
+				GCC_PREFIX_HEADER = Target1/Prefix.pch;
+				INFOPLIST_FILE = Target1/Info.plist;
 				PRODUCT_NAME = TestBed2;
 			};
 			name = Distribution;
