@@ -39,8 +39,8 @@ void Sketch::update()
 {
     if (getElapsedFrames() == 1)
     {
-        executeTest<TestingNetwork>(false);
-        addFrameTest<TestingSound>(true);
+        addFrameTest<TestingNetwork>(true);
+        addFrameTest<TestingSound>(false);
     }
     
     if (getElapsedFrames() >= 1)

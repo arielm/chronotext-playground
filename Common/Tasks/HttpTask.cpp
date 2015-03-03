@@ -22,6 +22,11 @@ using namespace Poco::Net;
 atomic<bool> HttpTask::LOG_VERBOSE (false);
 atomic<bool> HttpTask::SIMULATE_NETWORK_FAILURE (false);
 
+namespace httptask
+{
+    bool sslInitialized = false;
+}
+
 HttpTask::HttpTask(const Request &request, Handler *handler)
 :
 request(request),
@@ -290,6 +295,10 @@ void HttpTask::run()
                             message = "INVALID FILENAME IN URI";
                             break;
                             
+                        case ERROR_SIMULATED_NETWORK_FAILURE:
+                            message = "ERROR SIMULATED NETWORK FAILURE";
+                            break;
+                            
                         default:
                             message = "UNDEFINED ERROR";
                             break;
@@ -353,7 +362,7 @@ void HttpTask::run()
                 
                 /*
                  * WARNING:
-                 * PASSING e.displayText() DIRECTLY TO THE CONTRUCTOR OF HttpTask::Error SOMEHOW DISCARDS INHERITANCE
+                 * CAPTURING e.displayText() VIA A LAMBDA DISCARDS INHERITANCE
                  * WHICH IN TURN PRODUCES MISLEADING MESSAGES (E.G. "Exception: http://foo.com" INSTEAD OF "Host not found: http://foo.com")
                  */
                 string message = e.displayText();
@@ -445,7 +454,7 @@ void HttpTask::cancelIfRequired()
 
 void HttpTask::failIfRequired()
 {
-    if (!SIMULATE_NETWORK_FAILURE)
+    if (SIMULATE_NETWORK_FAILURE)
     {
         throw Error(ERROR_SIMULATED_NETWORK_FAILURE);
     }
@@ -460,6 +469,12 @@ void HttpTask::beginSession(const URI &uri)
     else if (uri.getScheme() == "https")
     {
         ssl = true;
+        
+        if (!httptask::sslInitialized)
+        {
+            Net::initializeSSL();
+            httptask::sslInitialized = true;
+        }
         
         SharedPtr<InvalidCertificateHandler> pInvalidCertHandler = new AcceptCertificateHandler(false);
         Context::Ptr pContext = new Context(Context::CLIENT_USE, "", "", "", Context::VERIFY_NONE, 9, true, "ALL:!ADH:!LOW:!EXP:!MD5:@STRENGTH");
