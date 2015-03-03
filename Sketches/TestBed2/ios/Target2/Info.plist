@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>FMOD Test</string>
+	<string>POCO Test</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
