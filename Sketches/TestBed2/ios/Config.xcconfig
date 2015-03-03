@@ -27,15 +27,10 @@ IPHONE_OPTIMIZE_OPTIONS = -skip-PNGs
 CINDER_PATH = $(CINDER_PATH_CHR)
 
 ALWAYS_SEARCH_USER_PATHS = YES
-USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/boost" "$(CINDER_PATH)/blocks/new-chronotext-toolkit/src"
-HEADER_SEARCH_PATHS = ../include ../../../Common "$(CINDER_PATH)/include" "$(CINDER_PATH)/src/libtess2" "$(CINDER_PATH)/blocks/POCO/include" "$(CINDER_PATH)/blocks/FMOD/include"
+BASE_USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/boost" "$(CINDER_PATH)/blocks/new-chronotext-toolkit/src"
+BASE_HEADER_SEARCH_PATHS = ../include "$(CINDER_PATH)/include" "$(CINDER_PATH)/src/libtess2"
 
-LIBRARY_SEARCH_PATHS = "$(CINDER_PATH)/blocks/POCO/lib/ios" "$(CINDER_PATH)/blocks/FMOD/lib/ios"
-BASE_OTHER_LDFLAGS = -lz -lPocoFoundation -lPocoZip -lPocoData -lPocoDataSQLite -lPocoNet -lPocoUtil -lPocoCrypto -lPocoNetSSL -lcrypto -lssl
+BASE_LIBRARY_SEARCH_PATHS =
+BASE_OTHER_LDFLAGS = -lz
 
 BASE_GCC_PREPROCESSOR_DEFINITIONS =
-
-//
-
-CODE_SIGN_IDENTITY = iPhone Developer
-PROVISIONING_PROFILE =

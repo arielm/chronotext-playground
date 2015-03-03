@@ -6,9 +6,10 @@
  *    IOS: COMMIT e128512
  *    ANDROID: COMMIT e128512
  *
- * 2) master BRANCH IN https://github.com/arielm/POCO
+ * 2) Target1: master BRANCH IN https://github.com/arielm/FMOD
  *
- * 3) master BRANCH IN https://github.com/arielm/FMOD
+ * 3) Target2: master BRANCH IN https://github.com/arielm/POCO
+ *
  */
 
 #pragma once

@@ -1,0 +1,7 @@
+#include "Config.xcconfig"
+#include "../ReleaseConfig.xcconfig"
+
+OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*] = $(BASE_OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*]) $(TARGET_OTHER_LDFLAGS)
+OTHER_LDFLAGS[sdk=iphoneos*][arch=*] = $(BASE_OTHER_LDFLAGS[sdk=iphoneos*][arch=*]) $(TARGET_OTHER_LDFLAGS)
+
+GCC_PREPROCESSOR_DEFINITIONS = $(RELEASE_TARGET_GCC_PREPROCESSOR_DEFINITIONS) $(TARGET_GCC_PREPROCESSOR_DEFINITIONS)

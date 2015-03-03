@@ -1,7 +1,10 @@
 #include "Sketch.h"
 
-#include "TestingSound.h"
-#include "TestingNetwork.h"
+#if defined(TARGET1)
+#   include "TestingSound.h"
+#elif defined(TARGET2)
+#   include "TestingNetwork.h"
+#endif
 
 #include "chronotext/Context.h"
 #include "chronotext/utils/GLUtils.h"
@@ -39,8 +42,11 @@ void Sketch::update()
 {
     if (getElapsedFrames() == 1)
     {
+#if defined(TARGET1)
+        addFrameTest<TestingSound>(true);
+#elif defined(TARGET2)
         addFrameTest<TestingNetwork>(true);
-        addFrameTest<TestingSound>(false);
+#endif
     }
     
     if (getElapsedFrames() >= 1)
@@ -62,7 +68,12 @@ void Sketch::update()
 void Sketch::draw()
 {
     gl::setMatricesWindow(getWindowSize(), true);
-    gl::clear(Color::gray(0.5f), false);
+
+#if defined(TARGET1)
+    gl::clear(Color(1, 0, 0), false);
+#elif defined(TARGET2)
+    gl::clear(Color(0, 0, 1), false);
+#endif
     
     gl::color(Color::white());
     utils::gl::drawGrid(getWindowBounds(), 64, Vec2f(0, clock()->getTime() * 60));

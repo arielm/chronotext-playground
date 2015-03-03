@@ -1,0 +1,7 @@
+#include "Config.xcconfig"
+#include "../DebugConfig.xcconfig"
+
+OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*] = $(BASE_OTHER_LDFLAGS[sdk=iphonesimulator*][arch=*]) $(TARGET_OTHER_LDFLAGS) "$(CINDER_PATH)/blocks/FMOD/lib/ios/libfmodL_iphonesimulator.a"
+OTHER_LDFLAGS[sdk=iphoneos*][arch=*] = $(BASE_OTHER_LDFLAGS[sdk=iphoneos*][arch=*]) $(TARGET_OTHER_LDFLAGS) "$(CINDER_PATH)/blocks/FMOD/lib/ios/libfmodL_iphoneos.a"
+
+GCC_PREPROCESSOR_DEFINITIONS = $(DEBUG_TARGET_GCC_PREPROCESSOR_DEFINITIONS) $(TARGET_GCC_PREPROCESSOR_DEFINITIONS)
