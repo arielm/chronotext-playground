@@ -668,11 +668,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				TargetAttributes = {
-					00692BCE14FF149000D0A05E = {
-						DevelopmentTeam = 7Y3VQ2U6RV;
-					};
-				};
 			};
 			buildConfigurationList = 00692BC914FF149000D0A05E /* Build configuration list for PBXProject "TestBed2" */;
 			compatibilityVersion = "Xcode 3.2";
