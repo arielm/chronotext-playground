@@ -6,6 +6,10 @@ build/
 # OSX
 .DS_Store
 
+# iOS
+*.ipa
+*.xcarchive
+
 # Android
 bin/
 gen/
