@@ -7,11 +7,16 @@
  */
 
 /*
- * PLAYGROUND IN SYNC WITH develop BRANCH IN new-chronotext-toolkit
+ * PLAYGROUND IN SYNC WITH:
  *
- * OSX: COMMIT e128512
- * IOS: COMMIT e128512
- * ANDROID: COMMIT e128512
+ * 1) develop BRANCH IN https://github.com/new-chronotext-toolkit
+ *    OSX: COMMIT e128512
+ *    IOS: COMMIT e128512
+ *    ANDROID: COMMIT e128512
+ *
+ * 2) master BRANCH IN https://github.com/arielm/Freetype
+ *
+ * 3) master BRANCH IN https://github.com/arielm/hb-icu
  */
 
 #pragma once

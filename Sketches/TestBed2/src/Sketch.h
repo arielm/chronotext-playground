@@ -17,7 +17,6 @@
  * 2) Target1: master BRANCH IN https://github.com/arielm/FMOD
  *
  * 3) Target2: master BRANCH IN https://github.com/arielm/POCO
- *
  */
 
 #pragma once
