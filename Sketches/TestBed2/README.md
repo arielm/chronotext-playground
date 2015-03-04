@@ -30,7 +30,7 @@ The following instructions are for *Target 1* (they can be easily extrapolated f
 cd Sketches/TestBed2/ios
 xcrun xcodebuild -project TestBed2.xcodeproj -target Target1 -configuration Release
 ```
-This should produce an `.ipa` file signed with the *default identity* (automatically picked by XCode.) If you have several identities installed, you can force one of them to be used, as follows:
+This should produce an `.app` bundle signed with the *default identity* (automatically picked by XCode.) If you have several identities installed, you can force one of them to be used, as follows:
 
 ```
 xcrun xcodebuild -project TestBed2.xcodeproj -target Target1 -configuration Release CODE_SIGN_IDENTITY="iPhone Developer: Ariel Malka (**********)"
@@ -44,3 +44,23 @@ Then, the [ios-deploy](https://github.com/phonegap/ios-deploy) executable can be
 - This will not launch the app.
 - `ios-deploy` is allowing several additional operations.
 - TODO: compile a more recent-version and (re)test automatic-launch and debugging.
+
+**Archiving and packaging**
+
+In the past, this procedure was successfully used for *ad-hoc* distribution with *test-flight*. The latter was in the meantime acquired by Apple, and the rules may have changed. (TODO: test the *test-flight* as well as alternatives...)
+
+```
+cd Sketches/TestBed2/ios
+xcodebuild -scheme Target1 archive -archivePath Target1.xcarchive
+```
+This should produce a `.xcarchive` bundle signed with the *default identity* (automatically picked by XCode.) If you have several identities installed, you can force one of them to be used, as follows:
+
+```
+xcodebuild -scheme Target1 archive -archivePath Target1.xcarchive CODE_SIGN_IDENTITY="iPhone Developer: Ariel Malka (**********)"
+```
+
+Then, the following should produce an `.ipa` bundle ready for *distribution*:
+```
+xcodebuild -exportArchive -exportFormat ipa -archivePath Target1.xcarchive -exportPath Target1.ipa -exportProvisioningProfile "Chronotext_AdHoc"
+```
+Be sure to replace `Chronotext_AdHoc` with the proper *provisioning-profile* name (which must be registered at the XCode level.)
