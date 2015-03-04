@@ -1,3 +1,11 @@
+/*
+ * THE CHRONOTEXT-PLAYGROUND: https://github.com/arielm/chronotext-playground
+ * COPYRIGHT (C) 2014-2015, ARIEL MALKA ALL RIGHTS RESERVED.
+ *
+ * THE FOLLOWING SOURCE-CODE IS DISTRIBUTED UNDER THE SIMPLIFIED BSD LICENSE:
+ * https://github.com/arielm/chronotext-playground/blob/master/LICENSE
+ */
+
 #include "HttpTask.h"
 
 #include "chronotext/utils/Utils.h"
@@ -20,7 +28,7 @@ using namespace Poco;
 using namespace Poco::Net;
 
 atomic<bool> HttpTask::LOG_VERBOSE (false);
-atomic<bool> HttpTask::SIMULATE_NETWORK_FAILURE (false);
+atomic<bool> HttpTask::SIMULATE_NETWORK_FAILURE (false); // XXX: PROBABLY TEMPORARY
 
 namespace httptask
 {
@@ -452,6 +460,9 @@ void HttpTask::cancelIfRequired()
     }
 }
 
+/*
+ * XXX: PROBABLY TEMPORARY
+ */
 void HttpTask::failIfRequired()
 {
     if (SIMULATE_NETWORK_FAILURE)
@@ -470,6 +481,13 @@ void HttpTask::beginSession(const URI &uri)
     {
         ssl = true;
         
+        /*
+         * THIS IS STATIC INITIALIZATION: WILL HAPPEN ONLY ONCE
+         *
+         * THE "CORRESPONDING" Net::uninitializeSSL() IS NEVER CALLED
+         * BECAUSE IT'S NOT MANDAYORY AND BECAUSE THERE IS NO OBVIOUS
+         * EVENT FOR IT TO TAKE PLACE ANYWAY...
+         */
         if (!httptask::sslInitialized)
         {
             Net::initializeSSL();
@@ -504,10 +522,10 @@ void HttpTask::readToFile(istream& input, ofstream& ouput, size_t bufferSize)
 {
     Poco::Buffer<char> buffer(bufferSize);
     
-	while (true)
-	{
+    while (true)
+    {
         input.read(buffer.begin(), bufferSize);
-		auto count = input.gcount();
+        auto count = input.gcount();
         
         cancelIfRequired();
         failIfRequired();
@@ -526,7 +544,7 @@ void HttpTask::readToFile(istream& input, ofstream& ouput, size_t bufferSize)
         {
             break;
         }
-	}
+    }
 }
 
 /*
@@ -536,10 +554,10 @@ void HttpTask::readToString(istream& input, string &output, size_t bufferSize)
 {
     Poco::Buffer<char> buffer(bufferSize);
     
-	while (true)
-	{
+    while (true)
+    {
         input.read(buffer.begin(), bufferSize);
-		auto count = input.gcount();
+        auto count = input.gcount();
         
         cancelIfRequired();
         failIfRequired();
@@ -558,7 +576,7 @@ void HttpTask::readToString(istream& input, string &output, size_t bufferSize)
         {
             break;
         }
-	}
+    }
 }
 
 string HttpTask::extractFilename(const URI &uri)

@@ -7,6 +7,8 @@
  * 2) TEST MEMORY-CONSUMPTION (OSX AND IOS) WITH Effect::Request::forceMemoryLoad
  *
  * 3) MORE TODO'S IN SoundManager.h
+ *
+ * 4) PROVIDE CREDITS FOR INCLUDED SOUND SAMPLES
  */
 
 #pragma once

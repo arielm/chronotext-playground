@@ -1,3 +1,11 @@
+/*
+ * THE CHRONOTEXT-PLAYGROUND: https://github.com/arielm/chronotext-playground
+ * COPYRIGHT (C) 2014-2015, ARIEL MALKA ALL RIGHTS RESERVED.
+ *
+ * THE FOLLOWING SOURCE-CODE IS DISTRIBUTED UNDER THE SIMPLIFIED BSD LICENSE:
+ * https://github.com/arielm/chronotext-playground/blob/master/LICENSE
+ */
+
 #pragma once
 
 #include "chronotext/os/Task.h"
@@ -17,7 +25,7 @@ class HttpTask : public chr::Task
 {
 public:
     static std::atomic<bool> LOG_VERBOSE;
-    static std::atomic<bool> SIMULATE_NETWORK_FAILURE;
+    static std::atomic<bool> SIMULATE_NETWORK_FAILURE; // XXX
     
     struct Request
     {
@@ -161,7 +169,7 @@ protected:
     void run() final;
 
     void cancelIfRequired();
-    void failIfRequired();
+    void failIfRequired(); // XXX
     
     void beginSession(const Poco::URI &uri);
     void endSession();
