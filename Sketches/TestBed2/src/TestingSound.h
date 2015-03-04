@@ -1,4 +1,12 @@
 /*
+ * THE CHRONOTEXT-PLAYGROUND: https://github.com/arielm/chronotext-playground
+ * COPYRIGHT (C) 2014-2015, ARIEL MALKA ALL RIGHTS RESERVED.
+ *
+ * THE FOLLOWING SOURCE-CODE IS DISTRIBUTED UNDER THE SIMPLIFIED BSD LICENSE:
+ * https://github.com/arielm/chronotext-playground/blob/master/LICENSE
+ */
+
+/*
  * TODO:
  *
  * 1) TEST EFFECT-DISCARDING ON DEVICES:
@@ -6,7 +14,7 @@
  *
  * 2) TEST MEMORY-CONSUMPTION (OSX AND IOS) WITH Effect::Request::forceMemoryLoad
  *
- * 3) MORE TODO'S IN SoundManager.h
+ * 3) MORE TODO'S IN chronotext/sound/SoundManager.h
  *
  * 4) PROVIDE CREDITS FOR INCLUDED SOUND SAMPLES
  */

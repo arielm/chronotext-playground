@@ -1,3 +1,11 @@
+/*
+ * THE CHRONOTEXT-PLAYGROUND: https://github.com/arielm/chronotext-playground
+ * COPYRIGHT (C) 2014-2015, ARIEL MALKA ALL RIGHTS RESERVED.
+ *
+ * THE FOLLOWING SOURCE-CODE IS DISTRIBUTED UNDER THE SIMPLIFIED BSD LICENSE:
+ * https://github.com/arielm/chronotext-playground/blob/master/LICENSE
+ */
+
 #include "TestingNetwork.h"
 
 #include "chronotext/Context.h"
@@ -38,7 +46,11 @@ void TestingNetwork::requestCancelled(const HttpTask::Request &request)
 
 void TestingNetwork::requestFailed(const HttpTask::Request &request, const HttpTask::Response &response, HttpTask::Error error)
 {
-    LOGI << "HttpTask::requestFailed: " << error.getMessage() << endl; // TODO: HttpTask::Error SHOULD DELIVER A MESSAGE AS-MEANINGFUL-AS WHAT IS CURRENTLY PRINTED VIA Http::LOG_VERBOSE
+    /*
+     * TODO: HttpTask::Error SHOULD DELIVER A MESSAGE AS-MEANINGFUL-AS WHAT IS CURRENTLY PRINTED VIA Http::LOG_VERBOSE
+     */
+    
+    LOGI << "HttpTask::requestFailed: " << error.getMessage() << endl; //
 }
 
 void TestingNetwork::requestSucceeded(const HttpTask::Request &request, const HttpTask::Response &response)
