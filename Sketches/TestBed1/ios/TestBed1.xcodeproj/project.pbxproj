@@ -24,10 +24,6 @@
 		A8112C251A4DC4070002CF68 /* FontManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112C1E1A4DC4070002CF68 /* FontManager.cpp */; };
 		A8112C261A4DC4070002CF68 /* FontSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112C201A4DC4070002CF68 /* FontSequence.cpp */; };
 		A8112C271A4DC4070002CF68 /* TextHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8112C221A4DC4070002CF68 /* TextHelper.cpp */; };
-		A81E3DF61993B741002B8978 /* icon_144.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF11993B741002B8978 /* icon_144.png */; };
-		A81E3DF71993B741002B8978 /* icon_152.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF21993B741002B8978 /* icon_152.png */; };
-		A81E3DF81993B741002B8978 /* icon_72.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF31993B741002B8978 /* icon_72.png */; };
-		A81E3DF91993B741002B8978 /* icon_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E3DF41993B741002B8978 /* icon_76.png */; };
 		A81E3DFA1993D0F3002B8978 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A82C900816DF91D300FF519C /* Default-568h@2x.png */; };
 		A84E428F1A2A1D6D00EE6AC1 /* Path3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E428D1A2A1D6D00EE6AC1 /* Path3D.cpp */; };
 		A84E43041A2A1DFB00EE6AC1 /* ActualFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42A21A2A1DFA00EE6AC1 /* ActualFont.cpp */; };
@@ -66,9 +62,9 @@
 		A84E434F1A2A1F2300EE6AC1 /* SystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43451A2A1F2300EE6AC1 /* SystemManager.mm */; };
 		A84E43501A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */; };
 		A84E43511A2A1F2300EE6AC1 /* UIView+StringTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */; };
-		A84E43531A2A295D00EE6AC1 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E43521A2A295D00EE6AC1 /* icon_120.png */; };
 		A8702AB21A5B04CA00EF9E9E /* DisplayHelperBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8702AB01A5B04CA00EF9E9E /* DisplayHelperBase.cpp */; };
 		A8702AB51A5B050300EF9E9E /* DisplayHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8702AB41A5B050300EF9E9E /* DisplayHelper.mm */; };
+		A871F9831AA7C9B500D872B1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A871F9821AA7C9B500D872B1 /* icon.png */; };
 		A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */; };
 		A8721A451A2BEF3000AED9C8 /* TestingMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A431A2BEF3000AED9C8 /* TestingMemory.cpp */; };
 		A874A5081A2B5B88009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5041A2B5B88009A60A0 /* Task.cpp */; };
@@ -106,7 +102,7 @@
 		0087D25412CD809F002CD69F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		00CFDF6A1138442D0091E310 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		00CFDF6A1138442D0091FFFF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		125ACA23B6814C2888F2E57E /* Target1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Target1-Prefix.pch"; sourceTree = "<group>"; };
+		125ACA23B6814C2888F2E57E /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		28FD14FF0DC6FC520079059D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -129,10 +125,6 @@
 		A8112C211A4DC4070002CF68 /* FontSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontSequence.h; sourceTree = "<group>"; };
 		A8112C221A4DC4070002CF68 /* TextHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextHelper.cpp; sourceTree = "<group>"; };
 		A8112C231A4DC4070002CF68 /* TextHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextHelper.h; sourceTree = "<group>"; };
-		A81E3DF11993B741002B8978 /* icon_144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_144.png; sourceTree = "<group>"; };
-		A81E3DF21993B741002B8978 /* icon_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_152.png; sourceTree = "<group>"; };
-		A81E3DF31993B741002B8978 /* icon_72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_72.png; sourceTree = "<group>"; };
-		A81E3DF41993B741002B8978 /* icon_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_76.png; sourceTree = "<group>"; };
 		A81E3DFC1993D2AE002B8978 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A81E3DFD1993D2AE002B8978 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		A81E3DFE1993D2AE002B8978 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
@@ -241,11 +233,11 @@
 		A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AccelerationManagerImplCocoaTouch.mm; sourceTree = "<group>"; };
 		A84E434A1A2A1F2300EE6AC1 /* UIView+StringTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+StringTag.h"; sourceTree = "<group>"; };
 		A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+StringTag.m"; sourceTree = "<group>"; };
-		A84E43521A2A295D00EE6AC1 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
 		A8702AB01A5B04CA00EF9E9E /* DisplayHelperBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayHelperBase.cpp; sourceTree = "<group>"; };
 		A8702AB11A5B04CA00EF9E9E /* DisplayHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayHelperBase.h; sourceTree = "<group>"; };
 		A8702AB31A5B050300EF9E9E /* DisplayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayHelper.h; sourceTree = "<group>"; };
 		A8702AB41A5B050300EF9E9E /* DisplayHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DisplayHelper.mm; sourceTree = "<group>"; };
+		A871F9821AA7C9B500D872B1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		A8721A3C1A2BD7AE00AED9C8 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingBase.h; path = ../src/TestingBase.h; sourceTree = "<group>"; };
 		A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMisc.cpp; path = ../src/TestingMisc.cpp; sourceTree = "<group>"; };
 		A8721A3E1A2BD7AE00AED9C8 /* TestingMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMisc.h; path = ../src/TestingMisc.h; sourceTree = "<group>"; };
@@ -299,7 +291,7 @@
 		C727C02B121B400300192073 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C727C02D121B400300192073 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C7FB19D5124BC0D70045AFD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		D616014D45B744EF83271CE8 /* Target1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Target1-Info.plist"; sourceTree = "<group>"; };
+		D616014D45B744EF83271CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDDDDF6A1138442D0091DDDD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -422,18 +414,6 @@
 			path = xf;
 			sourceTree = "<group>";
 		};
-		A81E3DEF1993B741002B8978 /* Target1 */ = {
-			isa = PBXGroup;
-			children = (
-				A84E43521A2A295D00EE6AC1 /* icon_120.png */,
-				A81E3DF11993B741002B8978 /* icon_144.png */,
-				A81E3DF21993B741002B8978 /* icon_152.png */,
-				A81E3DF31993B741002B8978 /* icon_72.png */,
-				A81E3DF41993B741002B8978 /* icon_76.png */,
-			);
-			path = Target1;
-			sourceTree = "<group>";
-		};
 		A82C900516DF91BF00FF519C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,8 +423,8 @@
 				A81E3DFF1993D2AE002B8978 /* DistributionConfig.xcconfig */,
 				A8994D451726E51E00C8851E /* Classes */,
 				A82C900616DF91D300FF519C /* Resources */,
-				D616014D45B744EF83271CE8 /* Target1-Info.plist */,
-				125ACA23B6814C2888F2E57E /* Target1-Prefix.pch */,
+				D616014D45B744EF83271CE8 /* Info.plist */,
+				125ACA23B6814C2888F2E57E /* Prefix.pch */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -452,7 +432,7 @@
 		A82C900616DF91D300FF519C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A81E3DEF1993B741002B8978 /* Target1 */,
+				A871F9821AA7C9B500D872B1 /* icon.png */,
 				A82C900816DF91D300FF519C /* Default-568h@2x.png */,
 			);
 			path = Resources;
@@ -884,13 +864,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A84E43531A2A295D00EE6AC1 /* icon_120.png in Resources */,
 				00748058165D41390024B57A /* assets in Resources */,
-				A81E3DF91993B741002B8978 /* icon_76.png in Resources */,
-				A81E3DF81993B741002B8978 /* icon_72.png in Resources */,
 				A81E3DFA1993D0F3002B8978 /* Default-568h@2x.png in Resources */,
-				A81E3DF71993B741002B8978 /* icon_152.png in Resources */,
-				A81E3DF61993B741002B8978 /* icon_144.png in Resources */,
+				A871F9831AA7C9B500D872B1 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,18 +968,12 @@
 		00692BF614FF149000D0A05E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREFIX_HEADER = "Target1-Prefix.pch";
-				INFOPLIST_FILE = "Target1-Info.plist";
-				PRODUCT_NAME = TestBed1;
 			};
 			name = Debug;
 		};
 		00692BF714FF149000D0A05E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREFIX_HEADER = "Target1-Prefix.pch";
-				INFOPLIST_FILE = "Target1-Info.plist";
-				PRODUCT_NAME = TestBed1;
 			};
 			name = Release;
 		};
@@ -1017,9 +987,6 @@
 		A8EC2EBE17BB899D00FFACBA /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_PREFIX_HEADER = "Target1-Prefix.pch";
-				INFOPLIST_FILE = "Target1-Info.plist";
-				PRODUCT_NAME = TestBed1;
 			};
 			name = Distribution;
 		};
