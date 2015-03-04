@@ -47,7 +47,7 @@ Then, the [ios-deploy](https://github.com/phonegap/ios-deploy) executable can be
 
 **Archiving and packaging**
 
-In the past, this procedure was successfully used for *ad-hoc* distribution with *test-flight*. The latter was in the meantime acquired by Apple, and the rules may have changed. (TODO: test the *test-flight* as well as alternatives...)
+In the past, this procedure has been successfully used for *ad-hoc* distribution with *test-flight*. The latter was in the meantime acquired by Apple, and the rules may have changed. (TODO: test the new *test-flight* as well as alternatives...)
 
 ```
 cd Sketches/TestBed2/ios
@@ -63,4 +63,4 @@ Then, the following should produce an `.ipa` bundle ready for *distribution*:
 ```
 xcodebuild -exportArchive -exportFormat ipa -archivePath Target1.xcarchive -exportPath Target1.ipa -exportProvisioningProfile "Chronotext_AdHoc"
 ```
-Be sure to replace `Chronotext_AdHoc` with the proper *provisioning-profile* name (which must be registered at the XCode level.)
+Be sure to replace `Chronotext_AdHoc` with the relevant *provisioning-profile* name (which must be properly registered at the XCode's preferences level.)
