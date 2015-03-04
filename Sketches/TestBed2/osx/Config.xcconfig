@@ -23,7 +23,7 @@ HEADER_SEARCH_PATHS = ../include ../../../Common "$(CINDER_PATH)/include" "$(CIN
 LIBRARY_SEARCH_PATHS = "$(CINDER_PATH)/blocks/POCO/lib/macosx" "$(CINDER_PATH)/blocks/FMOD/lib/macosx"
 BASE_OTHER_LDFLAGS = -lz -lPocoFoundation -lPocoZip -lPocoData -lPocoDataSQLite -lPocoNet -lPocoUtil -lPocoCrypto -lPocoNetSSL -lcrypto -lssl
 
-BASE_GCC_PREPROCESSOR_DEFINITIONS =
+BASE_GCC_PREPROCESSOR_DEFINITIONS = TARGET1=1 TARGET2=1
 
 //
 

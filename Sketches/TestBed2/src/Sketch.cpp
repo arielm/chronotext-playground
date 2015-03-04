@@ -2,7 +2,9 @@
 
 #if defined(TARGET1)
 #   include "TestingSound.h"
-#elif defined(TARGET2)
+#endif
+
+#if defined(TARGET2)
 #   include "TestingNetwork.h"
 #endif
 
@@ -44,7 +46,9 @@ void Sketch::update()
     {
 #if defined(TARGET1)
         addFrameTest<TestingSound>(true);
-#elif defined(TARGET2)
+#endif
+        
+#if defined(TARGET2)
         addFrameTest<TestingNetwork>(true);
 #endif
     }
@@ -71,10 +75,16 @@ void Sketch::draw()
 
 #if defined(TARGET1)
     gl::clear(Color(1, 0, 0), false);
-#elif defined(TARGET2)
-    gl::clear(Color(0, 0, 1), false);
 #endif
     
+#if defined(TARGET2)
+    gl::clear(Color(0, 0, 1), false);
+#endif
+
+#if defined(TARGET1) && defined(TARGET2)
+    gl::clear(Color(1, 0, 1), false);
+#endif
+
     gl::color(Color::white());
     utils::gl::drawGrid(getWindowBounds(), 64, Vec2f(0, clock()->getTime() * 60));
 }
