@@ -1,5 +1,5 @@
 TestBed2
-========
+--------
 
 This project is a *multi-target* test-bed, each *target* focusing on a particular topic.
 
