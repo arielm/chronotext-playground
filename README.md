@@ -1,5 +1,5 @@
-chronotext-playground
-=====================
+the chronotext-playground
+---------------------
 
 Projects in sync with the [new-chronotext-toolkit](https://github.com/arielm/new-chronotext-toolkit):
 
