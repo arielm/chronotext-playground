@@ -9,3 +9,21 @@ This project is a cross-platform (OSX, iOS, Android) test-bed for developing and
 - Logging
 - Text formatting
 - etc.
+ 
+Check the comments at the top of [Sketch.h](src/Sketch.h) for more details regarding the dependencies.
+
+---
+
+### OSX and iOS / XCode
+
+**Prerequisites**
+- OSX 10.9.5 (other versions may work)
+- XCode 6.1.1
+- An entry named `CINDER_PATH_CHR` pointing to the Cinder folder must be defined in *XCode/Preferences/Locations/Source Trees*.
+
+---
+
+### Android / command-line
+
+The instructions can be extrapolated from this [tutorial](https://github.com/arielm/new-chronotext-toolkit/wiki/How-to-run-a-sample-project-on-Android).
+
