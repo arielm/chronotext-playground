@@ -1,7 +1,7 @@
 TestBed2
 ========
 
-This project is a *multi-target* test-bed, each *target* focusing on a particular aspect.
+This project is a *multi-target* test-bed, each *target* focusing on a particular topic.
 
 - On iOS, the [XCode project](ios/TestBed2.xcodeproj) can produce two distinct apps.  
 - FIXME: on OSX and Android, both targets are currently treated via a single app.
@@ -14,9 +14,26 @@ This project is a *multi-target* test-bed, each *target* focusing on a particula
 - Demonstrates how to work with the network using the [HttpTask class](../../Common/Tasks/HttpTask.h)
 - Requires the [POCO block](https://github.com/arielm/POCO)
 
+Check the comments at the top of [Sketch.h](src/Sketch.h) for more details regarding the dependencies.
+
 ---
 
-### iOS / Command-line operations
+### OSX and iOS / XCode
+
+**Prerequisites**
+- OSX 10.9.5 (other versions may work)
+- XCode 6.1.1
+- An entry named `CINDER_PATH_CHR` pointing to the Cinder folder must be defined in *XCode/Preferences/Locations/Source Trees*.
+
+---
+
+### Android / command-line
+
+The instructions can be extrapolated from this [tutorial](https://github.com/arielm/new-chronotext-toolkit/wiki/How-to-run-a-sample-project-on-Android).
+
+---
+
+### iOS / command-line
 
 **Prerequisites**
 - OSX 10.9.5 (other versions may work)
