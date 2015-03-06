@@ -42,7 +42,7 @@ void TestingSound::shutdown()
 {
     if (soundManager)
     {
-        soundManager->shutdown();
+        soundManager->uninit();
         soundManager.reset();
         
         SoundManager::LOG_VERBOSE = false;
