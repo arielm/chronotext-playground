@@ -25,7 +25,7 @@ void TestingSound::setup()
         SoundManager::PROBE_MEMORY = true;
 
         soundManager = make_shared<SoundManager>();
-        soundManager->setup(MAX_CHANNELS);
+        soundManager->init(MAX_CHANNELS);
         
         soundManager->addListener(this);
         
