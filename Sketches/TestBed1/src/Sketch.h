@@ -10,9 +10,9 @@
  * PLAYGROUND IN SYNC WITH:
  *
  * 1) develop BRANCH IN https://github.com/new-chronotext-toolkit
- *    OSX: COMMIT e128512
- *    IOS: COMMIT e128512
- *    ANDROID: COMMIT e128512
+ *    OSX: COMMIT c141034
+ *    IOS: COMMIT c141034
+ *    ANDROID: COMMIT c141034
  *
  * 2) master BRANCH IN https://github.com/arielm/Freetype
  *

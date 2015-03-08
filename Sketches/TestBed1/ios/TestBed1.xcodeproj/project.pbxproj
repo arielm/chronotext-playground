@@ -60,7 +60,6 @@
 		A84E43381A2A1F0500EE6AC1 /* SplinePath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E432F1A2A1F0500EE6AC1 /* SplinePath.cpp */; };
 		A84E434E1A2A1F2300EE6AC1 /* GLViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43411A2A1F2300EE6AC1 /* GLViewController.mm */; };
 		A84E434F1A2A1F2300EE6AC1 /* SystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43451A2A1F2300EE6AC1 /* SystemManager.mm */; };
-		A84E43501A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */; };
 		A84E43511A2A1F2300EE6AC1 /* UIView+StringTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */; };
 		A8702AB21A5B04CA00EF9E9E /* DisplayHelperBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8702AB01A5B04CA00EF9E9E /* DisplayHelperBase.cpp */; };
 		A8702AB51A5B050300EF9E9E /* DisplayHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8702AB41A5B050300EF9E9E /* DisplayHelper.mm */; };
@@ -197,7 +196,6 @@
 		A84E42E91A2A1DFB00EE6AC1 /* FrameClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FrameClock.cpp; sourceTree = "<group>"; };
 		A84E42EA1A2A1DFB00EE6AC1 /* FrameClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameClock.h; sourceTree = "<group>"; };
 		A84E42EB1A2A1DFB00EE6AC1 /* TimeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeBase.h; sourceTree = "<group>"; };
-		A84E42EE1A2A1DFB00EE6AC1 /* AccelerationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationManager.h; sourceTree = "<group>"; };
 		A84E42EF1A2A1DFB00EE6AC1 /* AccelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelEvent.h; sourceTree = "<group>"; };
 		A84E42F11A2A1DFB00EE6AC1 /* GLUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLUtils.cpp; sourceTree = "<group>"; };
 		A84E42F21A2A1DFB00EE6AC1 /* GLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUtils.h; sourceTree = "<group>"; };
@@ -229,8 +227,6 @@
 		A84E43431A2A1F2300EE6AC1 /* SystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfo.h; sourceTree = "<group>"; };
 		A84E43441A2A1F2300EE6AC1 /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManager.h; sourceTree = "<group>"; };
 		A84E43451A2A1F2300EE6AC1 /* SystemManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SystemManager.mm; sourceTree = "<group>"; };
-		A84E43481A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationManagerImplCocoaTouch.h; sourceTree = "<group>"; };
-		A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AccelerationManagerImplCocoaTouch.mm; sourceTree = "<group>"; };
 		A84E434A1A2A1F2300EE6AC1 /* UIView+StringTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+StringTag.h"; sourceTree = "<group>"; };
 		A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+StringTag.m"; sourceTree = "<group>"; };
 		A8702AB01A5B04CA00EF9E9E /* DisplayHelperBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayHelperBase.cpp; sourceTree = "<group>"; };
@@ -643,7 +639,6 @@
 		A84E42ED1A2A1DFB00EE6AC1 /* accel */ = {
 			isa = PBXGroup;
 			children = (
-				A84E42EE1A2A1DFB00EE6AC1 /* AccelerationManager.h */,
 				A84E42EF1A2A1DFB00EE6AC1 /* AccelEvent.h */,
 			);
 			path = accel;
@@ -727,20 +722,10 @@
 		A84E43461A2A1F2300EE6AC1 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				A84E43471A2A1F2300EE6AC1 /* accel */,
 				A84E434A1A2A1F2300EE6AC1 /* UIView+StringTag.h */,
 				A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */,
 			);
 			path = utils;
-			sourceTree = "<group>";
-		};
-		A84E43471A2A1F2300EE6AC1 /* accel */ = {
-			isa = PBXGroup;
-			children = (
-				A84E43481A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.h */,
-				A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */,
-			);
-			path = accel;
 			sourceTree = "<group>";
 		};
 		A8721A3B1A2BD7A200AED9C8 /* Testing */ = {
@@ -894,7 +879,6 @@
 				A8A2B3BA1A5AE2E7002B5ABD /* FileHelper.mm in Sources */,
 				A84E43331A2A1F0500EE6AC1 /* FollowablePath.cpp in Sources */,
 				A8FBA66B1A72757800D6B4A3 /* CinderBridge.mm in Sources */,
-				A84E43501A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm in Sources */,
 				A8702AB51A5B050300EF9E9E /* DisplayHelper.mm in Sources */,
 				A84E431F1A2A1DFB00EE6AC1 /* MathUtils.cpp in Sources */,
 				A84E43091A2A1DFB00EE6AC1 /* LayoutCache.cpp in Sources */,

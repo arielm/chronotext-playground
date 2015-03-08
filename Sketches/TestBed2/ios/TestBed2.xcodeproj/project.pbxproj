@@ -40,7 +40,6 @@
 		A84E43221A2A1DFB00EE6AC1 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42FD1A2A1DFB00EE6AC1 /* Utils.cpp */; };
 		A84E434E1A2A1F2300EE6AC1 /* GLViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43411A2A1F2300EE6AC1 /* GLViewController.mm */; };
 		A84E434F1A2A1F2300EE6AC1 /* SystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43451A2A1F2300EE6AC1 /* SystemManager.mm */; };
-		A84E43501A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */; };
 		A84E43511A2A1F2300EE6AC1 /* UIView+StringTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */; };
 		A84E43531A2A295D00EE6AC1 /* icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E43521A2A295D00EE6AC1 /* icon_120.png */; };
 		A85E11AF1AA5F80600309C3E /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = A85E11AD1AA5F80600309C3E /* icon_57.png */; };
@@ -55,7 +54,6 @@
 		A85E11CD1AA5F98100309C3E /* SystemManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43451A2A1F2300EE6AC1 /* SystemManager.mm */; };
 		A85E11CE1AA5F98100309C3E /* FrameClock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A84E42E91A2A1DFB00EE6AC1 /* FrameClock.cpp */; };
 		A85E11CF1AA5F98100309C3E /* HttpTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6D81A73323E00D6B4A3 /* HttpTask.cpp */; };
-		A85E11D01AA5F98100309C3E /* AccelerationManagerImplCocoaTouch.mm in Sources */ = {isa = PBXBuildFile; fileRef = A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */; };
 		A85E11D11AA5F98100309C3E /* CinderBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6761A7276E700D6B4A3 /* CinderBridge.mm */; };
 		A85E11D21AA5F98100309C3E /* FileHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8702AA81A5AF4EA00EF9E9E /* FileHelper.mm */; };
 		A85E11D31AA5F98100309C3E /* CinderDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6781A7276E700D6B4A3 /* CinderDelegate.mm */; };
@@ -201,7 +199,6 @@
 		A84E42E91A2A1DFB00EE6AC1 /* FrameClock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FrameClock.cpp; sourceTree = "<group>"; };
 		A84E42EA1A2A1DFB00EE6AC1 /* FrameClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameClock.h; sourceTree = "<group>"; };
 		A84E42EB1A2A1DFB00EE6AC1 /* TimeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeBase.h; sourceTree = "<group>"; };
-		A84E42EE1A2A1DFB00EE6AC1 /* AccelerationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationManager.h; sourceTree = "<group>"; };
 		A84E42EF1A2A1DFB00EE6AC1 /* AccelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelEvent.h; sourceTree = "<group>"; };
 		A84E42F11A2A1DFB00EE6AC1 /* GLUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLUtils.cpp; sourceTree = "<group>"; };
 		A84E42F21A2A1DFB00EE6AC1 /* GLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLUtils.h; sourceTree = "<group>"; };
@@ -217,8 +214,6 @@
 		A84E43431A2A1F2300EE6AC1 /* SystemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInfo.h; sourceTree = "<group>"; };
 		A84E43441A2A1F2300EE6AC1 /* SystemManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemManager.h; sourceTree = "<group>"; };
 		A84E43451A2A1F2300EE6AC1 /* SystemManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SystemManager.mm; sourceTree = "<group>"; };
-		A84E43481A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationManagerImplCocoaTouch.h; sourceTree = "<group>"; };
-		A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AccelerationManagerImplCocoaTouch.mm; sourceTree = "<group>"; };
 		A84E434A1A2A1F2300EE6AC1 /* UIView+StringTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+StringTag.h"; sourceTree = "<group>"; };
 		A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+StringTag.m"; sourceTree = "<group>"; };
 		A84E43521A2A295D00EE6AC1 /* icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_120.png; sourceTree = "<group>"; };
@@ -600,7 +595,6 @@
 		A84E42ED1A2A1DFB00EE6AC1 /* accel */ = {
 			isa = PBXGroup;
 			children = (
-				A84E42EE1A2A1DFB00EE6AC1 /* AccelerationManager.h */,
 				A84E42EF1A2A1DFB00EE6AC1 /* AccelEvent.h */,
 			);
 			path = accel;
@@ -662,20 +656,10 @@
 		A84E43461A2A1F2300EE6AC1 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				A84E43471A2A1F2300EE6AC1 /* accel */,
 				A84E434A1A2A1F2300EE6AC1 /* UIView+StringTag.h */,
 				A84E434B1A2A1F2300EE6AC1 /* UIView+StringTag.m */,
 			);
 			path = utils;
-			sourceTree = "<group>";
-		};
-		A84E43471A2A1F2300EE6AC1 /* accel */ = {
-			isa = PBXGroup;
-			children = (
-				A84E43481A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.h */,
-				A84E43491A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm */,
-			);
-			path = accel;
 			sourceTree = "<group>";
 		};
 		A85E11A91AA5F0E900309C3E /* Target1 */ = {
@@ -900,7 +884,6 @@
 				A8994D481726E51E00C8851E /* Application.mm in Sources */,
 				A84E434F1A2A1F2300EE6AC1 /* SystemManager.mm in Sources */,
 				A84E431D1A2A1DFB00EE6AC1 /* FrameClock.cpp in Sources */,
-				A84E43501A2A1F2300EE6AC1 /* AccelerationManagerImplCocoaTouch.mm in Sources */,
 				A8FBA6791A7276E700D6B4A3 /* CinderBridge.mm in Sources */,
 				A8702AA91A5AF4EA00EF9E9E /* FileHelper.mm in Sources */,
 				A8FBA67A1A7276E700D6B4A3 /* CinderDelegate.mm in Sources */,
@@ -950,7 +933,6 @@
 				A85E11CD1AA5F98100309C3E /* SystemManager.mm in Sources */,
 				A85E11CE1AA5F98100309C3E /* FrameClock.cpp in Sources */,
 				A85E11CF1AA5F98100309C3E /* HttpTask.cpp in Sources */,
-				A85E11D01AA5F98100309C3E /* AccelerationManagerImplCocoaTouch.mm in Sources */,
 				A85E11D11AA5F98100309C3E /* CinderBridge.mm in Sources */,
 				A85E11D21AA5F98100309C3E /* FileHelper.mm in Sources */,
 				A85E11D31AA5F98100309C3E /* CinderDelegate.mm in Sources */,
