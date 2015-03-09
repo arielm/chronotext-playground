@@ -10,7 +10,7 @@
  * STUB FOR RUNNING A CinderSketch ON iOS
  */
 
-#import "CinderBridge.h"
+#import "chronotext/ios/cinder/CinderBridge.h"
 
 @interface Application : NSObject <UIApplicationDelegate>
 {
