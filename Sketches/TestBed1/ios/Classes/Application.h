@@ -12,7 +12,7 @@
 
 #pragma once
 
-#import "CinderBridge.h"
+#import "chronotext/ios/cinder/CinderBridge.h"
 
 @interface Application : NSObject <UIApplicationDelegate>
 {
