@@ -93,7 +93,7 @@
 		A8721A401A2BE87E00AED9C8 /* TestingMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemory.cpp; path = ../src/TestingMemory.cpp; sourceTree = "<group>"; };
 		A8721A411A2BE87E00AED9C8 /* TestingMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMemory.h; path = ../src/TestingMemory.h; sourceTree = "<group>"; };
 		A874A4E91A2A8655009A60A0 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
-		A8B3200F1AADC7B600D33333 /* toolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = toolkit.xcodeproj; path = "blocks/new-chronotext-toolkit/xcode/toolkit.xcodeproj"; sourceTree = CINDER_PATH_CHR; };
+		A8B3200F1AADC7B600D33333 /* toolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = toolkit.xcodeproj; path = "../../../../cinder/blocks/new-chronotext-toolkit/xcode/toolkit.xcodeproj"; sourceTree = "<group>"; };
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
 		A8D7C0981A75A71F00002385 /* TestingZFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingZFont.cpp; path = ../src/TestingZFont.cpp; sourceTree = "<group>"; };
 		A8D7C0991A75A71F00002385 /* TestingZFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingZFont.h; path = ../src/TestingZFont.h; sourceTree = "<group>"; };
