@@ -31,30 +31,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A8B320381AADDCB600D33333 /* PBXContainerItemProxy */ = {
+		A8B320581AADF44F00D33333 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A8B3202F1AADDCB600D33333 /* toolkit.xcodeproj */;
+			containerPortal = A8B320531AADF44F00D33333 /* toolkit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = A8B320321AADDCB600D33333;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
 			remoteInfo = osx;
 		};
-		A8B3203A1AADDCB600D33333 /* PBXContainerItemProxy */ = {
+		A8B3205A1AADF44F00D33333 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A8B3202F1AADDCB600D33333 /* toolkit.xcodeproj */;
+			containerPortal = A8B320531AADF44F00D33333 /* toolkit.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = A8B320331AADDCB600D33333;
+			remoteGlobalIDString = 007050BE1114F93F003FCAE4;
 			remoteInfo = ios;
 		};
-		A8B3203C1AADDCB600D33333 /* PBXContainerItemProxy */ = {
+		A8B3205D1AADF54300D33333 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A8B3202F1AADDCB600D33333 /* toolkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A8B320341AADDCB600D33333;
-			remoteInfo = ios_sim;
-		};
-		A8B3203E1AADDCBF00D33333 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A8B3202F1AADDCB600D33333 /* toolkit.xcodeproj */;
+			containerPortal = A8B320531AADF44F00D33333 /* toolkit.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC07D0554694100DB518D;
 			remoteInfo = osx;
@@ -93,7 +86,7 @@
 		A8721A401A2BE87E00AED9C8 /* TestingMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemory.cpp; path = ../src/TestingMemory.cpp; sourceTree = "<group>"; };
 		A8721A411A2BE87E00AED9C8 /* TestingMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMemory.h; path = ../src/TestingMemory.h; sourceTree = "<group>"; };
 		A874A4E91A2A8655009A60A0 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
-		A8B3202F1AADDCB600D33333 /* toolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = toolkit.xcodeproj; path = "blocks/new-chronotext-toolkit/xcode/toolkit.xcodeproj"; sourceTree = CINDER_PATH_CHR; };
+		A8B320531AADF44F00D33333 /* toolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = toolkit.xcodeproj; path = "blocks/new-chronotext-toolkit/xcode/toolkit.xcodeproj"; sourceTree = CINDER_PATH_CHR; };
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
 		A8D7C0981A75A71F00002385 /* TestingZFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingZFont.cpp; path = ../src/TestingZFont.cpp; sourceTree = "<group>"; };
 		A8D7C0991A75A71F00002385 /* TestingZFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingZFont.h; path = ../src/TestingZFont.h; sourceTree = "<group>"; };
@@ -169,7 +162,7 @@
 		29B97314FDCFA39411CA2CEA /* TestBed1 */ = {
 			isa = PBXGroup;
 			children = (
-				A8B3202F1AADDCB600D33333 /* toolkit.xcodeproj */,
+				A8B320531AADF44F00D33333 /* toolkit.xcodeproj */,
 				A869025C1A02EDC100D2C9F3 /* Common */,
 				080E96DDFE201D6D7F000001 /* Source */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -267,12 +260,11 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		A8B320301AADDCB600D33333 /* Products */ = {
+		A8B320541AADF44F00D33333 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A8B320391AADDCB600D33333 /* libtoolkit_d.a */,
-				A8B3203B1AADDCB600D33333 /* libtoolkit_d.a */,
-				A8B3203D1AADDCB600D33333 /* libtoolkit_d.a */,
+				A8B320591AADF44F00D33333 /* libtoolkit.a */,
+				A8B3205B1AADF44F00D33333 /* libtoolkit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -291,7 +283,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A8B3203F1AADDCBF00D33333 /* PBXTargetDependency */,
+				A8B3205E1AADF54300D33333 /* PBXTargetDependency */,
 			);
 			name = TestBed1;
 			productInstallPath = "$(HOME)/Applications";
@@ -321,8 +313,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = A8B320301AADDCB600D33333 /* Products */;
-					ProjectRef = A8B3202F1AADDCB600D33333 /* toolkit.xcodeproj */;
+					ProductGroup = A8B320541AADF44F00D33333 /* Products */;
+					ProjectRef = A8B320531AADF44F00D33333 /* toolkit.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -333,25 +325,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A8B320391AADDCB600D33333 /* libtoolkit_d.a */ = {
+		A8B320591AADF44F00D33333 /* libtoolkit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libtoolkit_d.a;
-			remoteRef = A8B320381AADDCB600D33333 /* PBXContainerItemProxy */;
+			path = libtoolkit.a;
+			remoteRef = A8B320581AADF44F00D33333 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A8B3203B1AADDCB600D33333 /* libtoolkit_d.a */ = {
+		A8B3205B1AADF44F00D33333 /* libtoolkit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libtoolkit_d.a;
-			remoteRef = A8B3203A1AADDCB600D33333 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A8B3203D1AADDCB600D33333 /* libtoolkit_d.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libtoolkit_d.a;
-			remoteRef = A8B3203C1AADDCB600D33333 /* PBXContainerItemProxy */;
+			path = libtoolkit.a;
+			remoteRef = A8B3205A1AADF44F00D33333 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -390,10 +375,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A8B3203F1AADDCBF00D33333 /* PBXTargetDependency */ = {
+		A8B3205E1AADF54300D33333 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = osx;
-			targetProxy = A8B3203E1AADDCBF00D33333 /* PBXContainerItemProxy */;
+			targetProxy = A8B3205D1AADF54300D33333 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
