@@ -28,15 +28,15 @@ void TestingSound1::setup()
         lock("FMOD");
     }
     
+    assert(!soundManager);
+    soundManager = make_shared<SoundManager>();
+
     SoundManager::LOG_VERBOSE = true;
     SoundManager::PROBE_MEMORY = true;
 
-    assert(!soundManager);
-    soundManager = make_shared<SoundManager>();
-    
     if (!soundManager->init(MAX_CHANNELS))
     {
-        LOGI << "SoundManager CAN'T BE INITIALIZED" << endl;
+        LOGI << "UNABLE TO INITIALIZE SoundManager" << endl;
 
         soundManager.reset();
         return;

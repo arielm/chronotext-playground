@@ -12,9 +12,9 @@
  * 1) UNLIKE TestingSound1: THIS TEST FAILS WHENEVER FMOD IS NOT PROPERLY INITIALIZED
  *
  * 2) FILE-STREAMING:
- *    - INCLUDING ANDROID ASSETS
+ *    - INCLUDING FROM ANDROID-ASSETS
  *
- * 3) PROPERLY PAUSING/RESUMING SOUND
+ * 3) PROPER PAUSING/RESUMING OF PLAYING-SOUND
  */
 
 
@@ -47,8 +47,8 @@ protected:
     bool paused = false;
     int pausedIndex = -1;
     
-    bool initSound(chr::InputSource::Ref source);
-    void uninitSound();
+    void createSound(chr::InputSource::Ref source); // CAN THROW
+    void destroySound();
     
 #if defined(CINDER_ANDROID)
     

@@ -37,23 +37,22 @@ void TestingSound2::setup()
     
     if (!soundManager->init())
     {
-        throw EXCEPTION(TestingSound2, "SoundManager CAN'T BE INITIALIZED");
+        throw EXCEPTION(SoundManager, "UNABLE TO INITIALIZE SoundManager");
     }
     
     // ---
     
-    if (initSound(InputSource::getResource("53466__dobroide__random-spanish-words.wav")))
-    {
-        soundManager->system->playSound(sound, soundManager->masterGroup, true, &channel);
-        
-        channel->setVolume(1);
-        channel->setPaused(false);
-    }
+    createSound(InputSource::getResource("53466__dobroide__random-spanish-words.wav"));
+    
+    soundManager->system->playSound(sound, soundManager->masterGroup, true, &channel);
+    
+    channel->setVolume(1);
+    channel->setPaused(false);
 }
 
 void TestingSound2::shutdown()
 {
-    uninitSound();
+    destroySound();
     
     soundManager->uninit();
     soundManager.reset();
@@ -87,7 +86,6 @@ void TestingSound2::addTouch(int index, float x, float y)
         if (channel)
         {
             channel->setPaused(true);
-            soundManager->update();
         }
     }
 }
@@ -106,45 +104,40 @@ void TestingSound2::removeTouch(int index, float x, float y)
     }
 }
 
-bool TestingSound2::initSound(InputSource::Ref source)
+void TestingSound2::createSound(InputSource::Ref source)
 {
-    FMOD_CREATESOUNDEXINFO exinfo;
-    memset(&exinfo, 0, sizeof(FMOD_CREATESOUNDEXINFO));
-    exinfo.cbsize = sizeof(FMOD_CREATESOUNDEXINFO);
-    
-    string name;
-    
-    if (source->isFile())
+    if (source->hasFileName())
     {
-        name = source->getFilePath().string();
-    }
-    else if ((source->getType() == InputSource::TYPE_RESOURCE) || (source->getType() == InputSource::TYPE_ASSET))
-    {
+        auto filename = source->getFileName();
+        
+        FMOD_CREATESOUNDEXINFO exinfo;
+        memset(&exinfo, 0, sizeof(FMOD_CREATESOUNDEXINFO));
+        exinfo.cbsize = sizeof(FMOD_CREATESOUNDEXINFO);
+        
 #if defined(ANDROID)
-        name = source->getFilePathHint();
         
         exinfo.fileuseropen = &android_open;
         exinfo.fileuserclose = &android_close;
         exinfo.fileuserread = &android_read;
         exinfo.fileuserseek =  &android_seek;
         exinfo.fileuserdata = this;
-#else
-        throw EXCEPTION(SoundManager, "PLATFORM DOES NOT SUPPORT FILE-STREAMING");
+        
 #endif
+
+        FMOD_RESULT result = soundManager->system->createStream(filename, FMOD_DEFAULT, &exinfo, &sound);
+        
+        if (result)
+        {
+            throw EXCEPTION(SoundManager, "FMOD: UNABLE TO CREATE FILE-STREAM | REASON: " + SoundManager::writeError(result));
+        }
     }
-    
-    FMOD_RESULT result = soundManager->system->createStream(name.data(), FMOD_DEFAULT, &exinfo, &sound);
-    
-    if (result)
+    else
     {
-        LOGI << "UNABLE TO LOAD SOUND | REASON: " << FMOD_ErrorString(result) << endl;
-        return false;
+        throw EXCEPTION(SoundManager, "FMOD: FILE-STREAMING IS NOT SUPPORTED ON THIS PLATFORM");
     }
-    
-    return true;
 }
 
-void TestingSound2::uninitSound()
+void TestingSound2::destroySound()
 {
     if (channel)
     {
