@@ -9,7 +9,8 @@
 #include "Sketch.h"
 
 #if defined(TARGET1)
-#   include "TestingSound.h"
+#   include "TestingSound1.h"
+#   include "TestingSound2.h"
 #endif
 
 #if defined(TARGET2)
@@ -53,7 +54,8 @@ void Sketch::update()
     if (getElapsedFrames() == 1)
     {
 #if defined(TARGET1)
-        addFrameTest<TestingSound>(true);
+        addFrameTest<TestingSound1>(true);
+        addFrameTest<TestingSound2>(true);
 #endif
         
 #if defined(TARGET2)

@@ -32,45 +32,15 @@ public:
     
     // ---
     
-    static ci::fs::path getPublicDirectory()
-    {
-#if defined(CINDER_ANDROID)
-        return chr::FileHelper::getExternalDataPath();
-#else
-        return ci::getDocumentsDirectory();
-#endif
-    }
+    static std::map<std::string, bool> registry;
     
-    static void dumpDirectory(const ci::fs::path &directoryPath)
-    {
-        if (ci::fs::exists(directoryPath) && ci::fs::is_directory(directoryPath))
-        {
-            for (ci::fs::directory_iterator current(directoryPath), end; current != end; ++current)
-            {
-                if (ci::fs::is_regular_file(current->status()))
-                {
-                    auto relativePath = chr::FileHelper::relativizePath(directoryPath, current->path());
-                    LOGI << relativePath.string() << std::endl;
-                }
-            }
-        }
-    }
+    static void lock(const std::string &value);
+    static void unlock(const std::string &value);
+    static bool isLocked(const std::string &value);
 
-    static std::vector<ci::fs::path> getFiles(const ci::fs::path &directoryPath)
-    {
-        std::vector<ci::fs::path> files;
-        
-        if (ci::fs::exists(directoryPath) && ci::fs::is_directory(directoryPath))
-        {
-            for (ci::fs::directory_iterator current(directoryPath), end; current != end; ++current)
-            {
-                if (ci::fs::is_regular_file(current->status()))
-                {
-                    files.push_back(current->path());
-                }
-            }
-        }
-        
-        return files;
-    }
+    // ---
+    
+    static ci::fs::path getPublicDirectory();
+    static void dumpDirectory(const ci::fs::path &directoryPath);
+    static std::vector<ci::fs::path> getFiles(const ci::fs::path &directoryPath);
 };
