@@ -9,7 +9,7 @@
 /*
  * TODO:
  *
- * 1) ADD PAUSE/RESUME CAPABILITIES TO TestingBase AND THEN MAKE USE OF SoundManager::pause()/release()
+ * 1) ADD PAUSE/RESUME CAPABILITIES TO TestingBase AND THEN MAKE USE OF SoundManager::pause()/resume()
  */
 
 #include "TestingSound2.h"
@@ -43,11 +43,7 @@ void TestingSound2::setup()
     // ---
     
     createSound(InputSource::getResource("53466__dobroide__random-spanish-words.wav"));
-    
-    soundManager->system->playSound(sound, soundManager->masterGroup, true, &channel);
-    
-    channel->setVolume(1);
-    channel->setPaused(false);
+    channel = soundManager->playSound(sound);
 }
 
 void TestingSound2::shutdown()
@@ -108,8 +104,6 @@ void TestingSound2::createSound(InputSource::Ref source)
 {
     if (source->hasFileName())
     {
-        auto filename = source->getFileName();
-        
         FMOD_CREATESOUNDEXINFO exinfo;
         memset(&exinfo, 0, sizeof(FMOD_CREATESOUNDEXINFO));
         exinfo.cbsize = sizeof(FMOD_CREATESOUNDEXINFO);
@@ -120,11 +114,12 @@ void TestingSound2::createSound(InputSource::Ref source)
         exinfo.fileuserclose = &android_close;
         exinfo.fileuserread = &android_read;
         exinfo.fileuserseek =  &android_seek;
-        exinfo.fileuserdata = this;
+        
+        exinfo.fileuserdata = this; // NOT CURRENTLY USED
         
 #endif
 
-        FMOD_RESULT result = soundManager->system->createStream(filename, FMOD_DEFAULT, &exinfo, &sound);
+        FMOD_RESULT result = soundManager->system->createStream(source->getFilePath().c_str(), FMOD_DEFAULT, &exinfo, &sound);
         
         if (result)
         {

@@ -10,9 +10,9 @@
  * PLAYGROUND IN SYNC WITH:
  *
  * 1) develop BRANCH IN https://github.com/new-chronotext-toolkit
- *    OSX: COMMIT cd5a892
- *    IOS: COMMIT cd5a892
- *    ANDROID: COMMIT cd5a892
+ *    OSX: COMMIT c2e87b0
+ *    IOS: COMMIT c2e87b0
+ *    ANDROID: COMMIT c2e87b0
  *
  * 2) Target1: master BRANCH IN https://github.com/arielm/FMOD
  *

@@ -16,10 +16,10 @@
 /*
  * TODO:
  *
- * 1) ADD PAUSE/RESUME CAPABILITIES TO TestingBase AND THEN MAKE USE OF SoundManager::pause()/release()
+ * 1) ADD PAUSE/RESUME CAPABILITIES TO TestingBase AND THEN MAKE USE OF SoundManager::pause()/resume()
  *
- * 2) TEST MEMORY-CONSUMPTION FURTHER, E.G.
- *    - OSX AND IOS: WITH Effect::Request::forceMemoryLoad
+ * 2) TEST MEMORY-CONSUMPTION FURTHER:
+ *    - E.G. WITH Effect::Request::forceMemoryLoad
  *
  * 3) MORE TODO'S IN chronotext/sound/SoundManager.h
  */
