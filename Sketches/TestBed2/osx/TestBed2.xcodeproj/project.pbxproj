@@ -45,6 +45,9 @@
 		A8721A421A2BE87E00AED9C8 /* TestingSound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A401A2BE87E00AED9C8 /* TestingSound.cpp */; };
 		A874A5021A2B550A009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A4FE1A2B550A009A60A0 /* Task.cpp */; };
 		A874A5031A2B550A009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5001A2B550A009A60A0 /* TaskManager.cpp */; };
+		A89599611AAF12850072F40B /* swish.wav in Resources */ = {isa = PBXBuildFile; fileRef = A895995E1AAF12850072F40B /* swish.wav */; };
+		A89599621AAF12850072F40B /* jaguar.wav in Resources */ = {isa = PBXBuildFile; fileRef = A895995F1AAF12850072F40B /* jaguar.wav */; };
+		A89599631AAF12850072F40B /* drumloop.wav in Resources */ = {isa = PBXBuildFile; fileRef = A89599601AAF12850072F40B /* drumloop.wav */; };
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
 		A8CDB6531A2DC0B60043A5E5 /* MemoryManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6511A2DC0B60043A5E5 /* MemoryManagerBase.cpp */; };
@@ -148,6 +151,9 @@
 		A874A4FF1A2B550A009A60A0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		A874A5001A2B550A009A60A0 /* TaskManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaskManager.cpp; sourceTree = "<group>"; };
 		A874A5011A2B550A009A60A0 /* TaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
+		A895995E1AAF12850072F40B /* swish.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = swish.wav; path = ../../data/swish.wav; sourceTree = "<group>"; };
+		A895995F1AAF12850072F40B /* jaguar.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = jaguar.wav; path = ../../data/jaguar.wav; sourceTree = "<group>"; };
+		A89599601AAF12850072F40B /* drumloop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = drumloop.wav; path = ../../data/drumloop.wav; sourceTree = "<group>"; };
 		A8B336591A045B2200ABEFBF /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		A8B3365A1A045B2200ABEFBF /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
@@ -270,6 +276,9 @@
 			isa = PBXGroup;
 			children = (
 				00748057165D41390024B57A /* assets */,
+				A895995E1AAF12850072F40B /* swish.wav */,
+				A895995F1AAF12850072F40B /* jaguar.wav */,
+				A89599601AAF12850072F40B /* drumloop.wav */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -636,9 +645,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A89599631AAF12850072F40B /* drumloop.wav in Resources */,
 				A84E42891A2A1A8F00EE6AC1 /* emulators.json in Resources */,
 				00748058165D41390024B57A /* assets in Resources */,
+				A89599621AAF12850072F40B /* jaguar.wav in Resources */,
 				A8027DFD16E3784B00184149 /* icon.icns in Resources */,
+				A89599611AAF12850072F40B /* swish.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

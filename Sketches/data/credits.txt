@@ -1,0 +1,2 @@
+1) drumloop.wav, jaguar.wav, swish.wav
+From the "examples/media" folder in "FMOD Programmers API"
