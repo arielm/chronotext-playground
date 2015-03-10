@@ -7,12 +7,19 @@
  */
 
 /*
+ * AMONG OTHER THINGS:
+ *
+ * - UNLIKE TestingSound2: THIS TEST DEMONSTRATES HOW TO RESPOND WHEN FMOD IS NOT PROPERLY INITIALIZED
+ * - TODO: ADD INFO REGARDING THIS TEST'S ADDITIONAL FEATURES
+ */
+
+/*
  * TODO:
  *
- * 1) TEST EFFECT-DISCARDING ON DEVICES:
- *    - VIA "DEVICE SHAKE"
+ * 1) ADD PAUSE/RESUME CAPABILITIES TO TestingBase AND THEN MAKE USE OF SoundManager::pause()/release()
  *
- * 2) TEST MEMORY-CONSUMPTION (OSX AND IOS) WITH Effect::Request::forceMemoryLoad
+ * 2) TEST MEMORY-CONSUMPTION FURTHER, E.G.
+ *    - OSX AND IOS: WITH Effect::Request::forceMemoryLoad
  *
  * 3) MORE TODO'S IN chronotext/sound/SoundManager.h
  */
@@ -32,7 +39,7 @@ public:
     void shutdown() final;
     
     /*
-     * PASSING VIA update() IS NECESSARY IN ORDER TO WORK WITH THE SOUND-ENGINE
+     * PASSING VIA update() IS NECESSARY WHEN WORKING WITH FMOD
      */
     void update() final;
     

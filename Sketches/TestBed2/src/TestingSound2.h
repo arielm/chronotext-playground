@@ -7,8 +7,16 @@
  */
 
 /*
- * ...
+ * FEATURES:
+ *
+ * 1) UNLIKE TestingSound1: THIS TEST FAILS WHENEVER FMOD IS NOT PROPERLY INITIALIZED
+ *
+ * 2) FILE-STREAMING:
+ *    - INCLUDING ANDROID ASSETS
+ *
+ * 3) PROPERLY PAUSING/RESUMING SOUND
  */
+
 
 #pragma once
 
@@ -22,10 +30,32 @@ public:
     void setup() final;
     void shutdown() final;
     
+    /*
+     * PASSING VIA update() IS NECESSARY WHEN WORKING WITH FMOD
+     */
     void update() final;
     
     void addTouch(int index, float x, float y) final;
     void removeTouch(int index, float x, float y) final;
     
 protected:
+    std::shared_ptr<chr::SoundManager> soundManager;
+    
+    FMOD::Sound* sound = nullptr;
+    FMOD::Channel *channel = nullptr;
+    
+    bool paused = false;
+    int pausedIndex = -1;
+    
+    bool initSound(chr::InputSource::Ref source);
+    void uninitSound();
+    
+#if defined(CINDER_ANDROID)
+    
+    static FMOD_RESULT F_CALLBACK android_open(const char *name, unsigned int *filesize, void **handle, void *userdata);
+    static FMOD_RESULT F_CALLBACK android_close(void *handle, void *userdata);
+    static FMOD_RESULT F_CALLBACK android_read(void *handle, void *buffer, unsigned int sizebytes, unsigned int *bytesread, void *userdata);
+    static FMOD_RESULT F_CALLBACK android_seek(void *handle, unsigned int pos, void *userdata);
+    
+#endif
 };

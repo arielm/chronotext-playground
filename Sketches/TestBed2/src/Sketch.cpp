@@ -54,7 +54,7 @@ void Sketch::update()
     if (getElapsedFrames() == 1)
     {
 #if defined(TARGET1)
-        addFrameTest<TestingSound1>(true);
+        addFrameTest<TestingSound1>(false);
         addFrameTest<TestingSound2>(true);
 #endif
         

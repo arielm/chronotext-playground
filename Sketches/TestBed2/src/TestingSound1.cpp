@@ -28,22 +28,27 @@ void TestingSound1::setup()
         lock("FMOD");
     }
     
-    if (!soundManager)
-    {
-        SoundManager::LOG_VERBOSE = true;
-        SoundManager::PROBE_MEMORY = true;
+    SoundManager::LOG_VERBOSE = true;
+    SoundManager::PROBE_MEMORY = true;
 
-        soundManager = make_shared<SoundManager>();
-        soundManager->init(MAX_CHANNELS);
-        
-        soundManager->addListener(this);
-        
-        // ---
-        
-        for (auto &name : {"drumloop.wav", "jaguar.wav", "swish.wav"})
-        {
-            effects.emplace_back(soundManager->getEffect(InputSource::getResource(name)));
-        }
+    assert(!soundManager);
+    soundManager = make_shared<SoundManager>();
+    
+    if (!soundManager->init(MAX_CHANNELS))
+    {
+        LOGI << "SoundManager CAN'T BE INITIALIZED" << endl;
+
+        soundManager.reset();
+        return;
+    }
+    
+    // ---
+
+    soundManager->addListener(this);
+
+    for (auto &name : {"drumloop.wav", "jaguar.wav", "swish.wav"})
+    {
+        effects.emplace_back(soundManager->getEffect(InputSource::getResource(name)));
     }
 }
 
@@ -70,8 +75,11 @@ void TestingSound1::update()
 
 void TestingSound1::addTouch(int index, float x, float y)
 {
-    auto effect = effects[Rand::randInt(effects.size())];
-    soundManager->playEffect(effect);
+    if (soundManager)
+    {
+        auto effect = effects[Rand::randInt(effects.size())];
+        soundManager->playEffect(effect);
+    }
 }
 
 bool TestingSound1::keyDown(const KeyEvent &keyEvent)
@@ -79,8 +87,13 @@ bool TestingSound1::keyDown(const KeyEvent &keyEvent)
     switch (CinderDelegate::getCode(keyEvent))
     {
         case KeyEvent::KEY_d:
-            soundManager->discardEffects();
-            return true;
+        {
+            if (soundManager)
+            {
+                soundManager->discardEffects();
+                return true;
+            }
+        }
     }
     
     return false;

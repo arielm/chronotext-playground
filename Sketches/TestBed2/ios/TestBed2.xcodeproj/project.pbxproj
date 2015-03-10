@@ -115,6 +115,7 @@
 		A8702AC11A5B0A6C00EF9E9E /* DisplayHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8702AC01A5B0A6C00EF9E9E /* DisplayHelper.mm */; };
 		A874A5081A2B5B88009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5041A2B5B88009A60A0 /* Task.cpp */; };
 		A874A5091A2B5B88009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5061A2B5B88009A60A0 /* TaskManager.cpp */; };
+		A878BEDF1AAF3FFD00BFEF6A /* 53466__dobroide__random-spanish-words.wav in Resources */ = {isa = PBXBuildFile; fileRef = A878BEDE1AAF3FFD00BFEF6A /* 53466__dobroide__random-spanish-words.wav */; };
 		A89599641AAF164A0072F40B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 00748057165D41390024B57A /* assets */; };
 		A895996B1AAF16A20072F40B /* swish.wav in Resources */ = {isa = PBXBuildFile; fileRef = A89599651AAF16570072F40B /* swish.wav */; };
 		A895996C1AAF16A20072F40B /* jaguar.wav in Resources */ = {isa = PBXBuildFile; fileRef = A89599661AAF16570072F40B /* jaguar.wav */; };
@@ -262,6 +263,7 @@
 		A874A5051A2B5B88009A60A0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		A874A5061A2B5B88009A60A0 /* TaskManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TaskManager.cpp; sourceTree = "<group>"; };
 		A874A5071A2B5B88009A60A0 /* TaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskManager.h; sourceTree = "<group>"; };
+		A878BEDE1AAF3FFD00BFEF6A /* 53466__dobroide__random-spanish-words.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "53466__dobroide__random-spanish-words.wav"; path = "../../data/53466__dobroide__random-spanish-words.wav"; sourceTree = "<group>"; };
 		A89599651AAF16570072F40B /* swish.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = swish.wav; path = ../../data/swish.wav; sourceTree = "<group>"; };
 		A89599661AAF16570072F40B /* jaguar.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = jaguar.wav; path = ../../data/jaguar.wav; sourceTree = "<group>"; };
 		A89599671AAF16570072F40B /* drumloop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = drumloop.wav; path = ../../data/drumloop.wav; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				A89599651AAF16570072F40B /* swish.wav */,
 				A89599661AAF16570072F40B /* jaguar.wav */,
 				A89599671AAF16570072F40B /* drumloop.wav */,
+				A878BEDE1AAF3FFD00BFEF6A /* 53466__dobroide__random-spanish-words.wav */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				A81E3DFA1993D0F3002B8978 /* Default-568h@2x.png in Resources */,
 				A895996B1AAF16A20072F40B /* swish.wav in Resources */,
 				A81E3DF71993B741002B8978 /* icon_152.png in Resources */,
+				A878BEDF1AAF3FFD00BFEF6A /* 53466__dobroide__random-spanish-words.wav in Resources */,
 				A81E3DF61993B741002B8978 /* icon_144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
