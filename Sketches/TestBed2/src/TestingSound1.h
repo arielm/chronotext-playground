@@ -18,15 +18,17 @@
  *
  * 1) ADD PAUSE/RESUME CAPABILITIES TO TestingBase AND THEN MAKE USE OF SoundManager::pause()/resume()
  *
- * 2) TEST MEMORY-CONSUMPTION FURTHER:
+ * 2) TEST SoundManager WHEN INITIALIZED WITH "FMOD_INIT_THREAD_UNSAFE"
+ *
+ * 3) TEST MEMORY-CONSUMPTION FURTHER:
  *    - E.G. WITH Effect::Request::forceMemoryLoad
  *
- * 3) MORE TODO'S IN chronotext/sound/SoundManager.h
+ * 4) MORE TODO'S IN chronotext/sound/SoundManager.h
  */
 
 #pragma once
 
-#include "TestingBase.h"
+#include "Testing/TestingBase.h"
 
 #include "chronotext/sound/SoundManager.h"
 

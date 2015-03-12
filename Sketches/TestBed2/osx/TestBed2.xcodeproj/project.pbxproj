@@ -50,7 +50,6 @@
 		A89599621AAF12850072F40B /* jaguar.wav in Resources */ = {isa = PBXBuildFile; fileRef = A895995F1AAF12850072F40B /* jaguar.wav */; };
 		A89599631AAF12850072F40B /* drumloop.wav in Resources */ = {isa = PBXBuildFile; fileRef = A89599601AAF12850072F40B /* drumloop.wav */; };
 		A89599701AAF1AEE0072F40B /* TestingSound2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A895996F1AAF1AEE0072F40B /* TestingSound2.cpp */; };
-		A89599721AAF1E350072F40B /* TestingBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A89599711AAF1E350072F40B /* TestingBase.cpp */; };
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
 		A8CDB6531A2DC0B60043A5E5 /* MemoryManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6511A2DC0B60043A5E5 /* MemoryManagerBase.cpp */; };
@@ -59,6 +58,8 @@
 		A8DB87381A2CEE8700334BEA /* NSDictionary+DefautValues.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DB87331A2CEE8700334BEA /* NSDictionary+DefautValues.m */; };
 		A8DB87391A2CEE8700334BEA /* NSMutableDictionary+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DB87351A2CEE8700334BEA /* NSMutableDictionary+Merge.m */; };
 		A8DB873A1A2CEE8700334BEA /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DB87371A2CEE8700334BEA /* NSString+JSON.m */; };
+		A8EBAF501AB0B0C90001A7C9 /* TestingBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8EBAF4E1AB0B0C90001A7C9 /* TestingBase.cpp */; };
+		A8EBAF531AB102AB0001A7C9 /* TestingSketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8EBAF521AB102AB0001A7C9 /* TestingSketch.cpp */; };
 		A8FBA64D1A72738600D6B4A3 /* DisplayHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6461A72738600D6B4A3 /* DisplayHelper.cpp */; };
 		A8FBA64E1A72738600D6B4A3 /* SystemManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA64A1A72738600D6B4A3 /* SystemManager.cpp */; };
 		A8FBA65D1A7273B700D6B4A3 /* CinderDelegateBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6581A7273B700D6B4A3 /* CinderDelegateBase.cpp */; };
@@ -146,7 +147,6 @@
 		A8702AA21A5AF3F400EF9E9E /* FileHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileHelper.mm; sourceTree = "<group>"; };
 		A8702AB61A5B099E00EF9E9E /* DisplayHelperBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayHelperBase.cpp; sourceTree = "<group>"; };
 		A8702AB71A5B099E00EF9E9E /* DisplayHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayHelperBase.h; sourceTree = "<group>"; };
-		A8721A371A2BD40200AED9C8 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingBase.h; path = ../src/TestingBase.h; sourceTree = "<group>"; };
 		A8721A401A2BE87E00AED9C8 /* TestingSound1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingSound1.cpp; path = ../src/TestingSound1.cpp; sourceTree = "<group>"; };
 		A8721A411A2BE87E00AED9C8 /* TestingSound1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingSound1.h; path = ../src/TestingSound1.h; sourceTree = "<group>"; };
 		A874A4E91A2A8655009A60A0 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 		A89599601AAF12850072F40B /* drumloop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = drumloop.wav; path = ../../data/drumloop.wav; sourceTree = "<group>"; };
 		A895996E1AAF1AEE0072F40B /* TestingSound2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingSound2.h; path = ../src/TestingSound2.h; sourceTree = "<group>"; };
 		A895996F1AAF1AEE0072F40B /* TestingSound2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingSound2.cpp; path = ../src/TestingSound2.cpp; sourceTree = "<group>"; };
-		A89599711AAF1E350072F40B /* TestingBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingBase.cpp; path = ../src/TestingBase.cpp; sourceTree = "<group>"; };
 		A8B336591A045B2200ABEFBF /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		A8B3365A1A045B2200ABEFBF /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
@@ -180,6 +179,10 @@
 		A8DB87351A2CEE8700334BEA /* NSMutableDictionary+Merge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Merge.m"; sourceTree = "<group>"; };
 		A8DB87361A2CEE8700334BEA /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
 		A8DB87371A2CEE8700334BEA /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
+		A8EBAF4E1AB0B0C90001A7C9 /* TestingBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestingBase.cpp; sourceTree = "<group>"; };
+		A8EBAF4F1AB0B0C90001A7C9 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingBase.h; sourceTree = "<group>"; };
+		A8EBAF511AB102AB0001A7C9 /* TestingSketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingSketch.h; sourceTree = "<group>"; };
+		A8EBAF521AB102AB0001A7C9 /* TestingSketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestingSketch.cpp; sourceTree = "<group>"; };
 		A8F54D49198F8485008053E3 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		A8F54D4A198F8A36008053E3 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		A8F54D4B198F8C65008053E3 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -467,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				A8FBA6D01A73224600D6B4A3 /* Tasks */,
+				A8EBAF4D1AB0B0C90001A7C9 /* Testing */,
 			);
 			name = Common;
 			path = ../../../Common;
@@ -475,8 +479,6 @@
 		A86F759B1A2BD1E50063FE2A /* Testing */ = {
 			isa = PBXGroup;
 			children = (
-				A8721A371A2BD40200AED9C8 /* TestingBase.h */,
-				A89599711AAF1E350072F40B /* TestingBase.cpp */,
 				A8721A411A2BE87E00AED9C8 /* TestingSound1.h */,
 				A8721A401A2BE87E00AED9C8 /* TestingSound1.cpp */,
 				A895996E1AAF1AEE0072F40B /* TestingSound2.h */,
@@ -570,6 +572,17 @@
 				A8DB87371A2CEE8700334BEA /* NSString+JSON.m */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		A8EBAF4D1AB0B0C90001A7C9 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				A8EBAF4F1AB0B0C90001A7C9 /* TestingBase.h */,
+				A8EBAF4E1AB0B0C90001A7C9 /* TestingBase.cpp */,
+				A8EBAF511AB102AB0001A7C9 /* TestingSketch.h */,
+				A8EBAF521AB102AB0001A7C9 /* TestingSketch.cpp */,
+			);
+			path = Testing;
 			sourceTree = "<group>";
 		};
 		A8FBA6411A72738600D6B4A3 /* desktop */ = {
@@ -708,9 +721,10 @@
 				A8112ABA1A4C46E40002CF68 /* Effect.cpp in Sources */,
 				A869022E1A02E22400D2C9F3 /* InputSource.cpp in Sources */,
 				A86902521A02E22400D2C9F3 /* MathUtils.cpp in Sources */,
-				A89599721AAF1E350072F40B /* TestingBase.cpp in Sources */,
+				A8EBAF501AB0B0C90001A7C9 /* TestingBase.cpp in Sources */,
 				A82C910A16E02DAA00FF519C /* Sketch.cpp in Sources */,
 				A8DB873A1A2CEE8700334BEA /* NSString+JSON.m in Sources */,
+				A8EBAF531AB102AB0001A7C9 /* TestingSketch.cpp in Sources */,
 				A8FBA65E1A7273B700D6B4A3 /* CinderSketch.cpp in Sources */,
 				A8721A421A2BE87E00AED9C8 /* TestingSound1.cpp in Sources */,
 				A8FBA6D31A73224600D6B4A3 /* HttpTask.cpp in Sources */,

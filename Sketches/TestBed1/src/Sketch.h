@@ -10,9 +10,9 @@
  * PLAYGROUND IN SYNC WITH:
  *
  * 1) develop BRANCH IN https://github.com/new-chronotext-toolkit
- *    OSX: COMMIT c141034
- *    IOS: COMMIT c141034
- *    ANDROID: COMMIT c141034
+ *    OSX: COMMIT 7ba9528
+ *    IOS: COMMIT 7ba9528
+ *    ANDROID: COMMIT 7ba9528
  *
  * 2) master BRANCH IN https://github.com/arielm/Freetype
  *
@@ -21,32 +21,13 @@
 
 #pragma once
 
-#include "chronotext/cinder/CinderSketch.h"
+#include "Testing/TestingSketch.h"
 
-#include "TestingBase.h"
-
-class Sketch : public chr::CinderSketch
+class Sketch : public TestingSketch
 {
 public:
     void setup() final;
-    void shutdown() final;
-    
-    void update() final;
     void draw() final;
     
-    void addTouch(int index, float x, float y) final;
-    void updateTouch(int index, float x, float y) final;
-    void removeTouch(int index, float x, float y) final;
-    
-    bool keyDown(const ci::app::KeyEvent &keyEvent) final;
-    bool keyUp(const ci::app::KeyEvent &keyEvent) final;
-    
-protected:
-    std::vector<std::shared_ptr<TestingBase>> frameTests;
-    
-    template<class TestingBase>
-    static void executeTest(bool proceed = true, bool force = false);
-    
-    template<class TestingBase>
-    void addFrameTest(bool proceed = true);
+    void begin() final;
 };

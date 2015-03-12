@@ -83,6 +83,8 @@
 		A8D947041A87980C007FB546 /* TestingIOService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D947021A87980C007FB546 /* TestingIOService.cpp */; };
 		A8DB3EC616E0B96C00504D27 /* Sketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8DB3EC416E0B96C00504D27 /* Sketch.cpp */; };
 		A8DC566D1A2E238400C16B2F /* MemoryManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */; };
+		A8EBAF691AB10C680001A7C9 /* TestingBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8EBAF651AB10C680001A7C9 /* TestingBase.cpp */; };
+		A8EBAF6A1AB10C680001A7C9 /* TestingSketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8EBAF671AB10C680001A7C9 /* TestingSketch.cpp */; };
 		A8FBA6651A72756300D6B4A3 /* CinderDelegateBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6601A72756300D6B4A3 /* CinderDelegateBase.cpp */; };
 		A8FBA6661A72756300D6B4A3 /* CinderSketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6621A72756300D6B4A3 /* CinderSketch.cpp */; };
 		A8FBA66B1A72757800D6B4A3 /* CinderBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6681A72757800D6B4A3 /* CinderBridge.mm */; };
@@ -234,7 +236,6 @@
 		A8702AB31A5B050300EF9E9E /* DisplayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayHelper.h; sourceTree = "<group>"; };
 		A8702AB41A5B050300EF9E9E /* DisplayHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DisplayHelper.mm; sourceTree = "<group>"; };
 		A871F9821AA7C9B500D872B1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		A8721A3C1A2BD7AE00AED9C8 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingBase.h; path = ../src/TestingBase.h; sourceTree = "<group>"; };
 		A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMisc.cpp; path = ../src/TestingMisc.cpp; sourceTree = "<group>"; };
 		A8721A3E1A2BD7AE00AED9C8 /* TestingMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMisc.h; path = ../src/TestingMisc.h; sourceTree = "<group>"; };
 		A8721A431A2BEF3000AED9C8 /* TestingMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemory.cpp; path = ../src/TestingMemory.cpp; sourceTree = "<group>"; };
@@ -273,6 +274,10 @@
 		A8DC566A1A2E238400C16B2F /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryManagerBase.cpp; sourceTree = "<group>"; };
 		A8DC566C1A2E238400C16B2F /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
+		A8EBAF651AB10C680001A7C9 /* TestingBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestingBase.cpp; sourceTree = "<group>"; };
+		A8EBAF661AB10C680001A7C9 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingBase.h; sourceTree = "<group>"; };
+		A8EBAF671AB10C680001A7C9 /* TestingSketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestingSketch.cpp; sourceTree = "<group>"; };
+		A8EBAF681AB10C680001A7C9 /* TestingSketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingSketch.h; sourceTree = "<group>"; };
 		A8FBA65F1A72756300D6B4A3 /* CinderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegate.h; sourceTree = "<group>"; };
 		A8FBA6601A72756300D6B4A3 /* CinderDelegateBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CinderDelegateBase.cpp; sourceTree = "<group>"; };
 		A8FBA6611A72756300D6B4A3 /* CinderDelegateBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegateBase.h; sourceTree = "<group>"; };
@@ -731,7 +736,6 @@
 		A8721A3B1A2BD7A200AED9C8 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
-				A8721A3C1A2BD7AE00AED9C8 /* TestingBase.h */,
 				A8721A3E1A2BD7AE00AED9C8 /* TestingMisc.h */,
 				A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */,
 				A8721A441A2BEF3000AED9C8 /* TestingMemory.h */,
@@ -790,10 +794,22 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		A8EBAF641AB10C680001A7C9 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				A8EBAF651AB10C680001A7C9 /* TestingBase.cpp */,
+				A8EBAF661AB10C680001A7C9 /* TestingBase.h */,
+				A8EBAF671AB10C680001A7C9 /* TestingSketch.cpp */,
+				A8EBAF681AB10C680001A7C9 /* TestingSketch.h */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
 		A8EE788817A17A72004077D0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				A84E428C1A2A1D6D00EE6AC1 /* Path */,
+				A8EBAF641AB10C680001A7C9 /* Testing */,
 			);
 			name = Common;
 			path = ../../../Common;
@@ -863,12 +879,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D7C09D1A75AE3000002385 /* TestingZFont.cpp in Sources */,
+				A8EBAF691AB10C680001A7C9 /* TestingBase.cpp in Sources */,
 				A84E43201A2A1DFB00EE6AC1 /* ImageSourceFileStbImage.cpp in Sources */,
 				A84E43161A2A1DFB00EE6AC1 /* SystemManagerBase.cpp in Sources */,
 				A84E43171A2A1DFB00EE6AC1 /* PVRHelper.cpp in Sources */,
 				A84E431A1A2A1DFB00EE6AC1 /* TextureHelper.cpp in Sources */,
 				A8DB3EC616E0B96C00504D27 /* Sketch.cpp in Sources */,
 				A8CC2B361A49A5C300F8FBA5 /* TestingTasks.cpp in Sources */,
+				A8EBAF6A1AB10C680001A7C9 /* TestingSketch.cpp in Sources */,
 				A8994D481726E51E00C8851E /* Application.mm in Sources */,
 				A8D947041A87980C007FB546 /* TestingIOService.cpp in Sources */,
 				A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */,

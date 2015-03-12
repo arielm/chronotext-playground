@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include "TestingBase.h"
+#include "Testing/TestingBase.h"
 
 #include "chronotext/sound/SoundManager.h"
 

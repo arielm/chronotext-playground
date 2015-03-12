@@ -10,6 +10,8 @@
  * TODO:
  *
  * 1) ADD PAUSE/RESUME CAPABILITIES TO TestingBase AND THEN MAKE USE OF SoundManager::pause()/resume()
+ *
+ * 2) TEST SoundManager WHEN INITIALIZED WITH "FMOD_INIT_THREAD_UNSAFE"
  */
 
 #include "TestingSound2.h"

@@ -25,6 +25,8 @@ COMMON_SRC = ../../../../Common
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/$(COMMON_SRC)
 
 LOCAL_SRC_FILES += $(COMMON_SRC)/Tasks/HttpTask.cpp
+LOCAL_SRC_FILES += $(COMMON_SRC)/Testing/TestingBase.cpp
+LOCAL_SRC_FILES += $(COMMON_SRC)/Testing/TestingSketch.cpp
 
 ###
 
