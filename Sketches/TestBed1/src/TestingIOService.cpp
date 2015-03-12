@@ -44,11 +44,6 @@ void TestingIOService::update()
     io->poll();
 }
 
-void TestingIOService::post(function<void()> &&fn)
-{
-    io->post(forward<function<void()>>(fn));
-}
-
 void TestingIOService::callback1()
 {
     LOGI << "CALLBACK 1 | " << frameCount << endl;

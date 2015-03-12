@@ -24,7 +24,11 @@ public:
     void shutdown() final;
     void update() final;
     
-    void post(std::function<void()> &&fn);
+    template<typename F>
+    inline void post(F&& fn)
+    {
+        io->post(std::forward<F>(fn));
+    }
     
     void callback1();
     void callback2();
