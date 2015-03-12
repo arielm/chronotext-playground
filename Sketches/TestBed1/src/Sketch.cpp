@@ -9,7 +9,8 @@
 #include "Sketch.h"
 
 #include "TestingMisc.h"
-#include "TestingMemory.h"
+#include "TestingMemory1.h"
+#include "TestingMemory2.h"
 #include "TestingTasks.h"
 #include "TestingZFont.h"
 #include "TestingIOService.h"
@@ -45,6 +46,7 @@ void Sketch::begin()
     executeTest<TestingTasks>(false);
     executeTest<TestingZFont>(false);
     
-    addFrameTest<TestingMemory>(false);
-    addFrameTest<TestingIOService>(true);
+    addFrameTest<TestingMemory1>(true);
+    addFrameTest<TestingMemory2>(false);
+    addFrameTest<TestingIOService>(false);
 }

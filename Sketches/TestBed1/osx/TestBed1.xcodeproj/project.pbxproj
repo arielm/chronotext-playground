@@ -59,7 +59,7 @@
 		A86902601A02EDC100D2C9F3 /* Path3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869025E1A02EDC100D2C9F3 /* Path3D.cpp */; };
 		A8702AAC1A5AFA8700EF9E9E /* DisplayHelperBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8702AAA1A5AFA8700EF9E9E /* DisplayHelperBase.cpp */; };
 		A8721A3A1A2BD48000AED9C8 /* TestingMisc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A381A2BD48000AED9C8 /* TestingMisc.cpp */; };
-		A8721A421A2BE87E00AED9C8 /* TestingMemory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A401A2BE87E00AED9C8 /* TestingMemory.cpp */; };
+		A8721A421A2BE87E00AED9C8 /* TestingMemory1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8721A401A2BE87E00AED9C8 /* TestingMemory1.cpp */; };
 		A874A5021A2B550A009A60A0 /* Task.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A4FE1A2B550A009A60A0 /* Task.cpp */; };
 		A874A5031A2B550A009A60A0 /* TaskManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A874A5001A2B550A009A60A0 /* TaskManager.cpp */; };
 		A881B2781A351E2200AB18C0 /* Font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A881B2701A351E2200AB18C0 /* Font.cpp */; };
@@ -82,6 +82,7 @@
 		A8DB873A1A2CEE8700334BEA /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DB87371A2CEE8700334BEA /* NSString+JSON.m */; };
 		A8EBAF621AB10B6B0001A7C9 /* TestingBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8EBAF5E1AB10B6B0001A7C9 /* TestingBase.cpp */; };
 		A8EBAF631AB10B6B0001A7C9 /* TestingSketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8EBAF601AB10B6B0001A7C9 /* TestingSketch.cpp */; };
+		A8EBAF6D1AB1C1F70001A7C9 /* TestingMemory2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8EBAF6C1AB1C1F70001A7C9 /* TestingMemory2.cpp */; };
 		A8FBA63F1A72737700D6B4A3 /* DisplayHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6381A72737700D6B4A3 /* DisplayHelper.cpp */; };
 		A8FBA6401A72737700D6B4A3 /* SystemManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA63C1A72737700D6B4A3 /* SystemManager.cpp */; };
 		A8FBA6551A72739200D6B4A3 /* CinderDelegateBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6501A72739200D6B4A3 /* CinderDelegateBase.cpp */; };
@@ -210,8 +211,8 @@
 		A8702AAB1A5AFA8700EF9E9E /* DisplayHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayHelperBase.h; sourceTree = "<group>"; };
 		A8721A381A2BD48000AED9C8 /* TestingMisc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMisc.cpp; path = ../src/TestingMisc.cpp; sourceTree = "<group>"; };
 		A8721A391A2BD48000AED9C8 /* TestingMisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMisc.h; path = ../src/TestingMisc.h; sourceTree = "<group>"; };
-		A8721A401A2BE87E00AED9C8 /* TestingMemory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemory.cpp; path = ../src/TestingMemory.cpp; sourceTree = "<group>"; };
-		A8721A411A2BE87E00AED9C8 /* TestingMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMemory.h; path = ../src/TestingMemory.h; sourceTree = "<group>"; };
+		A8721A401A2BE87E00AED9C8 /* TestingMemory1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemory1.cpp; path = ../src/TestingMemory1.cpp; sourceTree = "<group>"; };
+		A8721A411A2BE87E00AED9C8 /* TestingMemory1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMemory1.h; path = ../src/TestingMemory1.h; sourceTree = "<group>"; };
 		A874A4E91A2A8655009A60A0 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
 		A874A4FE1A2B550A009A60A0 /* Task.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Task.cpp; sourceTree = "<group>"; };
 		A874A4FF1A2B550A009A60A0 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
@@ -260,6 +261,8 @@
 		A8EBAF5F1AB10B6B0001A7C9 /* TestingBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingBase.h; sourceTree = "<group>"; };
 		A8EBAF601AB10B6B0001A7C9 /* TestingSketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestingSketch.cpp; sourceTree = "<group>"; };
 		A8EBAF611AB10B6B0001A7C9 /* TestingSketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingSketch.h; sourceTree = "<group>"; };
+		A8EBAF6B1AB1C1F70001A7C9 /* TestingMemory2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMemory2.h; path = ../src/TestingMemory2.h; sourceTree = "<group>"; };
+		A8EBAF6C1AB1C1F70001A7C9 /* TestingMemory2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemory2.cpp; path = ../src/TestingMemory2.cpp; sourceTree = "<group>"; };
 		A8F54D49198F8485008053E3 /* DebugConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DebugConfig.xcconfig; sourceTree = "<group>"; };
 		A8F54D4A198F8A36008053E3 /* ReleaseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ReleaseConfig.xcconfig; sourceTree = "<group>"; };
 		A8F54D4B198F8C65008053E3 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
@@ -628,8 +631,10 @@
 			children = (
 				A8721A391A2BD48000AED9C8 /* TestingMisc.h */,
 				A8721A381A2BD48000AED9C8 /* TestingMisc.cpp */,
-				A8721A411A2BE87E00AED9C8 /* TestingMemory.h */,
-				A8721A401A2BE87E00AED9C8 /* TestingMemory.cpp */,
+				A8721A411A2BE87E00AED9C8 /* TestingMemory1.h */,
+				A8721A401A2BE87E00AED9C8 /* TestingMemory1.cpp */,
+				A8EBAF6B1AB1C1F70001A7C9 /* TestingMemory2.h */,
+				A8EBAF6C1AB1C1F70001A7C9 /* TestingMemory2.cpp */,
 				A81CCE3E1A3DA49300AF0BFC /* TestingTasks.h */,
 				A81CCE3D1A3DA49300AF0BFC /* TestingTasks.cpp */,
 				A81CCE411A3DA67800AF0BFC /* TestTask.h */,
@@ -884,7 +889,7 @@
 				A81CCE3F1A3DA49300AF0BFC /* TestingTasks.cpp in Sources */,
 				A8DB873A1A2CEE8700334BEA /* NSString+JSON.m in Sources */,
 				A86902191A02E22300D2C9F3 /* LangHelper.cpp in Sources */,
-				A8721A421A2BE87E00AED9C8 /* TestingMemory.cpp in Sources */,
+				A8721A421A2BE87E00AED9C8 /* TestingMemory1.cpp in Sources */,
 				A881B27B1A351E2200AB18C0 /* TextHelper.cpp in Sources */,
 				A8147EF31A9A31D600885D67 /* Application.cpp in Sources */,
 				A8D7C09A1A75A71F00002385 /* TestingZFont.cpp in Sources */,
@@ -900,6 +905,7 @@
 				A8147EF61A9A327900885D67 /* CinderBridge.mm in Sources */,
 				A8FBA6551A72739200D6B4A3 /* CinderDelegateBase.cpp in Sources */,
 				A869023C1A02E22400D2C9F3 /* FXGDocument.cpp in Sources */,
+				A8EBAF6D1AB1C1F70001A7C9 /* TestingMemory2.cpp in Sources */,
 				A85977361A2F94F80080C906 /* MemoryManager.mm in Sources */,
 				A869023E1A02E22400D2C9F3 /* ShapeMesh.cpp in Sources */,
 				A869023B1A02E22400D2C9F3 /* FollowablePath.cpp in Sources */,

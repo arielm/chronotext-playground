@@ -6,7 +6,7 @@
  * https://github.com/arielm/chronotext-playground/blob/master/LICENSE
  */
 
-#include "TestingMemory.h"
+#include "TestingMemory2.h"
 
 #include "chronotext/Context.h"
 
@@ -14,7 +14,7 @@ using namespace std;
 using namespace ci;
 using namespace chr;
 
-void TestingMemory::setup()
+void TestingMemory2::setup()
 {
     TextureManager::LOG_VERBOSE = true;
     TextureManager::PROBE_MEMORY = true;
@@ -58,7 +58,7 @@ void TestingMemory::setup()
     LOGI << endl << "MEMORY INFO - BEFORE: " << getMemoryInfo() << endl;
 }
 
-void TestingMemory::shutdown()
+void TestingMemory2::shutdown()
 {
     textureManager.reset();
     
@@ -66,7 +66,7 @@ void TestingMemory::shutdown()
     TextureManager::PROBE_MEMORY = false;
 }
 
-void TestingMemory::update()
+void TestingMemory2::update()
 {
     if (!done)
     {

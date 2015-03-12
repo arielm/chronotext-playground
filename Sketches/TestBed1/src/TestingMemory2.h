@@ -11,9 +11,9 @@
  *
  * 1) CHECK WHY TextureHelper::fetchPowerOfTwoTextureData SEEMS TO LEAK ON OSX
  *
- * 2) COMPARE BETWEEN CINDER'S IMAGE-SOURCES
- *    - TEST "SPECIALIZED PNG HANDLING" (CF CINDER'S ImageFileBasicApp SAMPLE):
- *      - #include "cinder/ImageSourcePng.h"
+ * 2) COMPARE BETWEEN CINDER'S IMAGE-SOURCES:
+ *    - TESTED SO FAR:
+ *      - ImageSourceFileQuartz AND ImageSourceFileStbImage (THE LATTER SEEMS MORE "EFFICIENT")
  *
  * 3) TEST WITH MIP-MAPPING
  *
@@ -30,14 +30,14 @@
 
 #include "chronotext/texture/TextureManager.h"
 
-class TestingMemory : public TestingBase
+class TestingMemory2 : public TestingBase
 {
 public:
     void setup() final;
     void shutdown() final;
     
     /*
-     * PASSING VIA update() IS (CURRENTLY) NECESSARY, IN ORDER TO BE PROPERLY NOTIFIED UPON "MEMORY WARNING" ON IOS
+     * PASSING VIA update() IS (CURRENTLY) NECESSARY, IN ORDER TO BE PROPERLY NOTIFIED UPON "MEMORY WARNING"
      */
     void update() final;
     
