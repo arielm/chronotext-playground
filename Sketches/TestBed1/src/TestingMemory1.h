@@ -7,7 +7,11 @@
  */
 
 /*
- * TODO: DOCUMENT FURTHER...
+ * SEE COMMENTS IN TestingMemory1::setup()
+ *
+ * MORE CONTEXT:
+ * - https://github.com/arielm/new-chronotext-toolkit/blob/develop/src/chronotext/cocoa/system/MemoryManager.mm
+ * - https://github.com/arielm/new-chronotext-toolkit/blob/develop/src/chronotext/android/system/MemoryManager.cpp
  */
 
 #pragma once

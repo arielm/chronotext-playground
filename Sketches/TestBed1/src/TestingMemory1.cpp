@@ -86,8 +86,28 @@ void TestingMemory1::setup()
 {
     LOGI << endl << "MEMORY INFO - BEFORE: " << getMemoryInfo() << endl << endl;
 
-    unitDataSize = 2048 * 1024; // 2MB
-    unitCount = 300;
+    if (system::platform() == system::PLATFORM_OSX)
+    {
+        /*
+         * DEMONSTRATING THE "MEMORY-RELEASE DETECTION" ISSUE ON OSX
+         *
+         * UNSOLVED: IT STARTS TO WORK-AS-INTENDED ONLY AFTER 16 FRAMES!
+         */
+        
+        unitDataSize = 2048 * 1024; // 2MB
+        unitCount = 20;
+    }
+    else
+    {
+        /*
+         * DEMONSTRATING "MEMORY WARNING" ON IOS OR ANDROID
+         *
+         * ADJUST unitCount ACCORDINGLY...
+         */
+        
+        unitDataSize = 2048 * 1024; // 2MB
+        unitCount = 300;
+    }
     
     adding = false;
     removing = false;
@@ -98,7 +118,7 @@ void TestingMemory1::setup()
 
 void TestingMemory1::shutdown()
 {
-    LOGI << "MEMORY INFO - AFTER: " << getMemoryInfo() << endl;
+    LOGI << endl << "MEMORY INFO - AFTER: " << getMemoryInfo() << endl;
 }
 
 void TestingMemory1::update()
@@ -121,7 +141,7 @@ void TestingMemory1::update()
             
             measure.end();
             
-            LOGI << units.back()->write() << " | " << measure.write() << endl << endl;
+            LOGI << units.back()->write() << " | " << measure.write() << endl;
             
             // --
             
@@ -130,7 +150,7 @@ void TestingMemory1::update()
                 adding = false;
                 removing = true;
                 
-                LOGI << "---------- REMOVING " << unitCount << " UNITS ----------" << endl << endl;
+                LOGI << endl << "---------- REMOVING " << unitCount << " UNITS ----------" << endl << endl;
             }
         }
         else if (removing)
@@ -143,7 +163,7 @@ void TestingMemory1::update()
             
             measure.end();
             
-            LOGI << tmp << " | " << measure.write() << endl << endl;
+            LOGI << tmp << " | " << measure.write() << endl;
             
             // --
             
