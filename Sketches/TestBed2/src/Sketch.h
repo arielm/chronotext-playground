@@ -9,14 +9,14 @@
 /*
  * PLAYGROUND IN SYNC WITH:
  *
- * 1) develop BRANCH IN https://github.com/new-chronotext-toolkit
- *    OSX: COMMIT 7ba9528
- *    IOS: COMMIT 7ba9528
- *    ANDROID: COMMIT 7ba9528
+ * 1) new-chronotext-toolkit:
+ *    https://github.com/arielm/new-chronotext-toolkit/tree/v4.0.0
  *
- * 2) Target1: master BRANCH IN https://github.com/arielm/FMOD
+ * 2) FMOD BLOCK (Target1):
+ *    https://github.com/arielm/FMOD/tree/toolkit-4.0.0
  *
- * 3) Target2: master BRANCH IN https://github.com/arielm/POCO
+ * 3) POCO BLOCK (Target2):
+ *    https://github.com/arielm/POCO/tree/toolkit-4.0.0
  */
 
 #pragma once

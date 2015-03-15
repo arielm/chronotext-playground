@@ -9,14 +9,14 @@
 /*
  * PLAYGROUND IN SYNC WITH:
  *
- * 1) develop BRANCH IN https://github.com/new-chronotext-toolkit
- *    OSX: COMMIT fdfbc1c
- *    IOS: COMMIT fdfbc1c
- *    ANDROID: COMMIT fdfbc1c
+ * 1) new-chronotext-toolkit:
+ *    https://github.com/arielm/new-chronotext-toolkit/tree/v4.0.0
  *
- * 2) master BRANCH IN https://github.com/arielm/Freetype
+ * 2) hb-icu BLOCK:
+ *    https://github.com/arielm/hb-icu/tree/toolkit-4.0.0
  *
- * 3) master BRANCH IN https://github.com/arielm/hb-icu
+ * 3) Freetype BLOCK:
+ *    https://github.com/arielm/Freetype/tree/toolkit-4.0.0
  */
 
 #pragma once
