@@ -22,8 +22,8 @@ Check the comments at the top of [Sketch.h](src/Sketch.h) for more details regar
 
 **Prerequisites**
 - OSX 10.9.5 (other versions may work)
-- XCode 6.1.1
-- An entry named `CINDER_PATH_CHR` pointing to the Cinder folder must be defined in *XCode/Preferences/Locations/Source Trees*.
+- XCode 6.1.1 (newer versions should work)
+- An entry named `CINDER_PATH_CHR` pointing to the Cinder folder must be defined via the *XCode / Preferences / Locations / Source Trees* menu.
 
 ---
 
@@ -64,7 +64,7 @@ Then, the [ios-deploy](https://github.com/phonegap/ios-deploy) executable can be
 
 **Archiving and packaging**
 
-In the past, this procedure has been successfully used for *ad-hoc* distribution with *test-flight*. The latter was in the meantime acquired by Apple, and the rules may have changed. (TODO: test the new *test-flight* as well as alternatives...)
+In the past, this procedure has been successfully used with *TestFlight*. Since the acquisition of the latter by Apple, *ad-hoc distribution* has become less relevant (unless if targetting alternative services such as *TestFairy*?)
 
 ```
 cd Sketches/TestBed2/ios
