@@ -18,8 +18,8 @@ Check the comments at the top of [Sketch.h](src/Sketch.h) for more details regar
 
 **Prerequisites**
 - OSX 10.9.5 (other versions may work)
-- XCode 6.1.1
-- An entry named `CINDER_PATH_CHR` pointing to the Cinder folder must be defined in *XCode/Preferences/Locations/Source Trees*.
+- XCode 6.1.1 (newer versions should work)
+- An entry named `CINDER_PATH_CHR` pointing to the Cinder folder must be defined via the *XCode / Preferences / Locations / Source Trees* menu.
 
 ---
 
