@@ -15,5 +15,7 @@ class TestingDemangling : public TestingBase
 public:
     void run(bool force = false) final;
 
-    void testCXXAbi();
+    void testCXXAbi1();
+    void testCXXAbi2();
+    void testCXXAbi3();
 };
