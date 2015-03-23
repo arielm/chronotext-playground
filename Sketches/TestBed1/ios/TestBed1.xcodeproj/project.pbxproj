@@ -72,6 +72,7 @@
 		A8A2B3BA1A5AE2E7002B5ABD /* FileHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8A2B3B91A5AE2E7002B5ABD /* FileHelper.mm */; };
 		A8A2B3BD1A5AE2EF002B5ABD /* FileHelperBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8A2B3BB1A5AE2EF002B5ABD /* FileHelperBase.cpp */; };
 		A8C16EA01A2A4A7300551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9F1A2A4A7300551905 /* main.cpp */; };
+		A8C294AD1AC04B4A00FD36C9 /* TestingDemangling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C294AB1AC04B4A00FD36C9 /* TestingDemangling.cpp */; };
 		A8CC2B361A49A5C300F8FBA5 /* TestingTasks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CC2B321A49A5C300F8FBA5 /* TestingTasks.cpp */; };
 		A8CC2B371A49A5C300F8FBA5 /* TestTask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CC2B341A49A5C300F8FBA5 /* TestTask.cpp */; };
 		A8CDB6631A2DD16A0043A5E5 /* MemoryManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB65B1A2DD16A0043A5E5 /* MemoryManager.mm */; };
@@ -251,6 +252,8 @@
 		A8A2B3BB1A5AE2EF002B5ABD /* FileHelperBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelperBase.cpp; sourceTree = "<group>"; };
 		A8A2B3BC1A5AE2EF002B5ABD /* FileHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelperBase.h; sourceTree = "<group>"; };
 		A8C16E9F1A2A4A7300551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
+		A8C294AB1AC04B4A00FD36C9 /* TestingDemangling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingDemangling.cpp; path = ../src/TestingDemangling.cpp; sourceTree = "<group>"; };
+		A8C294AC1AC04B4A00FD36C9 /* TestingDemangling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingDemangling.h; path = ../src/TestingDemangling.h; sourceTree = "<group>"; };
 		A8CC2B321A49A5C300F8FBA5 /* TestingTasks.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingTasks.cpp; path = ../src/TestingTasks.cpp; sourceTree = "<group>"; };
 		A8CC2B331A49A5C300F8FBA5 /* TestingTasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingTasks.h; path = ../src/TestingTasks.h; sourceTree = "<group>"; };
 		A8CC2B341A49A5C300F8FBA5 /* TestTask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestTask.cpp; path = ../src/TestTask.cpp; sourceTree = "<group>"; };
@@ -739,6 +742,8 @@
 		A8721A3B1A2BD7A200AED9C8 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
+				A8C294AC1AC04B4A00FD36C9 /* TestingDemangling.h */,
+				A8C294AB1AC04B4A00FD36C9 /* TestingDemangling.cpp */,
 				A8721A3E1A2BD7AE00AED9C8 /* TestingMisc.h */,
 				A8721A3D1A2BD7AE00AED9C8 /* TestingMisc.cpp */,
 				A8EBAF701AB1C2750001A7C9 /* TestingMemory1.h */,
@@ -949,6 +954,7 @@
 				A8112C271A4DC4070002CF68 /* TextHelper.cpp in Sources */,
 				A84E43081A2A1DFB00EE6AC1 /* LangHelper.cpp in Sources */,
 				A8CDB6661A2DD16A0043A5E5 /* NSString+JSON.m in Sources */,
+				A8C294AD1AC04B4A00FD36C9 /* TestingDemangling.cpp in Sources */,
 				A84E430E1A2A1DFB00EE6AC1 /* InputSource.cpp in Sources */,
 				A84E43041A2A1DFB00EE6AC1 /* ActualFont.cpp in Sources */,
 				A84E43101A2A1DFB00EE6AC1 /* Handler.cpp in Sources */,

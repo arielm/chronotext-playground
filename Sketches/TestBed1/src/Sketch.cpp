@@ -8,6 +8,7 @@
 
 #include "Sketch.h"
 
+#include "TestingDemangling.h"
 #include "TestingMisc.h"
 #include "TestingMemory1.h"
 #include "TestingMemory2.h"
@@ -42,11 +43,12 @@ void Sketch::draw()
 
 void Sketch::begin()
 {
+    executeTest<TestingDemangling>(true);
     executeTest<TestingMisc>(false);
     executeTest<TestingTasks>(false);
     executeTest<TestingZFont>(false);
     
-    addFrameTest<TestingMemory1>(true);
+    addFrameTest<TestingMemory1>(false);
     addFrameTest<TestingMemory2>(false);
     addFrameTest<TestingIOService>(false);
 }

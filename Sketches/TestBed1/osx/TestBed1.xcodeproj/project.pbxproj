@@ -73,6 +73,7 @@
 		A8A2B3B71A5ADCBA002B5ABD /* FileHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8A2B3B61A5ADCBA002B5ABD /* FileHelper.mm */; };
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
+		A8C294AA1AC0485F00FD36C9 /* TestingDemangling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C294A81AC0485F00FD36C9 /* TestingDemangling.cpp */; };
 		A8D7C09A1A75A71F00002385 /* TestingZFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D7C0981A75A71F00002385 /* TestingZFont.cpp */; };
 		A8D947011A8782A8007FB546 /* TestingIOService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D947001A8782A8007FB546 /* TestingIOService.cpp */; };
 		A8D947131A87FA3F007FB546 /* CinderDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8D947091A87FA3F007FB546 /* CinderDelegate.mm */; };
@@ -238,6 +239,8 @@
 		A8B336591A045B2200ABEFBF /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		A8B3365A1A045B2200ABEFBF /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
+		A8C294A81AC0485F00FD36C9 /* TestingDemangling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingDemangling.cpp; path = ../src/TestingDemangling.cpp; sourceTree = "<group>"; };
+		A8C294A91AC0485F00FD36C9 /* TestingDemangling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingDemangling.h; path = ../src/TestingDemangling.h; sourceTree = "<group>"; };
 		A8CDB6501A2DC0B60043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8CDB6521A2DC0B60043A5E5 /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
 		A8CDB6551A2DC6F80043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
@@ -629,6 +632,8 @@
 		A86F759B1A2BD1E50063FE2A /* Testing */ = {
 			isa = PBXGroup;
 			children = (
+				A8C294A91AC0485F00FD36C9 /* TestingDemangling.h */,
+				A8C294A81AC0485F00FD36C9 /* TestingDemangling.cpp */,
 				A8721A391A2BD48000AED9C8 /* TestingMisc.h */,
 				A8721A381A2BD48000AED9C8 /* TestingMisc.cpp */,
 				A8721A411A2BE87E00AED9C8 /* TestingMemory1.h */,
@@ -898,6 +903,7 @@
 				A814C5DB1A374AE400F639E3 /* ImageSourceFileStbImage.cpp in Sources */,
 				A86902551A02E22400D2C9F3 /* Utils.cpp in Sources */,
 				A8FBA63F1A72737700D6B4A3 /* DisplayHelper.cpp in Sources */,
+				A8C294AA1AC0485F00FD36C9 /* TestingDemangling.cpp in Sources */,
 				A881B2791A351E2200AB18C0 /* FontManager.cpp in Sources */,
 				A86902411A02E22400D2C9F3 /* QuadMatrix.cpp in Sources */,
 				A8A2B3B41A5AD953002B5ABD /* FileHelperBase.cpp in Sources */,
