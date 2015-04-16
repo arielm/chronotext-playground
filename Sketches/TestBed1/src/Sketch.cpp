@@ -43,8 +43,8 @@ void Sketch::draw()
 
 void Sketch::begin()
 {
-    executeTest<TestingDemangling>(true);
-    executeTest<TestingMisc>(false);
+    executeTest<TestingDemangling>(false);
+    executeTest<TestingMisc>(true);
     executeTest<TestingTasks>(false);
     executeTest<TestingZFont>(false);
     

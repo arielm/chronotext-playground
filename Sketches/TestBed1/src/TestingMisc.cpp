@@ -18,26 +18,30 @@ using namespace chr;
 
 void TestingMisc::run(bool force)
 {
-    if (force || true)
+    if (force || false)
     {
-        if (force || false) testSharedPtrCasting();
-        if (force || false) testFileCapture();
+        if (force || true) testSharedPtrCasting();
     }
 
-    if (force || true)
+    if (force || false)
     {
-        if (force || false) testFileSystem();
-        if (force || false) testSystemAndMemoryInfo();
+        if (force || true) testFileCapture();
+        if (force || true) testNewLogging();
+        if (force || true) testNewException();
+        if (force || true) testInputSourceRobustness();
+        if (force || true) testTimeFormat();
+        if (force || true) testDurationFormat();
     }
-
-    if (force || true)
+    
+    if (force || false)
     {
-        if (force || false) testNewLogging();
-        if (force || false) testNewException();
-        if (force || false) testInputSourceRobustness();
-        if (force || false) testTimeFormat();
-        if (force || false) testDurationFormat();
         if (force || true) testStringToIntToString();
+        if (force || true) testFileSystem();
+    }
+    
+    if (force || true)
+    {
+        if (force || true) testCustomString1();
     }
 }
 
@@ -86,27 +90,6 @@ void TestingMisc::testSharedPtrCasting()
     }
     
     TextureManager::LOG_VERBOSE = false;
-}
-
-// ---
-
-/*
- * ACCESSING HIERARCHICAL FILE-SYSTEM
- *
- * OSX: ANY PATH IS VALID
- * IOS: A COCOA "BUNDLE FOLDER" MUST BE USED (AND COPIED TO THE DEVICE VIA ITUNES-FILE-SHARING)
- * ANDROID: THE "EXTERNAL FOLDER" CAN BE USED
- */
-
-void TestingMisc::testFileSystem()
-{
-    dumpDirectory(getPublicDirectory() / "test.bundle");
-}
-
-void TestingMisc::testSystemAndMemoryInfo()
-{
-    LOGI << "SYSTEM INFO: " << getSystemInfo() << endl;
-    LOGI << "MEMORY INFO: " << getMemoryInfo() << endl;
 }
 
 // ---
@@ -281,4 +264,69 @@ void TestingMisc::testStringToIntToString()
     LOGI << std::to_string(major) << "." << std::to_string(minor) << "." << std::to_string(patch) << endl;
     
 #endif
+}
+
+// ---
+
+/*
+ * ACCESSING HIERARCHICAL FILE-SYSTEM
+ *
+ * OSX: ANY PATH IS VALID
+ * IOS: A COCOA "BUNDLE FOLDER" MUST BE USED (AND COPIED TO THE DEVICE VIA ITUNES-FILE-SHARING)
+ * ANDROID: THE "EXTERNAL FOLDER" CAN BE USED
+ */
+
+void TestingMisc::testFileSystem()
+{
+    dumpDirectory(getPublicDirectory() / "test.bundle");
+}
+
+// ---
+
+CustomString1::CustomString1(const string &s)
+{
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
+    
+    bytes = (char*)malloc(s.size());
+    memcpy(bytes, s.data(), s.size());
+}
+
+CustomString1::CustomString1(const char *c)
+{
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
+    
+    bytes = (char*)malloc(strlen(c));
+    memcpy(bytes, c, strlen(c));
+}
+
+CustomString1::CustomString1(CustomString1 &&other)
+:
+bytes(other.bytes)
+{
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
+    
+    other.bytes = nullptr;
+}
+
+void CustomString1::operator=(CustomString1 &&other)
+{
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
+    
+    bytes = other.bytes;
+    other.bytes = nullptr;
+}
+
+CustomString1::~CustomString1()
+{
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
+    
+    if (bytes)
+    {
+        free(bytes);
+    }
+}
+
+void TestingMisc::testCustomString1()
+{
+    CustomString1 s1 = "foo";
 }

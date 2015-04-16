@@ -10,21 +10,42 @@
 
 #include "Testing/TestingBase.h"
 
+class CustomString1
+{
+public:
+    CustomString1(const std::string &s);
+    CustomString1(const char *c);
+    
+    CustomString1(CustomString1 &&other);
+    void operator=(CustomString1 &&other);
+    
+    ~CustomString1();
+    
+protected:
+    char *bytes = nullptr;
+    
+    CustomString1(const CustomString1 &other) = delete;
+    void operator=(const CustomString1 &other) = delete;
+};
+
 class TestingMisc : public TestingBase
 {
 public:
     void run(bool force = false) final;
-
+    
     void testSharedPtrCasting();
+    
     void testFileCapture();
-
-    void testFileSystem();
-    void testSystemAndMemoryInfo();
-
     void testNewLogging();
     void testNewException();
     void testInputSourceRobustness();
     void testTimeFormat();
     void testDurationFormat();
+    
     void testStringToIntToString();
+    void testFileSystem();
+    
+    // ---
+    
+    void testCustomString1();
 };
