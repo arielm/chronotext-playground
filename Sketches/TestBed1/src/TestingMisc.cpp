@@ -308,6 +308,7 @@ bytes(other.bytes)
     other.bytes = nullptr;
 }
 
+/*
 void CustomString1::operator=(CustomString1 &&other)
 {
     LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
@@ -315,6 +316,7 @@ void CustomString1::operator=(CustomString1 &&other)
     bytes = other.bytes;
     other.bytes = nullptr;
 }
+*/
 
 CustomString1::~CustomString1()
 {
@@ -326,7 +328,36 @@ CustomString1::~CustomString1()
     }
 }
 
+//
+
+CustomString1 TestingMisc::getCustomStringB()
+{
+    CustomString1 s("baz");
+    return s;
+}
+
+/*
+ * NO TEMPORARIES, THANKS TO:
+ *
+ * 1) CustomString1(CustomString1 &&other)
+ * 2) CustomString1(const CustomString1 &other) = delete
+ */
 void TestingMisc::testCustomString1()
 {
-    CustomString1 s1 = "foo";
+    if (true)
+    {
+        CustomString1 s1 = "foo";
+    }
+    LOGI << endl;
+    
+    if (true)
+    {
+        CustomString1 s2 = getCustomStringA();
+    }
+    LOGI << endl;
+    
+    if (true)
+    {
+        CustomString1 s3 = getCustomStringB();
+    }
 }

@@ -17,7 +17,7 @@ public:
     CustomString1(const char *c);
     
     CustomString1(CustomString1 &&other);
-    void operator=(CustomString1 &&other);
+//  void operator=(CustomString1 &&other);
     
     ~CustomString1();
     
@@ -25,7 +25,7 @@ protected:
     char *bytes = nullptr;
     
     CustomString1(const CustomString1 &other) = delete;
-    void operator=(const CustomString1 &other) = delete;
+//  void operator=(const CustomString1 &other) = delete;
 };
 
 class TestingMisc : public TestingBase
@@ -48,4 +48,11 @@ public:
     // ---
     
     void testCustomString1();
+    
+    inline CustomString1 getCustomStringA()
+    {
+        return CustomString1("bar");
+    }
+    
+    CustomString1 getCustomStringB();
 };
