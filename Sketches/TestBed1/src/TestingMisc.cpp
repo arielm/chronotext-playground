@@ -285,18 +285,45 @@ void TestingMisc::testFileSystem()
 
 CustomString1::CustomString1(const string &s)
 {
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
-    
     bytes = (char*)malloc(s.size());
     memcpy(bytes, s.data(), s.size());
+    
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
 }
 
 CustomString1::CustomString1(const char *c)
 {
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
-    
     bytes = (char*)malloc(strlen(c));
     memcpy(bytes, c, strlen(c));
+    
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
+}
+
+CustomString1::CustomString1(const CustomString1 &other)
+{
+    if (other.bytes)
+    {
+        bytes = (char*)malloc(strlen(other.bytes));
+        memcpy(bytes, other.bytes, strlen(other.bytes));
+    }
+    
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
+}
+
+void CustomString1::operator=(const CustomString1 &other)
+{
+    if (bytes)
+    {
+        free(bytes);
+    }
+    
+    if (other.bytes)
+    {
+        bytes = (char*)malloc(strlen(other.bytes));
+        memcpy(bytes, other.bytes, strlen(other.bytes));
+    }
+    
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
 }
 
 CustomString1::CustomString1(CustomString1 &&other)
@@ -308,7 +335,6 @@ bytes(other.bytes)
     other.bytes = nullptr;
 }
 
-/*
 void CustomString1::operator=(CustomString1 &&other)
 {
     LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
@@ -316,12 +342,11 @@ void CustomString1::operator=(CustomString1 &&other)
     bytes = other.bytes;
     other.bytes = nullptr;
 }
-*/
 
 CustomString1::~CustomString1()
 {
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
-    
+    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (bytes ? bytes : "") << endl;
+
     if (bytes)
     {
         free(bytes);
@@ -330,18 +355,10 @@ CustomString1::~CustomString1()
 
 //
 
-CustomString1 TestingMisc::getCustomStringB()
-{
-    CustomString1 s("baz");
-    return s;
-}
-
 /*
- * NO TEMPORARIES, THANKS TO:
- *
- * 1) CustomString1(CustomString1 &&other)
- * 2) CustomString1(const CustomString1 &other) = delete
+ * TODO: TRY TO ACHIEVE THE FOLLOWING WITH std::string
  */
+
 void TestingMisc::testCustomString1()
 {
     if (true)
@@ -352,12 +369,37 @@ void TestingMisc::testCustomString1()
     
     if (true)
     {
-        CustomString1 s2 = getCustomStringA();
+        CustomString1 s2 = createCustomStringA(); // NO TEMPORARIES!
     }
     LOGI << endl;
     
     if (true)
     {
-        CustomString1 s3 = getCustomStringB();
+        CustomString1 s3 = createCustomStringB(); // NO TEMPORARIES!
     }
+    LOGI << endl;
+    
+    if (true)
+    {
+        CustomString1 s4 = "FOO";
+        CustomString1 s5 = s4; // STRAIGHTFORWARD COPY-CONSTRUCTION
+    }
+    LOGI << endl;
+    
+    if (true)
+    {
+        /*
+         * WORKS (ALMOST) AS INTENDED:
+         *
+         * - BYTES ARE NOT COPIED, ONLY TRANSFERRED (THANKS TO MOVE CONSTRUCTOR)
+         * - COULD IT BE POSSIBLE TO ACHIEVE WITHOUT EVEN MOVE-CONSTRUCTION TO TAKE PLACE?
+         */
+        CustomString1 s6 = observeCustomString1(createCustomStringA());
+    }
+}
+
+CustomString1 TestingMisc::createCustomStringB()
+{
+    CustomString1 s("baz");
+    return s;
 }

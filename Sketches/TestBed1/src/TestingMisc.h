@@ -15,16 +15,24 @@ class CustomString1
 public:
     CustomString1(const std::string &s);
     CustomString1(const char *c);
-    
+
+    CustomString1(const CustomString1 &other);
+    void operator=(const CustomString1 &other);
+
     CustomString1(CustomString1 &&other);
-//  void operator=(CustomString1 &&other);
+    void operator=(CustomString1 &&other);
     
     ~CustomString1();
+    
+    const char* data() const
+    {
+        return bytes;
+    }
     
 protected:
     char *bytes = nullptr;
     
-    CustomString1(const CustomString1 &other) = delete;
+//  CustomString1(const CustomString1 &other) = delete;
 //  void operator=(const CustomString1 &other) = delete;
 };
 
@@ -49,10 +57,16 @@ public:
     
     void testCustomString1();
     
-    inline CustomString1 getCustomStringA()
+    inline CustomString1 createCustomStringA()
     {
         return CustomString1("bar");
     }
     
-    CustomString1 getCustomStringB();
+    CustomString1 createCustomStringB();
+    
+    inline CustomString1&& observeCustomString1(CustomString1 &&s)
+    {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        return std::move(s);
+    }
 };
