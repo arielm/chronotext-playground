@@ -41,7 +41,7 @@ void TestingMisc::run(bool force)
     
     if (force || true)
     {
-        if (force || true) testCustomString1();
+        if (force || true) testRVOAndCopyElision();
     }
 }
 
@@ -283,123 +283,169 @@ void TestingMisc::testFileSystem()
 
 // ---
 
-CustomString1::CustomString1(const string &s)
-{
-    bytes = (char*)malloc(s.size());
-    memcpy(bytes, s.data(), s.size());
-    
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
-}
+/*
+ * TESTING RVO (RETURN VALUE OPTIMIZATION) AND COPY-ELISION: EVERYTHING WORKS AS INTENDED!
+ *
+ * REFERENCES:
+ * - http://en.cppreference.com/w/cpp/language/copy_elision
+ */
 
-CustomString1::CustomString1(const char *c)
+class CustomString1
 {
-    bytes = (char*)malloc(strlen(c));
-    memcpy(bytes, c, strlen(c));
-    
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
-}
-
-CustomString1::CustomString1(const CustomString1 &other)
-{
-    if (other.bytes)
+public:
+    CustomString1(const string &s)
     {
-        bytes = (char*)malloc(strlen(other.bytes));
-        memcpy(bytes, other.bytes, strlen(other.bytes));
+        bytes = (char*)malloc(s.size());
+        memcpy(bytes, s.data(), s.size());
+        
+        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
     }
     
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
-}
-
-void CustomString1::operator=(const CustomString1 &other)
-{
-    if (bytes)
+    CustomString1(const char *c)
     {
-        free(bytes);
+        bytes = (char*)malloc(strlen(c));
+        memcpy(bytes, c, strlen(c));
+        
+        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
     }
     
-    if (other.bytes)
+    CustomString1(const CustomString1 &other)
     {
-        bytes = (char*)malloc(strlen(other.bytes));
-        memcpy(bytes, other.bytes, strlen(other.bytes));
+        if (other.bytes)
+        {
+            bytes = (char*)malloc(strlen(other.bytes));
+            memcpy(bytes, other.bytes, strlen(other.bytes));
+        }
+        
+        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
     }
     
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
-}
-
-CustomString1::CustomString1(CustomString1 &&other)
-:
-bytes(other.bytes)
-{
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
-    
-    other.bytes = nullptr;
-}
-
-void CustomString1::operator=(CustomString1 &&other)
-{
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << endl;
-    
-    bytes = other.bytes;
-    other.bytes = nullptr;
-}
-
-CustomString1::~CustomString1()
-{
-    LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (bytes ? bytes : "") << endl;
-
-    if (bytes)
+    /*
+    CustomString1& operator=(const CustomString1 &other)
     {
-        free(bytes);
+        if (this != &other)
+        {
+            if (bytes)
+            {
+                free(bytes);
+            }
+            
+            if (other.bytes)
+            {
+                bytes = (char*)malloc(strlen(other.bytes));
+                memcpy(bytes, other.bytes, strlen(other.bytes));
+            }
+        }
+        
+        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
+        
+        return *this;
     }
-}
+    */
+    
+    CustomString1(CustomString1 &&other)
+    :
+    bytes(other.bytes)
+    {
+        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (bytes ? bytes : "") << endl;
+        
+        other.bytes = nullptr;
+    }
+
+    /*
+    CustomString1& operator=(CustomString1 &&other)
+    {
+        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (bytes ? bytes : "") << endl;
+        
+        swap(bytes, other.bytes);
+        return *this;
+    }
+    */
+    
+    ~CustomString1()
+    {
+        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (bytes ? bytes : "") << endl;
+        
+        if (bytes)
+        {
+            free(bytes);
+        }
+    }
+    
+    operator const char* () const { return bytes; }
+    
+protected:
+    char *bytes = nullptr;
+    
+//  CustomString1(const CustomString1 &other) = delete;
+//  void operator=(const CustomString1 &other) = delete;
+};
 
 //
 
 /*
- * TODO: TRY TO ACHIEVE THE FOLLOWING WITH std::string
+ * RVO WILL TAKE PLACE
  */
-
-void TestingMisc::testCustomString1()
+static inline CustomString1 createWithRVO1()
 {
-    if (true)
+    return CustomString1("bar");
+}
+
+/*
+ * RVO WILL TAKE PLACE
+ */
+static CustomString1 createWithRVO2()
+{
+    CustomString1 s("baz");
+    return s;
+}
+
+/*
+ * A TEMPORARY CustomString1 IS CONSTRUCTED, BUT THANKS TO THE IMPLEMENTED MOVE-CONSTRUCTOR: INNER BYTES ARE NOT CLONED
+ *
+ * REMARKS:
+ * - PROBABLY NOT FEASIBLE WITHOUT MOVE-CONSTRUCTION?
+ * - WILL LIKELY WORK WITH CLASSES LIKE std::string
+ */
+inline CustomString1&& observeWhilePreservingRVO(CustomString1 &&s)
+{
+    LOGI << __PRETTY_FUNCTION__ << endl;
+    return move(s);
+}
+
+void TestingMisc::testRVOAndCopyElision()
+{
     {
+        /*
+         * THANKS TO COPY-ELISION: NO NEED TO USE CustomString1 s1("foo") IN ORDER TO AVOID TEMPORARIES
+         */
         CustomString1 s1 = "foo";
     }
     LOGI << endl;
     
-    if (true)
-    {
-        CustomString1 s2 = createCustomStringA(); // NO TEMPORARIES!
-    }
-    LOGI << endl;
-    
-    if (true)
-    {
-        CustomString1 s3 = createCustomStringB(); // NO TEMPORARIES!
-    }
-    LOGI << endl;
-    
-    if (true)
-    {
-        CustomString1 s4 = "FOO";
-        CustomString1 s5 = s4; // STRAIGHTFORWARD COPY-CONSTRUCTION
-    }
-    LOGI << endl;
-    
-    if (true)
     {
         /*
-         * WORKS (ALMOST) AS INTENDED:
-         *
-         * - BYTES ARE NOT COPIED, ONLY TRANSFERRED (THANKS TO MOVE CONSTRUCTOR)
-         * - COULD IT BE POSSIBLE TO ACHIEVE WITHOUT EVEN MOVE-CONSTRUCTION TO TAKE PLACE?
+         * NO TEMPORARIES, THANKS TO RVO AND COPY ELISION
          */
-        CustomString1 s6 = observeCustomString1(createCustomStringA());
+        CustomString1 s2 = createWithRVO1(); // NO MATTER IF METHOD IS inline OR NOT
     }
-}
-
-CustomString1 TestingMisc::createCustomStringB()
-{
-    CustomString1 s("baz");
-    return s;
+    LOGI << endl;
+    
+    {
+        CustomString1 s3 = createWithRVO2(); // NO MATTER IF METHOD IS inline OR NOT
+    }
+    LOGI << endl;
+    
+    {
+        CustomString1 s4 = "FOO";
+        CustomString1 s5 = s4; // NO TEMPORARIES, THANKS TO COPY ELISION
+    }
+    LOGI << endl;
+    
+    {
+        /*
+         * RVO + MOVE-CONSTRUCTION + COPY ELISION
+         */
+        CustomString1 s5 = observeWhilePreservingRVO(createWithRVO2());
+    }
 }
