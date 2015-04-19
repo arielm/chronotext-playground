@@ -23,6 +23,7 @@ public:
     void testInputSourceRobustness();
     void testTimeFormat();
     void testDurationFormat();
+    void testReadTextFile();
     
     void testStringToIntToString();
     void testFileSystem();

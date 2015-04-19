@@ -23,14 +23,15 @@ void TestingMisc::run(bool force)
         if (force || true) testSharedPtrCasting();
     }
 
-    if (force || false)
+    if (force || true)
     {
-        if (force || true) testFileCapture();
-        if (force || true) testNewLogging();
-        if (force || true) testNewException();
-        if (force || true) testInputSourceRobustness();
-        if (force || true) testTimeFormat();
-        if (force || true) testDurationFormat();
+        if (force || false) testFileCapture();
+        if (force || false) testNewLogging();
+        if (force || false) testNewException();
+        if (force || false) testInputSourceRobustness();
+        if (force || false) testTimeFormat();
+        if (force || false) testDurationFormat();
+        if (force || true) testReadTextFile();
     }
     
     if (force || false)
@@ -39,7 +40,7 @@ void TestingMisc::run(bool force)
         if (force || true) testFileSystem();
     }
     
-    if (force || true)
+    if (force || false)
     {
         if (force || true) testRVOAndCopyElision();
     }
@@ -162,13 +163,23 @@ void TestingMisc::testInputSourceRobustness()
     /*
      * INSTEAD: IT "ONLY" THROWS
      */
-    if (true)
+    
+    try
     {
         nonInitialized->loadDataSource();
     }
-    else
+    catch (chr::Exception<InputSource> &e)
+    {
+        LOGI << e << endl;
+    }
+    
+    try
     {
         nonInitialized->getSubSource("foo");
+    }
+    catch (chr::Exception<InputSource> &e)
+    {
+        LOGI << e << endl;
     }
 }
 
@@ -189,6 +200,27 @@ void TestingMisc::testDurationFormat()
     LOGI << utils::format::duration(0.0000000123456) << endl;
     LOGI << utils::format::duration(0.000000000123456) << endl;
     LOGI << utils::format::duration(60) << endl;
+}
+
+// ---
+
+/*
+ * TODO: TEST ON iOS AND ANDROID
+ */
+void TestingMisc::testReadTextFile()
+{
+    auto source = InputSource::getAsset("unicode.xml");
+    
+    if (!source->isFile())
+    {
+        /*
+         * TODO: FIRST CREATE A FILE FROM THE ASSET (RELEVANT FOR PLATFORMS LIKE ANDROID)
+         */
+        return;
+    }
+    
+    string text = utils::readTextFile(source->getFilePath());
+    assert(std::hash<string>()(text) == 7638217582490704265);
 }
 
 // ---
