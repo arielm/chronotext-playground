@@ -24,6 +24,7 @@ public:
     void testTimeFormat();
     void testDurationFormat();
     void testReadTextFile();
+    void testReadXmlFile();
     
     void testStringToIntToString();
     void testFileSystem();

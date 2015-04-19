@@ -10,7 +10,7 @@
  * PLAYGROUND IN SYNC WITH:
  *
  * 1) new-chronotext-toolkit:
- *    https://github.com/arielm/new-chronotext-toolkit/tree/v4.0.0
+ *    https://github.com/arielm/new-chronotext-toolkit/tree/develop
  *
  * 2) hb-icu BLOCK:
  *    https://github.com/arielm/hb-icu/tree/toolkit-4.0.0

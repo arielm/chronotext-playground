@@ -23,15 +23,16 @@ void TestingMisc::run(bool force)
         if (force || true) testSharedPtrCasting();
     }
 
-    if (force || false)
+    if (force || true)
     {
-        if (force || true) testFileCapture();
-        if (force || true) testNewLogging();
-        if (force || true) testNewException();
-        if (force || true) testInputSourceRobustness();
-        if (force || true) testTimeFormat();
-        if (force || true) testDurationFormat();
-        if (force || true) testReadTextFile();
+        if (force || false) testFileCapture();
+        if (force || false) testNewLogging();
+        if (force || false) testNewException();
+        if (force || false) testInputSourceRobustness();
+        if (force || false) testTimeFormat();
+        if (force || false) testDurationFormat();
+        if (force || false) testReadTextFile();
+        if (force || true) testReadXmlFile();
     }
     
     if (force || false)
@@ -40,7 +41,7 @@ void TestingMisc::run(bool force)
         if (force || true) testFileSystem();
     }
     
-    if (force || true)
+    if (force || false)
     {
         if (force || true) testRVOAndCopyElision();
     }
@@ -205,23 +206,41 @@ void TestingMisc::testDurationFormat()
 // ---
 
 /*
- * TODO: TEST ON iOS AND ANDROID
+ * TODO:
+ *
+ * 1) TEST ON iOS
+ * 2) TEST ON ANDROID (PRE-REQUISITE: CREATING FIRST A "TRUE" FILE FROM THE ASSET)
  */
+
 void TestingMisc::testReadTextFile()
 {
     auto source = InputSource::getAsset("unicode.xml");
     
-    if (!source->isFile())
+    if (source->isFile())
     {
-        /*
-         * TODO: FIRST CREATE A FILE FROM THE ASSET (RELEVANT FOR PLATFORMS LIKE ANDROID)
-         */
-        return;
+        string text = utils::readTextFile(source->getFilePath());
+        assert(std::hash<string>()(text) == 7638217582490704265);
     }
-    
-    string text = utils::readTextFile(source->getFilePath());
-    assert(std::hash<string>()(text) == 7638217582490704265);
 }
+
+void TestingMisc::testReadXmlFile()
+{
+    auto source = InputSource::getAsset("unicode.xml");
+    
+    if (source->isFile())
+    {
+        XmlTree xml = utils::readXmlFile(source->getFilePath());
+        
+        stringstream ss;
+        ss << xml;
+        
+        assert(std::hash<string>()(ss.str()) == 9170973041083656176);
+    }
+}
+
+/*
+ * TODO: TEST utils::writeTextFile() AND utils::writeXmlFile()
+ */
 
 // ---
 
