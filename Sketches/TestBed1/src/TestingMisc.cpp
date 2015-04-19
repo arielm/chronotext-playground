@@ -31,8 +31,11 @@ void TestingMisc::run(bool force)
         if (force || false) testInputSourceRobustness();
         if (force || false) testTimeFormat();
         if (force || false) testDurationFormat();
+        
         if (force || false) testReadTextFile();
-        if (force || true) testReadXmlFile();
+        if (force || false) testReadXmlFile();
+        if (force || true) testReadWStringToString();
+        if (force || true) testReadStringToWString();
     }
     
     if (force || false)
@@ -209,7 +212,7 @@ void TestingMisc::testDurationFormat()
  * TODO:
  *
  * 1) TEST ON iOS
- * 2) TEST ON ANDROID (PRE-REQUISITE: CREATING FIRST A "TRUE" FILE FROM THE ASSET)
+ * 2) TEST ON ANDROID (PRE-REQUISITE FOR THE FOLLOWING 2: CREATING A "TRUE" FILE FROM THE ASSET)
  */
 
 void TestingMisc::testReadTextFile()
@@ -236,6 +239,28 @@ void TestingMisc::testReadXmlFile()
         
         assert(std::hash<string>()(ss.str()) == 9170973041083656176);
     }
+}
+
+//
+
+void TestingMisc::testReadWStringToString()
+{
+    auto source = InputSource::getAsset("unicode.xml");
+    
+    wstring textWide = utils::readText<wstring>(source);
+    string text = utils::to<string>(textWide);
+    
+    assert(std::hash<string>()(text) == 7638217582490704265);
+}
+
+void TestingMisc::testReadStringToWString()
+{
+    auto source = InputSource::getAsset("unicode.xml");
+    
+    string text = utils::readText<string>(source);
+    wstring textWide = utils::to<wstring>(text);
+    
+    assert(std::hash<wstring>()(textWide) == 3596332425422078171);
 }
 
 /*
