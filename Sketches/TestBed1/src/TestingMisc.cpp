@@ -23,14 +23,14 @@ void TestingMisc::run(bool force)
         if (force || true) testSharedPtrCasting();
     }
 
-    if (force || true)
+    if (force || false)
     {
-        if (force || false) testFileCapture();
-        if (force || false) testNewLogging();
-        if (force || false) testNewException();
-        if (force || false) testInputSourceRobustness();
-        if (force || false) testTimeFormat();
-        if (force || false) testDurationFormat();
+        if (force || true) testFileCapture();
+        if (force || true) testNewLogging();
+        if (force || true) testNewException();
+        if (force || true) testInputSourceRobustness();
+        if (force || true) testTimeFormat();
+        if (force || true) testDurationFormat();
         if (force || true) testReadTextFile();
     }
     
@@ -40,7 +40,7 @@ void TestingMisc::run(bool force)
         if (force || true) testFileSystem();
     }
     
-    if (force || false)
+    if (force || true)
     {
         if (force || true) testRVOAndCopyElision();
     }
@@ -416,15 +416,15 @@ protected:
 //
 
 /*
- * RVO WILL TAKE PLACE
+ * RVO WILL TAKE PLACE (NO MATTER IF METHOD IS inline OR NOT)
  */
-static inline CustomString1 createWithRVO1()
+static CustomString1 createWithRVO1()
 {
-    return CustomString1("bar");
+    return CustomString1("bar"); // NO MATTER IF RETURNED VALUE IS "NOT NAMED"
 }
 
 /*
- * RVO WILL TAKE PLACE
+ * RVO WILL TAKE PLACE (NO MATTER IF METHOD IS inline OR NOT)
  */
 static CustomString1 createWithRVO2()
 {
@@ -459,12 +459,12 @@ void TestingMisc::testRVOAndCopyElision()
         /*
          * NO TEMPORARIES, THANKS TO RVO AND COPY ELISION
          */
-        CustomString1 s2 = createWithRVO1(); // NO MATTER IF METHOD IS inline OR NOT
+        CustomString1 s2 = createWithRVO1();
     }
     LOGI << endl;
     
     {
-        CustomString1 s3 = createWithRVO2(); // NO MATTER IF METHOD IS inline OR NOT
+        CustomString1 s3 = createWithRVO2();
     }
     LOGI << endl;
     
