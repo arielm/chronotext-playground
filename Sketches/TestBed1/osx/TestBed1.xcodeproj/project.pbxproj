@@ -231,6 +231,7 @@
 		A881B27E1A35206A00AB18C0 /* TextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlas.h; sourceTree = "<group>"; };
 		A881B27F1A35206A00AB18C0 /* TextureAtlasAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureAtlasAnimation.cpp; sourceTree = "<group>"; };
 		A881B2801A35206A00AB18C0 /* TextureAtlasAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlasAnimation.h; sourceTree = "<group>"; };
+		A89F40C41AF2D8D50052917E /* ObservableString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObservableString.h; path = ../src/ObservableString.h; sourceTree = "<group>"; };
 		A8A2B3A31A5AB6F7002B5ABD /* MemoryManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryManagerBase.cpp; sourceTree = "<group>"; };
 		A8A2B3B21A5AD953002B5ABD /* FileHelperBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelperBase.cpp; sourceTree = "<group>"; };
 		A8A2B3B31A5AD953002B5ABD /* FileHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelperBase.h; sourceTree = "<group>"; };
@@ -648,6 +649,7 @@
 				A8D7C0981A75A71F00002385 /* TestingZFont.cpp */,
 				A8D946FF1A8782A8007FB546 /* TestingIOService.h */,
 				A8D947001A8782A8007FB546 /* TestingIOService.cpp */,
+				A89F40C41AF2D8D50052917E /* ObservableString.h */,
 			);
 			name = Testing;
 			sourceTree = "<group>";

@@ -30,11 +30,15 @@ void TestingZFont::run(bool force)
 {
     if (force || true)
     {
-        if (force || true) test1();
+        if (force || false) testLayoutAdvance();
+        
+        if (force || true) testStringCache1();
     }
 }
 
-void TestingZFont::test1()
+// ---
+
+void TestingZFont::testLayoutAdvance()
 {
     FontManager fontManager;
 
@@ -43,3 +47,28 @@ void TestingZFont::test1()
     
     LOGI << "LINE-LAYOUT ADVANCE: " << lineLayout->advance << endl;
 }
+
+// ---
+
+void TestingZFont::testStringCache1()
+{
+    LOGI << getValue("foo", 123, false) << endl;
+}
+
+string TestingZFont::getValue(const ObservableString &key1, int key2, bool key3)
+{
+    auto it = cache.left.find(tie(key3, key2, key1));
+    
+    if (it != cache.left.end())
+    {
+        return it->second;
+    }
+    else
+    {
+        string value = string(key1) + "|" + toString(key2) + "|" + toString(key3);
+        cache.insert(typename container_type::value_type(tie(key3, key2, key1), value));
+        
+        return value;
+    }
+}
+
