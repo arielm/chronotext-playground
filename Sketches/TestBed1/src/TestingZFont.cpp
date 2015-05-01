@@ -33,7 +33,8 @@ void TestingZFont::run(bool force)
         if (force || false) testLayoutAdvance();
         
         if (force || false) testCache1();
-        if (force || true) testMap1();
+        if (force || false) testMap1();
+        if (force || true) testMap2();
     }
 }
 
@@ -66,8 +67,8 @@ string TestingZFont::getCacheValue1(const ObservableString &key1, int key2, bool
         return it->second;
     }
     
-    string value = string(key1) + "|" + toString(key2) + "|" + toString(key3);
-    cache1.insert(typename container_type::value_type(tie(key3, key2, key1), value));
+    auto value = createValue(key2, key3);
+    cache1.insert(typename container_type::value_type(forward_as_tuple(key3, key2, key1), value));
     
     return value;
 }
@@ -82,18 +83,39 @@ void TestingZFont::testMap1()
 
 string TestingZFont::getMapValue1(const ObservableString &key1, int key2, bool key3)
 {
-    auto found = map1.find(forward_as_tuple(key3, key2, key1)); // NO WAY TO AVOID EXTRA COPY!?
+    auto found = map1.find(forward_as_tuple(key3, key2, key1)); // A Key MUST BE CREATED AND THEREFORE key1 WILL BE COPIED
     
     if (found != map1.end())
     {
         return found->second;
     }
     
-    string value = string(key1) + "|" + toString(key2) + "|" + toString(key3);
+    auto value = createValue(key2, key3);
+    map1.emplace(forward_as_tuple(key3, key2, key1), value);
     
-    map1.emplace(std::piecewise_construct,
-                 forward_as_tuple(key3, key2, key1),
-                 forward_as_tuple(value));
+    return value;
+}
+
+// ---
+
+void TestingZFont::testMap2()
+{
+    LOGI << getMapValue2(observable1, 123, false) << endl << endl; // 1 COPY (INSERTION INTO MAP)
+    LOGI << getMapValue2(observable1, 123, false) << endl << endl; // 0 COPIES
+}
+
+string TestingZFont::getMapValue2(const ObservableString &key1, int key2, bool key3)
+{
+    auto found = map2.find(key1);
+    
+    if (found != map2.end())
+    {
+        return found->second;
+    }
+    
+    
+    auto value = createValue(key2, key3);
+    map2.emplace(key1, value);
     
     return value;
 }

@@ -32,6 +32,16 @@ public:
     
     typedef std::tuple<bool, int, ObservableString> Key;
     
+    static std::string createValue(int key2, bool key3)
+    {
+        return ci::toString(key2) + "|" + ci::toString(key3);
+    }
+
+    static bool compateValues(const std::string &value, int key2, bool key3)
+    {
+        return (value == ci::toString(key2) + "|" + ci::toString(key3));
+    }
+
     //
     
     typedef boost::bimaps::bimap<
@@ -46,8 +56,15 @@ public:
     
     //
     
-    std::map<const Key, std::string> map1;
+    std::map<Key, std::string> map1;
     
     void testMap1();
     std::string getMapValue1(const ObservableString &key1, int key2, bool key3);
+    
+    //
+
+    std::map<ObservableString, std::string> map2;
+    
+    void testMap2();
+    std::string getMapValue2(const ObservableString &key1, int key2, bool key3);
 };

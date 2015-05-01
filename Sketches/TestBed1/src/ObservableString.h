@@ -15,16 +15,14 @@ class ObservableString
 public:
     ObservableString(const std::string &s)
     {
-        data = (char*)malloc(s.size());
-        memcpy(data, s.data(), s.size());
+        data = strdup(s.data());
         
         LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
     }
     
     ObservableString(const char *c)
     {
-        data = (char*)malloc(strlen(c));
-        memcpy(data, c, strlen(c));
+        data = strdup(c);
         
         LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
     }
@@ -33,8 +31,7 @@ public:
     {
         if (other.data)
         {
-            data = (char*)malloc(strlen(other.data));
-            memcpy(data, other.data, strlen(other.data));
+            data = strdup(other.data);
         }
         
         LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
@@ -44,15 +41,11 @@ public:
     {
         if (this != &other)
         {
-            if (data)
-            {
-                free(data);
-            }
+            free(data);
             
             if (other.data)
             {
-                data = (char*)malloc(strlen(other.data));
-                memcpy(data, other.data, strlen(other.data));
+                data = strdup(other.data);
             }
         }
         
@@ -89,10 +82,20 @@ public:
     {
         return data;
     }
-    
-    bool operator<(const ObservableString &rhs) const
+
+    bool operator< (const ObservableString &rhs) const
     {
-        return std::string(data) < std::string(rhs); // NOT EFFECTIVE, BUT NECESSARY FOR PROPER INCLUSION IN std::map, std::set, ETC.
+        return strcmp(data, rhs.data) < 0;
+    }
+
+    bool operator< (const char *rhs) const
+    {
+        return strcmp(data, rhs) < 0;
+    }
+    
+    friend bool operator< (const char *lhs, const ObservableString &rhs)
+    {
+        return strcmp(lhs, rhs.data) < 0;
     }
     
 protected:
