@@ -32,9 +32,9 @@ void TestingZFont::run(bool force)
     {
         if (force || false) testLayoutAdvance();
         
-        if (force || true) testCache1();
+        if (force || false) testCache1();
         if (force || true) testMap1();
-        if (force || true) testMap2();
+        if (force || false) testMap2();
     }
 }
 
@@ -98,15 +98,15 @@ string TestingZFont::getCacheValue1(const ObservableString &key1, int key2, bool
 void TestingZFont::testMap1()
 {
     LOGI << getMapValue1(observable1, 123, false) << endl << endl; // 1 TEMPORARY + 1 COPY (INSERTION INTO MAP)
-    LOGI << getMapValue2(observable1, 456, true) << endl << endl << endl; // 1 COPY (INSERTION INTO MAP)
+    LOGI << getMapValue1(observable1, 456, true) << endl << endl << endl; // 1 COPY (INSERTION INTO MAP)
     
     LOGI << getMapValue1(observable1, 123, false) << endl << endl; // 1 TEMPORARY
-    LOGI << getMapValue2(observable1, 456, true) << endl << endl << endl; // NO TEMPORARIES!
+    LOGI << getMapValue1(observable1, 456, true) << endl << endl << endl; // 1 TEMPORARY
 }
 
 string TestingZFont::getMapValue1(const ObservableString &key1, int key2, bool key3)
 {
-    auto found = map1.find(forward_as_tuple(key3, key2, key1)); // 1 TEMPORARY (NOT ALWAYS, SOMEHOW?)
+    auto found = map1.find(forward_as_tuple(key3, key2, key1)); // 1 TEMPORARY
     
     if (found != map1.end())
     {
@@ -160,3 +160,14 @@ string TestingZFont::getMapValue2(const ObservableString &key1, int key2, bool k
     
     return value;
 }
+
+// ---
+
+/*
+ * TODO:
+ *
+ * 1) TEST WITH std::unordered_map
+ *
+ * 2) TEST WITH dense_hash_map
+ *    https://google-sparsehash.googlecode.com/svn/trunk/doc/dense_hash_map.html
+ */
