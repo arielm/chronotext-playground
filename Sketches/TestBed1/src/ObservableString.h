@@ -88,14 +88,9 @@ public:
         return strcmp(data, rhs.data) < 0;
     }
     
-    bool operator< (const char *rhs) const
+    bool operator== (const ObservableString &rhs) const
     {
-        return strcmp(data, rhs) < 0;
-    }
-    
-    friend bool operator< (const char *lhs, const ObservableString &rhs)
-    {
-        return strcmp(lhs, rhs.data) < 0;
+        return (data == rhs.data) || (strcmp(data, rhs.data) == 0);
     }
     
 protected:

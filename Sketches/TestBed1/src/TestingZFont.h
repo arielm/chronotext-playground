@@ -15,6 +15,34 @@
 #include <boost/bimap/list_of.hpp>
 #include <boost/bimap/set_of.hpp>
 
+#include <boost/functional/hash.hpp>
+
+#include <unordered_map>
+#include <functional>
+
+typedef std::tuple<bool, int, ObservableString> Key;
+
+struct KeyHasher
+{
+    std::size_t operator()(const Key& k) const
+    {
+        using boost::hash_value;
+        using boost::hash_combine;
+        
+        using std::hash;
+        using std::string;
+        using std::get;
+        
+        std::size_t seed = 0;
+        
+        hash_combine(seed, hash<string>()(string(get<2>(k)))); // NOT EFFECTIVE BUT FINE FOR THE PURPOSE OF TESTING
+        hash_combine(seed, hash_value(get<1>(k)));
+        hash_combine(seed, hash_value(get<0>(k)));
+        
+        return seed;
+    }
+};
+
 class TestingZFont : public TestingBase
 {
 public:
@@ -29,8 +57,6 @@ public:
     // ---
     
     ObservableString observable1 = "foo";
-    
-    typedef std::tuple<bool, int, ObservableString> Key;
     
     static std::string createValue(int key2, bool key3)
     {
@@ -67,4 +93,11 @@ public:
     
     void testMap2();
     std::string getMapValue2(const ObservableString &key1, int key2, bool key3);
+    
+    //
+    
+    std::unordered_map<Key, std::string, KeyHasher> map3;
+    
+    void testMap3();
+    std::string getMapValue3(const ObservableString &key1, int key2, bool key3);
 };

@@ -33,8 +33,9 @@ void TestingZFont::run(bool force)
         if (force || false) testLayoutAdvance();
         
         if (force || false) testCache1();
-        if (force || true) testMap1();
+        if (force || false) testMap1();
         if (force || false) testMap2();
+        if (force || true) testMap3();
     }
 }
 
@@ -93,6 +94,8 @@ string TestingZFont::getCacheValue1(const ObservableString &key1, int key2, bool
 
 /*
  * std::map WITH TUPLE KEY (INCLUDING STRING)
+ *
+ * SIMILAR TO std::unordered_map IN TERM OF COPIES AND TEMPORARIES
  */
 
 void TestingZFont::testMap1()
@@ -166,8 +169,38 @@ string TestingZFont::getMapValue2(const ObservableString &key1, int key2, bool k
 /*
  * TODO:
  *
- * 1) TEST WITH std::unordered_map
+ * 1) TEST WITH unordered_multimap
  *
- * 2) TEST WITH dense_hash_map
+ * 2) CONSIDER TESTING dense_hash_map
  *    https://google-sparsehash.googlecode.com/svn/trunk/doc/dense_hash_map.html
  */
+
+/*
+ * std::unordered_map WITH TUPLE KEY (INCLUDING STRING)
+ *
+ * SIMILAR TO std::map IN TERM OF COPIES AND TEMPORARIES
+ */
+
+void TestingZFont::testMap3()
+{
+    LOGI << getMapValue3(observable1, 123, false) << endl << endl; // 1 TEMPORARY + 1 COPY (INSERTION INTO MAP)
+    LOGI << getMapValue3(observable1, 456, true) << endl << endl << endl; // 1 COPY (INSERTION INTO MAP)
+    
+    LOGI << getMapValue3(observable1, 123, false) << endl << endl; // 1 TEMPORARY
+    LOGI << getMapValue3(observable1, 456, true) << endl << endl << endl; // 1 TEMPORARY
+}
+
+string TestingZFont::getMapValue3(const ObservableString &key1, int key2, bool key3)
+{
+    auto found = map3.find(forward_as_tuple(key3, key2, key1)); // 1 TEMPORARY
+    
+    if (found != map3.end())
+    {
+        return found->second;
+    }
+    
+    auto value = createValue(key2, key3);
+    map3.emplace(forward_as_tuple(key3, key2, key1), value); // 1 COPY
+    
+    return value;
+}
