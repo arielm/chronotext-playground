@@ -37,7 +37,7 @@ public:
         return ci::toString(key2) + "|" + ci::toString(key3);
     }
 
-    static bool compateValues(const std::string &value, int key2, bool key3)
+    static bool compareValues(const std::string &value, int key2, bool key3)
     {
         return (value == ci::toString(key2) + "|" + ci::toString(key3));
     }
@@ -63,7 +63,7 @@ public:
     
     //
 
-    std::map<ObservableString, std::string> map2;
+    std::multimap<ObservableString, std::string> map2;
     
     void testMap2();
     std::string getMapValue2(const ObservableString &key1, int key2, bool key3);

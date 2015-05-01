@@ -29,10 +29,7 @@ public:
     
     ObservableString(const ObservableString &other)
     {
-        if (other.data)
-        {
-            data = strdup(other.data);
-        }
+        data = strdup(other.data);
         
         LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
     }
@@ -42,11 +39,7 @@ public:
         if (this != &other)
         {
             free(data);
-            
-            if (other.data)
-            {
-                data = strdup(other.data);
-            }
+            data = strdup(other.data);
         }
         
         LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
@@ -54,20 +47,27 @@ public:
         return *this;
     }
     
+    /*
+     * TODO: TEST
+     */
     ObservableString(ObservableString &&other)
     :
-    data(other.data)
+    data(nullptr)
     {
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
+        std::swap(data, other.data);
         
-        other.data = nullptr;
+        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
     }
     
+    /*
+     * TODO: TEST
+     */
     ObservableString& operator=(ObservableString &&other)
     {
+        std::swap(data, other.data);
+        
         LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
         
-        std::swap(data, other.data);
         return *this;
     }
     
@@ -82,12 +82,12 @@ public:
     {
         return data;
     }
-
+    
     bool operator< (const ObservableString &rhs) const
     {
         return strcmp(data, rhs.data) < 0;
     }
-
+    
     bool operator< (const char *rhs) const
     {
         return strcmp(data, rhs) < 0;

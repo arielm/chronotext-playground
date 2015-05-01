@@ -32,8 +32,8 @@ void TestingZFont::run(bool force)
     {
         if (force || false) testLayoutAdvance();
         
-        if (force || false) testCache1();
-        if (force || false) testMap1();
+        if (force || true) testCache1();
+        if (force || true) testMap1();
         if (force || true) testMap2();
     }
 }
@@ -52,15 +52,31 @@ void TestingZFont::testLayoutAdvance()
 
 // ---
 
+/*
+ * boost::bimaps WITH TUPLE KEY (INCLUDING STRING) USED IN set AND list
+ *
+ * PROS:
+ * - BI-DIRECTIONALITY (COMMON-KEY SHARED BY set AND list)
+ * - COMMON-KEY IS ONLY STORED ONCE
+ *
+ * CONS:
+ * - LOTS OF TEMPORARIES
+ *   - UPON INSERTION
+ *   - UPON ACCESS
+ */
+
 void TestingZFont::testCache1()
 {
-    LOGI << getCacheValue1(observable1, 123, false) << endl << endl; // 5 COPIES (INCLUDING INSERTION INTO MAP)
-    LOGI << getCacheValue1(observable1, 123, false) << endl << endl; // 2 COPIES
+    LOGI << endl;
+    
+    LOGI << getCacheValue1(observable1, 123, false) << endl << endl; // 4 TEMPORARIES + 1 COPY (INSERTION INTO MAP)
+    
+    LOGI << getCacheValue1(observable1, 123, false) << endl << endl; // 2 TEMPORARIES
 }
 
 string TestingZFont::getCacheValue1(const ObservableString &key1, int key2, bool key3)
 {
-    auto it = cache1.left.find(tie(key3, key2, key1));
+    auto it = cache1.left.find(forward_as_tuple(key3, key2, key1));
     
     if (it != cache1.left.end())
     {
@@ -75,15 +91,22 @@ string TestingZFont::getCacheValue1(const ObservableString &key1, int key2, bool
 
 // ---
 
+/*
+ * std::map WITH TUPLE KEY (INCLUDING STRING)
+ */
+
 void TestingZFont::testMap1()
 {
-    LOGI << getMapValue1(observable1, 123, false) << endl << endl; // 2 COPIES (INCLUDING INSERTION INTO MAP)
-    LOGI << getMapValue1(observable1, 123, false) << endl << endl; // 1 COPY
+    LOGI << getMapValue1(observable1, 123, false) << endl << endl; // 1 TEMPORARY + 1 COPY (INSERTION INTO MAP)
+    LOGI << getMapValue2(observable1, 456, true) << endl << endl << endl; // 1 COPY (INSERTION INTO MAP)
+    
+    LOGI << getMapValue1(observable1, 123, false) << endl << endl; // 1 TEMPORARY
+    LOGI << getMapValue2(observable1, 456, true) << endl << endl << endl; // NO TEMPORARIES!
 }
 
 string TestingZFont::getMapValue1(const ObservableString &key1, int key2, bool key3)
 {
-    auto found = map1.find(forward_as_tuple(key3, key2, key1)); // A Key MUST BE CREATED AND THEREFORE key1 WILL BE COPIED
+    auto found = map1.find(forward_as_tuple(key3, key2, key1)); // 1 TEMPORARY (NOT ALWAYS, SOMEHOW?)
     
     if (found != map1.end())
     {
@@ -91,31 +114,49 @@ string TestingZFont::getMapValue1(const ObservableString &key1, int key2, bool k
     }
     
     auto value = createValue(key2, key3);
-    map1.emplace(forward_as_tuple(key3, key2, key1), value);
+    map1.emplace(forward_as_tuple(key3, key2, key1), value); // 1 COPY
     
     return value;
 }
 
 // ---
 
+/*
+ * std::multimap WITH STRING KEY
+ *
+ * PROS:
+ * - NO TEMPORARIES
+ *   - NOT UPON INSERTION
+ *   - NOT UPON ACCESS
+ *
+ * CONS:
+ * - MULTI-KEY ARE NOT STORED ONLY ONCE
+ * - NECESSITY TO ITERATE OVER "EQUAL RANGE"
+ */
+
 void TestingZFont::testMap2()
 {
     LOGI << getMapValue2(observable1, 123, false) << endl << endl; // 1 COPY (INSERTION INTO MAP)
-    LOGI << getMapValue2(observable1, 123, false) << endl << endl; // 0 COPIES
+    LOGI << getMapValue2(observable1, 456, true) << endl << endl << endl; // 1 COPY (INSERTION INTO MAP)
+    
+    LOGI << getMapValue2(observable1, 123, false) << endl << endl;
+    LOGI << getMapValue2(observable1, 456, true) << endl << endl;
 }
 
 string TestingZFont::getMapValue2(const ObservableString &key1, int key2, bool key3)
 {
-    auto found = map2.find(key1);
+    const auto found = map2.equal_range(key1);
     
-    if (found != map2.end())
+    for (auto it = found.first; it != found.second; ++it)
     {
-        return found->second;
+        if (compareValues(it->second, key2, key3))
+        {
+            return it->second;
+        }
     }
     
-    
     auto value = createValue(key2, key3);
-    map2.emplace(key1, value);
+    map2.emplace(key1, value); // COPY
     
     return value;
 }
