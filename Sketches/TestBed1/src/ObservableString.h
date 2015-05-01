@@ -90,6 +90,11 @@ public:
         return data;
     }
     
+    bool operator<(const ObservableString &rhs) const
+    {
+        return std::string(data) < std::string(rhs); // NOT EFFECTIVE, BUT NECESSARY FOR PROPER INCLUSION IN std::map, std::set, ETC.
+    }
+    
 protected:
     char *data = nullptr;
 };

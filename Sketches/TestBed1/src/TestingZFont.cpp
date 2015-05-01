@@ -32,7 +32,8 @@ void TestingZFont::run(bool force)
     {
         if (force || false) testLayoutAdvance();
         
-        if (force || true) testStringCache1();
+        if (force || false) testCache1();
+        if (force || true) testMap1();
     }
 }
 
@@ -50,25 +51,49 @@ void TestingZFont::testLayoutAdvance()
 
 // ---
 
-void TestingZFont::testStringCache1()
+void TestingZFont::testCache1()
 {
-    LOGI << getValue("foo", 123, false) << endl;
+    LOGI << getCacheValue1(observable1, 123, false) << endl << endl; // 5 COPIES (INCLUDING INSERTION INTO MAP)
+    LOGI << getCacheValue1(observable1, 123, false) << endl << endl; // 2 COPIES
 }
 
-string TestingZFont::getValue(const ObservableString &key1, int key2, bool key3)
+string TestingZFont::getCacheValue1(const ObservableString &key1, int key2, bool key3)
 {
-    auto it = cache.left.find(tie(key3, key2, key1));
+    auto it = cache1.left.find(tie(key3, key2, key1));
     
-    if (it != cache.left.end())
+    if (it != cache1.left.end())
     {
         return it->second;
     }
-    else
-    {
-        string value = string(key1) + "|" + toString(key2) + "|" + toString(key3);
-        cache.insert(typename container_type::value_type(tie(key3, key2, key1), value));
-        
-        return value;
-    }
+    
+    string value = string(key1) + "|" + toString(key2) + "|" + toString(key3);
+    cache1.insert(typename container_type::value_type(tie(key3, key2, key1), value));
+    
+    return value;
 }
 
+// ---
+
+void TestingZFont::testMap1()
+{
+    LOGI << getMapValue1(observable1, 123, false) << endl << endl; // 2 COPIES (INCLUDING INSERTION INTO MAP)
+    LOGI << getMapValue1(observable1, 123, false) << endl << endl; // 1 COPY
+}
+
+string TestingZFont::getMapValue1(const ObservableString &key1, int key2, bool key3)
+{
+    auto found = map1.find(forward_as_tuple(key3, key2, key1)); // NO WAY TO AVOID EXTRA COPY!?
+    
+    if (found != map1.end())
+    {
+        return found->second;
+    }
+    
+    string value = string(key1) + "|" + toString(key2) + "|" + toString(key3);
+    
+    map1.emplace(std::piecewise_construct,
+                 forward_as_tuple(key3, key2, key1),
+                 forward_as_tuple(value));
+    
+    return value;
+}

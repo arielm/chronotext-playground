@@ -28,15 +28,26 @@ public:
     
     // ---
     
+    ObservableString observable1 = "foo";
+    
     typedef std::tuple<bool, int, ObservableString> Key;
+    
+    //
     
     typedef boost::bimaps::bimap<
     boost::bimaps::set_of<Key>,
     boost::bimaps::list_of<std::string>
     > container_type;
     
-    container_type cache;
+    container_type cache1;
     
-    void testStringCache1();
-    std::string getValue(const ObservableString &key1, int key2, bool key3);
+    void testCache1();
+    std::string getCacheValue1(const ObservableString &key1, int key2, bool key3);
+    
+    //
+    
+    std::map<const Key, std::string> map1;
+    
+    void testMap1();
+    std::string getMapValue1(const ObservableString &key1, int key2, bool key3);
 };
