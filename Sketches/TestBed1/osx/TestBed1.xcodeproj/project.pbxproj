@@ -31,7 +31,7 @@
 		A86902171A02E22300D2C9F3 /* FontSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901511A02E22300D2C9F3 /* FontSequence.cpp */; };
 		A86902181A02E22300D2C9F3 /* FontTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901531A02E22300D2C9F3 /* FontTexture.cpp */; };
 		A86902191A02E22300D2C9F3 /* LangHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901571A02E22300D2C9F3 /* LangHelper.cpp */; };
-		A869021A1A02E22300D2C9F3 /* LayoutCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901591A02E22300D2C9F3 /* LayoutCache.cpp */; };
+		A869021A1A02E22300D2C9F3 /* LayoutStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A86901591A02E22300D2C9F3 /* LayoutStore.cpp */; };
 		A869021B1A02E22400D2C9F3 /* LineLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869015B1A02E22300D2C9F3 /* LineLayout.cpp */; };
 		A869021C1A02E22400D2C9F3 /* scrptrun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869015D1A02E22300D2C9F3 /* scrptrun.cpp */; };
 		A869021D1A02E22400D2C9F3 /* TextItemizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A869015F1A02E22300D2C9F3 /* TextItemizer.cpp */; };
@@ -138,8 +138,8 @@
 		A86901561A02E22300D2C9F3 /* GlyphData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlyphData.h; sourceTree = "<group>"; };
 		A86901571A02E22300D2C9F3 /* LangHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LangHelper.cpp; sourceTree = "<group>"; };
 		A86901581A02E22300D2C9F3 /* LangHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangHelper.h; sourceTree = "<group>"; };
-		A86901591A02E22300D2C9F3 /* LayoutCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayoutCache.cpp; sourceTree = "<group>"; };
-		A869015A1A02E22300D2C9F3 /* LayoutCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutCache.h; sourceTree = "<group>"; };
+		A86901591A02E22300D2C9F3 /* LayoutStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayoutStore.cpp; sourceTree = "<group>"; };
+		A869015A1A02E22300D2C9F3 /* LayoutStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutStore.h; sourceTree = "<group>"; };
 		A869015B1A02E22300D2C9F3 /* LineLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineLayout.cpp; sourceTree = "<group>"; };
 		A869015C1A02E22300D2C9F3 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
 		A869015D1A02E22300D2C9F3 /* scrptrun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scrptrun.cpp; sourceTree = "<group>"; };
@@ -478,8 +478,8 @@
 				A86901561A02E22300D2C9F3 /* GlyphData.h */,
 				A86901571A02E22300D2C9F3 /* LangHelper.cpp */,
 				A86901581A02E22300D2C9F3 /* LangHelper.h */,
-				A86901591A02E22300D2C9F3 /* LayoutCache.cpp */,
-				A869015A1A02E22300D2C9F3 /* LayoutCache.h */,
+				A86901591A02E22300D2C9F3 /* LayoutStore.cpp */,
+				A869015A1A02E22300D2C9F3 /* LayoutStore.h */,
 				A869015B1A02E22300D2C9F3 /* LineLayout.cpp */,
 				A869015C1A02E22300D2C9F3 /* LineLayout.h */,
 				A869015D1A02E22300D2C9F3 /* scrptrun.cpp */,
@@ -879,7 +879,7 @@
 				A8702AAC1A5AFA8700EF9E9E /* DisplayHelperBase.cpp in Sources */,
 				A881B27A1A351E2200AB18C0 /* FontSequence.cpp in Sources */,
 				A86902401A02E22400D2C9F3 /* SplinePath.cpp in Sources */,
-				A869021A1A02E22300D2C9F3 /* LayoutCache.cpp in Sources */,
+				A869021A1A02E22300D2C9F3 /* LayoutStore.cpp in Sources */,
 				A869021D1A02E22400D2C9F3 /* TextItemizer.cpp in Sources */,
 				A86902491A02E22400D2C9F3 /* Texture.cpp in Sources */,
 				A86902351A02E22400D2C9F3 /* Handler.cpp in Sources */,

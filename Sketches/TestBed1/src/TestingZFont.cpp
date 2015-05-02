@@ -30,12 +30,12 @@ void TestingZFont::run(bool force)
 {
     if (force || true)
     {
-        if (force || false) testLayoutAdvance();
+        if (force || true) testLayoutAdvance();
         
         if (force || false) testCache1();
         if (force || false) testMap1();
         if (force || false) testMap2();
-        if (force || true) testMap3();
+        if (force || false) testMap3();
     }
 }
 
@@ -46,7 +46,7 @@ void TestingZFont::testLayoutAdvance()
     FontManager fontManager;
 
     auto font = fontManager.getFont(InputSource::getAsset("DroidSerif_Regular.xml"), ZFont::Properties2d(32).setCrisp());
-    auto lineLayout = font->getCachedLineLayout("Which way to the station?");
+    auto lineLayout = font->getLineLayout("Which way to the station?");
     
     LOGI << "LINE-LAYOUT ADVANCE: " << lineLayout->advance << endl;
 }
