@@ -73,7 +73,7 @@ public:
     
     ~ObservableString()
     {
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
+        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (data ? data : "") << std::endl;
         
         free(data);
     }

@@ -7,6 +7,7 @@
  */
 
 #include "TestingMisc.h"
+#include "ObservableString.h"
 
 #include "chronotext/Context.h"
 #include "chronotext/texture/TextureManager.h"
@@ -23,17 +24,17 @@ void TestingMisc::run(bool force)
         if (force || true) testSharedPtrCasting();
     }
 
-    if (force || true)
+    if (force || false)
     {
-        if (force || false) testFileCapture();
-        if (force || false) testNewLogging();
-        if (force || false) testNewException();
-        if (force || false) testInputSourceRobustness();
-        if (force || false) testTimeFormat();
-        if (force || false) testDurationFormat();
+        if (force || true) testFileCapture();
+        if (force || true) testNewLogging();
+        if (force || true) testNewException();
+        if (force || true) testInputSourceRobustness();
+        if (force || true) testTimeFormat();
+        if (force || true) testDurationFormat();
         
-        if (force || false) testReadTextFile();
-        if (force || false) testReadXmlFile();
+        if (force || true) testReadTextFile();
+        if (force || true) testReadXmlFile();
         if (force || true) testReadU16StringToString();
         if (force || true) testReadStringToU16String();
     }
@@ -44,7 +45,7 @@ void TestingMisc::run(bool force)
         if (force || true) testFileSystem();
     }
     
-    if (force || false)
+    if (force || true)
     {
         if (force || true) testRVOAndCopyElision();
     }
@@ -321,7 +322,7 @@ void TestingMisc::testReadStringToU16String()
 void TestingMisc::testStringToIntToString()
 {
     auto releaseString = "3.5.2b";
-    auto components = ci::split(releaseString, '.');
+    auto components = ci::split(releaseString, '.'); // TODO: IMPLEMENT OUR OWN split (I.E. NOT RELYING ON CINDER NOR BOOST)
 
 #if defined(CINDER_ANDROID)
     
@@ -329,7 +330,7 @@ void TestingMisc::testStringToIntToString()
     int minor = (components.size() > 1) ? std::atoi(components[1].data()) : 0;
     int patch = (components.size() > 2) ? std::atoi(components[2].data()) : 0;
     
-    LOGI << ci::toString(major) << "." << ci::toString(minor) << "." << ci::toString(patch) << endl;
+    LOGI << ci::toString(major) << "." << ci::toString(minor) << "." << ci::toString(patch) << endl; // TODO: IMPLEMENT OUR OWN toString (I.E. NOT RELYING ON CINDER NOR BOOST)
     
 #else
     
@@ -366,124 +367,31 @@ void TestingMisc::testFileSystem()
  * - http://en.cppreference.com/w/cpp/language/copy_elision
  */
 
-class CustomString1
-{
-public:
-    CustomString1(const string &s)
-    {
-        bytes = (char*)malloc(s.size());
-        memcpy(bytes, s.data(), s.size());
-        
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
-    }
-    
-    CustomString1(const char *c)
-    {
-        bytes = (char*)malloc(strlen(c));
-        memcpy(bytes, c, strlen(c));
-        
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
-    }
-    
-    CustomString1(const CustomString1 &other)
-    {
-        if (other.bytes)
-        {
-            bytes = (char*)malloc(strlen(other.bytes));
-            memcpy(bytes, other.bytes, strlen(other.bytes));
-        }
-        
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
-    }
-    
-    /*
-    CustomString1& operator=(const CustomString1 &other)
-    {
-        if (this != &other)
-        {
-            if (bytes)
-            {
-                free(bytes);
-            }
-            
-            if (other.bytes)
-            {
-                bytes = (char*)malloc(strlen(other.bytes));
-                memcpy(bytes, other.bytes, strlen(other.bytes));
-            }
-        }
-        
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << bytes << endl;
-        
-        return *this;
-    }
-    */
-    
-    CustomString1(CustomString1 &&other)
-    :
-    bytes(other.bytes)
-    {
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (bytes ? bytes : "") << endl;
-        
-        other.bytes = nullptr;
-    }
-
-    /*
-    CustomString1& operator=(CustomString1 &&other)
-    {
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (bytes ? bytes : "") << endl;
-        
-        swap(bytes, other.bytes);
-        return *this;
-    }
-    */
-    
-    ~CustomString1()
-    {
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (bytes ? bytes : "") << endl;
-        
-        if (bytes)
-        {
-            free(bytes);
-        }
-    }
-    
-    operator const char* () const { return bytes; }
-    
-protected:
-    char *bytes = nullptr;
-    
-//  CustomString1(const CustomString1 &other) = delete;
-//  void operator=(const CustomString1 &other) = delete;
-};
-
-//
-
 /*
  * RVO WILL TAKE PLACE (NO MATTER IF METHOD IS inline OR NOT)
  */
-static CustomString1 createWithRVO1()
+static ObservableString createWithRVO1()
 {
-    return CustomString1("bar"); // NO MATTER IF RETURNED VALUE IS "NOT NAMED"
+    return ObservableString("bar"); // NO MATTER IF RETURNED VALUE IS "NOT NAMED"
 }
 
 /*
  * RVO WILL TAKE PLACE (NO MATTER IF METHOD IS inline OR NOT)
  */
-static CustomString1 createWithRVO2()
+static ObservableString createWithRVO2()
 {
-    CustomString1 s("baz");
+    ObservableString s("baz");
     return s;
 }
 
 /*
- * A TEMPORARY CustomString1 IS CONSTRUCTED, BUT THANKS TO THE IMPLEMENTED MOVE-CONSTRUCTOR: INNER BYTES ARE NOT CLONED
+ * A TEMPORARY ObservableString IS CONSTRUCTED, BUT THANKS TO THE IMPLEMENTED MOVE-CONSTRUCTOR: INNER BYTES ARE NOT CLONED
  *
  * REMARKS:
  * - PROBABLY NOT FEASIBLE WITHOUT MOVE-CONSTRUCTION?
  * - WILL LIKELY WORK WITH CLASSES LIKE std::string
  */
-inline CustomString1&& observeWhilePreservingRVO(CustomString1 &&s)
+inline ObservableString&& observeWhilePreservingRVO(ObservableString &&s)
 {
     LOGI << __PRETTY_FUNCTION__ << endl;
     return move(s);
@@ -493,9 +401,9 @@ void TestingMisc::testRVOAndCopyElision()
 {
     {
         /*
-         * THANKS TO COPY-ELISION: NO NEED TO USE CustomString1 s1("foo") IN ORDER TO AVOID TEMPORARIES
+         * THANKS TO COPY-ELISION: NO NEED TO USE ObservableString s1("foo") IN ORDER TO AVOID TEMPORARIES
          */
-        CustomString1 s1 = "foo";
+        ObservableString s1 = "foo";
     }
     LOGI << endl;
     
@@ -503,18 +411,18 @@ void TestingMisc::testRVOAndCopyElision()
         /*
          * NO TEMPORARIES, THANKS TO RVO AND COPY ELISION
          */
-        CustomString1 s2 = createWithRVO1();
+        ObservableString s2 = createWithRVO1();
     }
     LOGI << endl;
     
     {
-        CustomString1 s3 = createWithRVO2();
+        ObservableString s3 = createWithRVO2();
     }
     LOGI << endl;
     
     {
-        CustomString1 s4 = "FOO";
-        CustomString1 s5 = s4; // NO TEMPORARIES, THANKS TO COPY ELISION
+        ObservableString s4 = "FOO";
+        ObservableString s5 = s4; // NO TEMPORARIES, THANKS TO COPY ELISION
     }
     LOGI << endl;
     
@@ -522,6 +430,28 @@ void TestingMisc::testRVOAndCopyElision()
         /*
          * RVO + MOVE-CONSTRUCTION + COPY ELISION
          */
-        CustomString1 s5 = observeWhilePreservingRVO(createWithRVO2());
+        ObservableString s5 = observeWhilePreservingRVO(createWithRVO2());
     }
 }
+
+/*
+ObservableString::ObservableString(const char *) 0x7fff5fbfc180 | foo
+ObservableString::~ObservableString() 0x7fff5fbfc180 | foo
+
+ObservableString::ObservableString(const char *) 0x7fff5fbfc050 | bar
+ObservableString::~ObservableString() 0x7fff5fbfc050 | bar
+
+ObservableString::ObservableString(const char *) 0x7fff5fbfbf30 | baz
+ObservableString::~ObservableString() 0x7fff5fbfbf30 | baz
+
+ObservableString::ObservableString(const char *) 0x7fff5fbfbe10 | FOO
+ObservableString::ObservableString(const ObservableString &) 0x7fff5fbfbe08 | FOO
+ObservableString::~ObservableString() 0x7fff5fbfbe08 | FOO
+ObservableString::~ObservableString() 0x7fff5fbfbe10 | FOO
+
+ObservableString::ObservableString(const char *) 0x7fff5fbfbce0 | baz
+ObservableString &&observeWhilePreservingRVO(ObservableString &&)
+ObservableString::ObservableString(ObservableString &&) 0x7fff5fbfbce8 | baz
+ObservableString::~ObservableString() 0x7fff5fbfbce0 |
+ObservableString::~ObservableString() 0x7fff5fbfbce8 | baz
+*/
