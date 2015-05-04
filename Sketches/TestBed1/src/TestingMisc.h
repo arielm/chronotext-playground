@@ -25,8 +25,8 @@ public:
     void testDurationFormat();
     void testReadTextFile();
     void testReadXmlFile();
-    void testReadWStringToString();
-    void testReadStringToWString();
+    void testReadU16StringToString();
+    void testReadStringToU16String();
     
     void testStringToIntToString();
     void testFileSystem();

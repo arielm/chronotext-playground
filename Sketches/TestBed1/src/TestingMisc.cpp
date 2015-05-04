@@ -34,8 +34,8 @@ void TestingMisc::run(bool force)
         
         if (force || false) testReadTextFile();
         if (force || false) testReadXmlFile();
-        if (force || true) testReadWStringToString();
-        if (force || true) testReadStringToWString();
+        if (force || true) testReadU16StringToString();
+        if (force || true) testReadStringToU16String();
     }
     
     if (force || false)
@@ -222,7 +222,7 @@ void TestingMisc::testReadTextFile()
     if (source->isFile())
     {
         string text = utils::readTextFile(source->getFilePath());
-        assert(std::hash<string>()(text) == 7638217582490704265);
+        assert(std::hash<string>()(text) == 7638217582490704265ULL);
     }
 }
 
@@ -237,30 +237,30 @@ void TestingMisc::testReadXmlFile()
         stringstream ss;
         ss << xml;
         
-        assert(std::hash<string>()(ss.str()) == 9170973041083656176);
+        assert(std::hash<string>()(ss.str()) == 9170973041083656176ULL);
     }
 }
 
 //
 
-void TestingMisc::testReadWStringToString()
+void TestingMisc::testReadU16StringToString()
 {
     auto source = InputSource::getAsset("unicode.xml");
     
-    wstring textWide = utils::readText<wstring>(source);
-    string text = utils::to<string>(textWide);
+    auto textU16 = utils::readText<u16string>(source);
+    auto text = utils::to<string>(textU16);
     
-    assert(std::hash<string>()(text) == 7638217582490704265);
+    assert(std::hash<string>()(text) == 7638217582490704265ULL);
 }
 
-void TestingMisc::testReadStringToWString()
+void TestingMisc::testReadStringToU16String()
 {
     auto source = InputSource::getAsset("unicode.xml");
     
-    string text = utils::readText<string>(source);
-    wstring textWide = utils::to<wstring>(text);
+    auto text = utils::readText<string>(source);
+    auto textU16 = utils::to<u16string>(text);
     
-    assert(std::hash<wstring>()(textWide) == 3596332425422078171);
+    assert(std::hash<u16string>()(textU16) == 14816650974461727307ULL);
 }
 
 /*
