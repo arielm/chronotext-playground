@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FontConfig>
+  <VirtualFonts>
+    <VirtualFont name="sans-serif" base-size="32">
+      <Ref os="osx" uri="assets://sans-serif.xml" />
+      <Ref os="ios" uri="assets://sans-serif.xml" />
+      <Ref os="android" uri="assets://sans-serif.xml" />
+    </VirtualFont>
+  </VirtualFonts>
+</FontConfig>

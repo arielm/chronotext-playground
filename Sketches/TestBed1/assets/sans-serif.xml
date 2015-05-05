@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VirtualFont>
+    <!-- Undefined -->
+    <Set>
+        <Ref uri="assets://DroidSans.ttf" />
+    </Set>
+    <!-- Arabic -->
+    <Set lang="ar">
+        <Ref uri="assets://DroidNaskh-Regular.ttf" />
+        <Ref uri="assets://DroidSans.ttf" />
+    </Set>
+    <!-- Hebrew -->
+    <Set lang="he">
+        <Ref uri="assets://DroidSansHebrew-Regular.ttf" />
+        <Ref uri="assets://DroidSans.ttf" />
+    </Set>
+</VirtualFont>

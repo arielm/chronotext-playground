@@ -91,6 +91,7 @@
 		A8FBA6661A72756300D6B4A3 /* CinderSketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6621A72756300D6B4A3 /* CinderSketch.cpp */; };
 		A8FBA66B1A72757800D6B4A3 /* CinderBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6681A72757800D6B4A3 /* CinderBridge.mm */; };
 		A8FBA66C1A72757800D6B4A3 /* CinderDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA66A1A72757800D6B4A3 /* CinderDelegate.mm */; };
+		A8FBD69E1AF84E7300AD3ADA /* TestingStringKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBD69C1AF84E7300AD3ADA /* TestingStringKey.cpp */; };
 		C725DFFE121DAC7F00FA186B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C727C02B121B400300192073 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8F00FA186B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C725E000121DAC8F00FA186B /* AVFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C725E001121DAC8FFFFA18FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00CFDF6A1138442D0091FFFF /* ImageIO.framework */; };
@@ -294,6 +295,9 @@
 		A8FBA6681A72757800D6B4A3 /* CinderBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CinderBridge.mm; sourceTree = "<group>"; };
 		A8FBA6691A72757800D6B4A3 /* CinderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderDelegate.h; sourceTree = "<group>"; };
 		A8FBA66A1A72757800D6B4A3 /* CinderDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CinderDelegate.mm; sourceTree = "<group>"; };
+		A8FBD6981AF84C0600AD3ADA /* ObservableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObservableString.h; path = ../src/ObservableString.h; sourceTree = "<group>"; };
+		A8FBD69C1AF84E7300AD3ADA /* TestingStringKey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingStringKey.cpp; path = ../src/TestingStringKey.cpp; sourceTree = "<group>"; };
+		A8FBD69D1AF84E7300AD3ADA /* TestingStringKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingStringKey.h; path = ../src/TestingStringKey.h; sourceTree = "<group>"; };
 		C725E000121DAC8F00FA186B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C727C02B121B400300192073 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C727C02D121B400300192073 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -758,6 +762,9 @@
 				A8D7C09B1A75AE3000002385 /* TestingZFont.cpp */,
 				A8D947031A87980C007FB546 /* TestingIOService.h */,
 				A8D947021A87980C007FB546 /* TestingIOService.cpp */,
+				A8FBD69D1AF84E7300AD3ADA /* TestingStringKey.h */,
+				A8FBD69C1AF84E7300AD3ADA /* TestingStringKey.cpp */,
+				A8FBD6981AF84C0600AD3ADA /* ObservableString.h */,
 			);
 			name = Testing;
 			sourceTree = "<group>";
@@ -899,6 +906,7 @@
 				A8EBAF6A1AB10C680001A7C9 /* TestingSketch.cpp in Sources */,
 				A8994D481726E51E00C8851E /* Application.mm in Sources */,
 				A8D947041A87980C007FB546 /* TestingIOService.cpp in Sources */,
+				A8FBD69E1AF84E7300AD3ADA /* TestingStringKey.cpp in Sources */,
 				A89F40D91AF448E50052917E /* LayoutStore.cpp in Sources */,
 				A8721A3F1A2BD7AE00AED9C8 /* TestingMisc.cpp in Sources */,
 				A84E430C1A2A1DFB00EE6AC1 /* TextItemizer.cpp in Sources */,

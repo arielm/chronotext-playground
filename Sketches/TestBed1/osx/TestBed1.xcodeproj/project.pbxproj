@@ -88,6 +88,7 @@
 		A8FBA6401A72737700D6B4A3 /* SystemManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA63C1A72737700D6B4A3 /* SystemManager.cpp */; };
 		A8FBA6551A72739200D6B4A3 /* CinderDelegateBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6501A72739200D6B4A3 /* CinderDelegateBase.cpp */; };
 		A8FBA6561A72739200D6B4A3 /* CinderSketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBA6521A72739200D6B4A3 /* CinderSketch.cpp */; };
+		A8FBD69B1AF84C4F00AD3ADA /* TestingStringKey.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8FBD6991AF84C4F00AD3ADA /* TestingStringKey.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -282,6 +283,8 @@
 		A8FBA6521A72739200D6B4A3 /* CinderSketch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CinderSketch.cpp; sourceTree = "<group>"; };
 		A8FBA6531A72739200D6B4A3 /* CinderSketch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderSketch.h; sourceTree = "<group>"; };
 		A8FBA6541A72739200D6B4A3 /* WindowInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowInfo.h; sourceTree = "<group>"; };
+		A8FBD6991AF84C4F00AD3ADA /* TestingStringKey.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingStringKey.cpp; path = ../src/TestingStringKey.cpp; sourceTree = "<group>"; };
+		A8FBD69A1AF84C4F00AD3ADA /* TestingStringKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingStringKey.h; path = ../src/TestingStringKey.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -649,6 +652,8 @@
 				A8D7C0981A75A71F00002385 /* TestingZFont.cpp */,
 				A8D946FF1A8782A8007FB546 /* TestingIOService.h */,
 				A8D947001A8782A8007FB546 /* TestingIOService.cpp */,
+				A8FBD69A1AF84C4F00AD3ADA /* TestingStringKey.h */,
+				A8FBD6991AF84C4F00AD3ADA /* TestingStringKey.cpp */,
 				A89F40C41AF2D8D50052917E /* ObservableString.h */,
 			);
 			name = Testing;
@@ -899,6 +904,7 @@
 				A8721A421A2BE87E00AED9C8 /* TestingMemory1.cpp in Sources */,
 				A881B27B1A351E2200AB18C0 /* TextHelper.cpp in Sources */,
 				A8147EF31A9A31D600885D67 /* Application.cpp in Sources */,
+				A8FBD69B1AF84C4F00AD3ADA /* TestingStringKey.cpp in Sources */,
 				A8D7C09A1A75A71F00002385 /* TestingZFont.cpp in Sources */,
 				A86902361A02E22400D2C9F3 /* SuperHandler.cpp in Sources */,
 				A869024D1A02E22400D2C9F3 /* FrameClock.cpp in Sources */,

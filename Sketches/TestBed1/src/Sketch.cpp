@@ -14,6 +14,7 @@
 #include "TestingMemory2.h"
 #include "TestingTasks.h"
 #include "TestingZFont.h"
+#include "TestingStringKey.h"
 #include "TestingIOService.h"
 
 #include "chronotext/Context.h"
@@ -44,9 +45,10 @@ void Sketch::draw()
 void Sketch::begin()
 {
     executeTest<TestingDemangling>(false);
-    executeTest<TestingMisc>(true);
+    executeTest<TestingMisc>(false);
     executeTest<TestingTasks>(false);
-    executeTest<TestingZFont>(false);
+    executeTest<TestingZFont>(true);
+    executeTest<TestingStringKey>(false);
     
     addFrameTest<TestingMemory1>(false);
     addFrameTest<TestingMemory2>(false);
