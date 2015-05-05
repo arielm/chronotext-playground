@@ -34,4 +34,5 @@ public:
     // ---
     
     void testRVOAndCopyElision();
+    void testMapInsertion();
 };

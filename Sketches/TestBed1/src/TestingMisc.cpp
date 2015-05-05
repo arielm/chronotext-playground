@@ -47,7 +47,8 @@ void TestingMisc::run(bool force)
     
     if (force || true)
     {
-        if (force || true) testRVOAndCopyElision();
+        if (force || false) testRVOAndCopyElision();
+        if (force || true) testMapInsertion();
     }
 }
 
@@ -434,24 +435,25 @@ void TestingMisc::testRVOAndCopyElision()
     }
 }
 
+// ---
+
 /*
-ObservableString::ObservableString(const char *) 0x7fff5fbfc180 | foo
-ObservableString::~ObservableString() 0x7fff5fbfc180 | foo
+ * CHECKING "IN PLACE" VALUE INSERTION
+ */
 
-ObservableString::ObservableString(const char *) 0x7fff5fbfc050 | bar
-ObservableString::~ObservableString() 0x7fff5fbfc050 | bar
-
-ObservableString::ObservableString(const char *) 0x7fff5fbfbf30 | baz
-ObservableString::~ObservableString() 0x7fff5fbfbf30 | baz
-
-ObservableString::ObservableString(const char *) 0x7fff5fbfbe10 | FOO
-ObservableString::ObservableString(const ObservableString &) 0x7fff5fbfbe08 | FOO
-ObservableString::~ObservableString() 0x7fff5fbfbe08 | FOO
-ObservableString::~ObservableString() 0x7fff5fbfbe10 | FOO
-
-ObservableString::ObservableString(const char *) 0x7fff5fbfbce0 | baz
-ObservableString &&observeWhilePreservingRVO(ObservableString &&)
-ObservableString::ObservableString(ObservableString &&) 0x7fff5fbfbce8 | baz
-ObservableString::~ObservableString() 0x7fff5fbfbce0 |
-ObservableString::~ObservableString() 0x7fff5fbfbce8 | baz
-*/
+void TestingMisc::testMapInsertion()
+{
+    map<int, ObservableString> map1;
+    
+    /*
+     * NO EXTRA COPY
+     *
+     * THIS SIMPLE SYNTAX WORKS BECAUSE ObservableString IS CONSTRUCTIBLE WITH A SINGLE ARGUMENT
+     */
+    map1.emplace(99, "bar");
+    
+    /*
+     * OTHERWISE, A MORE COMPLEX SYNTAX MUST BE USED
+     */
+    map1.emplace(piecewise_construct, forward_as_tuple(33), forward_as_tuple("foo"));
+}
