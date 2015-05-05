@@ -28,14 +28,11 @@ struct KeyHasher
     {
         using boost::hash_value;
         using boost::hash_combine;
-        
-        using std::hash;
-        using std::string;
         using std::get;
         
         std::size_t seed = 0;
         
-        hash_combine(seed, hash<string>()(string(get<2>(k)))); // NOT EFFECTIVE BUT FINE FOR THE PURPOSE OF TESTING
+        hash_combine(seed, hash_value(std::string(get<2>(k)))); // NOT EFFECTIVE BUT FINE FOR THE PURPOSE OF TESTING
         hash_combine(seed, hash_value(get<1>(k)));
         hash_combine(seed, hash_value(get<0>(k)));
         
@@ -46,6 +43,7 @@ struct KeyHasher
 class TestingStringKey : public TestingBase
 {
 public:
+    void setup() final;
     void run(bool force = false) final;
     
     // ---

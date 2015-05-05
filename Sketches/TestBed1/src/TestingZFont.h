@@ -10,7 +10,24 @@
 
 #include "Testing/TestingBase.h"
 
+#include <boost/functional/hash.hpp>
+
 #include "chronotext/font/zf/FontManager.h"
+
+struct LayoutHasher
+{
+    std::size_t operator()(const chr::zf::LineLayout& layout) const;
+};
+
+static inline std::size_t layoutHash(std::shared_ptr<chr::zf::LineLayout> layout)
+{
+    return LayoutHasher()(*layout);
+}
+
+static std::vector<std::shared_ptr<chr::zf::LineLayout>> parseLines(chr::InputSource::Ref source, chr::ZFont &font);
+static std::tuple<std::string, std::string, hb_direction_t> parseLine(const ci::XmlTree &element);
+
+// ---
 
 class TestingZFont : public TestingBase
 {
@@ -24,4 +41,5 @@ public:
     // ---
     
     void testLayoutAdvance();
+    void testBIDI();
 };

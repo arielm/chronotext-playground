@@ -9,7 +9,6 @@
 #include "TestingZFont.h"
 
 #include "chronotext/Context.h"
-#include "chronotext/utils/MathUtils.h"
 
 using namespace std;
 using namespace ci;
@@ -33,15 +32,102 @@ void TestingZFont::run(bool force)
     if (force || true)
     {
         if (force || true) testLayoutAdvance();
+        if (force || true) testBIDI();
     }
+}
+
+// ---
+
+size_t LayoutHasher::operator()(const LineLayout& layout) const
+{
+    using boost::hash_value;
+    using boost::hash_combine;
+    
+    size_t seed = 0;
+    
+    for (auto &cluster : layout.clusters)
+    {
+        hash_combine(seed, hash_value(cluster.combinedAdvance));
+        
+        for (auto &shape : cluster.shapes)
+        {
+            hash_combine(seed, hash_value(shape.codepoint));
+        }
+    }
+    
+    return seed;
+}
+
+vector<shared_ptr<LineLayout>> parseLines(InputSource::Ref source, ZFont &font)
+{
+    vector<shared_ptr<LineLayout>> lines;
+    
+    XmlTree doc(source->loadDataSource());
+    const auto &rootElement = doc.getChild("Text");
+    
+    for (const auto &lineElement : rootElement.getChildren())
+    {
+        string text;
+        string lang;
+        hb_direction_t dir;
+        
+        tie(text, lang, dir) = parseLine(*lineElement);
+        lines.emplace_back(font.getLineLayout(text, lang, dir));
+    }
+    
+    return lines;
+}
+
+tuple<string, string, hb_direction_t> parseLine(const XmlTree &element)
+{
+    auto line = element.getValue();
+    
+    boost::algorithm::trim(line);
+    boost::replace_all(line, "&lrm;", "\u200e");
+    boost::replace_all(line, "&rlm;", "\u200f");
+    
+    auto lang = element.getAttributeValue<string>("lang", "");
+    auto dir = ZFont::stringToDirection(element.getAttributeValue<string>("dir", ""));
+    
+    return make_tuple(line, lang, dir);
 }
 
 // ---
 
 void TestingZFont::testLayoutAdvance()
 {
-    auto font = fontManager.getFont("sans-serif");
-    auto lineLayout = font->getLineLayout("Which way to the station?");
+    auto font = fontManager.getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
+    font->setSize(32);
     
-    assert(utils::math::approximatelyEqual(lineLayout->advance, 367.266f, 0.001f));
+    assert(font->getAdvance(*font->getLineLayout("Which way to the station?")) == 366);
+}
+
+// ---
+
+void TestingZFont::testBIDI()
+{
+    auto font = fontManager.getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
+    font->setSize(32);
+    
+    auto lines = parseLines(InputSource::getAsset("TextBIDI.xml"), *font);
+    
+    vector<size_t> hashes
+    {
+        4572554708016581871ULL,
+        1323500750991593886ULL,
+        16616302104612900688ULL,
+        18024912760393654653ULL,
+        7317353174500663839ULL,
+        2265622829494731629ULL,
+        11704902527822747174ULL
+    };
+    
+    assert(lines.size() == hashes.size());
+    
+    size_t index = 0;
+    
+    for (auto &layout : lines)
+    {
+        assert(layoutHash(layout) == hashes[index++]);
+    }
 }

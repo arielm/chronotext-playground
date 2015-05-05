@@ -14,6 +14,11 @@ using namespace std;
 using namespace ci;
 using namespace chr;
 
+void TestingStringKey::setup()
+{
+    LOGI << endl;
+}
+
 void TestingStringKey::run(bool force)
 {
     if (force || true)
@@ -42,8 +47,6 @@ void TestingStringKey::run(bool force)
 
 void TestingStringKey::testCache1()
 {
-    LOGI << endl;
-    
     LOGI << getCacheValue1(observable1, 123, false) << endl << endl; // 4 TEMPORARIES + 1 COPY (INSERTION INTO MAP)
     
     LOGI << getCacheValue1(observable1, 123, false) << endl << endl; // 2 TEMPORARIES
