@@ -18,36 +18,36 @@ using namespace chr;
 
 void TestingMisc::run(bool force)
 {
-    if (force || false)
+    if (force || true)
     {
-        if (force || true) testSharedPtrCasting();
+        CHR_TEST(force || true, testSharedPtrCasting);
     }
 
-    if (force || false)
+    if (force || true)
     {
-        if (force || true) testFileCapture();
-        if (force || true) testNewLogging();
-        if (force || true) testNewException();
-        if (force || true) testInputSourceRobustness();
-        if (force || true) testTimeFormat();
-        if (force || true) testDurationFormat();
+        CHR_TEST(force || true, testFileCapture);
+        CHR_TEST(force || true, testNewLogging);
+        CHR_TEST(force || true, testNewException);
+        CHR_TEST(force || true, testInputSourceRobustness);
+        CHR_TEST(force || true, testTimeFormat);
+        CHR_TEST(force || true, testDurationFormat);
         
-        if (force || true) testReadTextFile();
-        if (force || true) testReadXmlFile();
-        if (force || true) testReadU16StringToString();
-        if (force || true) testReadStringToU16String();
-    }
-    
-    if (force || false)
-    {
-        if (force || true) testStringToIntToString();
-        if (force || true) testFileSystem();
+        CHR_TEST(force || true, testReadTextFile);
+        CHR_TEST(force || true, testReadXmlFile);
+        CHR_TEST(force || true, testReadU16StringToString);
+        CHR_TEST(force || true, testReadStringToU16String);
     }
     
     if (force || true)
     {
-        if (force || true) testRVOAndCopyElision();
-        if (force || false) testMapInsertion();
+        CHR_TEST(force || true, testStringToIntToString);
+        CHR_TEST(force || true, testFileSystem);
+    }
+    
+    if (force || true)
+    {
+        CHR_TEST(force || true, testRVOAndCopyElision);
+        CHR_TEST(force || true, testMapInsertion);
     }
 }
 
@@ -84,15 +84,15 @@ void TestingMisc::testSharedPtrCasting()
         TextureManager textureManager;
         
         auto texture = textureManager.getTexture(InputSource::getAsset("U_512.png"));
-        LOGI << texture.use_count() << endl;
+        CHR_CHECK(texture.use_count() == 2);
         
         auto resource = make_shared<ResourceItem>(texture);
-        LOGI << texture.use_count() << endl;
+        CHR_CHECK(texture.use_count() == 3);
         
-        LOGI << resource->getResource<Texture>()->getSize() << endl;
+        CHR_CHECK(resource->getResource<Texture>()->getSize() == Vec2i(512, 512));
         
         resource.reset();
-        LOGI << texture.use_count() << endl;
+        CHR_CHECK(texture.use_count() == 2);
     }
     
     TextureManager::LOG_VERBOSE = false;
@@ -110,17 +110,21 @@ void TestingMisc::testFileCapture()
      * if (capture == "foo") cerr << capture << endl;
      */
     
+    string outCapture;
     {
         FileCapture capture(stdout);
         printf("hello from stdout");
-        cerr << "[" << capture.flushAsString() << "]" << endl;
+        outCapture = capture.flushAsString();
     }
-    
+    CHR_CHECK(outCapture == "hello from stdout");
+
+    string errCapture;
     {
         FileCapture capture(stderr);
         fprintf(stderr, "hello from stderr\n");
-        cout << "[" << capture.flushAsString(true) << "]" << endl;
+        errCapture = capture.flushAsString(true);
     }
+    CHR_CHECK(errCapture == "hello from stderr");
 }
 
 void TestingMisc::testNewLogging()
@@ -137,15 +141,19 @@ void TestingMisc::testNewException()
     try
     {
         InputSource::loadResource("undefined.png");
+        CHR_CHECK(false);
     }
     catch (chr::Exception<InputSource> &e)
     {
         LOGI << e << endl; // I.E. SOMETHING WENT-WRONG WHILE LOADING
+        return;
     }
     catch (exception &e)
     {
         LOGI << e.what() << endl; // E.G. SOMETHING WENT-WRONG WHILE DECODING THE IMAGE
     }
+    
+    CHR_CHECK(false);
 }
 
 void TestingMisc::testInputSourceRobustness()
@@ -172,6 +180,7 @@ void TestingMisc::testInputSourceRobustness()
     try
     {
         nonInitialized->loadDataSource();
+        CHR_CHECK(false);
     }
     catch (chr::Exception<InputSource> &e)
     {
@@ -181,6 +190,7 @@ void TestingMisc::testInputSourceRobustness()
     try
     {
         nonInitialized->getSubSource("foo");
+        CHR_CHECK(false);
     }
     catch (chr::Exception<InputSource> &e)
     {
@@ -190,21 +200,21 @@ void TestingMisc::testInputSourceRobustness()
 
 void TestingMisc::testTimeFormat()
 {
-    LOGI << utils::format::time(255) << endl;
-    LOGI << utils::format::time(4943) << endl;
-    LOGI << utils::format::time(60) << endl;
-    LOGI << utils::format::time(0.6, true) << endl;
+    CHR_CHECK(utils::format::time(255) == "04:15");
+    CHR_CHECK(utils::format::time(4943) == "1:22:23");
+    CHR_CHECK(utils::format::time(60) == "01:00");
+    CHR_CHECK(utils::format::time(0.6, true) == "00:01");
 }
 
 void TestingMisc::testDurationFormat()
 {
-    LOGI << utils::format::duration(1.23456) << endl;
-    LOGI << utils::format::duration(0.0123456) << endl;
-    LOGI << utils::format::duration(0.000123456) << endl;
-    LOGI << utils::format::duration(0.00000123456) << endl;
-    LOGI << utils::format::duration(0.0000000123456) << endl;
-    LOGI << utils::format::duration(0.000000000123456) << endl;
-    LOGI << utils::format::duration(60) << endl;
+    CHR_CHECK(utils::format::duration(1.23456) == "1.2s");
+    CHR_CHECK(utils::format::duration(0.0123456) == "12.3ms");
+    CHR_CHECK(utils::format::duration(0.000123456) == "123.5μs");
+    CHR_CHECK(utils::format::duration(0.00000123456) == "1.2μs");
+    CHR_CHECK(utils::format::duration(0.0000000123456) == "12.3ns");
+    CHR_CHECK(utils::format::duration(0.000000000123456) == "0.1ns");
+    CHR_CHECK(utils::format::duration(60) == "01:00");
 }
 
 // ---
@@ -223,7 +233,7 @@ void TestingMisc::testReadTextFile()
     if (source->isFile())
     {
         string text = utils::readTextFile(source->getFilePath());
-        assert(std::hash<string>()(text) == 7638217582490704265ULL);
+        CHR_CHECK(std::hash<string>()(text) == 7638217582490704265ULL);
     }
 }
 
@@ -238,7 +248,7 @@ void TestingMisc::testReadXmlFile()
         stringstream ss;
         ss << xml;
         
-        assert(std::hash<string>()(ss.str()) == 9170973041083656176ULL);
+        CHR_CHECK(std::hash<string>()(ss.str()) == 9170973041083656176ULL);
     }
 }
 
@@ -251,7 +261,7 @@ void TestingMisc::testReadU16StringToString()
     auto textU16 = utils::readText<u16string>(source);
     auto text = utils::to<string>(textU16);
     
-    assert(std::hash<string>()(text) == 7638217582490704265ULL);
+    CHR_CHECK(std::hash<string>()(text) == 7638217582490704265ULL);
 }
 
 void TestingMisc::testReadStringToU16String()
@@ -261,7 +271,7 @@ void TestingMisc::testReadStringToU16String()
     auto text = utils::readText<string>(source);
     auto textU16 = utils::to<u16string>(text);
     
-    assert(std::hash<u16string>()(textU16) == 14816650974461727307ULL);
+    CHR_CHECK(std::hash<u16string>()(textU16) == 14816650974461727307ULL);
 }
 
 /*
@@ -330,7 +340,7 @@ void TestingMisc::testStringToIntToString()
     int minor = (components.size() > 1) ? std::atoi(components[1].data()) : 0;
     int patch = (components.size() > 2) ? std::atoi(components[2].data()) : 0;
     
-    LOGI << ci::toString(major) << "." << ci::toString(minor) << "." << ci::toString(patch) << endl; // TODO: IMPLEMENT OUR OWN toString (I.E. NOT RELYING ON CINDER NOR BOOST)
+    CHR_CHECK(ci::toString(major) + "." + ci::toString(minor) + "." + ci::toString(patch) == "3.5.2"); // TODO: IMPLEMENT OUR OWN toString (I.E. NOT RELYING ON CINDER NOR BOOST)
     
 #else
     
@@ -338,7 +348,7 @@ void TestingMisc::testStringToIntToString()
     int minor = (components.size() > 1) ? std::stoi(components[1]) : 0;
     int patch = (components.size() > 2) ? std::stoi(components[2]) : 0;
     
-    LOGI << std::to_string(major) << "." << std::to_string(minor) << "." << std::to_string(patch) << endl;
+    CHR_CHECK(std::to_string(major) + "." + std::to_string(minor) + "." + std::to_string(patch) == "3.5.2");
     
 #endif
 }

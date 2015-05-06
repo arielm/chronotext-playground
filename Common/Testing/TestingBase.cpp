@@ -80,3 +80,35 @@ vector<fs::path> TestingBase::getFiles(const fs::path &directoryPath)
     
     return files;
 }
+
+// ---
+
+bool TestingBase::fail(const string &file, int line, const string &reason)
+{
+    LOGI_FN(logFailure, file, line, reason);
+    return false;
+}
+
+void TestingBase::logFailure(Log& log, const std::string &file, int line, const std::string &reason)
+{
+    log << "FAILURE";
+    
+    if (!reason.empty())
+    {
+        log << ": " << reason;
+    }
+    
+    if (!file.empty())
+    {
+        log << " [" << file; // TODO: POSSIBILITY TO EXCLUDE FULL-PATH (RELATIVE TO SOME PRE-DEFINABLE "ROOT" PATH)
+        
+        if (line > 0)
+        {
+            log << ":" << line;
+        }
+        
+        log << "]";
+    }
+    
+    log << endl;
+}
