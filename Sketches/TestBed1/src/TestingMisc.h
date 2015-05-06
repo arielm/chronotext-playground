@@ -10,6 +10,8 @@
 
 #include "Testing/TestingBase.h"
 
+#include "ObservableString.h" // TODO: CONSIDER MOVING TO Testing/ObservableString
+
 class TestingMisc : public TestingBase
 {
 public:
@@ -33,6 +35,13 @@ public:
     
     // ---
     
+    ObservableString createWithRVO1();
+    ObservableString createWithRVO2();
+    ObservableString&& observeWhilePreservingRVO(ObservableString &&s);
+    
     void testRVOAndCopyElision();
+    
+    // ---
+    
     void testMapInsertion();
 };

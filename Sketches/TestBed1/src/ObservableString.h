@@ -17,21 +17,21 @@ public:
     {
         data = strdup(s.data());
         
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
+        dump(__PRETTY_FUNCTION__);
     }
     
     ObservableString(const char *c)
     {
         data = strdup(c);
         
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
+        dump(__PRETTY_FUNCTION__);
     }
     
     ObservableString(const ObservableString &other)
     {
         data = strdup(other.data);
         
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
+        dump(__PRETTY_FUNCTION__);
     }
     
     ObservableString& operator=(const ObservableString &other)
@@ -42,38 +42,35 @@ public:
             data = strdup(other.data);
         }
         
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
+        dump(__PRETTY_FUNCTION__);
         
         return *this;
     }
     
-    /*
-     * TODO: TEST
-     */
-    ObservableString(ObservableString &&other)
+    ObservableString(ObservableString &&other) noexcept
     :
     data(nullptr)
     {
         std::swap(data, other.data);
         
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
+        dump(__PRETTY_FUNCTION__);
     }
     
     /*
      * TODO: TEST
      */
-    ObservableString& operator=(ObservableString &&other)
+    ObservableString& operator=(ObservableString &&other) noexcept
     {
         std::swap(data, other.data);
         
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << data << std::endl;
+        dump(__PRETTY_FUNCTION__);
         
         return *this;
     }
     
     ~ObservableString()
     {
-        LOGI << __PRETTY_FUNCTION__ << " " << reinterpret_cast<void*>(this) << " | " << (data ? data : "") << std::endl;
+        dump(__PRETTY_FUNCTION__);
         
         free(data);
     }
@@ -95,4 +92,12 @@ public:
     
 protected:
     char *data = nullptr;
+    
+    void dump(const char *prefix)
+    {
+        void *instanceAddress = this;
+        void *dataAddress = data;
+        
+        LOGI << prefix << " " << instanceAddress << " | " << (data ? data : "") << (data ? " " : "") << dataAddress << std::endl;
+    }
 };

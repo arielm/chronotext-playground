@@ -7,7 +7,6 @@
  */
 
 #include "TestingMisc.h"
-#include "ObservableString.h"
 
 #include "chronotext/Context.h"
 #include "chronotext/texture/TextureManager.h"
@@ -47,8 +46,8 @@ void TestingMisc::run(bool force)
     
     if (force || true)
     {
-        if (force || false) testRVOAndCopyElision();
-        if (force || true) testMapInsertion();
+        if (force || true) testRVOAndCopyElision();
+        if (force || false) testMapInsertion();
     }
 }
 
@@ -369,17 +368,17 @@ void TestingMisc::testFileSystem()
  */
 
 /*
- * RVO WILL TAKE PLACE (NO MATTER IF METHOD IS inline OR NOT)
+ * RVO WILL TAKE PLACE (NO MATTER IF METHOD IS INLINE OR NOT)
  */
-static ObservableString createWithRVO1()
+ObservableString TestingMisc::createWithRVO1()
 {
     return ObservableString("bar"); // NO MATTER IF RETURNED VALUE IS "NOT NAMED"
 }
 
 /*
- * RVO WILL TAKE PLACE (NO MATTER IF METHOD IS inline OR NOT)
+ * RVO WILL TAKE PLACE (NO MATTER IF METHOD IS INLINE OR NOT)
  */
-static ObservableString createWithRVO2()
+ObservableString TestingMisc::createWithRVO2()
 {
     ObservableString s("baz");
     return s;
@@ -390,9 +389,10 @@ static ObservableString createWithRVO2()
  *
  * REMARKS:
  * - PROBABLY NOT FEASIBLE WITHOUT MOVE-CONSTRUCTION?
+ * - WORKS NO MATTER IF METHOD IS INLINE OR NOT
  * - WILL LIKELY WORK WITH CLASSES LIKE std::string
  */
-inline ObservableString&& observeWhilePreservingRVO(ObservableString &&s)
+ObservableString&& TestingMisc::observeWhilePreservingRVO(ObservableString &&s)
 {
     LOGI << __PRETTY_FUNCTION__ << endl;
     return move(s);

@@ -45,9 +45,9 @@ void Sketch::draw()
 void Sketch::begin()
 {
     executeTest<TestingDemangling>(false);
-    executeTest<TestingMisc>(false);
+    executeTest<TestingMisc>(true);
     executeTest<TestingTasks>(false);
-    executeTest<TestingZFont>(true);
+    executeTest<TestingZFont>(false);
     executeTest<TestingStringKey>(false);
     
     addFrameTest<TestingMemory1>(false);
