@@ -31,8 +31,9 @@ void TestingZFont::run(bool force)
 {
     if (force || true)
     {
-        if (force || true) testLayoutAdvance();
-        if (force || true) testBIDI();
+        CHR_TEST(force || true, testLayoutAdvance);
+        CHR_TEST(force || true, testBIDI);
+        CHR_TEST(force || true, testUnicode);
     }
 }
 
@@ -92,6 +93,29 @@ tuple<string, string, hb_direction_t> parseLine(const XmlTree &element)
     return make_tuple(line, lang, dir);
 }
 
+int checkLines(ZFont &font, InputSource::Ref source, vector<size_t> &hashes)
+{
+    auto lines = parseLines(source, font);
+    
+    if (CHR_CHECK(lines.size() == hashes.size()))
+    {
+        size_t index = 0;
+        
+        for (auto &layout : lines)
+        {
+            auto value = layoutHash(layout);
+            auto expected = hashes[index++];
+            
+            stringstream ss;
+            ss << "VALUE: " << value << " | EXPECTED: " << expected;
+            
+            CHR_CHECK(value == expected, ss.str());
+        }
+    }
+    
+    return 0;
+}
+
 // ---
 
 void TestingZFont::testLayoutAdvance()
@@ -109,8 +133,6 @@ void TestingZFont::testBIDI()
     auto font = fontManager.getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
     font->setSize(32);
     
-    auto lines = parseLines(InputSource::getAsset("TextBIDI.xml"), *font);
-    
     vector<size_t> hashes
     {
         SIZE_T2(520534658, 4572554708016581871),
@@ -122,13 +144,31 @@ void TestingZFont::testBIDI()
         SIZE_T2(85789293, 11704902527822747174),
     };
     
-    if (CHR_CHECK(lines.size() == hashes.size()))
+    checkLines(*font, InputSource::getAsset("bidi.xml"), hashes);
+}
+
+void TestingZFont::testUnicode()
+{
+    auto font = fontManager.getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
+    font->setSize(32);
+    
+    vector<size_t> hashes
     {
-        size_t index = 0;
-        
-        for (auto &layout : lines)
-        {
-            CHR_CHECK(layoutHash(layout) == hashes[index++]);
-        }
-    }
+        SIZE_T2(2423061461, 2299879191927676355),
+        SIZE_T2(676037056, 8126074978093623632),
+        SIZE_T2(51684586, 203953228882966113),
+        SIZE_T2(2160200639, 14329726771226279651),
+        SIZE_T2(2829186193, 17598384365926577453),
+        SIZE_T2(2273140257, 17544906773354463270),
+        SIZE_T2(3846317070, 13184677768672481576),
+        SIZE_T2(509205841, 17084177423896891027),
+        SIZE_T2(540959090, 10056896830353472260),
+        SIZE_T2(1507955890, 785683912355301265),
+        SIZE_T2(2508873915, 11037216949657619652),
+        SIZE_T2(1622008515, 1226742790203444453),
+        SIZE_T2(2685948395, 6991658061081508337),
+        SIZE_T2(4294421774, 992794805295498511),
+    };
+    
+    checkLines(*font, InputSource::getAsset("unicode.xml"), hashes);
 }

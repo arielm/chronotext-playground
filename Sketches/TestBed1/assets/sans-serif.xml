@@ -3,15 +3,58 @@
     <!-- Undefined -->
     <Set>
         <Ref uri="assets://DroidSans.ttf" />
+        <Ref uri="assets://DroidSansFallback.ttf" />
     </Set>
-    <!-- Arabic -->
-    <Set lang="ar">
-        <Ref uri="assets://DroidNaskh-Regular.ttf" />
+    <!-- Arabic, Persian -->
+    <Set lang="ar:fa">
+        <Group>
+            <Ref uri="assets://DroidNaskh-Regular.ttf" />
+            <Ref uri="assets://DroidKufi-Regular.ttf" />
+            <Ref uri="assets://DroidSansArabic.ttf" />
+        </Group>
+        <Ref uri="assets://DroidSansFallback.ttf" />
+    </Set>
+    <!-- Bulgarian, Russian, Ukrainian -->
+    <Set lang="bg:ru:uk">
         <Ref uri="assets://DroidSans.ttf" />
+        <Ref uri="assets://DroidSansFallback.ttf" />
     </Set>
-    <!-- Hebrew -->
-    <Set lang="he">
+    <!-- Greek -->
+    <Set lang="el">
+        <Ref uri="assets://DroidSans.ttf" />
+        <Ref uri="assets://DroidSansFallback.ttf" />
+    </Set>
+    <!-- Hebrew, Yiddish -->
+    <Set lang="he:yi">
         <Ref uri="assets://DroidSansHebrew-Regular.ttf" />
-        <Ref uri="assets://DroidSans.ttf" />
+        <Ref uri="assets://DroidSansFallback.ttf" />
+    </Set>
+    <!-- Japanese -->
+    <Set lang="ja">
+        <Ref uri="assets://MTLmr3m.ttf" />
+        <Ref uri="assets://DroidSansFallback.ttf" />
+    </Set>
+    <!-- Korean -->
+    <Set lang="ko">
+        <Ref uri="assets://NanumGothic.ttf" />
+        <Ref uri="assets://DroidSansFallback.ttf" />
+    </Set>
+    <!-- Thai -->
+    <Set lang="th">
+        <Ref uri="assets://DroidSansThai.ttf" />
+        <Ref uri="assets://DroidSansFallback.ttf" />
+    </Set>
+    <!-- Hindi -->
+    <Set lang="hi">
+        <Ref uri="assets://DroidSansDevanagari-Regular.ttf" />
+        <Ref uri="assets://DroidSansFallback.ttf" />
+    </Set>
+    <!-- Chinese (Simplified) -->
+    <Set lang="zh-cn:zh-sg">
+        <Ref uri="assets://DroidSansFallback.ttf" />
+    </Set>
+    <!-- Chinese (Traditional) -->
+    <Set lang="zh-hk:zh-mo:zh-tw">
+        <Ref uri="assets://DroidSansFallback.ttf" />
     </Set>
 </VirtualFont>
