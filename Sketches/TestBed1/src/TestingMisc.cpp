@@ -233,7 +233,7 @@ void TestingMisc::testReadTextFile()
     if (source->isFile())
     {
         string text = utils::readTextFile(source->getFilePath());
-        CHR_CHECK(std::hash<string>()(text) == 7638217582490704265ULL);
+        CHR_CHECK(std::hash<string>()(text) == SIZE_T2(4122924119, 7638217582490704265));
     }
 }
 
@@ -248,7 +248,7 @@ void TestingMisc::testReadXmlFile()
         stringstream ss;
         ss << xml;
         
-        CHR_CHECK(std::hash<string>()(ss.str()) == 9170973041083656176ULL);
+        CHR_CHECK(std::hash<string>()(ss.str()) == SIZE_T2(3254342745, 9170973041083656176));
     }
 }
 
@@ -261,7 +261,7 @@ void TestingMisc::testReadU16StringToString()
     auto textU16 = utils::readText<u16string>(source);
     auto text = utils::to<string>(textU16);
     
-    CHR_CHECK(std::hash<string>()(text) == 7638217582490704265ULL);
+    CHR_CHECK(std::hash<string>()(text) == SIZE_T2(4122924119, 7638217582490704265));
 }
 
 void TestingMisc::testReadStringToU16String()
@@ -271,7 +271,7 @@ void TestingMisc::testReadStringToU16String()
     auto text = utils::readText<string>(source);
     auto textU16 = utils::to<u16string>(text);
     
-    CHR_CHECK(std::hash<u16string>()(textU16) == 14816650974461727307ULL);
+    CHR_CHECK(std::hash<u16string>()(textU16) == SIZE_T2(2650149663, 14816650974461727307));
 }
 
 /*

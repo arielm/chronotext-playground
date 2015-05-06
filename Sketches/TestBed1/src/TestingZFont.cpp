@@ -99,7 +99,7 @@ void TestingZFont::testLayoutAdvance()
     auto font = fontManager.getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
     font->setSize(32);
     
-    assert(font->getAdvance(*font->getLineLayout("Which way to the station?")) == 366);
+    CHR_CHECK(font->getAdvance(*font->getLineLayout("Which way to the station?")) == 366);
 }
 
 // ---
@@ -113,21 +113,22 @@ void TestingZFont::testBIDI()
     
     vector<size_t> hashes
     {
-        4572554708016581871ULL,
-        1323500750991593886ULL,
-        16616302104612900688ULL,
-        18024912760393654653ULL,
-        7317353174500663839ULL,
-        2265622829494731629ULL,
-        11704902527822747174ULL
+        SIZE_T2(520534658, 4572554708016581871),
+        SIZE_T2(3001945655, 1323500750991593886),
+        SIZE_T2(4098485350, 16616302104612900688),
+        SIZE_T2(467935369, 18024912760393654653),
+        SIZE_T2(3613247354, 7317353174500663839),
+        SIZE_T2(3946649848, 2265622829494731629),
+        SIZE_T2(85789293, 11704902527822747174),
     };
     
-    assert(lines.size() == hashes.size());
-    
-    size_t index = 0;
-    
-    for (auto &layout : lines)
+    if (CHR_CHECK(lines.size() == hashes.size()))
     {
-        assert(layoutHash(layout) == hashes[index++]);
+        size_t index = 0;
+        
+        for (auto &layout : lines)
+        {
+            CHR_CHECK(layoutHash(layout) == hashes[index++]);
+        }
     }
 }

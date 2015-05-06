@@ -50,6 +50,20 @@ public:
     static void logFailure(chr::Log& log, const std::string &file, int line, const std::string &reason);
 };
 
+// ---
+
+namespace chr
+{
+    constexpr std::size_t size_t2(uint32_t N32, uint64_t N64)
+    {
+        return (sizeof(size_t) == sizeof(uint32_t)) ? N32 : N64;
+    }
+}
+
+#define SIZE_T2(N32, N64) chr::size_t2(UINT32_C(N32), UINT64_C(N64))
+
+// ---
+
 #define CHR_TEST_BEGIN(TITLE) LOGI << std::endl << TITLE << std::endl;
 #define CHR_TEST_END() LOGI << std::endl;
 #define CHR_TEST(COND, FN) if ((COND)) { CHR_TEST_BEGIN(#FN); FN(); CHR_TEST_END(); }
