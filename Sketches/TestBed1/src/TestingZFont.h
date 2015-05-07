@@ -25,7 +25,7 @@ static inline std::size_t layoutHash(std::shared_ptr<chr::zf::LineLayout> layout
 }
 
 static std::vector<std::shared_ptr<chr::zf::LineLayout>> parseLines(chr::InputSource::Ref source, chr::ZFont &font);
-static std::tuple<std::string, std::string, hb_direction_t> parseLine(const ci::XmlTree &element);
+static std::tuple<std::string, hb_language_t, hb_direction_t> parseLine(const ci::XmlTree &element);
 static int checkLines(chr::ZFont &font, chr::InputSource::Ref source, std::vector<size_t> &expectedHashes);
 
 // ---

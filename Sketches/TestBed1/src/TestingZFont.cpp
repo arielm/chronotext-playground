@@ -69,7 +69,7 @@ vector<shared_ptr<LineLayout>> parseLines(InputSource::Ref source, ZFont &font)
     for (const auto &lineElement : rootElement.getChildren())
     {
         string text;
-        string lang;
+        hb_language_t lang;
         hb_direction_t dir;
         
         tie(text, lang, dir) = parseLine(*lineElement);
@@ -79,7 +79,7 @@ vector<shared_ptr<LineLayout>> parseLines(InputSource::Ref source, ZFont &font)
     return lines;
 }
 
-tuple<string, string, hb_direction_t> parseLine(const XmlTree &element)
+tuple<string, hb_language_t, hb_direction_t> parseLine(const XmlTree &element)
 {
     auto line = element.getValue();
     
@@ -87,7 +87,7 @@ tuple<string, string, hb_direction_t> parseLine(const XmlTree &element)
     boost::replace_all(line, "&lrm;", "\u200e");
     boost::replace_all(line, "&rlm;", "\u200f");
     
-    auto lang = element.getAttributeValue<string>("lang", "");
+    auto lang = LangHelper::toHBLang(element.getAttributeValue<string>("lang", ""));
     auto dir = ZFont::stringToDirection(element.getAttributeValue<string>("dir", ""));
     
     return make_tuple(line, lang, dir);

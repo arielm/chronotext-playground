@@ -50,16 +50,9 @@ fs::path TestingBase::getPublicDirectory()
 
 void TestingBase::dumpDirectory(const fs::path &directoryPath)
 {
-    if (fs::exists(directoryPath) && fs::is_directory(directoryPath))
+    for (const auto &path : getFiles(directoryPath))
     {
-        for (fs::directory_iterator current(directoryPath), end; current != end; ++current)
-        {
-            if (fs::is_regular_file(current->status()))
-            {
-                auto relativePath = FileHelper::relativizePath(directoryPath, current->path());
-                LOGI << relativePath.string() << endl;
-            }
-        }
+        LOGI << FileHelper::relativizePath(directoryPath, path).string() << endl;
     }
 }
 
