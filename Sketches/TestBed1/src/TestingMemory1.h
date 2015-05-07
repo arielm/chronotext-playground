@@ -34,7 +34,12 @@ public:
 protected:
     size_t _size;
     uint8_t *_data;
+    
+    Unit(const Unit &other) = delete;
+    void operator=(const Unit &other) = delete;
 };
+
+// ---
 
 class Measure
 {
@@ -52,6 +57,8 @@ protected:
     bool began = false;
 };
 
+// ---
+
 class TestingMemory1 : public TestingBase
 {
 public:
@@ -64,7 +71,7 @@ public:
     void update() final;
     
 protected:
-    std::vector<std::shared_ptr<Unit>> units;
+    std::vector<std::unique_ptr<Unit>> units;
     
     bool adding;
     bool removing;

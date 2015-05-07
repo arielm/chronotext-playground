@@ -19,11 +19,14 @@ void TestingZFont::setup()
 {
     FontManager::LOG_VERBOSE = true;
     
-    fontManager.loadConfig(InputSource::getAsset("font-config.xml"));
+    fontManager = make_shared<FontManager>();
+    fontManager->loadConfig(InputSource::getAsset("font-config.xml"));
 }
 
 void TestingZFont::shutdown()
 {
+    fontManager.reset();
+    
     FontManager::LOG_VERBOSE = false;
 }
 
@@ -120,7 +123,7 @@ int checkLines(ZFont &font, InputSource::Ref source, vector<size_t> &hashes)
 
 void TestingZFont::testLayoutAdvance()
 {
-    auto font = fontManager.getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
+    auto font = fontManager->getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
     font->setSize(32);
     
     CHR_CHECK(font->getAdvance(*font->getLineLayout("Which way to the station?")) == 366);
@@ -130,7 +133,7 @@ void TestingZFont::testLayoutAdvance()
 
 void TestingZFont::testBIDI()
 {
-    auto font = fontManager.getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
+    auto font = fontManager->getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
     font->setSize(32);
     
     vector<size_t> hashes
@@ -149,7 +152,7 @@ void TestingZFont::testBIDI()
 
 void TestingZFont::testUnicode()
 {
-    auto font = fontManager.getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
+    auto font = fontManager->getFont("sans-serif", ZFont::STYLE_REGULAR, ZFont::Properties2d(32).setCrisp());
     font->setSize(32);
     
     vector<size_t> hashes

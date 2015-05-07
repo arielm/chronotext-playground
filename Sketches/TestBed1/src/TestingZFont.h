@@ -33,7 +33,7 @@ static int checkLines(chr::ZFont &font, chr::InputSource::Ref source, std::vecto
 class TestingZFont : public TestingBase
 {
 public:
-    chr::zf::FontManager fontManager;
+    std::shared_ptr<chr::zf::FontManager> fontManager;
     
     void setup() final;
     void shutdown() final;

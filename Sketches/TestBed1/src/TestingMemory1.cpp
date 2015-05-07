@@ -91,10 +91,12 @@ void TestingMemory1::setup()
         /*
          * DEMONSTRATING THE "MEMORY-RELEASE DETECTION" ISSUE ON OSX
          *
-         * UNSOLVED: IT STARTS TO WORK-AS-INTENDED ONLY AFTER 16 FRAMES!
+         * UNSOLVED:
+         * - IT STARTS TO WORK-AS-INTENDED ONLY AFTER 16 FRAMES!
+         * - MINIMAL ALLOCATION-SIZE IN ORDER TO REPRODUCE: 256KB
          */
         
-        unitDataSize = 2048 * 1024; // 2MB
+        unitDataSize = 256 * 1024; // 256KB
         unitCount = 20;
     }
     else
@@ -137,7 +139,7 @@ void TestingMemory1::update()
             Measure measure;
             measure.begin();
             
-            units.emplace_back(make_shared<Unit>(unitDataSize));
+            units.emplace_back(new Unit(unitDataSize));
             
             measure.end();
             
