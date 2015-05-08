@@ -12,6 +12,8 @@
 #include "chronotext/texture/TextureManager.h"
 #include "chronotext/incubator/utils/FileCapture.h"
 
+#include <regex>
+
 using namespace std;
 using namespace ci;
 using namespace chr;
@@ -48,6 +50,12 @@ void TestingMisc::run(bool force)
     {
         CHR_TEST(force || true, testRVOAndCopyElision);
         CHR_TEST(force || true, testMapInsertion);
+    }
+    
+    if (force || true)
+    {
+        CHR_TEST(force || true, testRawLiterals1);
+        CHR_TEST(force || true, testRawLiterals2);
     }
 }
 
@@ -466,4 +474,33 @@ void TestingMisc::testMapInsertion()
      * OTHERWISE, A MORE COMPLEX SYNTAX MUST BE USED
      */
     map1.emplace(piecewise_construct, forward_as_tuple(33), forward_as_tuple("foo"));
+}
+
+// ---
+
+string RAWSTRING1 = R"(FIRST LINE\nSAME LINE)";
+
+string RAWSTRING2 = R"((RAW IN PARENTHESES))";
+
+string RAWSTRING3 = R"(LINE 1
+LINE 2
+LINE 3)";
+
+void TestingMisc::testRawLiterals1()
+{
+    CHR_CHECK(RAWSTRING1 == "FIRST LINE\\nSAME LINE");
+    
+    CHR_CHECK(RAWSTRING2 == "(RAW IN PARENTHESES)");
+    
+    CHR_CHECK(RAWSTRING3 == "LINE 1\nLINE 2\nLINE 3");
+}
+
+void TestingMisc::testRawLiterals2()
+{
+    /*
+     * ADVANTAGE OF C++11 RAW STRING LITERALS: NO NEED TO USE ESCAPE \
+     */
+    regex rr(R"(((\+|-)?[[:digit:]]+)(\.(([[:digit:]]+)?))?((e|E)((\+|-)?)[[:digit:]]+)?)");
+
+    CHR_CHECK(regex_match("123.456", rr));
 }

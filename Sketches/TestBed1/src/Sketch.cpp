@@ -45,12 +45,12 @@ void Sketch::draw()
 void Sketch::begin()
 {
     executeTest<TestingDemangling>(false);
-    executeTest<TestingMisc>(false);
+    executeTest<TestingMisc>(true);
     executeTest<TestingTasks>(false);
     executeTest<TestingZFont>(false);
     executeTest<TestingStringKey>(false);
     
-    addFrameTest<TestingMemory1>(true);
+    addFrameTest<TestingMemory1>(false);
     addFrameTest<TestingMemory2>(false);
     addFrameTest<TestingIOService>(false);
 }

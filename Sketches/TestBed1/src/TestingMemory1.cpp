@@ -14,19 +14,28 @@ using namespace std;
 using namespace ci;
 using namespace chr;
 
+/*
+ * TODO: TRY TO CAUSE SOME OUT-OF-MEMORY EXCEPTION
+ */
 Unit::Unit(size_t size)
+:
+_size(size)
 {
 //  LOGI << __PRETTY_FUNCTION__ << endl;
 
-    _data = new uint8_t[size]();
+    /*
+     * USING THE () OPERATOR WOULD ZERO-FILL THE BLOCK
+     *
+     * OTHERWISE:
+     *
+     * - ON OSX: MEMORY IS NOT FILLED (AND EVEN NOT "RESERVED")
+     * - TODO: TEST ON iOS AND ANDROID
+     */
+    _data = new uint8_t[size];
     
-    if (_data)
+    for (auto i = 0; i < size; i++)
     {
-        _size = size;
-    }
-    else
-    {
-        _size = 0;
+        _data[i] = rand() % 256;
     }
 }
 
@@ -49,9 +58,14 @@ uint8_t* Unit::data() const
 
 const string Unit::write() const
 {
-    return string("UNIT: ") +
-    "{size: " + utils::format::bytes(_size) +
+    stringstream ss;
+    
+    ss << "UNIT: {" <<
+    "size: " << utils::format::bytes(_size) << ", " <<
+    this <<
     "}";
+    
+    return ss.str();
 }
 
 // ---
@@ -74,10 +88,14 @@ void Measure::end()
 
 const string Measure::write() const
 {
-    return string("MEASURE: ") +
-    "{balance: " + utils::format::bytes(balance) +
-    ", memory-info: " + utils::format::write(after) +
+    stringstream ss;
+    
+    ss << "MEASURE: {" <<
+    "balance: " << utils::format::bytes(balance) << ", " <<
+    "memory-info: " << utils::format::write(after) <<
     "}";
+    
+    return ss.str();
 }
 
 // ---
@@ -85,7 +103,7 @@ const string Measure::write() const
 void TestingMemory1::setup()
 {
     LOGI << endl << "MEMORY INFO - BEFORE: " << getMemoryInfo() << endl << endl;
-
+    
     if (system::platform() == system::PLATFORM_OSX)
     {
         /*
@@ -94,6 +112,9 @@ void TestingMemory1::setup()
          * UNSOLVED:
          * - IT STARTS TO WORK-AS-INTENDED ONLY AFTER 16 FRAMES!
          * - MINIMAL ALLOCATION-SIZE IN ORDER TO REPRODUCE: 256KB
+         *
+         * INTERESTING FACT:
+         * - NO MEMORY IS ACTUALLY "RESERVED" UNTIL DATA IS WRITTEN!
          */
         
         unitDataSize = 256 * 1024; // 256KB

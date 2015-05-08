@@ -44,4 +44,9 @@ public:
     // ---
     
     void testMapInsertion();
+    
+    // ---
+
+    void testRawLiterals1();
+    void testRawLiterals2();
 };
