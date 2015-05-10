@@ -74,6 +74,7 @@
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
 		A8C294AA1AC0485F00FD36C9 /* TestingDemangling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C294A81AC0485F00FD36C9 /* TestingDemangling.cpp */; };
+		A8D55E6C1AFD84CB00880B52 /* TestingMemoryMapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D55E6A1AFD84CB00880B52 /* TestingMemoryMapping.cpp */; };
 		A8D7C09A1A75A71F00002385 /* TestingZFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D7C0981A75A71F00002385 /* TestingZFont.cpp */; };
 		A8D947011A8782A8007FB546 /* TestingIOService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D947001A8782A8007FB546 /* TestingIOService.cpp */; };
 		A8D947131A87FA3F007FB546 /* CinderDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8D947091A87FA3F007FB546 /* CinderDelegate.mm */; };
@@ -247,6 +248,8 @@
 		A8CDB6521A2DC0B60043A5E5 /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
 		A8CDB6551A2DC6F80043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8CDB6561A2DC6F80043A5E5 /* MemoryManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MemoryManager.mm; sourceTree = "<group>"; };
+		A8D55E6A1AFD84CB00880B52 /* TestingMemoryMapping.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemoryMapping.cpp; path = ../src/TestingMemoryMapping.cpp; sourceTree = "<group>"; };
+		A8D55E6B1AFD84CB00880B52 /* TestingMemoryMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMemoryMapping.h; path = ../src/TestingMemoryMapping.h; sourceTree = "<group>"; };
 		A8D7C0981A75A71F00002385 /* TestingZFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingZFont.cpp; path = ../src/TestingZFont.cpp; sourceTree = "<group>"; };
 		A8D7C0991A75A71F00002385 /* TestingZFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingZFont.h; path = ../src/TestingZFont.h; sourceTree = "<group>"; };
 		A8D946FF1A8782A8007FB546 /* TestingIOService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingIOService.h; path = ../src/TestingIOService.h; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 				A8721A401A2BE87E00AED9C8 /* TestingMemory1.cpp */,
 				A8EBAF6B1AB1C1F70001A7C9 /* TestingMemory2.h */,
 				A8EBAF6C1AB1C1F70001A7C9 /* TestingMemory2.cpp */,
+				A8D55E6B1AFD84CB00880B52 /* TestingMemoryMapping.h */,
+				A8D55E6A1AFD84CB00880B52 /* TestingMemoryMapping.cpp */,
 				A81CCE3E1A3DA49300AF0BFC /* TestingTasks.h */,
 				A81CCE3D1A3DA49300AF0BFC /* TestingTasks.cpp */,
 				A81CCE411A3DA67800AF0BFC /* TestTask.h */,
@@ -874,6 +879,7 @@
 				A874A5031A2B550A009A60A0 /* TaskManager.cpp in Sources */,
 				A8FBA6561A72739200D6B4A3 /* CinderSketch.cpp in Sources */,
 				A8112C101A4DC32B0002CF68 /* Sprite.cpp in Sources */,
+				A8D55E6C1AFD84CB00880B52 /* TestingMemoryMapping.cpp in Sources */,
 				A86902151A02E22300D2C9F3 /* ActualFont.cpp in Sources */,
 				A86902471A02E22400D2C9F3 /* PVRHelper.cpp in Sources */,
 				A881B2811A35206A00AB18C0 /* TextureAtlas.cpp in Sources */,

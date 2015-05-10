@@ -79,6 +79,7 @@
 		A8CDB6641A2DD16A0043A5E5 /* NSDictionary+DefautValues.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB65E1A2DD16A0043A5E5 /* NSDictionary+DefautValues.m */; };
 		A8CDB6651A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6601A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m */; };
 		A8CDB6661A2DD16A0043A5E5 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6621A2DD16A0043A5E5 /* NSString+JSON.m */; };
+		A8D55E6F1AFD868300880B52 /* TestingMemoryMapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D55E6D1AFD868300880B52 /* TestingMemoryMapping.cpp */; };
 		A8D7C09D1A75AE3000002385 /* TestingZFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D7C09B1A75AE3000002385 /* TestingZFont.cpp */; };
 		A8D947041A87980C007FB546 /* TestingIOService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D947021A87980C007FB546 /* TestingIOService.cpp */; };
 		A8DB3EC616E0B96C00504D27 /* Sketch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8DB3EC416E0B96C00504D27 /* Sketch.cpp */; };
@@ -267,6 +268,8 @@
 		A8CDB6601A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Merge.m"; sourceTree = "<group>"; };
 		A8CDB6611A2DD16A0043A5E5 /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
 		A8CDB6621A2DD16A0043A5E5 /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
+		A8D55E6D1AFD868300880B52 /* TestingMemoryMapping.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingMemoryMapping.cpp; path = ../src/TestingMemoryMapping.cpp; sourceTree = "<group>"; };
+		A8D55E6E1AFD868300880B52 /* TestingMemoryMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingMemoryMapping.h; path = ../src/TestingMemoryMapping.h; sourceTree = "<group>"; };
 		A8D7C09B1A75AE3000002385 /* TestingZFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingZFont.cpp; path = ../src/TestingZFont.cpp; sourceTree = "<group>"; };
 		A8D7C09C1A75AE3000002385 /* TestingZFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingZFont.h; path = ../src/TestingZFont.h; sourceTree = "<group>"; };
 		A8D947021A87980C007FB546 /* TestingIOService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingIOService.cpp; path = ../src/TestingIOService.cpp; sourceTree = "<group>"; };
@@ -754,6 +757,8 @@
 				A8EBAF711AB1C2750001A7C9 /* TestingMemory1.cpp */,
 				A8EBAF6E1AB1C2750001A7C9 /* TestingMemory2.h */,
 				A8EBAF6F1AB1C2750001A7C9 /* TestingMemory2.cpp */,
+				A8D55E6E1AFD868300880B52 /* TestingMemoryMapping.h */,
+				A8D55E6D1AFD868300880B52 /* TestingMemoryMapping.cpp */,
 				A8CC2B331A49A5C300F8FBA5 /* TestingTasks.h */,
 				A8CC2B321A49A5C300F8FBA5 /* TestingTasks.cpp */,
 				A8CC2B351A49A5C300F8FBA5 /* TestTask.h */,
@@ -965,6 +970,7 @@
 				A8C294AD1AC04B4A00FD36C9 /* TestingDemangling.cpp in Sources */,
 				A84E430E1A2A1DFB00EE6AC1 /* InputSource.cpp in Sources */,
 				A84E43041A2A1DFB00EE6AC1 /* ActualFont.cpp in Sources */,
+				A8D55E6F1AFD868300880B52 /* TestingMemoryMapping.cpp in Sources */,
 				A84E43101A2A1DFB00EE6AC1 /* Handler.cpp in Sources */,
 				A84E43341A2A1F0500EE6AC1 /* FXGDocument.cpp in Sources */,
 			);

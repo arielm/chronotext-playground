@@ -16,6 +16,7 @@
 #include "TestingZFont.h"
 #include "TestingStringKey.h"
 #include "TestingIOService.h"
+#include "TestingMemoryMapping.h"
 
 #include "chronotext/Context.h"
 #include "chronotext/utils/GLUtils.h"
@@ -45,12 +46,13 @@ void Sketch::draw()
 void Sketch::begin()
 {
     executeTest<TestingDemangling>(false);
-    executeTest<TestingMisc>(true);
+    executeTest<TestingMisc>(false);
     executeTest<TestingTasks>(false);
     executeTest<TestingZFont>(false);
     executeTest<TestingStringKey>(false);
     
     addFrameTest<TestingMemory1>(false);
     addFrameTest<TestingMemory2>(false);
+    addFrameTest<TestingMemoryMapping>(true);
     addFrameTest<TestingIOService>(false);
 }

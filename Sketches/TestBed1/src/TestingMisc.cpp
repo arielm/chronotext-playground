@@ -480,7 +480,7 @@ void TestingMisc::testMapInsertion()
 
 string RAWSTRING1 = R"(FIRST LINE\nSAME LINE)";
 
-string RAWSTRING2 = R"((RAW IN PARENTHESES))";
+string RAWSTRING2 = R"((RAW WITH "QUOTES" IN PARENTHESES))";
 
 string RAWSTRING3 = R"(LINE 1
 LINE 2
@@ -490,7 +490,7 @@ void TestingMisc::testRawLiterals1()
 {
     CHR_CHECK(RAWSTRING1 == "FIRST LINE\\nSAME LINE");
     
-    CHR_CHECK(RAWSTRING2 == "(RAW IN PARENTHESES)");
+    CHR_CHECK(RAWSTRING2 == "(RAW WITH \"QUOTES\" IN PARENTHESES)");
     
     CHR_CHECK(RAWSTRING3 == "LINE 1\nLINE 2\nLINE 3");
 }
@@ -498,7 +498,7 @@ void TestingMisc::testRawLiterals1()
 void TestingMisc::testRawLiterals2()
 {
     /*
-     * ADVANTAGE OF C++11 RAW STRING LITERALS: NO NEED TO USE ESCAPE \
+     * ADVANTAGE OF C++11 RAW STRING LITERALS: NO NEED USE ESCAPE \
      */
     regex rr(R"(((\+|-)?[[:digit:]]+)(\.(([[:digit:]]+)?))?((e|E)((\+|-)?)[[:digit:]]+)?)");
 
