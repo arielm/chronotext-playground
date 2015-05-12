@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VirtualFont>
+    <Set>
+        <Ref uri="assets://DroidSansFallback.ttf" force-memory-load="1" />
+    </Set>
+</VirtualFont>

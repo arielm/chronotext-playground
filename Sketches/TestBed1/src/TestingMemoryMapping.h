@@ -16,18 +16,28 @@
  *    - WITH FREETYPE AND HARFBUZZ
  */
 
+/*
+ * STAGE 1: FORCING MEMORY-LOADING OF DroidSandFallback.ttf (3.9MB)
+ *
+ * - iOS AND ANDROID: MEMORY ALLOCATION AND RELEASE PROPERLY DETECTED
+ * - OSX: MEMORY-RELEASE IS NOT PROPERLY DETECTED (SEE TestingMemory1)
+ */
+
 #pragma once
 
 #include "Testing/TestingBase.h"
 
+#include "chronotext/font/zf/FontManager.h"
+
 class TestingMemoryMapping : public TestingBase
 {
 public:
+    std::shared_ptr<chr::zf::FontManager> fontManager;
+    std::shared_ptr<chr::ZFont> font;
+    bool loaded = false;
+    
     void setup() final;
     void shutdown() final;
     
-    /*
-     * PASSING VIA update() IS (CURRENTLY) NECESSARY, IN ORDER TO BE PROPERLY NOTIFIED UPON "MEMORY WARNING"
-     */
     void update() final;
 };
