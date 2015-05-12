@@ -75,6 +75,7 @@
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
 		A8C294AA1AC0485F00FD36C9 /* TestingDemangling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C294A81AC0485F00FD36C9 /* TestingDemangling.cpp */; };
 		A8C7CA011B02523C0057D338 /* MemoryBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C9FF1B02523C0057D338 /* MemoryBuffer.cpp */; };
+		A8C7CA1B1B02BA460057D338 /* MappedFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7CA1A1B02BA460057D338 /* MappedFile.cpp */; };
 		A8D55E6C1AFD84CB00880B52 /* TestingMemoryMapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D55E6A1AFD84CB00880B52 /* TestingMemoryMapping.cpp */; };
 		A8D7C09A1A75A71F00002385 /* TestingZFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D7C0981A75A71F00002385 /* TestingZFont.cpp */; };
 		A8D947011A8782A8007FB546 /* TestingIOService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D947001A8782A8007FB546 /* TestingIOService.cpp */; };
@@ -249,6 +250,8 @@
 		A8C7C9F81B023DDD0057D338 /* MemoryBufferBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBufferBase.h; sourceTree = "<group>"; };
 		A8C7C9FF1B02523C0057D338 /* MemoryBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBuffer.cpp; sourceTree = "<group>"; };
 		A8C7CA001B02523C0057D338 /* MemoryBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBuffer.h; sourceTree = "<group>"; };
+		A8C7CA191B02B7880057D338 /* MappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappedFile.h; sourceTree = "<group>"; };
+		A8C7CA1A1B02BA460057D338 /* MappedFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MappedFile.cpp; sourceTree = "<group>"; };
 		A8CDB6501A2DC0B60043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8CDB6521A2DC0B60043A5E5 /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
 		A8CDB6551A2DC6F80043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
@@ -442,6 +445,7 @@
 				A869019E1A02E22300D2C9F3 /* os */,
 				A8D947051A87FA3F007FB546 /* osx */,
 				A86901B01A02E22300D2C9F3 /* path */,
+				A8C7CA171B02B7880057D338 /* posix */,
 				A86901C01A02E22300D2C9F3 /* quad */,
 				A86901CE1A02E22300D2C9F3 /* system */,
 				A86901D71A02E22300D2C9F3 /* texture */,
@@ -722,6 +726,23 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		A8C7CA171B02B7880057D338 /* posix */ = {
+			isa = PBXGroup;
+			children = (
+				A8C7CA181B02B7880057D338 /* system */,
+			);
+			path = posix;
+			sourceTree = "<group>";
+		};
+		A8C7CA181B02B7880057D338 /* system */ = {
+			isa = PBXGroup;
+			children = (
+				A8C7CA191B02B7880057D338 /* MappedFile.h */,
+				A8C7CA1A1B02BA460057D338 /* MappedFile.cpp */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
 		A8CDB6541A2DC6F80043A5E5 /* system */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +931,7 @@
 				A8EBAF621AB10B6B0001A7C9 /* TestingBase.cpp in Sources */,
 				A8A2B3A41A5AB6F7002B5ABD /* MemoryManagerBase.cpp in Sources */,
 				A8FBA6401A72737700D6B4A3 /* SystemManager.cpp in Sources */,
+				A8C7CA1B1B02BA460057D338 /* MappedFile.cpp in Sources */,
 				A869021E1A02E22400D2C9F3 /* VirtualFont.cpp in Sources */,
 				A86902521A02E22400D2C9F3 /* MathUtils.cpp in Sources */,
 				A82C910A16E02DAA00FF519C /* Sketch.cpp in Sources */,
