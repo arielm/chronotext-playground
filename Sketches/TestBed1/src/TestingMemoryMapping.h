@@ -23,6 +23,13 @@
  * - OSX: MEMORY-RELEASE IS NOT PROPERLY DETECTED (SEE TestingMemory1)
  */
 
+/*
+ * STAGE 2: USING MEMORY-MAPPING 
+ *
+ * iOS AND OSX: VIA mmap
+ * ANDROID: VIA (UNCOMPRESSED) ASSET
+ */
+
 #pragma once
 
 #include "Testing/TestingBase.h"

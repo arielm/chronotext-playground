@@ -74,6 +74,7 @@
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
 		A8C294AA1AC0485F00FD36C9 /* TestingDemangling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C294A81AC0485F00FD36C9 /* TestingDemangling.cpp */; };
+		A8C7CA011B02523C0057D338 /* MemoryBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7C9FF1B02523C0057D338 /* MemoryBuffer.cpp */; };
 		A8D55E6C1AFD84CB00880B52 /* TestingMemoryMapping.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D55E6A1AFD84CB00880B52 /* TestingMemoryMapping.cpp */; };
 		A8D7C09A1A75A71F00002385 /* TestingZFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D7C0981A75A71F00002385 /* TestingZFont.cpp */; };
 		A8D947011A8782A8007FB546 /* TestingIOService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8D947001A8782A8007FB546 /* TestingIOService.cpp */; };
@@ -244,6 +245,10 @@
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
 		A8C294A81AC0485F00FD36C9 /* TestingDemangling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingDemangling.cpp; path = ../src/TestingDemangling.cpp; sourceTree = "<group>"; };
 		A8C294A91AC0485F00FD36C9 /* TestingDemangling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingDemangling.h; path = ../src/TestingDemangling.h; sourceTree = "<group>"; };
+		A8C7C9F71B023C400057D338 /* MemoryBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryBuffer.h; sourceTree = "<group>"; };
+		A8C7C9F81B023DDD0057D338 /* MemoryBufferBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBufferBase.h; sourceTree = "<group>"; };
+		A8C7C9FF1B02523C0057D338 /* MemoryBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBuffer.cpp; sourceTree = "<group>"; };
+		A8C7CA001B02523C0057D338 /* MemoryBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBuffer.h; sourceTree = "<group>"; };
 		A8CDB6501A2DC0B60043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8CDB6521A2DC0B60043A5E5 /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
 		A8CDB6551A2DC6F80043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
@@ -570,6 +575,8 @@
 				A8CDB6501A2DC0B60043A5E5 /* MemoryManager.h */,
 				A8CDB6521A2DC0B60043A5E5 /* MemoryManagerBase.h */,
 				A8A2B3A31A5AB6F7002B5ABD /* MemoryManagerBase.cpp */,
+				A8C7C9F71B023C400057D338 /* MemoryBuffer.h */,
+				A8C7C9F81B023DDD0057D338 /* MemoryBufferBase.h */,
 			);
 			path = system;
 			sourceTree = "<group>";
@@ -720,6 +727,8 @@
 			children = (
 				A8A2B3B51A5ADCBA002B5ABD /* FileHelper.h */,
 				A8A2B3B61A5ADCBA002B5ABD /* FileHelper.mm */,
+				A8C7CA001B02523C0057D338 /* MemoryBuffer.h */,
+				A8C7C9FF1B02523C0057D338 /* MemoryBuffer.cpp */,
 				A8CDB6551A2DC6F80043A5E5 /* MemoryManager.h */,
 				A8CDB6561A2DC6F80043A5E5 /* MemoryManager.mm */,
 			);
@@ -799,12 +808,12 @@
 		A8FBA6371A72737700D6B4A3 /* system */ = {
 			isa = PBXGroup;
 			children = (
-				A8FBA6381A72737700D6B4A3 /* DisplayHelper.cpp */,
 				A8FBA6391A72737700D6B4A3 /* DisplayHelper.h */,
+				A8FBA6381A72737700D6B4A3 /* DisplayHelper.cpp */,
 				A8FBA63A1A72737700D6B4A3 /* EmulatedDevice.h */,
 				A8FBA63B1A72737700D6B4A3 /* SystemInfo.h */,
-				A8FBA63C1A72737700D6B4A3 /* SystemManager.cpp */,
 				A8FBA63D1A72737700D6B4A3 /* SystemManager.h */,
+				A8FBA63C1A72737700D6B4A3 /* SystemManager.cpp */,
 			);
 			path = system;
 			sourceTree = "<group>";
@@ -911,6 +920,7 @@
 				A881B27B1A351E2200AB18C0 /* TextHelper.cpp in Sources */,
 				A8147EF31A9A31D600885D67 /* Application.cpp in Sources */,
 				A8FBD69B1AF84C4F00AD3ADA /* TestingStringKey.cpp in Sources */,
+				A8C7CA011B02523C0057D338 /* MemoryBuffer.cpp in Sources */,
 				A8D7C09A1A75A71F00002385 /* TestingZFont.cpp in Sources */,
 				A86902361A02E22400D2C9F3 /* SuperHandler.cpp in Sources */,
 				A869024D1A02E22400D2C9F3 /* FrameClock.cpp in Sources */,
