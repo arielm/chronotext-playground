@@ -18,6 +18,7 @@ using namespace chr::zf;
 void TestingZFont::setup()
 {
     FontManager::LOG_VERBOSE = true;
+    FontManager::PROBE_MEMORY = true;
     
     fontManager = make_shared<FontManager>();
     fontManager->loadConfig(InputSource::getAsset("font-config.xml"));
@@ -28,6 +29,7 @@ void TestingZFont::shutdown()
     fontManager.reset();
     
     FontManager::LOG_VERBOSE = false;
+    FontManager::PROBE_MEMORY = false;
 }
 
 void TestingZFont::run(bool force)

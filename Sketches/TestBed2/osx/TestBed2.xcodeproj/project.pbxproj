@@ -52,6 +52,9 @@
 		A89599701AAF1AEE0072F40B /* TestingSound2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A895996F1AAF1AEE0072F40B /* TestingSound2.cpp */; };
 		A8B3365B1A045B2200ABEFBF /* Log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8B336591A045B2200ABEFBF /* Log.cpp */; };
 		A8C16E9E1A2A43E800551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9D1A2A43E800551905 /* main.cpp */; };
+		A8C7CA361B04073A0057D338 /* MemoryBufferBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7CA341B04073A0057D338 /* MemoryBufferBase.cpp */; };
+		A8C7CA3B1B0407530057D338 /* MappedFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7CA391B0407530057D338 /* MappedFile.cpp */; };
+		A8C7CA3E1B0407640057D338 /* MemoryBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7CA3C1B0407640057D338 /* MemoryBuffer.cpp */; };
 		A8CDB6531A2DC0B60043A5E5 /* MemoryManagerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6511A2DC0B60043A5E5 /* MemoryManagerBase.cpp */; };
 		A8D9475E1A881B6F007FB546 /* CinderDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8D947551A881B6F007FB546 /* CinderDelegate.mm */; };
 		A8D947611A881B6F007FB546 /* NSView+StringTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D9475C1A881B6F007FB546 /* NSView+StringTag.m */; };
@@ -163,6 +166,13 @@
 		A8B336591A045B2200ABEFBF /* Log.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Log.cpp; sourceTree = "<group>"; };
 		A8B3365A1A045B2200ABEFBF /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		A8C16E9D1A2A43E800551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
+		A8C7CA331B04073A0057D338 /* MemoryBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBuffer.h; sourceTree = "<group>"; };
+		A8C7CA341B04073A0057D338 /* MemoryBufferBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBufferBase.cpp; sourceTree = "<group>"; };
+		A8C7CA351B04073A0057D338 /* MemoryBufferBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBufferBase.h; sourceTree = "<group>"; };
+		A8C7CA391B0407530057D338 /* MappedFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MappedFile.cpp; sourceTree = "<group>"; };
+		A8C7CA3A1B0407530057D338 /* MappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappedFile.h; sourceTree = "<group>"; };
+		A8C7CA3C1B0407640057D338 /* MemoryBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBuffer.cpp; sourceTree = "<group>"; };
+		A8C7CA3D1B0407640057D338 /* MemoryBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBuffer.h; sourceTree = "<group>"; };
 		A8CDB6501A2DC0B60043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8CDB6511A2DC0B60043A5E5 /* MemoryManagerBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryManagerBase.cpp; sourceTree = "<group>"; };
 		A8CDB6521A2DC0B60043A5E5 /* MemoryManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManagerBase.h; sourceTree = "<group>"; };
@@ -349,6 +359,7 @@
 				A869019E1A02E22300D2C9F3 /* os */,
 				A8D947501A881B6F007FB546 /* osx */,
 				A86901C01A02E22300D2C9F3 /* quad */,
+				A8C7CA371B0407530057D338 /* posix */,
 				A8112AB51A4C46E40002CF68 /* sound */,
 				A86901CE1A02E22300D2C9F3 /* system */,
 				A86901D71A02E22300D2C9F3 /* texture */,
@@ -420,6 +431,9 @@
 				A8CDB6501A2DC0B60043A5E5 /* MemoryManager.h */,
 				A8CDB6521A2DC0B60043A5E5 /* MemoryManagerBase.h */,
 				A8CDB6511A2DC0B60043A5E5 /* MemoryManagerBase.cpp */,
+				A8C7CA331B04073A0057D338 /* MemoryBuffer.h */,
+				A8C7CA351B04073A0057D338 /* MemoryBufferBase.h */,
+				A8C7CA341B04073A0057D338 /* MemoryBufferBase.cpp */,
 			);
 			path = system;
 			sourceTree = "<group>";
@@ -512,6 +526,23 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		A8C7CA371B0407530057D338 /* posix */ = {
+			isa = PBXGroup;
+			children = (
+				A8C7CA381B0407530057D338 /* system */,
+			);
+			path = posix;
+			sourceTree = "<group>";
+		};
+		A8C7CA381B0407530057D338 /* system */ = {
+			isa = PBXGroup;
+			children = (
+				A8C7CA3A1B0407530057D338 /* MappedFile.h */,
+				A8C7CA391B0407530057D338 /* MappedFile.cpp */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
 		A8CDB6541A2DC6F80043A5E5 /* system */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +550,8 @@
 				A8702AA21A5AF3F400EF9E9E /* FileHelper.mm */,
 				A8CDB6551A2DC6F80043A5E5 /* MemoryManager.h */,
 				A8CDB6561A2DC6F80043A5E5 /* MemoryManager.mm */,
+				A8C7CA3D1B0407640057D338 /* MemoryBuffer.h */,
+				A8C7CA3C1B0407640057D338 /* MemoryBuffer.cpp */,
 			);
 			path = system;
 			sourceTree = "<group>";
@@ -643,7 +676,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TestBed2" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -710,12 +743,14 @@
 				A8702AA31A5AF3F400EF9E9E /* FileHelper.mm in Sources */,
 				A86902511A02E22400D2C9F3 /* GLUtils.cpp in Sources */,
 				A874A5021A2B550A009A60A0 /* Task.cpp in Sources */,
+				A8C7CA3E1B0407640057D338 /* MemoryBuffer.cpp in Sources */,
 				A8112ABB1A4C46E40002CF68 /* SoundManager.cpp in Sources */,
 				A8147EF91A9A340400885D67 /* CinderBridge.mm in Sources */,
 				A8D947611A881B6F007FB546 /* NSView+StringTag.m in Sources */,
 				A8702AB81A5B099E00EF9E9E /* DisplayHelperBase.cpp in Sources */,
 				A8CDB6531A2DC0B60043A5E5 /* MemoryManagerBase.cpp in Sources */,
 				A86902491A02E22400D2C9F3 /* Texture.cpp in Sources */,
+				A8C7CA361B04073A0057D338 /* MemoryBufferBase.cpp in Sources */,
 				A8FBA64D1A72738600D6B4A3 /* DisplayHelper.cpp in Sources */,
 				A86902351A02E22400D2C9F3 /* Handler.cpp in Sources */,
 				A8112ABA1A4C46E40002CF68 /* Effect.cpp in Sources */,
@@ -731,6 +766,7 @@
 				A86902361A02E22400D2C9F3 /* SuperHandler.cpp in Sources */,
 				A8147EFB1A9A342400885D67 /* Application.cpp in Sources */,
 				A869024D1A02E22400D2C9F3 /* FrameClock.cpp in Sources */,
+				A8C7CA3B1B0407530057D338 /* MappedFile.cpp in Sources */,
 				A814C5DB1A374AE400F639E3 /* ImageSourceFileStbImage.cpp in Sources */,
 				A86902551A02E22400D2C9F3 /* Utils.cpp in Sources */,
 				A86902411A02E22400D2C9F3 /* QuadMatrix.cpp in Sources */,

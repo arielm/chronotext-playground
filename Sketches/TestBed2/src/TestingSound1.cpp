@@ -60,6 +60,7 @@ void TestingSound1::shutdown()
         soundManager.reset();
         
         SoundManager::LOG_VERBOSE = false;
+        SoundManager::PROBE_MEMORY = false;
     }
     
     unlock("FMOD");

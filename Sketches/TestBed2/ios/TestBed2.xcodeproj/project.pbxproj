@@ -125,6 +125,9 @@
 		A8994D441726E33900C8851E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8994D431726E33900C8851E /* GLKit.framework */; };
 		A8994D481726E51E00C8851E /* Application.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8994D471726E51E00C8851E /* Application.mm */; };
 		A8C16EA01A2A4A7300551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9F1A2A4A7300551905 /* main.cpp */; };
+		A8C7CA421B0412010057D338 /* MemoryBufferBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7CA401B0412010057D338 /* MemoryBufferBase.cpp */; };
+		A8C7CA451B0412100057D338 /* MemoryBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7CA431B0412100057D338 /* MemoryBuffer.cpp */; };
+		A8C7CA4A1B0412250057D338 /* MappedFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7CA481B0412250057D338 /* MappedFile.cpp */; };
 		A8CDB6631A2DD16A0043A5E5 /* MemoryManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB65B1A2DD16A0043A5E5 /* MemoryManager.mm */; };
 		A8CDB6641A2DD16A0043A5E5 /* NSDictionary+DefautValues.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB65E1A2DD16A0043A5E5 /* NSDictionary+DefautValues.m */; };
 		A8CDB6651A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CDB6601A2DD16A0043A5E5 /* NSMutableDictionary+Merge.m */; };
@@ -276,6 +279,13 @@
 		A8994D461726E51E00C8851E /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
 		A8994D471726E51E00C8851E /* Application.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Application.mm; sourceTree = "<group>"; };
 		A8C16E9F1A2A4A7300551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
+		A8C7CA3F1B0412010057D338 /* MemoryBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBuffer.h; sourceTree = "<group>"; };
+		A8C7CA401B0412010057D338 /* MemoryBufferBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBufferBase.cpp; sourceTree = "<group>"; };
+		A8C7CA411B0412010057D338 /* MemoryBufferBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBufferBase.h; sourceTree = "<group>"; };
+		A8C7CA431B0412100057D338 /* MemoryBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryBuffer.cpp; sourceTree = "<group>"; };
+		A8C7CA441B0412100057D338 /* MemoryBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryBuffer.h; sourceTree = "<group>"; };
+		A8C7CA481B0412250057D338 /* MappedFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MappedFile.cpp; sourceTree = "<group>"; };
+		A8C7CA491B0412250057D338 /* MappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MappedFile.h; sourceTree = "<group>"; };
 		A8CDB65A1A2DD16A0043A5E5 /* MemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryManager.h; sourceTree = "<group>"; };
 		A8CDB65B1A2DD16A0043A5E5 /* MemoryManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MemoryManager.mm; sourceTree = "<group>"; };
 		A8CDB65D1A2DD16A0043A5E5 /* NSDictionary+DefautValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+DefautValues.h"; sourceTree = "<group>"; };
@@ -497,6 +507,7 @@
 				A84E43391A2A1F2300EE6AC1 /* ios */,
 				A84E42BE1A2A1DFA00EE6AC1 /* os */,
 				A84E42C91A2A1DFB00EE6AC1 /* quad */,
+				A8C7CA461B0412250057D338 /* posix */,
 				A8112ABC1A4C4B520002CF68 /* sound */,
 				A84E42CF1A2A1DFB00EE6AC1 /* system */,
 				A84E42D81A2A1DFB00EE6AC1 /* texture */,
@@ -568,6 +579,9 @@
 				A8DC566A1A2E238400C16B2F /* MemoryManager.h */,
 				A8DC566C1A2E238400C16B2F /* MemoryManagerBase.h */,
 				A8DC566B1A2E238400C16B2F /* MemoryManagerBase.cpp */,
+				A8C7CA3F1B0412010057D338 /* MemoryBuffer.h */,
+				A8C7CA411B0412010057D338 /* MemoryBufferBase.h */,
+				A8C7CA401B0412010057D338 /* MemoryBufferBase.cpp */,
 			);
 			path = system;
 			sourceTree = "<group>";
@@ -747,6 +761,23 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		A8C7CA461B0412250057D338 /* posix */ = {
+			isa = PBXGroup;
+			children = (
+				A8C7CA471B0412250057D338 /* system */,
+			);
+			path = posix;
+			sourceTree = "<group>";
+		};
+		A8C7CA471B0412250057D338 /* system */ = {
+			isa = PBXGroup;
+			children = (
+				A8C7CA491B0412250057D338 /* MappedFile.h */,
+				A8C7CA481B0412250057D338 /* MappedFile.cpp */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
 		A8CDB6581A2DD16A0043A5E5 /* cocoa */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,6 +794,8 @@
 				A8702AA81A5AF4EA00EF9E9E /* FileHelper.mm */,
 				A8CDB65A1A2DD16A0043A5E5 /* MemoryManager.h */,
 				A8CDB65B1A2DD16A0043A5E5 /* MemoryManager.mm */,
+				A8C7CA441B0412100057D338 /* MemoryBuffer.h */,
+				A8C7CA431B0412100057D338 /* MemoryBuffer.cpp */,
 			);
 			path = system;
 			sourceTree = "<group>";
@@ -853,7 +886,7 @@
 		00692BC614FF149000D0A05E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 00692BC914FF149000D0A05E /* Build configuration list for PBXProject "TestBed2" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -918,6 +951,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A84E43201A2A1DFB00EE6AC1 /* ImageSourceFileStbImage.cpp in Sources */,
+				A8C7CA451B0412100057D338 /* MemoryBuffer.cpp in Sources */,
 				A8EBAF591AB108C10001A7C9 /* TestingBase.cpp in Sources */,
 				A84E43161A2A1DFB00EE6AC1 /* SystemManagerBase.cpp in Sources */,
 				A84E43171A2A1DFB00EE6AC1 /* PVRHelper.cpp in Sources */,
@@ -946,8 +980,10 @@
 				A8702AA61A5AF4D300EF9E9E /* FileHelperBase.cpp in Sources */,
 				A8DC566D1A2E238400C16B2F /* MemoryManagerBase.cpp in Sources */,
 				A84E43141A2A1DFB00EE6AC1 /* QuadMatrix.cpp in Sources */,
+				A8C7CA4A1B0412250057D338 /* MappedFile.cpp in Sources */,
 				A8EBAF5B1AB108C10001A7C9 /* TestingSketch.cpp in Sources */,
 				A874A5081A2B5B88009A60A0 /* Task.cpp in Sources */,
+				A8C7CA421B0412010057D338 /* MemoryBufferBase.cpp in Sources */,
 				A89599791AAF20490072F40B /* TestingSound1.cpp in Sources */,
 				A84E430F1A2A1DFB00EE6AC1 /* Log.cpp in Sources */,
 				A8CDB6631A2DD16A0043A5E5 /* MemoryManager.mm in Sources */,

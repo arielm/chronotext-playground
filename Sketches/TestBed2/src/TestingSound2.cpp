@@ -37,6 +37,9 @@ void TestingSound2::setup()
     assert(!soundManager);
     soundManager = make_shared<SoundManager>();
     
+    SoundManager::LOG_VERBOSE = true;
+    SoundManager::PROBE_MEMORY = true;
+    
     if (!soundManager->init())
     {
         throw EXCEPTION(SoundManager, "UNABLE TO INITIALIZE SoundManager");
@@ -54,6 +57,9 @@ void TestingSound2::shutdown()
     
     soundManager->uninit();
     soundManager.reset();
+    
+    SoundManager::LOG_VERBOSE = false;
+    SoundManager::PROBE_MEMORY = false;
     
     unlock("FMOD");
 }
