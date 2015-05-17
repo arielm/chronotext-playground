@@ -48,11 +48,11 @@ void Sketch::begin()
     executeTest<TestingDemangling>(false);
     executeTest<TestingMisc>(false);
     executeTest<TestingTasks>(false);
-    executeTest<TestingZFont>(true);
+    executeTest<TestingZFont>(false);
     executeTest<TestingStringKey>(false);
     
     addFrameTest<TestingMemory1>(false);
     addFrameTest<TestingMemory2>(false);
-    addFrameTest<TestingMemoryMapping>(false);
+    addFrameTest<TestingMemoryMapping>(true);
     addFrameTest<TestingIOService>(false);
 }

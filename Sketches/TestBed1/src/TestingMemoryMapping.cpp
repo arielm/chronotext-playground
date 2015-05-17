@@ -37,15 +37,20 @@ void TestingMemoryMapping::shutdown()
 
 void TestingMemoryMapping::update()
 {
-    if (!loaded && !font)
+    if (!loaded && !fonts[0])
     {
-        font = fontManager->getFont(InputSource::getAsset("droid-sans-fallback.xml"), ZFont::Properties2d(32));
+        fonts[0] = fontManager->getFont(InputSource::getAsset("droid-sans-fallback.xml"), ZFont::Properties2d(32));
+        fonts[1] = fontManager->getFont(InputSource::getAsset("droid-sans-fallback.xml"), ZFont::Properties2d(64));
+        
         loaded = true;
     }
     
-    if (loaded && font)
+    if (loaded && fonts[0])
     {
-        fontManager->unload(font);
-        font.reset();
+        fontManager->unload(fonts[0]);
+        fonts[0].reset();
+        
+        fontManager->unload(fonts[1]);
+        fonts[1].reset();
     }
 }

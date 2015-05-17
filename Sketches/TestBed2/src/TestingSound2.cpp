@@ -159,7 +159,7 @@ void TestingSound2::destroySound()
 
 FMOD_RESULT TestingSound2::android_open(const char *name, unsigned int *filesize, void **handle, void *userdata)
 {
-    AAsset* asset = AAssetManager_open(FileHelper::getAssetManager(), name, AASSET_MODE_UNKNOWN);
+    AAsset* asset = AAssetManager_open(FileHelper::getAssetManager(), name, AASSET_MODE_RANDOM);
     
     if (!asset)
     {

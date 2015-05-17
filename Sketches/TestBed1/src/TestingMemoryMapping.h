@@ -40,7 +40,7 @@ class TestingMemoryMapping : public TestingBase
 {
 public:
     std::shared_ptr<chr::zf::FontManager> fontManager;
-    std::shared_ptr<chr::ZFont> font;
+    std::shared_ptr<chr::ZFont> fonts[2];
     bool loaded = false;
     
     void setup() final;
