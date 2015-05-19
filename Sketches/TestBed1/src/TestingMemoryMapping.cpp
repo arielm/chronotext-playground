@@ -8,7 +8,13 @@
 
 #include "TestingMemoryMapping.h"
 
+#include "chronotext/font/zf/FontManager.h"
 #include "chronotext/Context.h"
+
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 using namespace std;
 using namespace ci;
@@ -20,37 +26,86 @@ void TestingMemoryMapping::setup()
     FontManager::LOG_VERBOSE = true;
     FontManager::PROBE_MEMORY = true;
     
-    fontManager = make_shared<FontManager>();
-    
     LOGI << endl << "MEMORY INFO - BEFORE: " << getMemoryInfo() << endl << endl;
 }
 
 void TestingMemoryMapping::shutdown()
 {
-    fontManager.reset();
-
     FontManager::LOG_VERBOSE = false;
     FontManager::PROBE_MEMORY = false;
     
     LOGI << endl << "MEMORY INFO - AFTER: " << getMemoryInfo() << endl;
 }
 
-void TestingMemoryMapping::update()
+void TestingMemoryMapping::run(bool force)
 {
-    if (!loaded && !fonts[0])
+    if (force || true)
     {
-        fonts[0] = fontManager->getFont(InputSource::getAsset("droid-sans-fallback.xml"), ZFont::Properties2d(32));
-        fonts[1] = fontManager->getFont(InputSource::getAsset("droid-sans-fallback.xml"), ZFont::Properties2d(64));
-        
-        loaded = true;
+        CHR_TEST(force || false, testSameFontAllocation);
+        CHR_TEST(force || true, testSameFDAllocation);
     }
+}
+
+// ---
+
+/*
+ * TESTING system/MemoryBuffer (USED BEHIND THE SCENES WHEN ACCESSING DroidSansFallback.ttf):
+ *
+ * RESULTS FOR OSX, iOS AND ANDROID:
+ * - A NEW MEMORY AREA IS MAPPED (OR ALLOCATED, IN THE CASE OF COMPRESSED ANDROID ASSETS) EACH TIME
+ * 
+ * CONCLUSION:
+ * - SOME CACHING SHOULD TAKE PLACE (I.E. AT THE system/MemoryManager LEVEL)
+ */
+void TestingMemoryMapping::testSameFontAllocation()
+{
+    auto fontManager = make_shared<FontManager>();
     
-    if (loaded && fonts[0])
+    fontManager->getFont(InputSource::getAsset("droid-sans-fallback.xml"), ZFont::Properties2d(32));
+    fontManager->getFont(InputSource::getAsset("droid-sans-fallback.xml"), ZFont::Properties2d(64));
+}
+
+/*
+ * TESTING CONSECUTIVE MEMORY-MAPPING WITH UNIQUE FILE-DESCRIPTOR
+ *
+ * RESULTS FOR OSX, iOS AND ANDROID:
+ * - A NEW MEMORY AREA IS MAPPED EACH TIME
+ *
+ * CONCLUSION:
+ * - SOME CACHING SHOULD TAKE PLACE (I.E. AT THE system/MemoryManager LEVEL)
+ */
+void TestingMemoryMapping::testSameFDAllocation()
+{
+    auto filePath = getPublicDirectory() / "test.bundle/background.png"; // 1.3MB
+    auto fd = open(filePath.c_str(), O_RDONLY);
+    
+    if (fd != -1)
     {
-        fontManager->unload(fonts[0]);
-        fonts[0].reset();
+        struct stat stats;
         
-        fontManager->unload(fonts[1]);
-        fonts[1].reset();
+        if ((fstat(fd, &stats) != -1) && (stats.st_size > 0))
+        {
+            size_t size = stats.st_size;
+            auto data1 = mmap(nullptr, size, PROT_READ, MAP_FILE | MAP_PRIVATE, fd, 0);
+            
+            if (data1 != MAP_FAILED)
+            {
+                LOGI << data1 << endl;
+                
+                // ---
+                
+                auto data2 = mmap(nullptr, size, PROT_READ, MAP_FILE | MAP_PRIVATE, fd, 0);
+                
+                if (data2 != MAP_FAILED)
+                {
+                    LOGI << data2 << endl;
+                    munmap(data2, size);
+                }
+                
+                munmap(data1, size);
+            }
+            
+            close(fd);
+        }
     }
 }

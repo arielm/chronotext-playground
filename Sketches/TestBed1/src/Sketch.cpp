@@ -50,9 +50,9 @@ void Sketch::begin()
     executeTest<TestingTasks>(false);
     executeTest<TestingZFont>(false);
     executeTest<TestingStringKey>(false);
+    executeTest<TestingMemoryMapping>(true);
     
     addFrameTest<TestingMemory1>(false);
     addFrameTest<TestingMemory2>(false);
-    addFrameTest<TestingMemoryMapping>(true);
     addFrameTest<TestingIOService>(false);
 }
