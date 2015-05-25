@@ -6,6 +6,13 @@
  * https://github.com/arielm/chronotext-playground/blob/master/LICENSE
  */
 
+/*
+ * TODO:
+ *
+ * 1) EXPERIMENT WITH llvm/support/StringPool
+ *    https://github.com/kripken/emscripten-fastcomp/blob/1.32.4/include/llvm/Support/StringPool.h
+ */
+
 #pragma once
 
 #include "Testing/TestingBase.h"

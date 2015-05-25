@@ -41,7 +41,7 @@ void TestingMemoryMapping::run(bool force)
 {
     if (force || true)
     {
-        CHR_TEST(force || false, testSameFontAllocation);
+        CHR_TEST(force || true, testSameFontAllocation);
         CHR_TEST(force || true, testSameFDAllocation);
     }
 }
@@ -86,19 +86,19 @@ void TestingMemoryMapping::testSameFDAllocation()
         if ((fstat(fd, &stats) != -1) && (stats.st_size > 0))
         {
             size_t size = stats.st_size;
-            auto data1 = mmap(nullptr, size, PROT_READ, MAP_FILE | MAP_PRIVATE, fd, 0);
+            auto data1 = mmap(nullptr, size, PROT_READ, MAP_PRIVATE, fd, 0);
             
             if (data1 != MAP_FAILED)
             {
-                LOGI << data1 << endl;
+                LOGI << std::addressof(data1) << endl;
                 
                 // ---
                 
-                auto data2 = mmap(nullptr, size, PROT_READ, MAP_FILE | MAP_PRIVATE, fd, 0);
+                auto data2 = mmap(nullptr, size, PROT_READ, MAP_PRIVATE, fd, 0);
                 
                 if (data2 != MAP_FAILED)
                 {
-                    LOGI << data2 << endl;
+                    LOGI << std::addressof(data2) << endl;
                     munmap(data2, size);
                 }
                 

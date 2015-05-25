@@ -17,6 +17,7 @@
 #include "TestingStringKey.h"
 #include "TestingIOService.h"
 #include "TestingMemoryMapping.h"
+#include "TestingIO.h"
 
 #include "chronotext/Context.h"
 #include "chronotext/utils/GLUtils.h"
@@ -50,7 +51,8 @@ void Sketch::begin()
     executeTest<TestingTasks>(false);
     executeTest<TestingZFont>(false);
     executeTest<TestingStringKey>(false);
-    executeTest<TestingMemoryMapping>(true);
+    executeTest<TestingMemoryMapping>(false);
+    executeTest<TestingIO>(true);
     
     addFrameTest<TestingMemory1>(false);
     addFrameTest<TestingMemory2>(false);

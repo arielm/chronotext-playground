@@ -71,6 +71,7 @@
 		A89F40D91AF448E50052917E /* LayoutStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A89F40D71AF448E50052917E /* LayoutStore.cpp */; };
 		A8A2B3BA1A5AE2E7002B5ABD /* FileHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8A2B3B91A5AE2E7002B5ABD /* FileHelper.mm */; };
 		A8A2B3BD1A5AE2EF002B5ABD /* FileHelperBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8A2B3BB1A5AE2EF002B5ABD /* FileHelperBase.cpp */; };
+		A8A40AF01B12783900C32D8E /* TestingIO.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8A40AEE1B12783900C32D8E /* TestingIO.cpp */; };
 		A8C16EA01A2A4A7300551905 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C16E9F1A2A4A7300551905 /* main.cpp */; };
 		A8C294AD1AC04B4A00FD36C9 /* TestingDemangling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C294AB1AC04B4A00FD36C9 /* TestingDemangling.cpp */; };
 		A8C7CA061B0266480057D338 /* MemoryBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A8C7CA041B0266480057D338 /* MemoryBuffer.cpp */; };
@@ -256,6 +257,8 @@
 		A8A2B3B91A5AE2E7002B5ABD /* FileHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FileHelper.mm; sourceTree = "<group>"; };
 		A8A2B3BB1A5AE2EF002B5ABD /* FileHelperBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileHelperBase.cpp; sourceTree = "<group>"; };
 		A8A2B3BC1A5AE2EF002B5ABD /* FileHelperBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelperBase.h; sourceTree = "<group>"; };
+		A8A40AEE1B12783900C32D8E /* TestingIO.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingIO.cpp; path = ../src/TestingIO.cpp; sourceTree = "<group>"; };
+		A8A40AEF1B12783900C32D8E /* TestingIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingIO.h; path = ../src/TestingIO.h; sourceTree = "<group>"; };
 		A8C16E9F1A2A4A7300551905 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = ../src/main.cpp; sourceTree = "<group>"; };
 		A8C294AB1AC04B4A00FD36C9 /* TestingDemangling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TestingDemangling.cpp; path = ../src/TestingDemangling.cpp; sourceTree = "<group>"; };
 		A8C294AC1AC04B4A00FD36C9 /* TestingDemangling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestingDemangling.h; path = ../src/TestingDemangling.h; sourceTree = "<group>"; };
@@ -783,6 +786,8 @@
 				A8D947021A87980C007FB546 /* TestingIOService.cpp */,
 				A8FBD69D1AF84E7300AD3ADA /* TestingStringKey.h */,
 				A8FBD69C1AF84E7300AD3ADA /* TestingStringKey.cpp */,
+				A8A40AEF1B12783900C32D8E /* TestingIO.h */,
+				A8A40AEE1B12783900C32D8E /* TestingIO.cpp */,
 				A8FBD6981AF84C0600AD3ADA /* ObservableString.h */,
 			);
 			name = Testing;
@@ -991,6 +996,7 @@
 				A84E43361A2A1F0500EE6AC1 /* ShapeMesh.cpp in Sources */,
 				A84E431B1A2A1DFB00EE6AC1 /* TextureManager.cpp in Sources */,
 				A84E431E1A2A1DFB00EE6AC1 /* GLUtils.cpp in Sources */,
+				A8A40AF01B12783900C32D8E /* TestingIO.cpp in Sources */,
 				A84E43381A2A1F0500EE6AC1 /* SplinePath.cpp in Sources */,
 				A8112C1A1A4DC3C80002CF68 /* TextureAtlasAnimation.cpp in Sources */,
 				A84E43061A2A1DFB00EE6AC1 /* FontSequence.cpp in Sources */,
