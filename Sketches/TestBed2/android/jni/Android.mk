@@ -37,7 +37,7 @@ LOCAL_CFLAGS += -ffast-math -O3
 ###
 
 LOCAL_LDLIBS := -llog -landroid
-LOCAL_STATIC_LIBRARIES := cinder android_native_app_glue boost_system boost_filesystem boost_thread
+LOCAL_STATIC_LIBRARIES := cinder android_native_app_glue boost_system boost_filesystem
 LOCAL_STATIC_LIBRARIES += PocoDataSQLite PocoData PocoNetSSL PocoNet PocoCrypto PocoZip PocoUtil PocoXML PocoFoundation ssl crypto
 LOCAL_SHARED_LIBRARIES += fmod
 

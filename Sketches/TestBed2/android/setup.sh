@@ -6,7 +6,7 @@ setup()
   rm -rf bin
   rm -rf gen
 
-  android update project --path . --name TestBed2 --target android-15
+  android update project --path . --name TestBed2 --target android-16
 
   echo "" >> local.properties
   echo "cinder.dir=$CINDER_PATH" >> local.properties

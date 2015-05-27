@@ -39,7 +39,7 @@ LOCAL_CFLAGS += -ffast-math -O3
 ###
 
 LOCAL_LDLIBS := -llog -landroid
-LOCAL_STATIC_LIBRARIES := cinder android_native_app_glue boost_system boost_filesystem boost_thread boost_iostreams
+LOCAL_STATIC_LIBRARIES := cinder android_native_app_glue boost_system boost_filesystem boost_iostreams
 LOCAL_STATIC_LIBRARIES += ft2 icu-common hb
 
 LOCAL_MODULE := TestBed1
