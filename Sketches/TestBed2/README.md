@@ -67,7 +67,7 @@ xcodebuild -scheme Target1 archive -archivePath Target1.xcarchive
 This should produce a `.xcarchive` bundle signed with the *default identity* (automatically picked by XCode.) If you have several identities installed, you can force one of them to be used, as follows:
 
 ```
-xcodebuild -scheme Target1 archive -archivePath Target1.xcarchive CODE_SIGN_IDENTITY="iPhone Developer"
+xcodebuild -scheme Target1 archive -archivePath Target1.xcarchive CODE_SIGN_IDENTITY="iPhone Developer: Ariel Malka (**********)"
 ```
 
 Then, the following should produce an `.ipa` bundle ready for *distribution*:
@@ -76,8 +76,6 @@ xcodebuild -exportArchive -exportFormat ipa -archivePath Target1.xcarchive -expo
 ```
 Be sure to replace `AdHocProvisoningProfile` with the relevant *provisioning-profile* name (which must be properly registered at the XCode's preferences level.)
 
-Post-mortem:
-
-In the past, this procedure has been successfully used with *TestFlight*. Since the acquisition of the latter by Apple, *ad-hoc distribution* has become less relevant (unless if targetting alternative services such as *TestFairy*?)
+*Post-mortem*: in the past, this procedure has been successfully used with *TestFlight*. Since the acquisition of the latter by Apple, *ad-hoc distribution* has become less relevant (unless if targetting alternative services such as *TestFairy*?)
 
 TODO: check [fastlane / deliver](https://github.com/KrauseFx/deliver).
