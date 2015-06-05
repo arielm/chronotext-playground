@@ -13,12 +13,13 @@
 - (BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     bridge = [[CinderBridge alloc] init];
-    
-    bridge.viewControllerProperties = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt:kEAGLRenderingAPIOpenGLES1], kGLViewControllerPropertyRenderingAPI,
-        [NSNumber numberWithInt:UIInterfaceOrientationMaskLandscape], kGLViewControllerPropertyInterfaceOrientationMask,
-        [NSNumber numberWithInt:GLKViewDrawableDepthFormatNone], kGLViewControllerPropertyDepthFormat,
-        nil];
+
+    bridge.viewControllerProperties =
+    @{
+      GLViewControllerRenderingAPIKey: @(kEAGLRenderingAPIOpenGLES1),
+      GLViewControllerInterfaceOrientationMaskKey: @(UIInterfaceOrientationMaskLandscape),
+      GLViewControllerDepthFormatKey: @(GLKViewDrawableDepthFormatNone),
+      };
     
     window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     window.backgroundColor = [UIColor blackColor];
