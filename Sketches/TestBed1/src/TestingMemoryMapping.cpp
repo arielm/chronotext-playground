@@ -46,20 +46,19 @@ void TestingMemoryMapping::run(bool force)
     if (force || true)
     {
         CHR_TEST(force || true, testSameFontAllocation);
-        CHR_TEST(force || true, testSameFDAllocation);
+        CHR_TEST(force || false, testSameFDAllocation);
     }
 }
 
 // ---
 
 /*
- * TESTING system/MemoryBuffer (USED BEHIND THE SCENES WHEN ACCESSING DroidSansFallback.ttf):
+ * TESTING MemoryBuffer:
  *
- * RESULTS FOR OSX, iOS AND ANDROID:
- * - A NEW MEMORY AREA IS MAPPED (OR ALLOCATED, IN THE CASE OF COMPRESSED ANDROID ASSETS) EACH TIME
- * 
- * CONCLUSION:
- * - SOME CACHING SHOULD TAKE PLACE (I.E. AT THE system/MemoryManager LEVEL)
+ * - USED BEHIND THE SCENES WHEN ACCESSING DroidSansFallback.ttf
+ *   - THE force-memory-load ATTRIBUTE IS USED TO FORCE MEMORY-MAPPING ON OSX AND iOS
+ * - THANKS TO THE CACHING TAKING PLACE AS THE MemoryManager LEVEL:
+ *   - A SINGLE MemoryBuffer IS USED PER FREETYPE FONT-FACE
  */
 void TestingMemoryMapping::testSameFontAllocation()
 {
