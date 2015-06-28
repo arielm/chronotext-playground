@@ -1,14 +1,13 @@
-var fs = require('fs');
-fs.writeFileSync('foobar.txt', 'yeehaw');
-
 var Module = {
   preRun: function() {
-    FS.mkdir("/src");
-    FS.mount(NODEFS, { root: "." }, "/src");
+    FS.mkdir("/resources");
+    FS.mount(NODEFS, { root: "../.." }, "/resources");
+
+    console.log(FS.stat('resources/test.txt'));
     console.log('preRun executed');
   },
   postRun: function() {
-    FS.unmount("/src");
+    FS.unmount("/resources");
     console.log('postRun executed');
   },
 };
