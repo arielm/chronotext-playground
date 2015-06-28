@@ -3,7 +3,7 @@ var Module = {
     FS.mkdir("/resources");
     FS.mount(NODEFS, { root: "../.." }, "/resources");
 
-    console.log(FS.stat('resources/test.txt'));
+    // console.log(FS.stat('resources/test.txt'));
     console.log('preRun executed');
   },
   postRun: function() {

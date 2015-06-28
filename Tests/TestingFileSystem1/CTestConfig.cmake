@@ -1,4 +1,10 @@
 
+if (NOT DEFINED ENV{BOOST_PATH})
+  message(FATAL_ERROR "BOOST_PATH MUST BE DEFINED!")
+endif()
+
+# ---
+
 set(CTEST_PROJECT_NAME "TestingFileSystem1")
 
 set(CTEST_CONFIGURATION_TYPE Release)
@@ -27,3 +33,5 @@ elseif (PLATFORM STREQUAL mxe)
 else()
   message(FATAL_ERROR "UNSUPPORTED PLATFORM!")
 endif()
+
+set(CONFIGURE_ARGS "${CONFIGURE_ARGS} -DBOOST_ROOT=$ENV{BOOST_PATH}/dist/${PLATFORM}")
