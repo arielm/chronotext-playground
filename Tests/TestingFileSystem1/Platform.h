@@ -71,6 +71,7 @@ namespace chr
         return executablePath.parent_path().parent_path() / "resources" / fileName;
 
       case PLATFORM_IOS:
+      case PLATFORM_ANDROID:
         return executablePath / fileName;
 
       default:

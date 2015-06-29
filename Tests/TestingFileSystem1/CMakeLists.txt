@@ -17,9 +17,10 @@ if (PLATFORM MATCHES emscripten)
   em_link_pre_js(${PROJECT_NAME} "${CMAKE_CURRENT_LIST_DIR}/pre.js")
 
 elseif (PLATFORM MATCHES ios)
-# source_group(resources FILES "resources/test.txt")
-# set_target_properties(${PROJECT_NAME} PROPERTIES RESOURCE "resources/test.txt")
   set_source_files_properties("resources/test.txt" PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
+
+elseif (PLATFORM MATCHES android)
+  install(CODE "execute_process(COMMAND adb push \"${CMAKE_CURRENT_LIST_DIR}/resources/.\" /data/local/tmp/)")
 endif()
 
 target_link_libraries(${PROJECT_NAME}
