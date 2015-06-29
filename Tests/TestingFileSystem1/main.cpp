@@ -1,3 +1,9 @@
+/*
+ * TODO:
+ * 
+ * - ANDROID: COPY resources FOLDER TO DEVICE
+ */
+
 #include "Platform.h"
 
 #include <iostream>
@@ -15,7 +21,7 @@ int main(int argc, char *argv[])
   auto exePath = chr::getExecutablePath(argc, argv);
   cout << "EXE PATH: " << exePath.string() << endl;
 
-  auto filePath = exePath / "resources" / "test.txt";
+  auto filePath = chr::getResourcePath(exePath, "test.txt");
   cout << "EXISTS: " << fs::exists(filePath) << endl;
 
   fs::ifstream in(filePath, ios::in | ios::binary | ios::ate);

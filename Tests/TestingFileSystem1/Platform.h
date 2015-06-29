@@ -61,4 +61,20 @@ namespace chr
         return fs::current_path();
     }
   }
+
+  fs::path getResourcePath(const fs::path &executablePath, const fs::path &fileName)
+  {
+    switch (CHR_PLATFORM)
+    {
+      case PLATFORM_OSX:
+      case PLATFORM_MINGW:
+        return executablePath.parent_path().parent_path() / "resources" / fileName;
+
+      case PLATFORM_IOS:
+        return executablePath / fileName;
+
+      default:
+        return executablePath / "resources" / fileName;
+    }
+  }
 }
