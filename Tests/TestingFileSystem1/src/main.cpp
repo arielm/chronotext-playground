@@ -8,9 +8,35 @@
 #define STBI_ONLY_JPEG
 #define STBI_ONLY_PNG
 
+void* _malloc(size_t size);
+void* _realloc(void *ptr, size_t size);
+void _free(void *ptr);
+
+#define STBI_MALLOC(sz)    _malloc(sz)
+#define STBI_REALLOC(p,sz) _realloc(p,sz)
+#define STBI_FREE(p)       _free(p)
+
 #include "stb_image.h"
 
 using namespace std;
+
+void* _malloc(size_t size)
+{
+  cout << "malloc " << size << endl;
+  return malloc(size);
+}
+
+void* _realloc(void *ptr, size_t size)
+{
+  cout << "realloc " << size << endl;
+  return realloc(ptr, size);
+}
+
+void _free(void *ptr)
+{
+  cout << "free" << endl;
+  free(ptr);
+}
 
 int main(int argc, char *argv[])
 {
@@ -36,16 +62,19 @@ int main(int argc, char *argv[])
 
   // ---
 
-  auto filePath2 = chr::getResourcePath(executablePath, "2008.547.1crop_4.jpg");
+  string fileName2 = chr::getResourcePath(executablePath, "2008.547.1crop_4.jpg").string();
   int x, y, comp;
 
-  if (stbi_info(filePath2.string().data(), &x, &y, &comp))
+  stbi_uc *data = stbi_load(fileName2.data(), &x, &y, &comp, 0);
+
+  if (data)
   {
     cout << x << "x" << y << " (" << comp << ")" << endl;
+    stbi_image_free(data);
   }
   else
   {
-    cout << "ERROR WITH: " << filePath2 << endl;
+    cout << "ERROR WITH: " << fileName2 << endl;
   }
 
   return 0;
