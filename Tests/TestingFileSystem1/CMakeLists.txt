@@ -8,16 +8,18 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
+file(GLOB RESOURCES_FILES resources/*)
+
 add_executable(${PROJECT_NAME}
   main.cpp
-  "resources/test.txt"
+  ${RESOURCES_FILES}
 )
 
 if (PLATFORM MATCHES emscripten)
   em_link_pre_js(${PROJECT_NAME} "${CMAKE_CURRENT_LIST_DIR}/pre.js")
 
 elseif (PLATFORM MATCHES ios)
-  set_source_files_properties("resources/test.txt" PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
+  set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
 
 elseif (PLATFORM MATCHES android)
   install(CODE "execute_process(
