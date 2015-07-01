@@ -66,10 +66,6 @@ namespace chr
   {
     switch (CHR_PLATFORM)
     {
-      case PLATFORM_OSX:
-      case PLATFORM_MINGW:
-        return executablePath.parent_path().parent_path() / "resources" / fileName;
-
       case PLATFORM_IOS:
       case PLATFORM_ANDROID:
         return executablePath / fileName;

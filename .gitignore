@@ -29,3 +29,6 @@ proguard-project.txt
 Debug/
 Release/
 ipch/
+
+# CLion
+.idea/

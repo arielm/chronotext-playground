@@ -23,6 +23,10 @@ int main(int argc, char *argv[])
 
     cout << "[" << result << "]" << endl;
   }
+  else
+  {
+    cout << "FILE-NOT-FOUND: " << filePath << endl;
+  }
 
   return 0;
 }

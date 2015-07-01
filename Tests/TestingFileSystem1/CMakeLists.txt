@@ -20,7 +20,14 @@ elseif (PLATFORM MATCHES ios)
   set_source_files_properties("resources/test.txt" PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
 
 elseif (PLATFORM MATCHES android)
-  install(CODE "execute_process(COMMAND adb push \"${CMAKE_CURRENT_LIST_DIR}/resources/.\" /data/local/tmp/)")
+  install(CODE "execute_process(
+    COMMAND adb push \"${CMAKE_CURRENT_LIST_DIR}/resources/.\" /data/local/tmp/)"
+  )
+
+elseif (PLATFORM MATCHES osx|mxe)
+  add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND rm -f resources && ln -s \"${CMAKE_CURRENT_LIST_DIR}/resources\"
+  )
 endif()
 
 target_link_libraries(${PROJECT_NAME}
