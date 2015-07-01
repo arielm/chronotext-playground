@@ -4,6 +4,12 @@
 
 #include "boost/filesystem/fstream.hpp"
 
+#define STB_IMAGE_IMPLEMENTATION
+#define STBI_ONLY_JPEG
+#define STBI_ONLY_PNG
+
+#include "stb_image.h"
+
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -31,18 +37,15 @@ int main(int argc, char *argv[])
   // ---
 
   auto filePath2 = chr::getResourcePath(executablePath, "2008.547.1crop_4.jpg");
-  fs::ifstream in2(filePath2, ios::in | ios::binary | ios::ate);
+  int x, y, comp;
 
-  if (in2)
+  if (stbi_info(filePath2.string().data(), &x, &y, &comp))
   {
-    auto fileSize = in2.tellg();
-    in2.seekg(0, ios::beg);
-
-    cout << fileSize << endl;
+    cout << x << "x" << y << " (" << comp << ")" << endl;
   }
   else
   {
-    cout << "FILE-NOT-FOUND: " << filePath2 << endl;
+    cout << "ERROR WITH: " << filePath2 << endl;
   }
 
   return 0;

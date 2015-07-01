@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.2.2)
 
 project(TestingFileSystem1)
 
-find_package(Boost 1.58.0 REQUIRED COMPONENTS system filesystem iostreams)
+find_package(Boost 1.58.0 REQUIRED COMPONENTS system filesystem)
 
 include_directories(
   ${Boost_INCLUDE_DIRS}
@@ -11,7 +11,7 @@ include_directories(
 file(GLOB RESOURCES_FILES resources/*)
 
 add_executable(${PROJECT_NAME}
-  main.cpp
+  src/main.cpp
   ${RESOURCES_FILES}
 )
 
