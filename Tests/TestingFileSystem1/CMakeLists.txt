@@ -8,12 +8,21 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
-file(GLOB RESOURCES_FILES resources/*)
+if (PLATFORM MATCHES mxe)
+  enable_language(RC)
 
-add_executable(${PROJECT_NAME}
-  src/main.cpp
-  ${RESOURCES_FILES}
-)
+  add_executable(${PROJECT_NAME} WIN32
+    src/main.cpp
+    resources.rc
+  )
+else()
+  file(GLOB RESOURCES_FILES resources/*)
+
+  add_executable(${PROJECT_NAME}
+    src/main.cpp
+    ${RESOURCES_FILES}
+  )
+endif()
 
 if (PLATFORM MATCHES emscripten)
   em_link_pre_js(${PROJECT_NAME} "${CMAKE_CURRENT_LIST_DIR}/pre.js")
@@ -26,7 +35,7 @@ elseif (PLATFORM MATCHES android)
     COMMAND adb push \"${CMAKE_CURRENT_LIST_DIR}/resources/.\" /data/local/tmp/)"
   )
 
-elseif (PLATFORM MATCHES osx|mxe)
+elseif (PLATFORM MATCHES osx)
   add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND rm -f resources && ln -s \"${CMAKE_CURRENT_LIST_DIR}/resources\"
   )

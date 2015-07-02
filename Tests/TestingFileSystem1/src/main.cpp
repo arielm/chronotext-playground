@@ -77,5 +77,10 @@ int main(int argc, char *argv[])
     cout << "ERROR WITH: " << fileName2 << endl;
   }
 
+#if defined(CHR_PLATFORM_MINGW)
+  cout << chr::checkResource(128) << endl;
+  cout << chr::checkResource(129) << endl;
+#endif
+
   return 0;
 }
