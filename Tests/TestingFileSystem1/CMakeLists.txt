@@ -8,18 +8,20 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
-if (PLATFORM MATCHES mxe)
-  enable_language(RC)
+set(SRC_FILES
+  src/main.cpp
+)
 
-  add_executable(${PROJECT_NAME} WIN32
-    src/main.cpp
+if (PLATFORM MATCHES mxe)
+  add_executable(${PROJECT_NAME}
+    ${SRC_FILES}
     resources.rc
   )
 else()
   file(GLOB RESOURCES_FILES resources/*)
 
   add_executable(${PROJECT_NAME}
-    src/main.cpp
+    ${SRC_FILES}
     ${RESOURCES_FILES}
   )
 endif()
