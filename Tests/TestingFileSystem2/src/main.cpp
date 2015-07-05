@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 
   auto filePath1 = chr::getResourcePath(executablePath, "credits.txt");
   fs::ifstream in1(filePath1, ios::in | ios::binary | ios::ate);
-
+  
   if (in1)
   {
     auto fileSize = in1.tellg();
@@ -76,6 +76,11 @@ int main(int argc, char *argv[])
   {
     cout << "ERROR WITH: " << fileName2 << endl;
   }
+
+#if defined(CHR_PLATFORM_MINGW)
+  cout << chr::checkResource(128) << endl;
+  cout << chr::checkResource(129) << endl;
+#endif
 
   return 0;
 }

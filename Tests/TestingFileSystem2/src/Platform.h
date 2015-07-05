@@ -44,6 +44,10 @@ namespace chr
 #  error UNSUPPORTED PLATFORM
 #endif // __APPLE__
 
+#if defined(CHR_PLATFORM_MINGW)
+#  include <windows.h>
+#endif
+
 namespace chr
 {
   fs::path getExecutablePath(int argc, char *argv[])
@@ -74,4 +78,18 @@ namespace chr
         return executablePath / "resources" / fileName;
     }
   }
+
+#if defined(CHR_PLATFORM_MINGW)
+  int checkResource(int resId)
+  {
+	  HRSRC infoHandle = ::FindResource(NULL, MAKEINTRESOURCE(resId), RT_RCDATA);
+
+	  if (infoHandle)
+	  {
+      return ::SizeofResource(NULL, infoHandle);
+	  }
+
+   return ::GetLastError();
+  }
+#endif
 }
