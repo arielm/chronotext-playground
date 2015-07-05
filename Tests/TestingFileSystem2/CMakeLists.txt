@@ -22,6 +22,7 @@ elseif (PLATFORM MATCHES android)
   configure_file(android/AndroidManifest.xml.in AndroidManifest.xml)
   configure_file(android/ant.properties.in ant.properties)
   configure_file(android/MainActivity.java.in "src/org/chronotext/${PROJECT_NAME}/MainActivity.java")
+  configure_file(android/install.sh.in install.sh)
 
   set(LIBRARY_OUTPUT_PATH "libs/armeabi-v7a")
 
@@ -45,14 +46,7 @@ elseif (PLATFORM MATCHES ios)
   set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
 
 elseif (PLATFORM MATCHES android)
-  add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND android update project --path . --name ${PROJECT_NAME} --target android-16
-    COMMAND ant debug
-  )
-
-  install(CODE "execute_process(
-    COMMAND adb install -r bin/${PROJECT_NAME}-debug.apk)"
-  )
+  install(CODE "execute_process(COMMAND ./install.sh)")
 
 elseif (PLATFORM MATCHES osx)
   add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
