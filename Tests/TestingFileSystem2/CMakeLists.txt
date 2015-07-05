@@ -15,7 +15,7 @@ set(SRC_FILES
 if (PLATFORM MATCHES mxe)
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
-    resources.rc
+    mxe/resources.rc
   )
 else()
   file(GLOB RESOURCES_FILES resources/*)
@@ -27,7 +27,7 @@ else()
 endif()
 
 if (PLATFORM MATCHES emscripten)
-  em_link_pre_js(${PROJECT_NAME} "${CMAKE_CURRENT_LIST_DIR}/pre.js")
+  em_link_pre_js(${PROJECT_NAME} "${CMAKE_CURRENT_LIST_DIR}/emscripten/pre.js")
 
 elseif (PLATFORM MATCHES ios)
   set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
