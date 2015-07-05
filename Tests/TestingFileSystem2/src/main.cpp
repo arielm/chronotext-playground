@@ -38,6 +38,11 @@ void _free(void *ptr)
   free(ptr);
 }
 
+#if defined (CHR_PLATFORM_ANDROID)
+  #include <jni.h>
+  #include <android/log.h>
+#endif
+
 int main(int argc, char *argv[])
 {
   auto executablePath = chr::getExecutablePath(argc, argv);
@@ -84,3 +89,42 @@ int main(int argc, char *argv[])
 
   return 0;
 }
+
+#if defined (CHR_PLATFORM_ANDROID)
+  extern "C"
+  {
+    jint JNI_OnLoad(JavaVM *vm, void *reserved);
+
+    JNIEXPORT void JNICALL testStart(JNIEnv *env, jobject obj);
+  }
+
+  static const JNINativeMethod methodTable[] =
+  {
+    {"testStart", "()V", (void*)testStart},
+  };
+
+  jint JNI_OnLoad(JavaVM *vm, void *reserved)
+  {
+    JNIEnv *env;
+    if (vm->GetEnv(reinterpret_cast<void**>(&env), JNI_VERSION_1_6) != JNI_OK)
+    {
+        return -1;
+    }
+
+    jclass activityClass = env->FindClass("org/chronotext/TestingFileSystem2/MainActivity");
+    if (!activityClass)
+    {
+      return -1;
+    }
+
+    env->RegisterNatives(activityClass, methodTable, sizeof(methodTable) / sizeof(methodTable[0]));
+
+    __android_log_print(ANDROID_LOG_INFO, "chr", "***** JNI_OnLoad() *****");
+    return JNI_VERSION_1_6;
+  }
+
+  void testStart(JNIEnv *env, jobject obj)
+  {
+    __android_log_print(ANDROID_LOG_INFO, "chr", "***** testStart() *****");
+  }
+#endif

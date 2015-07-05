@@ -17,6 +17,18 @@ if (PLATFORM MATCHES mxe)
     ${SRC_FILES}
     mxe/resources.rc
   )
+
+elseif (PLATFORM MATCHES android)
+  configure_file(android/AndroidManifest.xml.in AndroidManifest.xml)
+  configure_file(android/ant.properties.in ant.properties)
+  configure_file(android/MainActivity.java.in "src/org/chronotext/${PROJECT_NAME}/MainActivity.java")
+
+  set(LIBRARY_OUTPUT_PATH "libs/armeabi-v7a")
+
+  add_library(${PROJECT_NAME} SHARED
+    ${SRC_FILES}
+  )
+
 else()
   file(GLOB RESOURCES_FILES resources/*)
 
@@ -33,19 +45,39 @@ elseif (PLATFORM MATCHES ios)
   set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
 
 elseif (PLATFORM MATCHES android)
+  add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND android update project --path . --name ${PROJECT_NAME} --target android-16
+    COMMAND ant debug
+  )
+
   install(CODE "execute_process(
-    COMMAND adb push \"${CMAKE_CURRENT_LIST_DIR}/resources/.\" /data/local/tmp/)"
+    COMMAND adb install -r bin/${PROJECT_NAME}-debug.apk"
   )
 
 elseif (PLATFORM MATCHES osx)
   add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND rm -f resources && ln -s \"${CMAKE_CURRENT_LIST_DIR}/resources\"
+    COMMAND rm -f resources
+    COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/resources\"
   )
 endif()
 
-target_link_libraries(${PROJECT_NAME}
-  ${Boost_LIBRARIES}
-)
-
 enable_testing()
-add_test(NAME ${PROJECT_NAME} COMMAND run)
+
+if (PLATFORM MATCHES android)
+  target_link_libraries(${PROJECT_NAME}
+    log
+    android
+    ${Boost_LIBRARIES}
+  )
+
+  add_test(NAME ${PROJECT_NAME}
+    COMMAND adb shell am start -S org.chronotext.${PROJECT_NAME}/.MainActivity
+  )
+
+else()
+  target_link_libraries(${PROJECT_NAME}
+    ${Boost_LIBRARIES}
+  )
+
+  add_test(NAME ${PROJECT_NAME} COMMAND run)
+endif()
