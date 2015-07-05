@@ -2,9 +2,7 @@
 package org.chronotext.${PROJECT_NAME};
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.RelativeLayout;
 
 public class MainActivity extends Activity
 {
@@ -17,13 +15,8 @@ public class MainActivity extends Activity
   public void onCreate(Bundle savedInstanceState)
   {
     super.onCreate(savedInstanceState);
-
-    RelativeLayout rootView = new RelativeLayout(this);
-    rootView.setBackgroundColor(Color.RED);
-    setContentView(rootView);
-
-    testStart();
+    performTest();
   }
 
-  public static native void testStart();
+  public static native void performTest();
 }

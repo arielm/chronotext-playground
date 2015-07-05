@@ -95,12 +95,12 @@ int main(int argc, char *argv[])
   {
     jint JNI_OnLoad(JavaVM *vm, void *reserved);
 
-    JNIEXPORT void JNICALL testStart(JNIEnv *env, jobject obj);
+    JNIEXPORT void JNICALL performTest(JNIEnv *env, jobject obj);
   }
 
   static const JNINativeMethod methodTable[] =
   {
-    {"testStart", "()V", (void*)testStart},
+    {"performTest", "()V", (void*)performTest},
   };
 
   jint JNI_OnLoad(JavaVM *vm, void *reserved)
@@ -123,8 +123,8 @@ int main(int argc, char *argv[])
     return JNI_VERSION_1_6;
   }
 
-  void testStart(JNIEnv *env, jobject obj)
+  void performTest(JNIEnv *env, jobject obj)
   {
-    __android_log_print(ANDROID_LOG_INFO, "chr", "***** testStart() *****");
+    __android_log_print(ANDROID_LOG_INFO, "chr", "***** performTest() *****");
   }
 #endif

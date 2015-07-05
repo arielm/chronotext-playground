@@ -51,7 +51,7 @@ elseif (PLATFORM MATCHES android)
   )
 
   install(CODE "execute_process(
-    COMMAND adb install -r bin/${PROJECT_NAME}-debug.apk"
+    COMMAND adb install -r bin/${PROJECT_NAME}-debug.apk)"
   )
 
 elseif (PLATFORM MATCHES osx)
