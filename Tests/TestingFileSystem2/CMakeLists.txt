@@ -22,7 +22,9 @@ elseif (PLATFORM MATCHES android)
   configure_file(android/AndroidManifest.xml.in AndroidManifest.xml)
   configure_file(android/ant.properties.in ant.properties)
   configure_file(android/MainActivity.java.in "src/org/chronotext/${PROJECT_NAME}/MainActivity.java")
+
   configure_file(android/install.sh.in install.sh)
+  configure_file(android/test.sh.in test.sh)
 
   set(LIBRARY_OUTPUT_PATH "libs/armeabi-v7a")
 
@@ -64,9 +66,7 @@ if (PLATFORM MATCHES android)
     ${Boost_LIBRARIES}
   )
 
-  add_test(NAME ${PROJECT_NAME}
-    COMMAND adb shell am start -S org.chronotext.${PROJECT_NAME}/.MainActivity
-  )
+  add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh) # TODO: PASS ARGUMENTS
 
 else()
   target_link_libraries(${PROJECT_NAME}
