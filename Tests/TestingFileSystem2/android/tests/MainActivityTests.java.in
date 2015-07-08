@@ -10,7 +10,7 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 {
     public MainActivityTests()
     {
-        super("org.chronotext.${PROJECT_NAME}", MainActivity.class);
+        super(MainActivity.class);
     }
 
     @UiThreadTest
