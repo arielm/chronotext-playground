@@ -71,8 +71,8 @@ if (PLATFORM MATCHES android)
     ${Boost_LIBRARIES}
   )
 
-  add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh)
-# add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh "--gtest_filter=MessageTest.* -baz")
+# add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh)
+  add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh "--gtest_filter=MessageTest.*")
 
 else()
   target_link_libraries(${PROJECT_NAME}

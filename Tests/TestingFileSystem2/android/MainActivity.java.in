@@ -26,18 +26,5 @@ public class MainActivity extends Activity
     Log.i("MainActivity", "onDestroy");
   }
 
-  public boolean testMain(String[] args)
-  {
-    Log.i("MainActivity", "testMain");
-
-    for (String arg : args)
-    {
-      System.out.println(arg);
-    }
-
-    performTest(); // TODO: PASS ARGUMENTS AND RETURN VALUE
-    return true;
-  }
-
-  public static native void performTest();
+  public static native boolean performTest(String[] args);
 }

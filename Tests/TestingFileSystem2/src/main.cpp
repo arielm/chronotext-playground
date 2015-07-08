@@ -95,12 +95,12 @@ int main(int argc, char *argv[])
   {
     jint JNI_OnLoad(JavaVM *vm, void *reserved);
 
-    JNIEXPORT void JNICALL performTest(JNIEnv *env, jobject obj);
+    JNIEXPORT jboolean JNICALL performTest(JNIEnv *, jclass, jobjectArray);
   }
 
-  static const JNINativeMethod methodTable[] =
+  static const JNINativeMethod mainActivityMethods[] =
   {
-    {"performTest", "()V", (void*)performTest},
+    {"performTest", "([Ljava/lang/String;)Z", (void*)performTest},
   };
 
   jint JNI_OnLoad(JavaVM *vm, void *reserved)
@@ -111,20 +111,23 @@ int main(int argc, char *argv[])
         return -1;
     }
 
-    jclass activityClass = env->FindClass("org/chronotext/TestingFileSystem2/MainActivity");
+    jclass activityClass = env->FindClass("org/chronotext/TestingFileSystem2/MainActivity"); // XXX
     if (!activityClass)
     {
       return -1;
     }
 
-    env->RegisterNatives(activityClass, methodTable, sizeof(methodTable) / sizeof(methodTable[0]));
+    env->RegisterNatives(activityClass, mainActivityMethods, sizeof(mainActivityMethods) / sizeof(mainActivityMethods[0]));
 
-    __android_log_print(ANDROID_LOG_INFO, "chr", "***** JNI_OnLoad() *****");
+    __android_log_print(ANDROID_LOG_INFO, "main.cpp", "***** JNI_OnLoad() *****");
     return JNI_VERSION_1_6;
   }
 
-  void performTest(JNIEnv *env, jobject obj)
+  jboolean JNICALL performTest(JNIEnv *env, jclass obj, jobjectArray args)
   {
-    __android_log_print(ANDROID_LOG_INFO, "chr", "***** performTest() *****");
+    auto count = env->GetArrayLength(args);
+    __android_log_print(ANDROID_LOG_INFO, "main.cpp", "***** performTest(%d) *****", count);
+
+    return true; // TODO: INVOKE main(int, char*)
   }
 #endif

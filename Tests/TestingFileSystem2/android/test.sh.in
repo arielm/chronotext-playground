@@ -9,4 +9,6 @@ if [ $# -eq 0 ];
   else adb shell am instrument -w -e args "$@" $COMPONENT
 fi
 
-# TODO: EXIT WITH VALUE CORRESPONDING TO TEST RESULTS
+if [ $? != 0 ]; then
+  exit 1 # FIXME: NOT WORKING AS INTENDED (adb shell ALWAYS RETURNS 0)
+fi
