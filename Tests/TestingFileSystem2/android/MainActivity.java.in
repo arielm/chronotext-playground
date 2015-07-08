@@ -1,11 +1,7 @@
-
 package org.chronotext.${PROJECT_NAME};
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -20,25 +16,27 @@ public class MainActivity extends Activity
   public void onCreate(Bundle savedInstanceState)
   {
     super.onCreate(savedInstanceState);
+    Log.i("MainActivity", "onCreate");
+  }
 
-    BroadcastReceiver testHandler = new BroadcastReceiver()
+  @Override
+  public void onDestroy()
+  {
+    super.onDestroy();
+    Log.i("MainActivity", "onDestroy");
+  }
+
+  public boolean testMain(String[] args)
+  {
+    Log.i("MainActivity", "testMain");
+
+    for (String arg : args)
     {
-      @Override
-      public void onReceive(Context context, Intent intent)
-      {
-        if (intent.hasExtra("args"))
-        {
-          Log.i("CHR", intent.getStringExtra("args"));
-        }
+      System.out.println(arg);
+    }
 
-        performTest();
-        setResultCode(456);
-      }
-    };
-
-    IntentFilter filter = new IntentFilter();
-    filter.addAction("action.TEST");
-    registerReceiver(testHandler, filter);
+    performTest(); // TODO: PASS ARGUMENTS AND RETURN VALUE
+    return true;
   }
 
   public static native void performTest();

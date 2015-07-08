@@ -1,5 +1,8 @@
 #!/bin/sh
 
 android update project --path . --name ${PROJECT_NAME} --target android-16
-ant debug
-adb install -r bin/${PROJECT_NAME}-debug.apk
+
+cd tests
+android update project --path . --name ${PROJECT_NAME}TestRunner --target android-16
+
+ant instrument install

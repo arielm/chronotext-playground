@@ -23,6 +23,11 @@ elseif (PLATFORM MATCHES android)
   configure_file(android/ant.properties.in ant.properties)
   configure_file(android/MainActivity.java.in "src/org/chronotext/${PROJECT_NAME}/MainActivity.java")
 
+  configure_file(android/tests/AndroidManifest.xml.in tests/AndroidManifest.xml)
+  configure_file(android/tests/ant.properties.in tests/ant.properties)
+  configure_file(android/tests/MainActivityTests.java.in "tests/src/org/chronotext/${PROJECT_NAME}/MainActivityTests.java")
+  configure_file(android/tests/TestRunner.java.in "tests/src/org/chronotext/${PROJECT_NAME}/TestRunner.java")
+
   configure_file(android/install.sh.in install.sh)
   configure_file(android/test.sh.in test.sh)
 
@@ -66,7 +71,8 @@ if (PLATFORM MATCHES android)
     ${Boost_LIBRARIES}
   )
 
-  add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh) # TODO: PASS ARGUMENTS
+  add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh)
+# add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh "--gtest_filter=MessageTest.* -baz")
 
 else()
   target_link_libraries(${PROJECT_NAME}

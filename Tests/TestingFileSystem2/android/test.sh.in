@@ -1,4 +1,12 @@
 #!/bin/sh
 
-adb shell am start -S -W org.chronotext.${PROJECT_NAME}/.MainActivity
-adb shell am broadcast -a action.TEST --es "args" "-arg1 --arg2=foo"
+COMPONENT=org.chronotext.${PROJECT_NAME}.tests/org.chronotext.${PROJECT_NAME}.TestRunner
+
+cd tests
+
+if [ $# -eq 0 ];
+  then adb shell am instrument -w $COMPONENT
+  else adb shell am instrument -w -e args "$@" $COMPONENT
+fi
+
+# TODO: EXIT WITH VALUE CORRESPONDING TO TEST RESULTS
