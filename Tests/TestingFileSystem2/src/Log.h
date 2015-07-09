@@ -16,7 +16,7 @@ namespace chr
   public:
     enum Level
     {
-      ERROR,
+   // ERROR,
       WARN,
       INFO,
       DEBUG 

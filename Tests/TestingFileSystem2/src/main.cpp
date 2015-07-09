@@ -36,7 +36,7 @@ void _free(void *ptr)
   free(ptr);
 }
 
-int main(int argc, char *argv[])
+int main(int argc, const char *argv[])
 {
   if (argc > 1)
   {
@@ -146,12 +146,12 @@ int main(int argc, char *argv[])
   {
     auto tmp = chr::toStrings(env, args);
 
-    std::vector<char*> argv;
-    argv.emplace_back(const_cast<char*>(gApkPath.data()));
+    std::vector<const char*> argv;
+    argv.emplace_back(gApkPath.data());
     
     for (const auto &arg : tmp)
     {
-      argv.emplace_back(const_cast<char*>(arg.data()));
+      argv.emplace_back(arg.data());
     }
 
     return main(argv.size(), argv.data());

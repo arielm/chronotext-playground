@@ -54,7 +54,7 @@ namespace chr
 
 namespace chr
 {
-  fs::path getExecutablePath(int argc, char *argv[])
+  fs::path getExecutablePath(int argc, const char *argv[])
   {
     switch (CHR_PLATFORM)
     {
