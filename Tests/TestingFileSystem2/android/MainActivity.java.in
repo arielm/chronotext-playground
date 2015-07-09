@@ -17,6 +17,8 @@ public class MainActivity extends Activity
   {
     super.onCreate(savedInstanceState);
     Log.i("MainActivity", "onCreate");
+
+    performInit(this);
   }
 
   @Override
@@ -26,5 +28,6 @@ public class MainActivity extends Activity
     Log.i("MainActivity", "onDestroy");
   }
 
-  public static native boolean performTest(String[] args);
+  public static native void performInit(Activity activity);
+  public static native int performTest(String[] args);
 }

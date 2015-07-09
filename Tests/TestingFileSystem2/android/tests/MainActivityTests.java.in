@@ -20,6 +20,6 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
         TestRunner instrumentation = (TestRunner)getInstrumentation();
         MainActivity activity = (MainActivity)getActivity();
 
-        assertTrue(activity.performTest(instrumentation.args));
+        assertEquals(0, activity.performTest(instrumentation.args));
     }
 }

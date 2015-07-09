@@ -1,6 +1,7 @@
 #include "Platform.h"
 
 #include <iostream>
+#include <vector>
 
 #include "boost/filesystem/fstream.hpp"
 
@@ -95,12 +96,17 @@ int main(int argc, char *argv[])
   {
     jint JNI_OnLoad(JavaVM *vm, void *reserved);
 
-    JNIEXPORT jboolean JNICALL performTest(JNIEnv *, jclass, jobjectArray);
+    JNIEXPORT void JNICALL performInit(JNIEnv *, jobject, jobject);
+    JNIEXPORT jint JNICALL performTest(JNIEnv *, jobject, jobjectArray);
   }
+
+  jobject gActivity = nullptr;
+  string gInternalDataPath;
 
   static const JNINativeMethod mainActivityMethods[] =
   {
-    {"performTest", "([Ljava/lang/String;)Z", (void*)performTest},
+    {"performInit", "(Landroid/app/Activity;)V", (void*)performInit},
+    {"performTest", "([Ljava/lang/String;)I", (void*)performTest},
   };
 
   jint JNI_OnLoad(JavaVM *vm, void *reserved)
@@ -123,11 +129,48 @@ int main(int argc, char *argv[])
     return JNI_VERSION_1_6;
   }
 
-  jboolean JNICALL performTest(JNIEnv *env, jclass obj, jobjectArray args)
+  void JNICALL performInit(JNIEnv *env, jobject obj, jobject activity)
+  {
+    gActivity = env->NewGlobalRef(activity);
+
+    jmethodID getFilesDirMethod = env->GetMethodID(env->GetObjectClass(activity), "getFilesDir", "()Ljava/io/File;");
+    jobject filesDirObject = env->CallObjectMethod(activity, getFilesDirMethod);
+    jmethodID getAbsolutePathMethod = env->GetMethodID(env->GetObjectClass(filesDirObject), "getAbsolutePath", "()Ljava/lang/String;");
+    jstring internalDataPath = (jstring)env->CallObjectMethod(filesDirObject, getAbsolutePathMethod);
+
+    const char *chars = env->GetStringUTFChars(internalDataPath, nullptr);
+    assert(chars);
+
+    gInternalDataPath = chars;
+    env->ReleaseStringUTFChars(internalDataPath, chars);
+  }
+
+  jint JNICALL performTest(JNIEnv *env, jobject obj, jobjectArray args)
   {
     auto count = env->GetArrayLength(args);
-    __android_log_print(ANDROID_LOG_INFO, "main.cpp", "***** performTest(%d) *****", count);
+    vector<string> tmp;
 
-    return true; // TODO: INVOKE main(int, char*)
+    for (auto i = 0; i < count; i++)
+    {
+      jstring arg = (jstring)env->GetObjectArrayElement(args, i);
+      const char *chars = env->GetStringUTFChars(arg, nullptr);
+      tmp.push_back(chars);
+      env->ReleaseStringUTFChars(arg, chars);
+    }
+
+    int argc = count + 1;
+    char **argv = new char*[argc];
+
+    argv[0] = const_cast<char*>(gInternalDataPath.data());
+
+    for (auto i = 0; i < count; i++)
+    {
+      argv[i + 1] = const_cast<char*>(tmp[i].data());
+    }
+
+    int result = main(argc, argv); // TODO: TEST
+    delete[] argv;
+
+    return result;
   }
 #endif
