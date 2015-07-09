@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
   {
     LOGI << "[" << argv[1] << "]" << endl;
   }
-  
+
   auto executablePath = chr::getExecutablePath(argc, argv);
 
   auto filePath1 = chr::getResourcePath(executablePath, "credits.txt");
@@ -144,20 +144,16 @@ int main(int argc, char *argv[])
 
   jint JNICALL performTest(JNIEnv *env, jobject obj, jobjectArray args)
   {
-    auto size = env->GetArrayLength(args);
-    char **argv = new char*[size + 1];
-    int argc = 0;
+    auto tmp = chr::toStrings(env, args);
 
-    argv[argc++] = const_cast<char*>(gApkPath.data());
+    std::vector<char*> argv;
+    argv.emplace_back(const_cast<char*>(gApkPath.data()));
     
-    for (const auto &arg : chr::toStrings(env, args))
+    for (const auto &arg : tmp)
     {
-      argv[argc++] = const_cast<char*>(arg.data());
+      argv.emplace_back(const_cast<char*>(arg.data()));
     }
 
-    int result = main(argc, argv);
-    delete[] argv;
-
-    return result;
+    return main(argv.size(), argv.data());
   }
 #endif
