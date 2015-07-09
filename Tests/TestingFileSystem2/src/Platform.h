@@ -48,6 +48,7 @@ namespace chr
 
 #if defined(CHR_PLATFORM_MINGW)
 #  include <windows.h>
+#  undef ERROR // SEE https://google-glog.googlecode.com/svn/trunk/doc/glog.html#windows
 #elif defined(CHR_PLATFORM_ANDROID)
 #  include <jni.h>
 #endif

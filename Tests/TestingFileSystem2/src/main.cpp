@@ -38,9 +38,9 @@ void _free(void *ptr)
 
 int main(int argc, const char *argv[])
 {
-  if (argc > 1)
+  if (argc > 0)
   {
-    LOGI << "[" << argv[1] << "]" << endl;
+    LOGE << "{" << argv[0] << "}" << endl;
   }
 
   auto executablePath = chr::getExecutablePath(argc, argv);

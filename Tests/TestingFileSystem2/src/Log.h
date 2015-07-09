@@ -11,18 +11,17 @@
 
 namespace chr
 {
+  static constexpr int FATAL   = -3;
+  static constexpr int ERROR   = -2;
+  static constexpr int WARNING = -1;
+  static constexpr int INFO    =  0;
+  static constexpr int DEBUG   =  1;
+  static constexpr int VERBOSE =  2;
+
   class Log
   {
   public:
-    enum Level
-    {
-   // ERROR,
-      WARN,
-      INFO,
-      DEBUG 
-    };
-
-    Log(Level level = Level::INFO)
+    Log(int level = INFO)
     :
     level(level)
     {}
@@ -30,9 +29,38 @@ namespace chr
     ~Log()
     {
 #if defined(CHR_PLATFORM_ANDROID)
-      __android_log_write(ANDROID_LOG_INFO, "CHR", ss.str().data());
+      int androidPriority;
+
+      switch (level)
+      {
+        case ERROR:
+          androidPriority = ANDROID_LOG_ERROR;
+          break;
+
+        case WARNING:
+          androidPriority = ANDROID_LOG_WARN;
+          break;
+
+        default:
+        case INFO:
+          androidPriority = ANDROID_LOG_INFO;
+          break;
+
+        case DEBUG:
+          androidPriority = ANDROID_LOG_DEBUG;
+          break;
+      }
+
+      __android_log_write(androidPriority, "CHR", ss.str().data());
 #else
-      std::cout << ss.rdbuf() << std::flush;
+      if (level < 0)
+      {
+        std::cerr << ss.rdbuf();
+      }
+      else
+      {
+        std::cout << ss.rdbuf() << std::flush;  
+      }
 #endif
     }
 
@@ -42,10 +70,12 @@ namespace chr
     }
 
   protected:
-    Level level;
+    int level;
     std::stringstream ss;
   };
 }
 
-#define LOGI chr::Log(chr::Log::Level::INFO).stream()
-#define LOGD chr::Log(chr::Log::Level::DEBUG).stream()
+#define LOGE chr::Log(chr::ERROR).stream()
+#define LOGW chr::Log(chr::WARNING).stream()
+#define LOGI chr::Log(chr::INFO).stream()
+#define LOGD chr::Log(chr::DEBUG).stream()
