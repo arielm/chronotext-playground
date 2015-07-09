@@ -33,6 +33,10 @@ namespace chr
 
       switch (level)
       {
+        case FATAL:
+          androidPriority = ANDROID_LOG_FATAL;
+          break;
+
         case ERROR:
           androidPriority = ANDROID_LOG_ERROR;
           break;
@@ -62,6 +66,11 @@ namespace chr
         std::cout << ss.rdbuf() << std::flush;  
       }
 #endif
+
+      if (level == FATAL)
+      {
+        abort(); // TODO: TEST ON ALL THE PLATFORMS
+      }
     }
 
     std::stringstream& stream()
@@ -75,6 +84,7 @@ namespace chr
   };
 }
 
+#define LOGF chr::Log(chr::FATAL).stream()
 #define LOGE chr::Log(chr::ERROR).stream()
 #define LOGW chr::Log(chr::WARNING).stream()
 #define LOGI chr::Log(chr::INFO).stream()

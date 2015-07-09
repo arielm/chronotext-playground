@@ -38,9 +38,9 @@ void _free(void *ptr)
 
 int main(int argc, const char *argv[])
 {
-  if (argc > 0)
+  for (int i = 0; i < argc; i++)
   {
-    LOGE << "{" << argv[0] << "}" << endl;
+    LOGW << "{" << argv[i] << "}" << endl;
   }
 
   auto executablePath = chr::getExecutablePath(argc, argv);
@@ -80,6 +80,8 @@ int main(int argc, const char *argv[])
     LOGI << "ERROR WITH: " << fileName2 << endl;
   }
 
+  LOGF << "tmp!!!" << endl; // WILL ABORT (WORKS ON ALL THE PLATFORMS)
+
 #if defined(CHR_PLATFORM_MINGW)
   LOGI << chr::checkResource(128) << endl;
   LOGI << chr::checkResource(129) << endl;
@@ -97,57 +99,79 @@ int main(int argc, const char *argv[])
     JNIEXPORT jint JNICALL performTest(JNIEnv *, jobject, jobjectArray);
   }
 
-  jobject gActivity = nullptr;
-  string gInternalDataPath;
-  string gApkPath;
-
   static const JNINativeMethod mainActivityMethods[] =
   {
     {"performInit", "(Landroid/app/Activity;)V", (void*)performInit},
     {"performTest", "([Ljava/lang/String;)I", (void*)performTest},
   };
 
+  namespace chr
+  {
+    namespace android
+    {
+      JavaVM *vm = nullptr;
+      jobject activity = nullptr;
+
+      AAssetManager *assetManager = nullptr;
+      std::string internalDataPath;
+      std::string externalDataPath;
+      std::string apkPath;
+    }
+  }
+
   jint JNI_OnLoad(JavaVM *vm, void *reserved)
   {
+    LOGD << "JNI_Onload" << endl;
+
     JNIEnv *env;
-    if (vm->GetEnv(reinterpret_cast<void**>(&env), JNI_VERSION_1_6) != JNI_OK)
+    jint err = vm->GetEnv(reinterpret_cast<void**>(&env), JNI_VERSION_1_6);
+
+    if (err != JNI_OK)
     {
-        return -1;
+      LOGF << "JNI ERROR: " << err << endl;
     }
 
-    jclass activityClass = env->FindClass("org/chronotext/TestingFileSystem2/MainActivity"); // XXX
-    if (!activityClass)
-    {
-      return -1;
-    }
+    chr::android::vm = vm;
 
+    /*
+     * TODO: SHOULD TAKE PLACE "ELSEWHERE"
+     */
+    jclass activityClass = env->FindClass("org/chronotext/TestingFileSystem2/MainActivity");
     env->RegisterNatives(activityClass, mainActivityMethods, sizeof(mainActivityMethods) / sizeof(mainActivityMethods[0]));
 
-    LOGI << "***** JNI_OnLoad() *****" << endl;
     return JNI_VERSION_1_6;
   }
 
   void JNICALL performInit(JNIEnv *env, jobject obj, jobject activity)
   {
-    gActivity = env->NewGlobalRef(activity);
+    chr::android::activity = env->NewGlobalRef(activity);
+
+    jmethodID getAssetsMethod = env->GetMethodID(env->GetObjectClass(activity), "getAssets", "()Landroid/content/res/AssetManager;");
+    chr::android::assetManager = AAssetManager_fromJava(env, env->CallObjectMethod(activity, getAssetsMethod));
 
     jmethodID getFilesDirMethod = env->GetMethodID(env->GetObjectClass(activity), "getFilesDir", "()Ljava/io/File;");
     jobject filesDirObject = env->CallObjectMethod(activity, getFilesDirMethod);
     jmethodID getAbsolutePathMethod = env->GetMethodID(env->GetObjectClass(filesDirObject), "getAbsolutePath", "()Ljava/lang/String;");
     jstring internalDataPath = (jstring)env->CallObjectMethod(filesDirObject, getAbsolutePathMethod);
-    gInternalDataPath = chr::toString(env, internalDataPath);
+    chr::android::internalDataPath = chr::toString(env, internalDataPath);
+
+    jclass environmentClass = env->FindClass("android/os/Environment");
+    jmethodID getExternalStorageDirectoryMethod = env->GetStaticMethodID(environmentClass, "getExternalStorageDirectory",  "()Ljava/io/File;");
+    jobject externalStorageDirectoryObject = env->CallStaticObjectMethod(environmentClass, getExternalStorageDirectoryMethod);
+    jstring externalDataPath = (jstring)env->CallObjectMethod(externalStorageDirectoryObject, getAbsolutePathMethod);
+    chr::android::externalDataPath = chr::toString(env, externalDataPath);
 
     jmethodID getPackageCodePathMethod = env->GetMethodID(env->GetObjectClass(activity), "getPackageCodePath", "()Ljava/lang/String;");
     jstring apkPath = (jstring)env->CallObjectMethod(activity, getPackageCodePathMethod);
-    gApkPath = chr::toString(env, apkPath);
+    chr::android::apkPath = chr::toString(env, apkPath);
   }
 
   jint JNICALL performTest(JNIEnv *env, jobject obj, jobjectArray args)
   {
     auto tmp = chr::toStrings(env, args);
 
-    std::vector<const char*> argv;
-    argv.emplace_back(gApkPath.data());
+    vector<const char*> argv;
+    argv.emplace_back(chr::android::apkPath.data());
     
     for (const auto &arg : tmp)
     {

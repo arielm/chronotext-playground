@@ -50,7 +50,7 @@ namespace chr
 #  include <windows.h>
 #  undef ERROR // SEE https://google-glog.googlecode.com/svn/trunk/doc/glog.html#windows
 #elif defined(CHR_PLATFORM_ANDROID)
-#  include <jni.h>
+#  include <android/asset_manager_jni.h>
 #endif
 
 namespace chr
