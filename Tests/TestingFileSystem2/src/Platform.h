@@ -53,6 +53,22 @@ namespace chr
 #  include <android/asset_manager_jni.h>
 #endif
 
+#if defined(CHR_PLATFORM_ANDROID)
+  namespace chr
+  {
+    namespace android
+    {
+      extern JavaVM *vm;
+      extern jobject activity;
+
+      extern AAssetManager *assetManager;
+      extern std::string internalDataPath;
+      extern std::string externalDataPath;
+      extern std::string apkPath;
+    }
+  }
+#endif
+
 namespace chr
 {
   fs::path getExecutablePath(int argc, const char *argv[])
@@ -130,6 +146,21 @@ namespace chr
 	  }
 
    return ::GetLastError();
+  }
+#elif defined(CHR_PLATFORM_ANDROID)
+  int checkResource(const fs::path &fileName)
+  {
+    AAsset *asset = AAssetManager_open(android::assetManager, fileName.c_str(), AASSET_MODE_UNKNOWN);
+
+    if (asset)
+    {
+      auto size = AAsset_getLength(asset);
+      AAsset_close(asset);
+
+      return size;
+    }
+
+    return -1;
   }
 #endif
 }

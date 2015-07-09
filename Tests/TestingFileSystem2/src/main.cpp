@@ -80,11 +80,12 @@ int main(int argc, const char *argv[])
     LOGI << "ERROR WITH: " << fileName2 << endl;
   }
 
-  LOGF << "tmp!!!" << endl; // WILL ABORT (WORKS ON ALL THE PLATFORMS)
-
 #if defined(CHR_PLATFORM_MINGW)
   LOGI << chr::checkResource(128) << endl;
   LOGI << chr::checkResource(129) << endl;
+#elif defined(CHR_PLATFORM_ANDROID)
+  LOGI << chr::checkResource("credits.txt") << endl;
+  LOGI << chr::checkResource("2008.547.1crop_4.jpg") << endl;
 #endif
 
   return 0;
