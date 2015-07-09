@@ -37,6 +37,13 @@ elseif (PLATFORM MATCHES android)
     ${SRC_FILES}
   )
 
+elseif (PLATFORM MATCHES emscripten)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --embed-file ../../resources") # DOES NOT WORK: add_compile_options("--embed-file ../../resources") 
+  
+  add_executable(${PROJECT_NAME}
+    ${SRC_FILES}
+  )
+
 else()
   file(GLOB RESOURCES_FILES resources/*)
 
@@ -46,10 +53,7 @@ else()
   )
 endif()
 
-if (PLATFORM MATCHES emscripten)
-  em_link_pre_js(${PROJECT_NAME} "${CMAKE_CURRENT_LIST_DIR}/emscripten/pre.js")
-
-elseif (PLATFORM MATCHES ios)
+if (PLATFORM MATCHES ios)
   set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
 
 elseif (PLATFORM MATCHES android)

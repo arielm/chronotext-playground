@@ -95,6 +95,9 @@ namespace chr
       case PLATFORM_ANDROID:
         return executablePath / fileName;
 
+      case PLATFORM_EMSCRIPTEN:
+        return fs::path("resources") / fileName;
+
       default:
         return executablePath / "resources" / fileName;
     }
