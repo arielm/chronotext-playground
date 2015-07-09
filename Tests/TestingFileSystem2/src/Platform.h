@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include <boost/filesystem.hpp>
 
 namespace fs = boost::filesystem;
@@ -46,6 +48,8 @@ namespace chr
 
 #if defined(CHR_PLATFORM_MINGW)
 #  include <windows.h>
+#elif defined(CHR_PLATFORM_ANDROID)
+#  include <jni.h>
 #endif
 
 namespace chr
@@ -78,6 +82,41 @@ namespace chr
         return executablePath / "resources" / fileName;
     }
   }
+
+#if defined(CHR_PLATFORM_ANDROID)
+  std::string toString(JNIEnv *env, jstring s)
+  {
+    std::string result;
+
+    if (s)
+    {
+      const char *chars = env->GetStringUTFChars(s, nullptr);
+                
+      if (chars)
+      {
+        result.assign(chars);
+        env->ReleaseStringUTFChars(s, chars);
+      }
+    }
+
+    return result;
+  }
+
+  std::vector<std::string> toStrings(JNIEnv *env, jobjectArray a)
+  {
+    std::vector<std::string> result;
+
+    auto size = env->GetArrayLength(a);
+    result.reserve(size);
+
+    for (auto i = 0; i < size; i++)
+    {
+      result.emplace_back(chr::toString(env, (jstring)env->GetObjectArrayElement(a, i)));
+    }
+
+    return result;
+  }
+#endif
 
 #if defined(CHR_PLATFORM_MINGW)
   int checkResource(int resId)

@@ -1,7 +1,4 @@
-#include "Platform.h"
-
-#include <iostream>
-#include <vector>
+#include "Log.h"
 
 #include "boost/filesystem/fstream.hpp"
 
@@ -23,29 +20,29 @@ using namespace std;
 
 void* _malloc(size_t size)
 {
-  cout << "malloc " << size << endl;
+  LOGI << "malloc " << size << endl;
   return malloc(size);
 }
 
 void* _realloc(void *ptr, size_t size)
 {
-  cout << "realloc " << size << endl;
+  LOGI << "realloc " << size << endl;
   return realloc(ptr, size);
 }
 
 void _free(void *ptr)
 {
-  cout << "free" << endl;
+  LOGI << "free" << endl;
   free(ptr);
 }
 
-#if defined (CHR_PLATFORM_ANDROID)
-  #include <jni.h>
-  #include <android/log.h>
-#endif
-
 int main(int argc, char *argv[])
 {
+  if (argc > 1)
+  {
+    LOGI << "[" << argv[1] << "]" << endl;
+  }
+  
   auto executablePath = chr::getExecutablePath(argc, argv);
 
   auto filePath1 = chr::getResourcePath(executablePath, "credits.txt");
@@ -59,11 +56,11 @@ int main(int argc, char *argv[])
     string result(fileSize, 0);
     in1.read(&result[0], fileSize);
 
-    cout << "[" << result << "]" << endl;
+    LOGI << "[" << result << "]" << endl;
   }
   else
   {
-    cout << "FILE-NOT-FOUND: " << filePath1 << endl;
+    LOGI << "FILE-NOT-FOUND: " << filePath1 << endl;
   }
 
   // ---
@@ -75,17 +72,17 @@ int main(int argc, char *argv[])
 
   if (data)
   {
-    cout << x << "x" << y << " (" << comp << ")" << endl;
+    LOGI << x << "x" << y << " (" << comp << ")" << endl;
     stbi_image_free(data);
   }
   else
   {
-    cout << "ERROR WITH: " << fileName2 << endl;
+    LOGI << "ERROR WITH: " << fileName2 << endl;
   }
 
 #if defined(CHR_PLATFORM_MINGW)
-  cout << chr::checkResource(128) << endl;
-  cout << chr::checkResource(129) << endl;
+  LOGI << chr::checkResource(128) << endl;
+  LOGI << chr::checkResource(129) << endl;
 #endif
 
   return 0;
@@ -102,6 +99,7 @@ int main(int argc, char *argv[])
 
   jobject gActivity = nullptr;
   string gInternalDataPath;
+  string gApkPath;
 
   static const JNINativeMethod mainActivityMethods[] =
   {
@@ -125,7 +123,7 @@ int main(int argc, char *argv[])
 
     env->RegisterNatives(activityClass, mainActivityMethods, sizeof(mainActivityMethods) / sizeof(mainActivityMethods[0]));
 
-    __android_log_print(ANDROID_LOG_INFO, "main.cpp", "***** JNI_OnLoad() *****");
+    LOGI << "***** JNI_OnLoad() *****" << endl;
     return JNI_VERSION_1_6;
   }
 
@@ -137,38 +135,27 @@ int main(int argc, char *argv[])
     jobject filesDirObject = env->CallObjectMethod(activity, getFilesDirMethod);
     jmethodID getAbsolutePathMethod = env->GetMethodID(env->GetObjectClass(filesDirObject), "getAbsolutePath", "()Ljava/lang/String;");
     jstring internalDataPath = (jstring)env->CallObjectMethod(filesDirObject, getAbsolutePathMethod);
+    gInternalDataPath = chr::toString(env, internalDataPath);
 
-    const char *chars = env->GetStringUTFChars(internalDataPath, nullptr);
-    assert(chars);
-
-    gInternalDataPath = chars;
-    env->ReleaseStringUTFChars(internalDataPath, chars);
+    jmethodID getPackageCodePathMethod = env->GetMethodID(env->GetObjectClass(activity), "getPackageCodePath", "()Ljava/lang/String;");
+    jstring apkPath = (jstring)env->CallObjectMethod(activity, getPackageCodePathMethod);
+    gApkPath = chr::toString(env, apkPath);
   }
 
   jint JNICALL performTest(JNIEnv *env, jobject obj, jobjectArray args)
   {
-    auto count = env->GetArrayLength(args);
-    vector<string> tmp;
+    auto size = env->GetArrayLength(args);
+    char **argv = new char*[size + 1];
+    int argc = 0;
 
-    for (auto i = 0; i < count; i++)
+    argv[argc++] = const_cast<char*>(gApkPath.data());
+    
+    for (const auto &arg : chr::toStrings(env, args))
     {
-      jstring arg = (jstring)env->GetObjectArrayElement(args, i);
-      const char *chars = env->GetStringUTFChars(arg, nullptr);
-      tmp.push_back(chars);
-      env->ReleaseStringUTFChars(arg, chars);
+      argv[argc++] = const_cast<char*>(arg.data());
     }
 
-    int argc = count + 1;
-    char **argv = new char*[argc];
-
-    argv[0] = const_cast<char*>(gInternalDataPath.data());
-
-    for (auto i = 0; i < count; i++)
-    {
-      argv[i + 1] = const_cast<char*>(tmp[i].data());
-    }
-
-    int result = main(argc, argv); // TODO: TEST
+    int result = main(argc, argv);
     delete[] argv;
 
     return result;
