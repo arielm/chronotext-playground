@@ -1,6 +1,4 @@
-#include "Platform.h"
-
-#include <iostream>
+#include "Log.h"
 
 #include "boost/filesystem/fstream.hpp"
 
@@ -22,27 +20,32 @@ using namespace std;
 
 void* _malloc(size_t size)
 {
-  cout << "malloc " << size << endl;
+  LOGI << "malloc " << size << endl;
   return malloc(size);
 }
 
 void* _realloc(void *ptr, size_t size)
 {
-  cout << "realloc " << size << endl;
+  LOGI << "realloc " << size << endl;
   return realloc(ptr, size);
 }
 
 void _free(void *ptr)
 {
-  cout << "free" << endl;
+  LOGI << "free" << endl;
   free(ptr);
 }
 
-int main(int argc, char *argv[])
+int main(int argc, const char *argv[])
 {
-  auto executablePath = chr::getExecutablePath(argc, argv);
+  for (int i = 0; i < argc; i++)
+  {
+    LOGW << "{" << argv[i] << "}" << endl;
+  }
 
-  auto filePath1 = chr::getResourcePath(executablePath, "credits.txt");
+  auto executableFolder = chr::getExecutableFolder(argc, argv);
+
+  auto filePath1 = chr::getResourcePath(executableFolder, "credits.txt");
   fs::ifstream in1(filePath1, ios::in | ios::binary | ios::ate);
 
   if (in1)
@@ -53,28 +56,28 @@ int main(int argc, char *argv[])
     string result(fileSize, 0);
     in1.read(&result[0], fileSize);
 
-    cout << "[" << result << "]" << endl;
+    LOGI << "[" << result << "]" << endl;
   }
   else
   {
-    cout << "FILE-NOT-FOUND: " << filePath1 << endl;
+    LOGE << "FILE-NOT-FOUND: " << filePath1 << endl;
   }
 
   // ---
 
-  string fileName2 = chr::getResourcePath(executablePath, "2008.547.1crop_4.jpg").string();
+  string fileName2 = chr::getResourcePath(executableFolder, "2008.547.1crop_4.jpg").string();
   int x, y, comp;
 
   stbi_uc *data = stbi_load(fileName2.data(), &x, &y, &comp, 0);
 
   if (data)
   {
-    cout << x << "x" << y << " (" << comp << ")" << endl;
+    LOGI << x << "x" << y << " (" << comp << ")" << endl;
     stbi_image_free(data);
   }
   else
   {
-    cout << "ERROR WITH: " << fileName2 << endl;
+    LOGE << "ERROR WITH: " << fileName2 << endl;
   }
 
   return 0;

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include <boost/filesystem.hpp>
 
 namespace fs = boost::filesystem;
@@ -44,9 +46,32 @@ namespace chr
 #  error UNSUPPORTED PLATFORM
 #endif // __APPLE__
 
+#if defined(CHR_PLATFORM_MINGW)
+#  include <windows.h>
+#  undef ERROR // SEE https://google-glog.googlecode.com/svn/trunk/doc/glog.html#windows
+#elif defined(CHR_FS_APK)
+#  include <android/asset_manager_jni.h>
+#endif
+
+#if defined(CHR_FS_APK)
+  namespace chr
+  {
+    namespace android
+    {
+      extern JavaVM *vm;
+      extern jobject activity;
+
+      extern AAssetManager *assetManager;
+      extern std::string internalDataPath;
+      extern std::string externalDataPath;
+      extern std::string apkPath;
+    }
+  }
+#endif
+
 namespace chr
 {
-  fs::path getExecutablePath(int argc, char *argv[])
+  fs::path getExecutableFolder(int argc, const char *argv[])
   {
     switch (CHR_PLATFORM)
     {
@@ -62,16 +87,83 @@ namespace chr
     }
   }
 
-  fs::path getResourcePath(const fs::path &executablePath, const fs::path &fileName)
+  fs::path getResourcePath(const fs::path &executableFolder, const fs::path &fileName)
   {
     switch (CHR_PLATFORM)
     {
       case PLATFORM_IOS:
       case PLATFORM_ANDROID:
-        return executablePath / fileName;
+        return executableFolder / fileName;
+
+      case PLATFORM_EMSCRIPTEN:
+        return fs::path("resources") / fileName;
 
       default:
-        return executablePath / "resources" / fileName;
+        return executableFolder / "resources" / fileName;
     }
   }
+
+#if defined(CHR_FS_APK)
+  std::string toString(JNIEnv *env, jstring s)
+  {
+    std::string result;
+
+    if (s)
+    {
+      const char *chars = env->GetStringUTFChars(s, nullptr);
+                
+      if (chars)
+      {
+        result.assign(chars);
+        env->ReleaseStringUTFChars(s, chars);
+      }
+    }
+
+    return result;
+  }
+
+  std::vector<std::string> toStrings(JNIEnv *env, jobjectArray a)
+  {
+    std::vector<std::string> result;
+
+    auto size = env->GetArrayLength(a);
+    result.reserve(size);
+
+    for (auto i = 0; i < size; i++)
+    {
+      result.emplace_back(chr::toString(env, (jstring)env->GetObjectArrayElement(a, i)));
+    }
+
+    return result;
+  }
+#endif
+
+#if defined(CHR_FS_RC)
+  int checkResource(int resId)
+  {
+	  HRSRC infoHandle = ::FindResource(NULL, MAKEINTRESOURCE(resId), RT_RCDATA);
+
+	  if (infoHandle)
+	  {
+      return ::SizeofResource(NULL, infoHandle);
+	  }
+
+   return ::GetLastError();
+  }
+#elif defined(CHR_FS_APK)
+  int checkResource(const fs::path &fileName)
+  {
+    AAsset *asset = AAssetManager_open(android::assetManager, fileName.c_str(), AASSET_MODE_UNKNOWN);
+
+    if (asset)
+    {
+      auto size = AAsset_getLength(asset);
+      AAsset_close(asset);
+
+      return size;
+    }
+
+    return -1;
+  }
+#endif
 }

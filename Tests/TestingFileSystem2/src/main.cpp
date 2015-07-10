@@ -43,9 +43,9 @@ int main(int argc, const char *argv[])
     LOGW << "{" << argv[i] << "}" << endl;
   }
 
-  auto executablePath = chr::getExecutablePath(argc, argv);
+  auto executableFolder = chr::getExecutableFolder(argc, argv);
 
-  auto filePath1 = chr::getResourcePath(executablePath, "credits.txt");
+  auto filePath1 = chr::getResourcePath(executableFolder, "credits.txt");
   fs::ifstream in1(filePath1, ios::in | ios::binary | ios::ate);
   
   if (in1)
@@ -60,12 +60,12 @@ int main(int argc, const char *argv[])
   }
   else
   {
-    LOGI << "FILE-NOT-FOUND: " << filePath1 << endl;
+    LOGE << "FILE-NOT-FOUND: " << filePath1 << endl;
   }
 
   // ---
 
-  string fileName2 = chr::getResourcePath(executablePath, "2008.547.1crop_4.jpg").string();
+  string fileName2 = chr::getResourcePath(executableFolder, "2008.547.1crop_4.jpg").string();
   int x, y, comp;
 
   stbi_uc *data = stbi_load(fileName2.data(), &x, &y, &comp, 0);
@@ -157,7 +157,7 @@ int main(int argc, const char *argv[])
     chr::android::internalDataPath = chr::toString(env, internalDataPath);
 
     jclass environmentClass = env->FindClass("android/os/Environment");
-    jmethodID getExternalStorageDirectoryMethod = env->GetStaticMethodID(environmentClass, "getExternalStorageDirectory",  "()Ljava/io/File;");
+    jmethodID getExternalStorageDirectoryMethod = env->GetStaticMethodID(environmentClass, "getExternalStorageDirectory", "()Ljava/io/File;");
     jobject externalStorageDirectoryObject = env->CallStaticObjectMethod(environmentClass, getExternalStorageDirectoryMethod);
     jstring externalDataPath = (jstring)env->CallObjectMethod(externalStorageDirectoryObject, getAbsolutePathMethod);
     chr::android::externalDataPath = chr::toString(env, externalDataPath);

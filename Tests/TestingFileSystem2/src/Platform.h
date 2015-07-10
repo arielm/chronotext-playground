@@ -71,7 +71,7 @@ namespace chr
 
 namespace chr
 {
-  fs::path getExecutablePath(int argc, const char *argv[])
+  fs::path getExecutableFolder(int argc, const char *argv[])
   {
     switch (CHR_PLATFORM)
     {
@@ -87,19 +87,19 @@ namespace chr
     }
   }
 
-  fs::path getResourcePath(const fs::path &executablePath, const fs::path &fileName)
+  fs::path getResourcePath(const fs::path &executableFolder, const fs::path &fileName)
   {
     switch (CHR_PLATFORM)
     {
       case PLATFORM_IOS:
       case PLATFORM_ANDROID:
-        return executablePath / fileName;
+        return executableFolder / fileName;
 
       case PLATFORM_EMSCRIPTEN:
         return fs::path("resources") / fileName;
 
       default:
-        return executablePath / "resources" / fileName;
+        return executableFolder / "resources" / fileName;
     }
   }
 
