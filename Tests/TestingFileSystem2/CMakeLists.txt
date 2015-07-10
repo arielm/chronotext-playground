@@ -5,6 +5,7 @@ project(TestingFileSystem2)
 find_package(Boost 1.58.0 REQUIRED COMPONENTS system filesystem)
 
 include_directories(
+  ../common
   ${Boost_INCLUDE_DIRS}
 )
 
