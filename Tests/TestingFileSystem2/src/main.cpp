@@ -43,50 +43,53 @@ int main(int argc, const char *argv[])
     LOGW << "{" << argv[i] << "}" << endl;
   }
 
-  auto executableFolder = chr::getExecutableFolder(argc, argv);
-
-  auto filePath1 = chr::getResourcePath(executableFolder, "credits.txt");
-  fs::ifstream in1(filePath1, ios::in | ios::binary | ios::ate);
-  
-  if (in1)
+  if (chr::hasFileResources())
   {
-    auto fileSize = in1.tellg();
-    in1.seekg(0, ios::beg);
+    auto filePath1 = chr::getResourcePath("credits.txt");
+    fs::ifstream in1(filePath1, ios::in | ios::binary | ios::ate);
+    
+    if (in1)
+    {
+      auto fileSize = in1.tellg();
+      in1.seekg(0, ios::beg);
 
-    string result(fileSize, 0);
-    in1.read(&result[0], fileSize);
+      string result(fileSize, 0);
+      in1.read(&result[0], fileSize);
 
-    LOGI << "[" << result << "]" << endl;
+      LOGI << "[" << result << "]" << endl;
+    }
+    else
+    {
+      LOGE << "FILE-NOT-FOUND: " << filePath1 << endl;
+    }
+
+    // ---
+
+    string fileName2 = chr::getResourcePath("2008.547.1crop_4.jpg").string();
+    int x, y, comp;
+
+    stbi_uc *data = stbi_load(fileName2.data(), &x, &y, &comp, 0);
+
+    if (data)
+    {
+      LOGI << x << "x" << y << " (" << comp << ")" << endl;
+      stbi_image_free(data);
+    }
+    else
+    {
+      LOGI << "ERROR WITH: " << fileName2 << endl;
+    }
   }
   else
   {
-    LOGE << "FILE-NOT-FOUND: " << filePath1 << endl;
-  }
-
-  // ---
-
-  string fileName2 = chr::getResourcePath(executableFolder, "2008.547.1crop_4.jpg").string();
-  int x, y, comp;
-
-  stbi_uc *data = stbi_load(fileName2.data(), &x, &y, &comp, 0);
-
-  if (data)
-  {
-    LOGI << x << "x" << y << " (" << comp << ")" << endl;
-    stbi_image_free(data);
-  }
-  else
-  {
-    LOGI << "ERROR WITH: " << fileName2 << endl;
-  }
-
 #if defined(CHR_FS_RC)
-  LOGI << chr::checkResource(128) << endl;
-  LOGI << chr::checkResource(129) << endl;
+    LOGI << chr::checkResource(128) << endl;
+    LOGI << chr::checkResource(129) << endl;
 #elif defined(CHR_FS_APK)
-  LOGI << chr::checkResource("credits.txt") << endl;
-  LOGI << chr::checkResource("2008.547.1crop_4.jpg") << endl;
+    LOGI << chr::checkResource("credits.txt") << endl;
+    LOGI << chr::checkResource("2008.547.1crop_4.jpg") << endl;
 #endif
+  }
 
   return 0;
 }

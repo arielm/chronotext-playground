@@ -17,9 +17,11 @@ add_executable(${PROJECT_NAME}
 )
 
 if (PLATFORM MATCHES emscripten)
+  add_definitions(-DCHR_FS_JS_NODE)
   em_link_pre_js(${PROJECT_NAME} "${CMAKE_CURRENT_LIST_DIR}/pre.js")
 
 elseif (PLATFORM MATCHES ios)
+  add_definitions(-DCHR_FS_BUNDLE)
   set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
 
 elseif (PLATFORM MATCHES android)
@@ -33,9 +35,16 @@ elseif (PLATFORM MATCHES osx|mxe)
   )
 endif()
 
-target_link_libraries(${PROJECT_NAME}
-  ${Boost_LIBRARIES}
-)
+if (PLATFORM MATCHES ios|osx)
+  target_link_libraries(${PROJECT_NAME}
+    "-framework Foundation"
+    ${Boost_LIBRARIES}
+  )
+else()
+  target_link_libraries(${PROJECT_NAME}
+    ${Boost_LIBRARIES}
+  )
+endif()
 
 enable_testing()
 add_test(NAME ${PROJECT_NAME} COMMAND run)

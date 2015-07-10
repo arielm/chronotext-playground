@@ -21,6 +21,7 @@ namespace chr
 
 #if defined(__APPLE__)
 #  include <TargetConditionals.h>
+#  define CHR_PLATFORM_COCOA
 #  if TARGET_OS_IPHONE
 #    if TARGET_IPHONE_SIMULATOR
 #      define CHR_PLATFORM chr::PLATFORM_IOS_SIM
@@ -47,13 +48,15 @@ namespace chr
 #endif // __APPLE__
 
 #if defined(CHR_PLATFORM_MINGW)
-#  include <windows.h>
-#  undef ERROR // SEE https://google-glog.googlecode.com/svn/trunk/doc/glog.html#windows
-#elif defined(CHR_FS_APK)
-#  include <android/asset_manager_jni.h>
+# include <windows.h>
+# undef ERROR // SEE https://google-glog.googlecode.com/svn/trunk/doc/glog.html#windows
+#elif defined(CHR_PLATFORM_COCOA)
+# include <CoreFoundation/CoreFoundation.h>
 #endif
 
 #if defined(CHR_FS_APK)
+# include <android/asset_manager_jni.h>
+
   namespace chr
   {
     namespace android
@@ -71,36 +74,48 @@ namespace chr
 
 namespace chr
 {
-  fs::path getExecutableFolder(int argc, const char *argv[])
+  bool hasFileResources()
   {
-    switch (CHR_PLATFORM)
-    {
-      case PLATFORM_IOS:
-      case PLATFORM_ANDROID:
-        if (argc > 0)
-        {
-          return fs::path(std::string(argv[0])).parent_path();
-        }
-
-      default:
-        return fs::current_path();
-    }
+#if defined(CHR_FS_APK) || defined(CHR_FS_RC)
+    return false;
+#else
+    return true;
+#endif
   }
 
-  fs::path getResourcePath(const fs::path &executableFolder, const fs::path &fileName)
+  fs::path getResourcePath(const fs::path &relativePath)
   {
-    switch (CHR_PLATFORM)
-    {
-      case PLATFORM_IOS:
-      case PLATFORM_ANDROID:
-        return executableFolder / fileName;
+    fs::path basePath;
 
-      case PLATFORM_EMSCRIPTEN:
-        return fs::path("resources") / fileName;
+#if defined(CHR_FS_APK) || defined(CHR_FS_RC)
+    return "";
+#elif defined(CHR_FS_BUNDLE)
+    CFBundleRef bundle = CFBundleGetMainBundle();
+    CFURLRef url = CFBundleCopyBundleURL(bundle);
+    CFStringRef tmp = CFURLCopyFileSystemPath(url, kCFURLPOSIXPathStyle);
 
-      default:
-        return executableFolder / "resources" / fileName;
-    }
+    CFIndex length = CFStringGetLength(tmp);
+    CFIndex maxSize = CFStringGetMaximumSizeForEncoding(length, kCFStringEncodingUTF8);
+    char *buffer = (char*)malloc(maxSize);
+    CFStringGetCString(tmp, buffer, maxSize, kCFStringEncodingUTF8);
+              
+    basePath = buffer; // FIXME: ONLY WORKS FOR "FLAT-PACKAGED-FILES" INSIDE iOS APP
+              
+    CFRelease(url);
+    CFRelease(tmp);
+    free(buffer);
+#elif defined(CHR_PLATFORM_ANDROID)
+   static char buf[PATH_MAX];
+   auto len = readlink("/proc/self/exe", buf, PATH_MAX - 1);
+   assert(len > 0);
+   basePath = fs::path(std::string(buf, len)).parent_path();
+#elif defined(CHR_PLATFORM_EMSCRIPTEN)
+   basePath = "resources";
+#else
+   basePath = fs::current_path() / "resources";
+#endif
+
+   return basePath / relativePath;
   }
 
 #if defined(CHR_FS_APK)

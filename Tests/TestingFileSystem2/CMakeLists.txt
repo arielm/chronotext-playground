@@ -61,7 +61,7 @@ else()
 endif()
 
 if (PLATFORM MATCHES ios)
-  add_definitions(-DCHR_FS_APP)
+  add_definitions(-DCHR_FS_BUNDLE)
   set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
 
 elseif (PLATFORM MATCHES android)
@@ -74,22 +74,28 @@ elseif (PLATFORM MATCHES osx)
   )
 endif()
 
-enable_testing()
-
-if (PLATFORM MATCHES android)
+if (PLATFORM MATCHES ios|osx)
+  target_link_libraries(${PROJECT_NAME}
+    "-framework Foundation"
+    ${Boost_LIBRARIES}
+  )
+elseif (PLATFORM MATCHES android)
   target_link_libraries(${PROJECT_NAME}
     log
     android
     ${Boost_LIBRARIES}
   )
-
-# add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh)
-  add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh "--gtest_filter=MessageTest.*")
-
 else()
   target_link_libraries(${PROJECT_NAME}
     ${Boost_LIBRARIES}
   )
+endif()
 
+enable_testing()
+
+if (PLATFORM MATCHES android)
+# add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh)
+  add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh "--gtest_filter=MessageTest.*")
+else()
   add_test(NAME ${PROJECT_NAME} COMMAND run)
 endif()

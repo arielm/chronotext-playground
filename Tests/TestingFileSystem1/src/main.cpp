@@ -43,41 +43,42 @@ int main(int argc, const char *argv[])
     LOGW << "{" << argv[i] << "}" << endl;
   }
 
-  auto executableFolder = chr::getExecutableFolder(argc, argv);
-
-  auto filePath1 = chr::getResourcePath(executableFolder, "credits.txt");
-  fs::ifstream in1(filePath1, ios::in | ios::binary | ios::ate);
-
-  if (in1)
+  if (chr::hasFileResources())
   {
-    auto fileSize = in1.tellg();
-    in1.seekg(0, ios::beg);
+    auto filePath1 = chr::getResourcePath("credits.txt");
+    fs::ifstream in1(filePath1, ios::in | ios::binary | ios::ate);
 
-    string result(fileSize, 0);
-    in1.read(&result[0], fileSize);
+    if (in1)
+    {
+      auto fileSize = in1.tellg();
+      in1.seekg(0, ios::beg);
 
-    LOGI << "[" << result << "]" << endl;
-  }
-  else
-  {
-    LOGE << "FILE-NOT-FOUND: " << filePath1 << endl;
-  }
+      string result(fileSize, 0);
+      in1.read(&result[0], fileSize);
 
-  // ---
+      LOGI << "[" << result << "]" << endl;
+    }
+    else
+    {
+      LOGE << "FILE-NOT-FOUND: " << filePath1 << endl;
+    }
 
-  string fileName2 = chr::getResourcePath(executableFolder, "2008.547.1crop_4.jpg").string();
-  int x, y, comp;
+    // ---
 
-  stbi_uc *data = stbi_load(fileName2.data(), &x, &y, &comp, 0);
+    string fileName2 = chr::getResourcePath("2008.547.1crop_4.jpg").string();
+    int x, y, comp;
 
-  if (data)
-  {
-    LOGI << x << "x" << y << " (" << comp << ")" << endl;
-    stbi_image_free(data);
-  }
-  else
-  {
-    LOGE << "ERROR WITH: " << fileName2 << endl;
+    stbi_uc *data = stbi_load(fileName2.data(), &x, &y, &comp, 0);
+
+    if (data)
+    {
+      LOGI << x << "x" << y << " (" << comp << ")" << endl;
+      stbi_image_free(data);
+    }
+    else
+    {
+      LOGE << "ERROR WITH: " << fileName2 << endl;
+    }
   }
 
   return 0;
