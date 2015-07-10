@@ -8,7 +8,7 @@ emcc ../main.cpp \
   -Wno-warn-absolute-paths -std=c++11 \
   -I${BOOST_PATH}/dist/emscripten/include \
   -L${BOOST_PATH}/dist/emscripten/lib -lboost_system -lboost_filesystem \
-  --embed-file ../resources
+  --exclude-file *.DS_Store --embed-file ../resources
 
 if [ $? != 0 ]; then
   echo "BUILD FAILED!"

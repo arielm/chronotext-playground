@@ -38,7 +38,7 @@ elseif (PLATFORM MATCHES android)
   )
 
 elseif (PLATFORM MATCHES emscripten)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --embed-file ../../resources") # DOES NOT WORK: add_compile_options("--embed-file ../../resources") 
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --exclude-file *.DS_Store --embed-file ../../resources")
   
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
