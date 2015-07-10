@@ -5,7 +5,7 @@
 #include <sstream>
 #include <iostream>
 
-#if defined(CHR_PLATFORM_ANDROID)
+#if defined(CHR_FS_APK)
 #  include <android/log.h>
 #endif
 
@@ -28,7 +28,7 @@ namespace chr
 
     ~Log()
     {
-#if defined(CHR_PLATFORM_ANDROID)
+#if defined(CHR_FS_APK)
       int androidPriority;
 
       switch (level)
@@ -69,7 +69,7 @@ namespace chr
 
       if (level == FATAL)
       {
-        abort(); // TODO: TEST ON ALL THE PLATFORMS
+        abort();
       }
     }
 

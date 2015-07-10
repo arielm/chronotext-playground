@@ -49,11 +49,11 @@ namespace chr
 #if defined(CHR_PLATFORM_MINGW)
 #  include <windows.h>
 #  undef ERROR // SEE https://google-glog.googlecode.com/svn/trunk/doc/glog.html#windows
-#elif defined(CHR_PLATFORM_ANDROID)
+#elif defined(CHR_FS_APK)
 #  include <android/asset_manager_jni.h>
 #endif
 
-#if defined(CHR_PLATFORM_ANDROID)
+#if defined(CHR_FS_APK)
   namespace chr
   {
     namespace android
@@ -103,7 +103,7 @@ namespace chr
     }
   }
 
-#if defined(CHR_PLATFORM_ANDROID)
+#if defined(CHR_FS_APK)
   std::string toString(JNIEnv *env, jstring s)
   {
     std::string result;
@@ -138,7 +138,7 @@ namespace chr
   }
 #endif
 
-#if defined(CHR_PLATFORM_MINGW)
+#if defined(CHR_FS_RC)
   int checkResource(int resId)
   {
 	  HRSRC infoHandle = ::FindResource(NULL, MAKEINTRESOURCE(resId), RT_RCDATA);
@@ -150,7 +150,7 @@ namespace chr
 
    return ::GetLastError();
   }
-#elif defined(CHR_PLATFORM_ANDROID)
+#elif defined(CHR_FS_APK)
   int checkResource(const fs::path &fileName)
   {
     AAsset *asset = AAssetManager_open(android::assetManager, fileName.c_str(), AASSET_MODE_UNKNOWN);

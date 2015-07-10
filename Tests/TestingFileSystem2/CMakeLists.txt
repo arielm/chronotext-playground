@@ -13,12 +13,16 @@ set(SRC_FILES
 )
 
 if (PLATFORM MATCHES mxe)
+  add_definitions(-DCHR_FS_RC)
+
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
     mxe/resources.rc
   )
 
 elseif (PLATFORM MATCHES android)
+  add_definitions(-DCHR_FS_APK)
+
   configure_file(android/AndroidManifest.xml.in AndroidManifest.xml)
   configure_file(android/ant.properties.in ant.properties)
   configure_file(android/MainActivity.java.in "src/org/chronotext/${PROJECT_NAME}/MainActivity.java")
@@ -38,6 +42,8 @@ elseif (PLATFORM MATCHES android)
   )
 
 elseif (PLATFORM MATCHES emscripten)
+  add_definitions(-DCHR_FS_JS_EMBED)
+
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --exclude-file *.DS_Store --embed-file ../../resources")
   
   add_executable(${PROJECT_NAME}
@@ -54,6 +60,7 @@ else()
 endif()
 
 if (PLATFORM MATCHES ios)
+  add_definitions(-DCHR_FS_APP)
   set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
 
 elseif (PLATFORM MATCHES android)

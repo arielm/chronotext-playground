@@ -80,10 +80,10 @@ int main(int argc, const char *argv[])
     LOGI << "ERROR WITH: " << fileName2 << endl;
   }
 
-#if defined(CHR_PLATFORM_MINGW)
+#if defined(CHR_FS_RC)
   LOGI << chr::checkResource(128) << endl;
   LOGI << chr::checkResource(129) << endl;
-#elif defined(CHR_PLATFORM_ANDROID)
+#elif defined(CHR_FS_APK)
   LOGI << chr::checkResource("credits.txt") << endl;
   LOGI << chr::checkResource("2008.547.1crop_4.jpg") << endl;
 #endif
@@ -91,7 +91,7 @@ int main(int argc, const char *argv[])
   return 0;
 }
 
-#if defined (CHR_PLATFORM_ANDROID)
+#if defined (CHR_FS_APK)
   extern "C"
   {
     jint JNI_OnLoad(JavaVM *vm, void *reserved);
