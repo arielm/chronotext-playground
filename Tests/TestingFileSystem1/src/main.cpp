@@ -45,7 +45,7 @@ int main(int argc, const char *argv[])
 
   if (chr::hasFileResources())
   {
-    auto filePath1 = chr::getResourcePath("credits.txt");
+    auto filePath1 = chr::getResourcePath("sub/credits.txt");
     fs::ifstream in1(filePath1, ios::in | ios::binary | ios::ate);
 
     if (in1)

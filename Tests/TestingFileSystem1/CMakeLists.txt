@@ -9,7 +9,7 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
-file(GLOB RESOURCES_FILES res/*)
+file(GLOB_RECURSE RESOURCES_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} res/*) # TODO: EXCLUDE .DS_Store FILES (NON-TRIVIAL)
 
 add_executable(${PROJECT_NAME}
   src/main.cpp
@@ -22,16 +22,20 @@ if (PLATFORM MATCHES emscripten)
 
 elseif (PLATFORM MATCHES ios)
   add_definitions(-DCHR_FS_BUNDLE)
-  set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app/res)
+
+  foreach(resource_file ${RESOURCES_FILES})
+    get_filename_component(parent_dir ${resource_file} DIRECTORY)
+    set_source_files_properties(${resource_file} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app/${parent_dir})
+  endforeach()
 
 elseif (PLATFORM MATCHES android)
-  install(CODE "execute_process(
-    COMMAND adb push \"${CMAKE_CURRENT_LIST_DIR}/res/.\" /data/local/tmp/)"
-  )
+  install(CODE "
+    execute_process(COMMAND adb push \"${CMAKE_CURRENT_LIST_DIR}/res/.\" /data/local/tmp/)
+  ")
 
 elseif (PLATFORM MATCHES osx|mxe)
   add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND rm -f res
+    COMMAND rm -rf res
     COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/res\"
   )
 endif()

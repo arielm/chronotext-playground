@@ -45,7 +45,7 @@ int main(int argc, const char *argv[])
 
   if (chr::hasFileResources())
   {
-    auto filePath1 = chr::getResourcePath("credits.txt");
+    auto filePath1 = chr::getResourcePath("sub/credits.txt");
     fs::ifstream in1(filePath1, ios::in | ios::binary | ios::ate);
     
     if (in1)
@@ -86,7 +86,7 @@ int main(int argc, const char *argv[])
     LOGI << chr::checkResource(128) << endl;
     LOGI << chr::checkResource(129) << endl;
 #elif defined(CHR_FS_APK)
-    LOGI << chr::checkResource("credits.txt") << endl;
+    LOGI << chr::checkResource("sub/credits.txt") << endl;
     LOGI << chr::checkResource("2008.547.1crop_4.jpg") << endl;
 #endif
   }
