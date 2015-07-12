@@ -1,11 +1,11 @@
 var Module = {
   preRun: function() {
-    FS.mkdir("/resources");
-    FS.mount(NODEFS, { root: "../../resources" }, "/resources");
+    FS.mkdir("/res");
+    FS.mount(NODEFS, { root: "../../res" }, "/res");
     console.log('preRun executed');
   },
   postRun: function() {
-    FS.unmount("/resources");
+    FS.unmount("/res");
     console.log('postRun executed');
   },
 };

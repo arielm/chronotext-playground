@@ -45,14 +45,14 @@ elseif (PLATFORM MATCHES android)
 elseif (PLATFORM MATCHES emscripten)
   add_definitions(-DCHR_FS_JS_EMBED)
 
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --exclude-file *.DS_Store --embed-file ../../resources")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --exclude-file *.DS_Store --embed-file ../../res")
   
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
   )
 
 else()
-  file(GLOB RESOURCES_FILES resources/*)
+  file(GLOB RESOURCES_FILES res/*)
 
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
@@ -62,7 +62,7 @@ endif()
 
 if (PLATFORM MATCHES ios)
   add_definitions(-DCHR_FS_BUNDLE)
-  set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
+  set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app/res)
 
 elseif (PLATFORM MATCHES android)
   install(CODE "
@@ -74,8 +74,8 @@ elseif (PLATFORM MATCHES android)
 
 elseif (PLATFORM MATCHES osx)
   add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND rm -f resources
-    COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/resources\"
+    COMMAND rm -f res
+    COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/res\"
   )
 endif()
 

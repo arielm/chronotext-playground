@@ -99,7 +99,7 @@ namespace chr
     char *buffer = (char*)malloc(maxSize);
     CFStringGetCString(tmp, buffer, maxSize, kCFStringEncodingUTF8);
               
-    basePath = buffer; // FIXME: ONLY WORKS FOR "FLAT-PACKAGED-FILES" INSIDE iOS APP
+    basePath = fs::path(buffer) / "res";
               
     CFRelease(url);
     CFRelease(tmp);
@@ -110,9 +110,9 @@ namespace chr
    assert(len > 0);
    basePath = fs::path(std::string(buf, len)).parent_path();
 #elif defined(CHR_PLATFORM_EMSCRIPTEN)
-   basePath = "resources";
+   basePath = "res";
 #else
-   basePath = fs::current_path() / "resources";
+   basePath = fs::current_path() / "res";
 #endif
 
    return basePath / relativePath;
