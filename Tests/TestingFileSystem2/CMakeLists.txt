@@ -65,7 +65,12 @@ if (PLATFORM MATCHES ios)
   set_source_files_properties(${RESOURCES_FILES} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app)
 
 elseif (PLATFORM MATCHES android)
-  install(CODE "execute_process(COMMAND ./install.sh)")
+  install(CODE "
+    execute_process(COMMAND ./install.sh RESULT_VARIABLE res)
+    if (res)
+      message(FATAL_ERROR)
+    endif()
+  ")
 
 elseif (PLATFORM MATCHES osx)
   add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
