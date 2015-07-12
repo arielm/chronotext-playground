@@ -13,12 +13,17 @@ set(SRC_FILES
   src/main.cpp
 )
 
+file(GLOB_RECURSE RESOURCES_FILES
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  res/* # TODO: EXCLUDE .DS_Store FILES (NON-TRIVIAL)
+)
+
 if (PLATFORM MATCHES mxe)
   add_definitions(-DCHR_FS_RC)
 
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
-    mxe/resources.rc
+    mxe/resources.rc # TODO: CREATE AUTOMATICALLY, BASED ON ${RESOURCE_FILES}
   )
 
 elseif (PLATFORM MATCHES android)
@@ -51,37 +56,46 @@ elseif (PLATFORM MATCHES emscripten)
     ${SRC_FILES}
   )
 
-else()
-  file(GLOB_RECURSE RESOURCES_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} res/*) # TODO: EXCLUDE .DS_Store FILES (NON-TRIVIAL)
+elseif (PLATFORM MATCHES ios)
+  add_definitions(-DCHR_FS_BUNDLE)
 
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
     ${RESOURCES_FILES}
   )
-endif()
-
-if (PLATFORM MATCHES ios)
-  add_definitions(-DCHR_FS_BUNDLE)
 
   foreach(resource_file ${RESOURCES_FILES})
     get_filename_component(parent_dir ${resource_file} DIRECTORY)
     set_source_files_properties(${resource_file} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app/${parent_dir})
   endforeach()
 
-elseif (PLATFORM MATCHES android)
+else()
+  add_executable(${PROJECT_NAME}
+    ${SRC_FILES}
+  )
+endif()
+
+# ---
+
+if (PLATFORM MATCHES android)
   install(CODE "
-    execute_process(COMMAND ./install.sh RESULT_VARIABLE res)
-    if (res)
+    execute_process(COMMAND ./install.sh RESULT_VARIABLE result)
+    if (result)
       message(FATAL_ERROR)
     endif()
   ")
 
 elseif (PLATFORM MATCHES osx)
-  add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND rm -rf res
-    COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/res\"
-  )
+  install(CODE "
+    execute_process(COMMAND rm -rf res)
+    execute_process(COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/res\")
+  ")
+
+else()
+  install(CODE "")
 endif()
+
+# ---
 
 if (PLATFORM MATCHES ios|osx)
   target_link_libraries(${PROJECT_NAME}
@@ -99,6 +113,8 @@ else()
     ${Boost_LIBRARIES}
   )
 endif()
+
+# ---
 
 enable_testing()
 

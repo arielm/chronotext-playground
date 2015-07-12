@@ -13,7 +13,7 @@ file(GLOB_RECURSE RESOURCES_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} res/*) # 
 
 add_executable(${PROJECT_NAME}
   src/main.cpp
-  ${RESOURCES_FILES}
+  ${RESOURCES_FILES} # XXX: ONLY NECESSARY FOR iOS
 )
 
 if (PLATFORM MATCHES emscripten)
@@ -27,18 +27,26 @@ elseif (PLATFORM MATCHES ios)
     get_filename_component(parent_dir ${resource_file} DIRECTORY)
     set_source_files_properties(${resource_file} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app/${parent_dir})
   endforeach()
+endif()
 
-elseif (PLATFORM MATCHES android)
+# ---
+
+if (PLATFORM MATCHES android)
   install(CODE "
     execute_process(COMMAND adb push \"${CMAKE_CURRENT_LIST_DIR}/res/.\" /data/local/tmp/)
   ")
 
 elseif (PLATFORM MATCHES osx|mxe)
-  add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND rm -rf res
-    COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/res\"
-  )
+  install(CODE "
+    execute_process(COMMAND rm -rf res)
+    execute_process(COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/res\")
+  ")
+
+else()
+  install(CODE "")
 endif()
+
+# ---
 
 if (PLATFORM MATCHES ios|osx)
   target_link_libraries(${PROJECT_NAME}
@@ -50,6 +58,8 @@ else()
     ${Boost_LIBRARIES}
   )
 endif()
+
+# ---
 
 enable_testing()
 add_test(NAME ${PROJECT_NAME} COMMAND run)
