@@ -38,8 +38,8 @@ elseif (PLATFORM MATCHES android)
   configure_file(android/tests/MainActivityTests.java.in "tests/src/org/chronotext/${PROJECT_NAME}/MainActivityTests.java")
   configure_file(android/tests/TestRunner.java.in "tests/src/org/chronotext/${PROJECT_NAME}/TestRunner.java")
 
-  configure_file(android/install.sh.in install.sh)
-  configure_file(android/test.sh.in test.sh)
+  configure_file(android/install.instrument.sh.in install.sh)
+  configure_file(android/run.instrument.sh.in run.sh)
 
   set(LIBRARY_OUTPUT_PATH "libs/armeabi-v7a")
 
@@ -77,22 +77,8 @@ endif()
 
 # ---
 
-if (PLATFORM MATCHES android)
-  install(CODE "
-    execute_process(COMMAND ./install.sh RESULT_VARIABLE result)
-    if (result)
-      message(FATAL_ERROR)
-    endif()
-  ")
-
-elseif (PLATFORM MATCHES osx)
-  install(CODE "
-    execute_process(COMMAND rm -rf res)
-    execute_process(COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/res\")
-  ")
-
-else()
-  install(CODE "")
+if (PLATFORM MATCHES osx)
+  configure_file("../common/cmake/install.symlink.sh.in" install.sh)
 endif()
 
 # ---
@@ -118,9 +104,5 @@ endif()
 
 enable_testing()
 
-if (PLATFORM MATCHES android)
-# add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh)
-  add_test(NAME ${PROJECT_NAME} COMMAND ./test.sh "--gtest_filter=MessageTest.*")
-else()
-  add_test(NAME ${PROJECT_NAME} COMMAND run)
-endif()
+# add_test(NAME ${PROJECT_NAME} COMMAND ./run.sh)
+  add_test(NAME ${PROJECT_NAME} COMMAND ./run.sh "--gtest_filter=MessageTest.*")

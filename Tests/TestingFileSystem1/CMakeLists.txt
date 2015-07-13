@@ -9,7 +9,10 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
-file(GLOB_RECURSE RESOURCES_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} res/*) # TODO: EXCLUDE .DS_Store FILES (NON-TRIVIAL)
+file(GLOB_RECURSE RESOURCES_FILES
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  res/* # TODO: EXCLUDE .DS_Store FILES (NON-TRIVIAL)
+)
 
 add_executable(${PROJECT_NAME}
   src/main.cpp
@@ -32,18 +35,10 @@ endif()
 # ---
 
 if (PLATFORM MATCHES android)
-  install(CODE "
-    execute_process(COMMAND adb push \"${CMAKE_CURRENT_LIST_DIR}/res/.\" /data/local/tmp/)
-  ")
+  configure_file("../common/cmake/android/install.push.sh.in" install.sh)
 
 elseif (PLATFORM MATCHES osx|mxe)
-  install(CODE "
-    execute_process(COMMAND rm -rf res)
-    execute_process(COMMAND ln -s \"${CMAKE_CURRENT_LIST_DIR}/res\")
-  ")
-
-else()
-  install(CODE "")
+  configure_file("../common/cmake/install.symlink.sh.in" install.sh)
 endif()
 
 # ---
@@ -62,4 +57,4 @@ endif()
 # ---
 
 enable_testing()
-add_test(NAME ${PROJECT_NAME} COMMAND run)
+add_test(NAME ${PROJECT_NAME} COMMAND ./run.sh)

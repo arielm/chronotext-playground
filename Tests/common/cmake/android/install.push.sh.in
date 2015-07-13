@@ -1,0 +1,4 @@
+#!/bin/sh
+
+adb push "${CMAKE_CURRENT_LIST_DIR}/res/." /data/local/tmp/ &&
+adb push ${PROJECT_NAME} /data/local/tmp/
