@@ -16,5 +16,5 @@
     -->
     <instrumentation android:name="org.chronotext.${PROJECT_NAME}.TestRunner"
         android:targetPackage="org.chronotext.${PROJECT_NAME}"
-        android:label="TestRunner for org.chronotext.${PROJECT_NAME}.MainActivity"/>
+        android:label="${PROJECT_NAME}TestRunner"/>
 </manifest>

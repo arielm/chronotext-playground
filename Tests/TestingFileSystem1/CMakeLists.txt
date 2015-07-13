@@ -4,8 +4,10 @@ project(TestingFileSystem1)
 
 find_package(Boost 1.58.0 REQUIRED COMPONENTS system filesystem)
 
+set(CHR_COMMON "${CMAKE_CURRENT_LIST_DIR}/../common")
+
 include_directories(
-  ../common
+  "${CHR_COMMON}/include"
   ${Boost_INCLUDE_DIRS}
 )
 
@@ -21,7 +23,7 @@ add_executable(${PROJECT_NAME}
 
 if (PLATFORM MATCHES emscripten)
   add_definitions(-DCHR_FS_JS_NODE)
-  em_link_pre_js(${PROJECT_NAME} "${CMAKE_CURRENT_LIST_DIR}/pre.js")
+  em_link_pre_js(${PROJECT_NAME} "${CHR_COMMON}/cmake/emscripten/pre.js")
 
 elseif (PLATFORM MATCHES ios)
   add_definitions(-DCHR_FS_BUNDLE)
@@ -35,10 +37,10 @@ endif()
 # ---
 
 if (PLATFORM MATCHES android)
-  configure_file("../common/cmake/android/install.push.sh.in" install.sh)
+  configure_file("${CHR_COMMON}/cmake/android/install.push.sh.in" install.sh)
 
 elseif (PLATFORM MATCHES osx|mxe)
-  configure_file("../common/cmake/install.symlink.sh.in" install.sh)
+  configure_file("${CHR_COMMON}/cmake/install.symlink.sh.in" install.sh)
 endif()
 
 # ---
