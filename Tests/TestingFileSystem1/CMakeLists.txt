@@ -28,7 +28,7 @@ if (PLATFORM MATCHES emscripten)
 elseif (PLATFORM MATCHES ios)
   add_definitions(-DCHR_FS_BUNDLE)
 
-  foreach(resource_file ${RESOURCES_FILES})
+  foreach (resource_file ${RESOURCES_FILES})
     get_filename_component(parent_dir ${resource_file} DIRECTORY)
     set_source_files_properties(${resource_file} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app/${parent_dir})
   endforeach()

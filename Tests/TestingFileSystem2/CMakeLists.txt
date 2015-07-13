@@ -23,18 +23,23 @@ set(SRC_FILES
 if (PLATFORM MATCHES mxe)
   add_definitions(-DCHR_FS_RC)
 
-  set(RC_FILE "${CMAKE_CURRENT_BINARY_DIR}/resources.rc")
-  file(WRITE ${RC_FILE})
+  set(DATA_RC "")
+  set(DATA_CPP "")
   set(counter 128)
 
-  foreach(resource_file ${RESOURCES_FILES})
-    file(APPEND ${RC_FILE} "${counter} RCDATA \"../../${resource_file}\"\r\n")
+  foreach (resource_file ${RESOURCES_FILES})
+    set(DATA_RC "${DATA_RC}${counter} RCDATA \"../../${resource_file}\"\r\n")
+    set(DATA_CPP "{\"${resource_file}\", ${counter}}, ${DATA_CPP}")
     math(EXPR counter "${counter} + 1")
   endforeach()
 
+  configure_file("${CHR_COMMON}/cmake/mxe/resources.rc.in" resources.rc)
+  configure_file("${CHR_COMMON}/cmake/mxe/resources.cpp.in" resources.cpp)
+
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
-    ${RC_FILE}
+    "${CMAKE_CURRENT_BINARY_DIR}/resources.rc"
+    "${CMAKE_CURRENT_BINARY_DIR}/resources.cpp"
   )
 
 elseif (PLATFORM MATCHES android)
@@ -75,7 +80,7 @@ elseif (PLATFORM MATCHES ios)
     ${RESOURCES_FILES}
   )
 
-  foreach(resource_file ${RESOURCES_FILES})
+  foreach (resource_file ${RESOURCES_FILES})
     get_filename_component(parent_dir ${resource_file} DIRECTORY)
     set_source_files_properties(${resource_file} PROPERTIES MACOSX_PACKAGE_LOCATION ${PROJECT_NAME}.app/${parent_dir})
   endforeach()

@@ -82,10 +82,7 @@ int main(int argc, const char *argv[])
   }
   else
   {
-#if defined(CHR_FS_RC)
-    LOGI << chr::checkResource(128) << endl;
-    LOGI << chr::checkResource(129) << endl;
-#elif defined(CHR_FS_APK)
+#if defined(CHR_FS_RC) || defined(CHR_FS_APK)
     LOGI << chr::checkResource("sub/credits.txt") << endl;
     LOGI << chr::checkResource("2008.547.1crop_4.jpg") << endl;
 #endif

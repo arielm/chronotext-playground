@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <map>
 
 #include <boost/filesystem.hpp>
 
@@ -68,6 +69,14 @@ namespace chr
       extern std::string internalDataPath;
       extern std::string externalDataPath;
       extern std::string apkPath;
+    }
+  }
+#elif defined(CHR_FS_RC)
+  namespace chr
+  {
+    namespace mingw
+    {
+      extern std::map<std::string, int> RESOURCES;
     }
   }
 #endif
@@ -165,10 +174,24 @@ namespace chr
 
    return ::GetLastError();
   }
-#elif defined(CHR_FS_APK)
-  int checkResource(const fs::path &fileName)
+
+  int checkResource(const fs::path &relativePath)
   {
-    AAsset *asset = AAssetManager_open(android::assetManager, fileName.c_str(), AASSET_MODE_UNKNOWN);
+    auto basePath = fs::path("res") / relativePath;
+    auto found = mingw::RESOURCES.find(basePath.generic_string());
+
+    if (found != mingw::RESOURCES.end())
+    {
+      int resId = found->second;
+      return checkResource(resId);
+    }
+
+    return -1;
+  }
+#elif defined(CHR_FS_APK)
+  int checkResource(const fs::path &relativePath)
+  {
+    AAsset *asset = AAssetManager_open(android::assetManager, relativePath.c_str(), AASSET_MODE_UNKNOWN);
 
     if (asset)
     {
