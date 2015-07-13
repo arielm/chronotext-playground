@@ -13,7 +13,7 @@ include_directories(
 
 file(GLOB_RECURSE RESOURCES_FILES
   RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-  res/* # TODO: EXCLUDE .DS_Store FILES (NON-TRIVIAL)
+  res/[^.]*
 )
 
 add_executable(${PROJECT_NAME}

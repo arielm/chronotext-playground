@@ -11,21 +11,30 @@ include_directories(
   ${Boost_INCLUDE_DIRS}
 )
 
-set(SRC_FILES
-  src/main.cpp
-)
-
 file(GLOB_RECURSE RESOURCES_FILES
   RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-  res/* # TODO: EXCLUDE .DS_Store FILES (NON-TRIVIAL)
+  res/[^.]*
+)
+
+set(SRC_FILES
+  src/main.cpp
 )
 
 if (PLATFORM MATCHES mxe)
   add_definitions(-DCHR_FS_RC)
 
+  set(RC_FILE "${CMAKE_CURRENT_BINARY_DIR}/resources.rc")
+  file(WRITE ${RC_FILE})
+  set(counter 128)
+
+  foreach(resource_file ${RESOURCES_FILES})
+    file(APPEND ${RC_FILE} "${counter} RCDATA \"../../${resource_file}\"\r\n")
+    math(EXPR counter "${counter} + 1")
+  endforeach()
+
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
-    mxe/resources.rc # TODO: CREATE AUTOMATICALLY, BASED ON ${RESOURCE_FILES}
+    ${RC_FILE}
   )
 
 elseif (PLATFORM MATCHES android)
