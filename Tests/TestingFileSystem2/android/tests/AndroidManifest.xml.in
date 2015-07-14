@@ -12,9 +12,9 @@
     </application>
     <!--
     To run the tests use the command:
-    "adb shell am instrument -w org.chronotext.${PROJECT_NAME}.tests/org.chronotext.${PROJECT_NAME}.TestRunner"
+    "adb shell am instrument -w org.chronotext.${PROJECT_NAME}.tests/org.chronotext.TestRunner"
     -->
-    <instrumentation android:name="org.chronotext.${PROJECT_NAME}.TestRunner"
+    <instrumentation android:name="org.chronotext.TestRunner"
         android:targetPackage="org.chronotext.${PROJECT_NAME}"
         android:label="${PROJECT_NAME}TestRunner"/>
 </manifest>

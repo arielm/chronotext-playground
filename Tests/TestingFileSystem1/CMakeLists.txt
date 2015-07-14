@@ -4,7 +4,7 @@ project(TestingFileSystem1)
 
 find_package(Boost 1.58.0 REQUIRED COMPONENTS system filesystem)
 
-set(CHR_COMMON "${CMAKE_CURRENT_LIST_DIR}/../common")
+get_filename_component(CHR_COMMON "${CMAKE_CURRENT_LIST_DIR}/../common" REALPATH)
 
 include_directories(
   "${CHR_COMMON}/include"

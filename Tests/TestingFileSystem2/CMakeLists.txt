@@ -4,7 +4,7 @@ project(TestingFileSystem2)
 
 find_package(Boost 1.58.0 REQUIRED COMPONENTS system filesystem)
 
-set(CHR_COMMON "${CMAKE_CURRENT_LIST_DIR}/../common")
+get_filename_component(CHR_COMMON "${CMAKE_CURRENT_LIST_DIR}/../common" REALPATH)
 
 include_directories(
   "${CHR_COMMON}/include"
@@ -52,7 +52,6 @@ elseif (PLATFORM MATCHES android)
   configure_file(android/tests/AndroidManifest.xml.in tests/AndroidManifest.xml)
   configure_file(android/tests/ant.properties.in tests/ant.properties)
   configure_file(android/tests/MainActivityTests.java.in "tests/src/org/chronotext/${PROJECT_NAME}/MainActivityTests.java")
-  configure_file(android/tests/TestRunner.java.in "tests/src/org/chronotext/${PROJECT_NAME}/TestRunner.java")
 
   configure_file("${CHR_COMMON}/cmake/android/install.instrument.sh.in" install.sh)
   configure_file("${CHR_COMMON}/cmake/android/run.instrument.sh.in" run.sh)

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-COMPONENT=org.chronotext.${PROJECT_NAME}.tests/org.chronotext.${PROJECT_NAME}.TestRunner
+COMPONENT=org.chronotext.${PROJECT_NAME}.tests/org.chronotext.TestRunner
 
 cd tests
 

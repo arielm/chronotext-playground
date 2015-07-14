@@ -1,4 +1,4 @@
-package org.chronotext.${PROJECT_NAME};
+package org.chronotext;
 
 import android.os.Bundle;
 import android.test.InstrumentationTestRunner;
@@ -10,20 +10,6 @@ import junit.framework.TestSuite;
 public class TestRunner extends InstrumentationTestRunner
 {
     public String[] args;
-
-    @Override
-    public TestSuite getAllTests()
-    {
-        TestSuite suite = new InstrumentationTestSuite(this);
-        suite.addTestSuite(MainActivityTests.class);
-        return suite;
-    }
-
-    @Override
-    public ClassLoader getLoader()
-    {
-        return TestRunner.class.getClassLoader();
-    }
 
     @Override
     public void onCreate(Bundle bundle)
