@@ -1,4 +1,5 @@
 #include "Log.h"
+#include "Platform.h"
 
 #include "boost/filesystem/fstream.hpp"
 

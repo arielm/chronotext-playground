@@ -7,17 +7,19 @@ find_package(Boost 1.58.0 REQUIRED COMPONENTS system filesystem)
 get_filename_component(CHR_COMMON "${CMAKE_CURRENT_LIST_DIR}/../common" REALPATH)
 
 include_directories(
-  "${CHR_COMMON}/include"
+  "${CHR_COMMON}/src"
   ${Boost_INCLUDE_DIRS}
+)
+
+set(SRC_FILES
+  src/main.cpp
+  "${CHR_COMMON}/src/Log.cpp"
+  "${CHR_COMMON}/src/Platform.cpp"
 )
 
 file(GLOB_RECURSE RESOURCES_FILES
   RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
   res/[^.]*
-)
-
-set(SRC_FILES
-  src/main.cpp
 )
 
 if (PLATFORM MATCHES mxe)
@@ -60,6 +62,7 @@ elseif (PLATFORM MATCHES android)
 
   add_library(${PROJECT_NAME} SHARED
     ${SRC_FILES}
+    "${CHR_COMMON}/src/Bridge.cpp"
   )
 
 elseif (PLATFORM MATCHES emscripten)

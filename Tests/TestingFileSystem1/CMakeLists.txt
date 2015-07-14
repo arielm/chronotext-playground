@@ -7,7 +7,7 @@ find_package(Boost 1.58.0 REQUIRED COMPONENTS system filesystem)
 get_filename_component(CHR_COMMON "${CMAKE_CURRENT_LIST_DIR}/../common" REALPATH)
 
 include_directories(
-  "${CHR_COMMON}/include"
+  "${CHR_COMMON}/src"
   ${Boost_INCLUDE_DIRS}
 )
 
@@ -18,6 +18,8 @@ file(GLOB_RECURSE RESOURCES_FILES
 
 add_executable(${PROJECT_NAME}
   src/main.cpp
+  "${CHR_COMMON}/src/Log.cpp"
+  "${CHR_COMMON}/src/Platform.cpp"
   ${RESOURCES_FILES} # XXX: ONLY NECESSARY FOR iOS
 )
 
