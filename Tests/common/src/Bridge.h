@@ -8,8 +8,8 @@ extern "C"
 {
   jint JNI_OnLoad(JavaVM *vm, void *reserved);
 
-  void Java_org_chronotext_TestingFileSystem2_MainActivity_performInit(JNIEnv *env, jobject obj, jobject activity);
-  jint Java_org_chronotext_TestingFileSystem2_MainActivity_performTest(JNIEnv *env, jobject obj, jobjectArray args);
+  void Java_org_chronotext_Bridge_performInit(JNIEnv *env, jobject obj, jobject activity);
+  jint Java_org_chronotext_Bridge_invokeMain(JNIEnv *env, jobject obj, jobjectArray args);
 }
 
 namespace chr
