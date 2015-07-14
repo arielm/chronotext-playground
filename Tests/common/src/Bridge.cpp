@@ -32,16 +32,10 @@ jint JNI_OnLoad(JavaVM *vm, void *reserved)
 
   chr::android::vm = vm;
 
-  /*
-   * TODO: SHOULD TAKE PLACE "ELSEWHERE"
-   */
-  jclass activityClass = env->FindClass("org/chronotext/TestingFileSystem2/MainActivity");
-  env->RegisterNatives(activityClass, mainActivityMethods, sizeof(mainActivityMethods) / sizeof(mainActivityMethods[0]));
-
   return JNI_VERSION_1_6;
 }
 
-void JNICALL performInit(JNIEnv *env, jobject obj, jobject activity)
+void Java_org_chronotext_TestingFileSystem2_MainActivity_performInit(JNIEnv *env, jobject obj, jobject activity)
 {
   chr::android::activity = env->NewGlobalRef(activity);
 
@@ -65,7 +59,7 @@ void JNICALL performInit(JNIEnv *env, jobject obj, jobject activity)
   chr::android::apkPath = chr::toString(env, apkPath);
 }
 
-jint JNICALL performTest(JNIEnv *env, jobject obj, jobjectArray args)
+jint Java_org_chronotext_TestingFileSystem2_MainActivity_performTest(JNIEnv *env, jobject obj, jobjectArray args)
 {
   auto tmp = chr::toStrings(env, args);
 

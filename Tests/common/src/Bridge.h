@@ -8,22 +8,9 @@ extern "C"
 {
   jint JNI_OnLoad(JavaVM *vm, void *reserved);
 
-  /*
-   * TODO INSTEAD:
-   *
-   * void Java_org_chronotext_Bridge_init(JNIEnv *env, jobject obj, jobject activty);
-   * void Java_org_chronotext_Bridge_main(JNIEnv *env, jobject obj, jobjectArray args);
-   */
-   
-  JNIEXPORT void JNICALL performInit(JNIEnv *, jobject, jobject);
-  JNIEXPORT jint JNICALL performTest(JNIEnv *, jobject, jobjectArray);
+  void Java_org_chronotext_TestingFileSystem2_MainActivity_performInit(JNIEnv *env, jobject obj, jobject activity);
+  jint Java_org_chronotext_TestingFileSystem2_MainActivity_performTest(JNIEnv *env, jobject obj, jobjectArray args);
 }
-
-static const JNINativeMethod mainActivityMethods[] =
-{
-  {"performInit", "(Landroid/app/Activity;)V", (void*)performInit},
-  {"performTest", "([Ljava/lang/String;)I", (void*)performTest},
-};
 
 namespace chr
 {
