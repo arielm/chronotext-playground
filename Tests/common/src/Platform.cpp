@@ -42,7 +42,7 @@ namespace chr
    static char buf[PATH_MAX];
    auto len = readlink("/proc/self/exe", buf, PATH_MAX - 1);
    assert(len > 0);
-   basePath = fs::path(std::string(buf, len)).parent_path();
+   basePath = fs::path(string(buf, len)).parent_path();
 #elif defined(CHR_PLATFORM_EMSCRIPTEN)
    basePath = "res";
 #else
@@ -53,9 +53,9 @@ namespace chr
   }
 
 #if defined(CHR_FS_APK)
-  std::string toString(JNIEnv *env, jstring s)
+  string toString(JNIEnv *env, jstring s)
   {
-    std::string result;
+    string result;
 
     if (s)
     {
@@ -71,9 +71,9 @@ namespace chr
     return result;
   }
 
-  std::vector<std::string> toStrings(JNIEnv *env, jobjectArray a)
+  vector<string> toStrings(JNIEnv *env, jobjectArray a)
   {
-    std::vector<std::string> result;
+    vector<string> result;
 
     auto size = env->GetArrayLength(a);
     result.reserve(size);
