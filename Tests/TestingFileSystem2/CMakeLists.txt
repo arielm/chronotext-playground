@@ -4,17 +4,17 @@ project(TestingFileSystem2)
 
 find_package(Boost 1.58.0 REQUIRED COMPONENTS system filesystem)
 
-get_filename_component(CHR_COMMON "${CMAKE_CURRENT_LIST_DIR}/../common" REALPATH)
+get_filename_component(CHR_PATH "${CMAKE_CURRENT_LIST_DIR}/../common" REALPATH)
 
 include_directories(
-  "${CHR_COMMON}/src"
+  "${CHR_PATH}/src"
   ${Boost_INCLUDE_DIRS}
 )
 
 set(SRC_FILES
   src/main.cpp
-  "${CHR_COMMON}/src/Log.cpp"
-  "${CHR_COMMON}/src/Platform.cpp"
+  "${CHR_PATH}/src/Log.cpp"
+  "${CHR_PATH}/src/Platform.cpp"
 )
 
 file(GLOB_RECURSE RESOURCES_FILES
@@ -35,8 +35,8 @@ if (PLATFORM MATCHES mxe)
     math(EXPR counter "${counter} + 1")
   endforeach()
 
-  configure_file("${CHR_COMMON}/cmake/mxe/resources.rc.in" resources.rc)
-  configure_file("${CHR_COMMON}/cmake/mxe/resources.cpp.in" resources.cpp)
+  configure_file("${CHR_PATH}/cmake/mxe/resources.rc.in" resources.rc)
+  configure_file("${CHR_PATH}/cmake/mxe/resources.cpp.in" resources.cpp)
 
   add_executable(${PROJECT_NAME}
     ${SRC_FILES}
@@ -47,22 +47,22 @@ if (PLATFORM MATCHES mxe)
 elseif (PLATFORM MATCHES android)
   add_definitions(-DCHR_FS_APK)
 
-  configure_file("${CHR_COMMON}/cmake/android/AndroidManifest.xml.in" AndroidManifest.xml)
-  configure_file("${CHR_COMMON}/cmake/android/ant.properties.in" ant.properties)
-  configure_file("${CHR_COMMON}/cmake/android/MainActivity.java.in" "src/org/chronotext/${PROJECT_NAME}/MainActivity.java")
+  configure_file("${CHR_PATH}/cmake/android/AndroidManifest.xml.in" AndroidManifest.xml)
+  configure_file("${CHR_PATH}/cmake/android/ant.properties.in" ant.properties)
+  configure_file("${CHR_PATH}/cmake/android/MainActivity.java.in" "src/org/chronotext/${PROJECT_NAME}/MainActivity.java")
 
-  configure_file("${CHR_COMMON}/cmake/android/tests/AndroidManifest.xml.in" tests/AndroidManifest.xml)
-  configure_file("${CHR_COMMON}/cmake/android/tests/ant.properties.in" tests/ant.properties)
-  configure_file("${CHR_COMMON}/cmake/android/tests/MainActivityTests.java.in" "tests/src/org/chronotext/${PROJECT_NAME}/MainActivityTests.java")
+  configure_file("${CHR_PATH}/cmake/android/tests/AndroidManifest.xml.in" tests/AndroidManifest.xml)
+  configure_file("${CHR_PATH}/cmake/android/tests/ant.properties.in" tests/ant.properties)
+  configure_file("${CHR_PATH}/cmake/android/tests/MainActivityTests.java.in" "tests/src/org/chronotext/${PROJECT_NAME}/MainActivityTests.java")
 
-  configure_file("${CHR_COMMON}/cmake/android/install.instrument.sh.in" install.sh)
-  configure_file("${CHR_COMMON}/cmake/android/run.instrument.sh.in" run.sh)
+  configure_file("${CHR_PATH}/cmake/android/install.instrument.sh.in" install.sh)
+  configure_file("${CHR_PATH}/cmake/android/run.instrument.sh.in" run.sh)
 
   set(LIBRARY_OUTPUT_PATH "libs/armeabi-v7a")
 
   add_library(${PROJECT_NAME} SHARED
     ${SRC_FILES}
-    "${CHR_COMMON}/src/Bridge.cpp"
+    "${CHR_PATH}/src/Bridge.cpp"
   )
 
 elseif (PLATFORM MATCHES emscripten)
@@ -96,7 +96,7 @@ endif()
 # ---
 
 if (PLATFORM MATCHES osx)
-  configure_file("${CHR_COMMON}/cmake/install.symlink.sh.in" install.sh)
+  configure_file("${CHR_PATH}/cmake/install.symlink.sh.in" install.sh)
 endif()
 
 # ---

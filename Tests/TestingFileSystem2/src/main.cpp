@@ -1,8 +1,6 @@
 #include "Log.h"
 #include "Platform.h"
 
-#include "boost/filesystem/fstream.hpp"
-
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_ONLY_JPEG
 #define STBI_ONLY_PNG
