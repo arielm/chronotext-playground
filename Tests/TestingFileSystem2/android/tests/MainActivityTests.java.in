@@ -10,18 +10,18 @@ import org.chronotext.TestRunner;
 
 public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActivity>
 {
-    public MainActivityTests()
-    {
-        super(MainActivity.class);
-    }
+  public MainActivityTests()
+  {
+    super(MainActivity.class);
+  }
 
-    @UiThreadTest
-    @LargeTest
-    public void testMain()
-    {
-        MainActivity activity = (MainActivity)getActivity();
-        TestRunner testRunner = (TestRunner)getInstrumentation();
+  @UiThreadTest
+  @LargeTest
+  public void testCPP()
+  {
+    MainActivity activity = (MainActivity)getActivity();
+    TestRunner testRunner = (TestRunner)getInstrumentation();
 
-        assertEquals(0, activity.performTest(testRunner.args));
-    }
+    assertEquals(0, activity.testCPP(testRunner.args));
+  }
 }

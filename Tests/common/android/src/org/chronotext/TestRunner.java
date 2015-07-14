@@ -9,22 +9,22 @@ import junit.framework.TestSuite;
 
 public class TestRunner extends InstrumentationTestRunner
 {
-    public String[] args;
+  public String[] args;
 
-    @Override
-    public void onCreate(Bundle bundle)
+  @Override
+  public void onCreate(Bundle bundle)
+  {
+    super.onCreate(bundle);
+
+    String bundleArgs = bundle.getString("args");
+
+    if (bundleArgs != null)
     {
-        super.onCreate(bundle);
-
-        String bundleArgs = bundle.getString("args");
-
-        if (bundleArgs != null)
-        {
-            args = bundleArgs.split("\\s+");
-        }
-        else
-        {
-            args = new String[]{};
-        }
+      args = bundleArgs.split("\\s+");
     }
+    else
+    {
+      args = new String[]{};
+    }
+  }
 }
